@@ -1,0 +1,109 @@
+\documentclass[titlepage = firstcover]{scrartcl}
+\usepackage[aux]{rerunfilecheck}
+\usepackage{fontspec}
+\usepackage[main=ngerman, english, french]{babel}
+
+% mehr Pakete hier
+\usepackage{expl3}
+\usepackage{xparse}
+
+%Mathematik------------------------------------------------------
+\usepackage{amsmath}   % unverzichtbare Mathe-Befehle
+\usepackage{amssymb}   % viele Mathe-Symbole
+\usepackage{mathtools} % Erweiterungen für amsmath
+\usepackage[
+  math-style=ISO,    % \
+  bold-style=ISO,    % |
+  sans-style=italic, % | ISO-Standard folgen
+  nabla=upright,     % |
+  partial=upright,   % /
+]{unicode-math}% "Does exactly what it says on the tin."
+
+% Laden von OTF-Mathefonts
+% Ermöglich Unicode Eingabe von Zeichen: α statt \alpha
+
+\setmathfont{Latin Modern Math}
+%\setmathfont{Tex Gyre Pagella Math} % alternativ zu Latin Modern Math
+\setmathfont{XITS Math}[range={scr, bfscr}]
+\setmathfont{XITS Math}[range={cal, bfcal}, StylisticSet=1]
+
+\AtBeginDocument{ % wird bei \begin{document}
+  % werden sonst wieder von unicode-math überschrieben
+  \RenewDocumentCommand \Re {} {\operatorname{Re}}
+  \RenewDocumentCommand \Im {} {\operatorname{Im}}
+}
+\usepackage{mleftright}
+\setlength{\delimitershortfall}{-1sp}
+
+%Sprache----------------------------------------------------------
+\usepackage{microtype}
+\usepackage{xfrac}
+\usepackage[autostyle]{csquotes}    % babel
+\usepackage[unicode, pdfusetitle]{hyperref}
+\usepackage{bookmark}
+\usepackage[shortcuts]{extdash}
+%Einstellungen hier, z.B. Fonts
+\usepackage{booktabs} % Tabellen
+
+%Defininierte funktionen
+\DeclareMathOperator{\f}{xyz}
+
+\ExplSyntaxOn % bequeme Syntax für Definition von Befehlen
+
+\NewDocumentCommand \I {} {         %Befehl \I definieren,keine Argumente
+  \symup{i}                         %Ergebnis von \I
+} 
+\NewDocumentCommand \dif {m} % m = mandatory (Pflichtargument für \dif)
+{
+  \mathinner{\symup{d} #1}
+}
+
+\ExplSyntaxOff % Syntax wieder ausschalten. Wichtig!
+
+
+\begin{document}
+    
+    Das ist eine Variable $x$ und das ist $\alpha$
+
+    %viele Sache sind in der Matheumgebung wörtlich
+    $\forall \alpha \in \Omega \subset \Beta$
+
+
+    $3 \neq 4$
+
+%Hoch-/runterstellen von Zahlen, sobald die zaheen mehrstellig sind --> x^{...}
+    $x^2$ und $x_2$ und $x^{300}$
+
+% einen Text runterstellen ist nicht das gleiche wie etwas runterzustellen
+    richtig: $x_\text{min}$
+    
+    falsch: $x_{min}$
+
+%Codes
+    $x \sin (y)$
+
+%Eigene "Funktionen" definieren
+    %Möglichkeit 1: In der Mathe Umgebung
+    $\operatorname{xyz}_i(a)$
+    $\operatorname*{xyz}_i(a)$
+    
+    %Möglichkeit 2: Open definieren für das gesamte Doc
+    $\f^2$ 
+
+    \begin{equation}
+        \nabla \cdot \symbf{E} = \frac{\rho}{\varepsilon_0}
+        \label{eqn:maxwell1}
+    \end{equation}
+    Schon Gauß hatte das Durchflutungsgesetz
+    \eqref{eqn:maxwell1} aufgestellt.
+
+%Brüche im Text
+    Wenn ich einen Bruch im Text schreiben will mache ich es so \sfrac{1}{2} oder so \sfrac{$\symup{\pi}$}{2}
+    und nicht so $\frac{1}{2}$
+
+% Links und Email
+Wenn man eine Suchmaschine benutzen will bietet sich \href{www.google.de}{Google} an.
+Bei Fragen oder Problemen schreib einfach eine Mail an \href{mailto:max@mustermann.de}{max@mustermann.de}.
+ 
+    
+\end{document}
