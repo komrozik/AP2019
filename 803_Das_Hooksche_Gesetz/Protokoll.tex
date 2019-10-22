@@ -60,50 +60,71 @@
 
 \ExplSyntaxOff % Syntax wieder ausschalten. Wichtig!
 
+ 
+\subject{Versuchnummer: 803}
+\title{Das Hooksche Gesetz}
+\author{Marcel Kebekus \and Konstantin Mrozik}
+\date{%
+  Durchführung: 22.10.2019 \\
+  Abgabe: 29.10.2019
+  }
 
 \begin{document}
-    
-    Das ist eine Variable $x$ und das ist $\alpha$
+\maketitle
+\thispagestyle{empty}
+\tableofcontents
+\newpage
 
-    %viele Sache sind in der Matheumgebung wörtlich
-    $\forall \alpha \in \Omega \subset \Beta$
+\section{Theorie}
+\label{sec:Theorie}
+Das Hooksche Gesetz beschreibt die elastische Verformung bei der sich die Verformung
+proportinoal zur Kraft verhält.
+Bei einem Federsystem führt man dabei die Federkonstante $D$ als Proportionalitätsfaktor ein.\\
+Es gilt:
+\\
+\begin{equation}
+  \vec{F}=-D \cdot \increment\vec{x} \iff D=\frac{\vec{F}}{\increment\vec{x}}
+\end{equation}
+\\
+Das Hooksche Gesetz gilt nicht mehr, sobald die Feder überspannt wird, sie also den Bereich der
+elastischen Verformung verlässt.
+
+\section{Versuchanordnung}
+\label{sec:Versuchsanordnung}
+
+\section{Versuchsdurchführung}
+\label{sec:Versuchsdurchführung}
+
+\begin{table}
+  \centering
+  \caption{Messdaten}
+  \label{tab:table}
+  \begin{tabular}{c c c}
+    \toprule
+  $ x$ & $F$  & $D$  \\
+    \midrule
+  6  &	0.18 & 0 \\	
+  12 &	0.36 & 0	\\
+  18 &	0.53 & 0	\\
+  24 &	0.71 & 0	\\
+  30 &	0.89 & 0 \\
+  36 &	1.07 & 0 \\
+  42 & 	1.25 & 0 \\
+  48 &	1.44 & 0 \\
+  54 &	1.61 & 0 \\
+  58 &	1.73 & 0 \\
+  \bottomrule
+\end{tabular}
+\end{table}
+
+\section{Auswertung}
+\label{sec:Auswertung}
 
 
-    $3 \neq 4$
-
-%Hoch-/runterstellen von Zahlen, sobald die zaheen mehrstellig sind --> x^{...}
-    $x^2$ und $x_2$ und $x^{300}$
-
-% einen Text runterstellen ist nicht das gleiche wie etwas runterzustellen
-    richtig: $x_\text{min}$
-    
-    falsch: $x_{min}$
-
-%Codes
-    $x \sin (y)$
-
-%Eigene "Funktionen" definieren
-    %Möglichkeit 1: In der Mathe Umgebung
-    $\operatorname{xyz}_i(a)$
-    $\operatorname*{xyz}_i(a)$
-    
-    %Möglichkeit 2: Open definieren für das gesamte Doc
-    $\f^2$ 
-
-    \begin{equation}
-        \nabla \cdot \symbf{E} = \frac{\rho}{\varepsilon_0}
-        \label{eqn:maxwell1}
-    \end{equation}
-    Schon Gauß hatte das Durchflutungsgesetz
-    \eqref{eqn:maxwell1} aufgestellt.
-
-%Brüche im Text
-    Wenn ich einen Bruch im Text schreiben will mache ich es so \sfrac{1}{2} oder so \sfrac{$\symup{\pi}$}{2}
-    und nicht so $\frac{1}{2}$
-
-% Links und Email
-Wenn man eine Suchmaschine benutzen will bietet sich \href{www.google.de}{Google} an.
-Bei Fragen oder Problemen schreib einfach eine Mail an \href{mailto:max@mustermann.de}{max@mustermann.de}.
- 
-    
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{build/plot.pdf}
+  \caption{Eine Beschreibung}
+  \label{fig:Plot}
+\end{figure}
 \end{document}
