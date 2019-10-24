@@ -6,6 +6,8 @@
 % mehr Pakete hier
 \usepackage{expl3}
 \usepackage{xparse}
+\usepackage{floatrow} 
+\newfloatcommand{capbtabbox}{table}[][\FBwidth]%Table float box with bottom caption, box width adjusted to content
 
 %Mathematik------------------------------------------------------
 \usepackage{amsmath}   % unverzichtbare Mathe-Befehle
@@ -145,10 +147,42 @@ Es gibt 2 Möglichkeiten die Federkonstante $D$ zu ermitteln:
 \end{table}
 
 
-\begin{figure}
+\begin{figure}[h]
   \centering
-  \includegraphics[width=\textwidth]{build/plot.pdf}
+  \includegraphics[width=\textwidth/2]{build/plot.pdf}
   \caption{Eine Beschreibung}
   \label{fig:Plot}
 \end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}
+  \begin{floatrow}
+  \ffigbox{
+  \includegraphics[width=\textwidth/2]{build/plot.pdf}
+  \label{fig:Plot}
+  }{ 
+    \caption{Eine Beschreibung}
+    }
+  \capbtabbox{
+    \begin{tabular}{c c c}
+    \toprule
+  $ \increment x \pm 0,001m $ & $F$ (mit Fehler 1\%)  & $D$  \\
+    \midrule
+  6  &	0.18 & 0 \\	
+  12 &	0.36 & 0	\\
+  18 &	0.53 & 0	\\
+  24 &	0.71 & 0	\\
+  30 &	0.89 & 0 \\
+  36 &	1.07 & 0 \\
+  42 & 	1.25 & 0 \\
+  48 &	1.44 & 0 \\
+  54 &	1.61 & 0 \\
+  58 &	1.73 & 0 \\
+  \bottomrule
+\end{tabular}
+  }{\caption{Tabelle}}
+\end{floatrow}
+\end{figure}
+
 \end{document}
+
+
