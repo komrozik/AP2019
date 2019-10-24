@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 
 x,F,dx = np.genfromtxt('data.txt', unpack =True)
-
+x=x*0.01 #skalierung in Meter
 x_werte= unp.uarray(x,dx)
 F_werte= unp.uarray(F,0.01*F)
 def Federkonstante(x,F):
@@ -23,7 +23,7 @@ def StandardabweichungdesMittelwert(y):
 def fit(x,a,b):
     return a*x+b
 
-l = np.linspace(0,60,1000)
+l = np.linspace(0,0.6,1000)
 
 #params,cov = curve_fit(fit,x,F)
 params, covariance_matrix = np.polyfit(x, F, deg=1, cov=True)
@@ -58,8 +58,8 @@ for name, value, error in zip('ab', params, errors):
 #------------------------------------------------------------
 #Plot
 
-plt.errorbar(x,F,xerr=dx,yerr=stds(F_werte), fmt="x")
-plt.xlabel(r'$x / \mathrm{mm}$')
+plt.errorbar(x,F,xerr=dx,yerr=stds(F_werte), fmt="x",label = 'Messwerte')
+plt.xlabel(r'$\Delta x / \mathrm{m}$')
 plt.ylabel(r'$F / \mathrm{N}$')
 plt.legend(loc="best")
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
