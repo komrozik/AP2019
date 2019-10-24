@@ -77,31 +77,58 @@
 
 \section{Theorie}
 \label{sec:Theorie}
-Das Hooksche Gesetz beschreibt die elastische Verformung bei der sich die Verformung
+Das Hooksche Gesetz beschreibt die elastische Verformung, welche sich
 proportinoal zur Kraft verhält.
 Bei einem Federsystem führt man dabei die Federkonstante $D$ als Proportionalitätsfaktor ein.\\
 Es gilt:
 \\
 \begin{equation}
-  \vec{F}=-D \cdot \increment\vec{x} \iff D=\frac{\vec{F}}{\increment\vec{x}}
+  \vec{F_{\text{D}}}=-D \cdot \vec{x} \iff D=\frac{\lvert\vec{F_{\text{D}}}\rvert}{\lvert\increment\vec{x}\rvert}
+  \label{eqn:Formel}
 \end{equation}
 \\
 Das Hooksche Gesetz gilt nicht mehr, sobald die Feder überspannt wird, sie also den Bereich der
 elastischen Verformung verlässt.
 
+
 \section{Versuchanordnung}
 \label{sec:Versuchsanordnung}
+Eine Feder mit einer unbekannten Federkonstaten $D$ wird an einem festen Gestell aufgehängt
+und mit einem Faden über eine Umlenkrolle an einem Maker am Zollstock befestigt. 
+Die Kraft auf die Feder wird mit einem elektroschen KRaftmesser über die Aufhängung der Feder gemessen.
+
 
 \section{Versuchsdurchführung}
 \label{sec:Versuchsdurchführung}
+Im Versuche wird der Marker am Zollstocke um verschiedene $\increment x$ verschoben, um die Feder
+auszulenken.
+Zu den abgelesenen $\increment x$ Werten wird die jeweilige zugehörige Kraft $F_{\text{D}}$ notiert.
 
-\begin{table}
+\newpage
+
+\section{Auswertung}
+\label{sec:Auswertung}
+Mithilfe des Hook'schen Gesetzes lässt sich aus der Auslenkung $\increment x$ und der jeweilige
+Kraft $F_{\text{D}}$ die Federkonstante $D$ berechnen.\\
+Es gibt 2 Möglichkeiten die Federkonstante $D$ zu ermitteln:
+
+\begin{enumerate}
+  \item Aus der Federkonstanten der verschieden Messdaten lässt sich der Mittelwert $\bar{D}$ bilden und die dazu passende 
+  Standartabweichung $\sigma_{\bar{x}}$
+
+  \item In der Theorie \eqref{eqn:Formel} ist erkannbar, dass eine lineare Abhängigkeit zwischen der Kraft und der Auslenkung besteht.
+  Trägt man diese in einem Diagramm auf, so bildet die Steigung der Geraden die Federkonstante $D$.
+\end{enumerate}
+
+
+
+\begin{table}[h]
   \centering
   \caption{Messdaten}
   \label{tab:table}
   \begin{tabular}{c c c}
     \toprule
-  $ x$ & $F$  & $D$  \\
+  $ \increment x \pm 0,001m $ & $F$ (mit Fehler 1\%)  & $D$  \\
     \midrule
   6  &	0.18 & 0 \\	
   12 &	0.36 & 0	\\
@@ -116,9 +143,6 @@ elastischen Verformung verlässt.
   \bottomrule
 \end{tabular}
 \end{table}
-
-\section{Auswertung}
-\label{sec:Auswertung}
 
 
 \begin{figure}
