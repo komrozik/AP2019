@@ -59,7 +59,7 @@ for name, value, error in zip('ab', params, errors):
 #Plot
 
 plt.errorbar(x,F,xerr=dx,yerr=stds(F_werte), fmt="x",label = 'Messwerte')
-plt.xlabel(r'$\Delta x / \mathrm{m}$')
+plt.xlabel(r'$ \Delta x / \mathrm{m}$')
 plt.ylabel(r'$F / \mathrm{N}$')
 plt.legend(loc="best")
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
