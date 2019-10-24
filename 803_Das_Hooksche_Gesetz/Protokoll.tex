@@ -70,11 +70,20 @@
   Durchführung: 22.10.2019 \\
   Abgabe: 29.10.2019
   }
+  
+\makeatletter
+\newcommand{\mathleft}{\@fleqntrue\@mathmargin0pt}
+\newcommand{\mathcenter}{\@fleqnfalse}
+\makeatother
+
 
 \begin{document}
 \maketitle
 \thispagestyle{empty}
 \tableofcontents
+\clearpage
+\setcounter{page}{1}
+
 \newpage
 
 \section{Theorie}
@@ -105,6 +114,7 @@ Die Kraft auf die Feder wird mit einem elektroschen KRaftmesser über die Aufhä
 Im Versuche wird der Marker am Zollstocke um verschiedene $\increment x$ verschoben, um die Feder
 auszulenken.
 Zu den abgelesenen $\increment x$ Werten wird die jeweilige zugehörige Kraft $F_{\text{D}}$ notiert.
+Es werden 10 verschiedene Auslenkungen vermessen, dabei wird der Bereich der elastischen Verformung nicht verlassen.
 
 \newpage
 
@@ -118,41 +128,83 @@ Es gibt 2 Möglichkeiten die Federkonstante $D$ zu ermitteln:
   \item Aus der Federkonstanten der verschieden Messdaten lässt sich der Mittelwert $\bar{D}$ bilden und die dazu passende 
   Standartabweichung $\sigma_{\bar{x}}$
 
-  \item In der Theorie \eqref{eqn:Formel} ist erkannbar, dass eine lineare Abhängigkeit zwischen der Kraft und der Auslenkung besteht.
-  Trägt man diese in einem Diagramm auf, so bildet die Steigung der Geraden die Federkonstante $D$.
-\end{enumerate}
-
-
-
 \begin{table}[h]
   \centering
-  \caption{Messdaten}
+  \caption{Messdaten mit errechneter Federkonstante $D$}
   \label{tab:table}
   \begin{tabular}{c c c}
     \toprule
-  $ \increment x \pm 0,001m $ & $F$ (mit Fehler 1\%)  & $D$  \\
+  $ \increment x \:/\:m$  & $F \:/\: N$ (mit Fehler 1\%)  & $D \:/\: \frac{N}{m}$  \\
     \midrule
-  6  &	0.18 & 0 \\	
-  12 &	0.36 & 0	\\
-  18 &	0.53 & 0	\\
-  24 &	0.71 & 0	\\
-  30 &	0.89 & 0 \\
-  36 &	1.07 & 0 \\
-  42 & 	1.25 & 0 \\
-  48 &	1.44 & 0 \\
-  54 &	1.61 & 0 \\
-  58 &	1.73 & 0 \\
+  6  &	0.18 & 3.0  \pm 0.075  \\	
+  12 &	0.36 & 3.0  \pm 0.075	\\
+  18 &	0.53 & 2.944 \pm 0.073	\\
+  24 &	0.71 & 2.958 \pm 0.073	\\
+  30 &	0.89 & 2.966 \pm 0.074 \\
+  36 &	1.07 & 2.972 \pm 0.074 \\
+  42 & 	1.25 & 2.976 \pm 0.074 \\
+  48 &	1.44 & 3.0 \pm 0.075 \\
+  54 &	1.61 & 2.981 \pm 0.074\\
+  58 &	1.73 & 2.982 \pm 0.074 \\
   \bottomrule
 \end{tabular}
 \end{table}
 
 
+
+Für den Mittelwert $\bar{D}$ gilt dann:
+\mathleft
+\begin{equation*}
+  \bar{D} = \frac{1}{10} \sum_{i=1}^{10} D_\text{i} = 2.978 \pm 0.024
+\end{equation*}
+\mathcenter
+\newpage
+
+
+
+  \item In der Theorie \eqref{eqn:Formel} ist erkannbar, dass eine lineare Abhängigkeit zwischen der Kraft und der Auslenkung besteht.
+  Trägt man diese in einem Diagramm auf, so bildet die Steigung der Geraden die Federkonstante $D$.
+\end{enumerate}
+
 \begin{figure}[h]
   \centering
-  \includegraphics[width=\textwidth/2]{build/plot.pdf}
-  \caption{Eine Beschreibung}
+  \includegraphics[width=\textwidth]{build/plot.pdf}
+  \caption{Messdaten mit Ausgleichsgraden}
   \label{fig:Plot}
 \end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}
   \begin{floatrow}
