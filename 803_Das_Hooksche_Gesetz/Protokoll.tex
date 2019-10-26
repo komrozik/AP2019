@@ -154,9 +154,16 @@ Es gibt 2 Möglichkeiten die Federkonstante $D$ zu ermitteln:
 Für den Mittelwert $\bar{D}$ gilt dann:
 \mathleft
 \begin{equation*}
-  \bar{D} = \frac{1}{10} \sum_{i=1}^{10} D_\text{i} = 2.978 \pm 0.024
+  \bar{D} = \frac{1}{N} \sum_{i=1}^{N=10} D_\text{i} = 2.978 \pm 0.024
 \end{equation*}
-\mathcenter
+Mit einer Varianz von $Var(D)$:
+\begin{equation*}
+    Var(D)= \frac{1}{N-1} \sum_{i=1}^{N=10} (x_\text{i}-\bar{x})^2 = 0.0003 \pm 0.0008 %MUSS NOCH KONTROLLIERT WERDEN!
+\end{equation*}
+Und einer Standartabweichung von $\sigma$:
+\begin{equation*}
+  \sigma=\sqrt{Var(D)} = 0.0177881420160562 % MUSS NOCH KONTROLLIERT WERDEN
+\end{equation*}
 \newpage
 
 
@@ -165,6 +172,7 @@ Für den Mittelwert $\bar{D}$ gilt dann:
   Trägt man diese in einem Diagramm auf, so bildet die Steigung der Geraden die Federkonstante $D$.
 \end{enumerate}
 
+%Vielleicht ein wenig Sklieren so das es schön aussieht
 \begin{figure}[h]
   \centering
   \includegraphics[width=\textwidth]{build/plot.pdf}
