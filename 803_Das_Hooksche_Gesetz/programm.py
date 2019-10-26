@@ -11,8 +11,7 @@ x=x*0.01 #skalierung in Meter
 #x_werte= unp.uarray(x,dx)
 F_werte= unp.uarray(F,0.025*F)
 
-#Rechnungen: 
-
+#Rechnungen:
 def Federkonstante(x,F):
     return F/x
 
@@ -24,6 +23,20 @@ def StandardabweichungdesMittelwert(y):
 
 def fit(x,a,b):
     return a*x+b
+    
+
+# Funktion um die Varianz Var(D) auszurechnen. Liefert aber nicht die gleichen Ergebnisse wie numpy funktion np.var() ? 
+# siehe dazu unten bei den Ausgaben
+def variance(Average,data,N):
+    s=0
+    for x in range(0, 10):
+        s+=(D[x]-Average)**2
+    return (1/(N-1))*s
+
+# np.sqrt() kann nicht auf uncertainties angewendet werden. Müssen Varianz und Standartabweichung überhaupt mit Fehler sein?!
+def standartabweichung(Average,data,N):
+    return np.sqrt()
+
 
 
 #Curve Fit und Plot:
@@ -55,13 +68,23 @@ print (params)
 
 print("Mittelwerten der Federkonstanten:")
 print(Mittelwert(Federkonstante(x,F_werte)))
+mittelwert=Mittelwert(Federkonstante(x,F_werte))
+
+print("Varianz:")
+print(np.var(noms(D))) #Varianz ohne Fehler - muss sie überhaupt Fehler haben? 
+print(np.var(D)) #!!!Nicht das gleiche!!! - Warum?
+print(variance(Mittelwert(Federkonstante(x,F_werte)),D,10))
+
+print("Standartabweichung:")
+print(np.sqrt(np.var(noms(D))))
+
 
 
 
 #------------------------------------------------------------
 #Plot
 
-plt.errorbar(x,F,yerr=stds(F_werte), fmt="rx",label = 'Messwerte',ecolor=['grey'])
+plt.errorbar(x,F,yerr=stds(F_werte), fmt="rx",label = 'Messwerte', ecolor=['grey'])
 plt.xlabel(r'$ \Delta x / \mathrm{m}$')
 plt.ylabel(r'$F / \mathrm{N}$')
 plt.legend(loc="best")
