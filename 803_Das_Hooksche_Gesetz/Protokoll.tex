@@ -63,14 +63,14 @@
 \ExplSyntaxOff % Syntax wieder ausschalten. Wichtig!
 
  
-\subject{Versuchnummer: 803}
+\subject{Versuchsnummer: 803}
 \title{Das Hooksche Gesetz}
-\author{Marcel Kebekus \and Konstantin Mrozik}
+\author{Marcel Kebekus\\marcel.kebekus@tu-dortmund.de \and Konstantin Mrozik \\ konstantin.mrozik@tu-dortmund.de}
 \date{%
   Durchführung: 22.10.2019 \\
   Abgabe: 29.10.2019
   }
-  
+\publishers{TU Dortmund - Fachschaft Physik}
 \makeatletter
 \newcommand{\mathleft}{\@fleqntrue\@mathmargin0pt}
 \newcommand{\mathcenter}{\@fleqnfalse}
@@ -89,7 +89,7 @@
 \section{Theorie}
 \label{sec:Theorie}
 Das Hooksche Gesetz beschreibt die elastische Verformung, welche sich
-proportinoal zur Kraft verhält.
+proportional zur Kraft verhält.
 Bei einem Federsystem führt man dabei die Federkonstante $D$ als Proportionalitätsfaktor ein.\\
 Es gilt:
 \\
@@ -104,8 +104,8 @@ elastischen Verformung verlässt.
 
 \section{Versuchanordnung}
 \label{sec:Versuchsanordnung}
-Eine Feder mit einer unbekannten Federkonstaten $D$ wird an einem festen Gestell aufgehängt
-und mit einem Faden über eine Umlenkrolle an einem Maker am Zollstock befestigt. 
+Eine Feder mit einer unbekannten Federkonstanten $D$ wird an einem festen Gestell aufgehängt
+und mit einem Faden über eine Umlenkrolle an einem Marker am Zollstock befestigt. 
 Die Kraft auf die Feder wird mit einem elektronischen Kraftmesser über die Aufhängung der Feder gemessen.
 
 
@@ -113,19 +113,19 @@ Die Kraft auf die Feder wird mit einem elektronischen Kraftmesser über die Aufh
 \label{sec:Versuchsdurchführung}
 Im Versuch wird der Marker am Zollstock um verschiedene $\increment x$ verschoben, um die Feder
 auszulenken.
-Zu den abgelesenen $\increment x$ Werten wird die jeweilige zugehörige Kraft $F_{\text{D}}$ notiert.
+Zu den abgelesenen $\increment x$ Werten wird die zugehörige Kraft $F_{\text{D}}$ notiert.
 Es werden 10 verschiedene Auslenkungen vermessen, dabei wird der Bereich der elastischen Verformung nicht verlassen.
 
 \newpage
 
 \section{Auswertung}
 \label{sec:Auswertung}
-Mithilfe des Hook'schen Gesetzes lässt sich aus der Auslenkung $\increment x$ und der jeweilige
+Mithilfe des Hook'schen Gesetzes lässt sich aus der Auslenkung $\increment x$ und der jeweiligen
 Kraft $F_{\text{D}}$ die Federkonstante $D$ berechnen.\\
 Es gibt 2 Möglichkeiten die Federkonstante $D$ zu ermitteln:
 
 \begin{enumerate}
-  \item Aus der Federkonstanten der verschieden Messdaten lässt sich der Mittelwert $\bar{D}$ bilden. %und die dazu passende Standartabweichung $\sigma_{\bar{x}}$
+  \item Aus den Federkonstanten der verschieden Messdaten lässt sich der Mittelwert $\bar{D}$ bilden. %und die dazu passende Standartabweichung $\sigma_{\bar{x}}$
 
 \begin{table}[h]
   \centering
@@ -156,13 +156,13 @@ Für den Mittelwert $\bar{D}$ gilt dann:
 \begin{equation*}
   \bar{D} = \frac{1}{N} \sum_{i=1}^{N=10} D_\text{i} = 2.978 \pm 0.024
 \end{equation*}
-Mit einer Varianz von $Var(D)$:
+Mit einer Varianz von $V(D)$:
 \begin{equation*}
-    Var(D)= \frac{1}{N-1} \sum_{i=1}^{N=10} (x_\text{i}-\bar{x})^2 = 0.0003 \pm 0.0008 %MUSS NOCH KONTROLLIERT WERDEN!
+    V(D)= \frac{1}{N-1} \sum_{i=1}^{N=10} (x_\text{i}-\bar{x})^2 = 0.0003 \pm 0.0008 %MUSS NOCH KONTROLLIERT WERDEN!
 \end{equation*}
-Und einer Standartabweichung von $\sigma$:
+Und einer Standardabweichung von $\sigma$:
 \begin{equation*}
-  \sigma=\sqrt{Var(D)} = 0.0177881420160562 % MUSS NOCH KONTROLLIERT WERDEN
+  \sigma=\sqrt{V(D)} = 0.0177881420160562 % MUSS NOCH KONTROLLIERT WERDEN
 \end{equation*}
 \newpage
 
@@ -175,7 +175,7 @@ Und einer Standartabweichung von $\sigma$:
 %Vielleicht ein wenig Skalieren so das es schön aussieht
 \begin{figure}[h]
   \centering
-  \includegraphics[width=\textwidth]{build/plot.pdf}
+  \includegraphics[width=0.75\textwidth, height=0.4635\textwidth]{build/plot.pdf}
   \caption{Messdaten mit Ausgleichsgraden}
   \label{fig:Plot}
 \end{figure}
@@ -189,68 +189,4 @@ nach \eqref{eqn:Formel} die Federkonstante $D=2.988 \pm 0.003$
 Beim Vergleichen der 2 Ergebnisse fällt auf,
 dass das Ergebnis aus der Ausgleichsgeraden im Fehlerbereich des Ergebnisses aus den Messwerten liegt.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure}
-  \begin{floatrow}
-  \ffigbox{
-  \includegraphics[width=\textwidth/2]{build/plot.pdf}
-  \label{fig:Plot}
-  }{ 
-    \caption{Eine Beschreibung}
-    }
-  \capbtabbox{
-    \begin{tabular}{c c c}
-    \toprule
-  $ \increment x \pm 0,001m $ & $F$ (mit Fehler 1\%)  & $D$  \\
-    \midrule
-  6  &	0.18 & 0 \\	
-  12 &	0.36 & 0	\\
-  18 &	0.53 & 0	\\
-  24 &	0.71 & 0	\\
-  30 &	0.89 & 0 \\
-  36 &	1.07 & 0 \\
-  42 & 	1.25 & 0 \\
-  48 &	1.44 & 0 \\
-  54 &	1.61 & 0 \\
-  58 &	1.73 & 0 \\
-  \bottomrule
-\end{tabular}
-  }{\caption{Tabelle}}
-\end{floatrow}
-\end{figure}
-
 \end{document}
-
-

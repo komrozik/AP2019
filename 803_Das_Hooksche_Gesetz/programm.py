@@ -71,12 +71,12 @@ print(Mittelwert(Federkonstante(x,F_werte)))
 mittelwert=Mittelwert(Federkonstante(x,F_werte))
 
 print("Varianz:")
-print(np.var(noms(D))) #Varianz ohne Fehler - muss sie überhaupt Fehler haben? 
-print(np.var(D)) #!!!Nicht das gleiche!!! - Warum?
-print(variance(Mittelwert(Federkonstante(x,F_werte)),D,10))
+print(round(np.var(noms(D)),5) ) #Varianz ohne Fehler - muss sie überhaupt Fehler haben? 
+#print(np.var(D)) #!!!Nicht das gleiche!!! - Warum?
+#print(variance(Mittelwert(Federkonstante(x,F_werte)),D,10))
 
-print("Standartabweichung:")
-print(np.sqrt(np.var(noms(D))))
+print("Standardabweichung:")
+print(round( np.sqrt(np.var(noms(D))),5))
 
 
 
