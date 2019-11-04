@@ -1,8 +1,8 @@
 all: build/main.pdf
 
 # hier Python-Skripte:
-build/plot.pdf: programm.py matplotlibrc header-matplotlib.tex | build
-	TEXINPUTS=$$(pwd): python programm.py
+build/plot.pdf: plot.py matplotlibrc header-matplotlib.tex | build
+	TEXINPUTS=$$(pwd): python plot.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 build/main.pdf: build/plot.pdf
@@ -16,7 +16,7 @@ build/main.pdf: FORCE | build
 	  --output-directory=build \
 	  --interaction=nonstopmode \
 	  --halt-on-error \
-	protokoll.tex
+	main.tex
 
 build:
 	mkdir -p build
