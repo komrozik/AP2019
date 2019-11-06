@@ -86,11 +86,13 @@ plt.close()
 
 
 #-------------------------------------------------------------------------------------------------------------------
-#Ausgabe
+#Ausgabe & Export of Values
 print("Funktion f(x)=x - Bk: ")
+np.savetxt("build/K_x.txt",Bks,header="Fouriersynthese Koeffizenten Bks von f(x)=x",delimiter='\\')
 print(Bks)
 
 print("Funktion f(x)=|sin(x)| - Ak: ")
+np.savetxt("build/K_|sin(x)|.txt",Aks,header="Fouriersynthese Koeffizenten Aks von f(x)=|sin(x)|",delimiter='\\')
 print(Aks)
 
 
