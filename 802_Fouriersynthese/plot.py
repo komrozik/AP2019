@@ -92,7 +92,7 @@ np.savetxt("build/K_x.txt",Bks,header="Fouriersynthese Koeffizenten Bks von f(x)
 print(Bks)
 
 print("Funktion f(x)=|sin(x)| - Ak: ")
-np.savetxt("build/K_|sin(x)|.txt",Aks,header="Fouriersynthese Koeffizenten Aks von f(x)=|sin(x)|",delimiter='\\')
+np.savetxt("build/K_sin.txt",Aks,header="Fouriersynthese Koeffizenten Aks von f(x)=|sin(x)|",delimiter='\\')
 print(Aks)
 
 
