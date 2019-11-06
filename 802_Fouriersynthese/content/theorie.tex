@@ -1,9 +1,18 @@
 \section{Theorie}
 \label{sec:Theorie}
 Die Fourier Synthese ist eine Methode um eine beliebige Funktion mit einer Summe von Kosinus und Sinus Funktionen zu approximieren.
-Die Theorie besagt dass man jede Funktionen mit einer unendlichen Anzahl von Trigonometrischen Funktionen komplett nachbauen kann.
 \begin{gather}
     f(t) = \sum_{k=0}^{\infty} (A_k\cos(\omega_k t)+B_k\sin(\omega_k t))\\
     \omega_k = \frac{2\pi k}{T}
 \end{gather}
+wobei die Koeffizienten $A_k$ und $B_k$ festgelegt sind durch
+\begin{gather}
+    A_k=\\
+    B_k=\\
+\end{gather}
+\\
+Dabei beschreibt $T$ die Periodendauer, $\omega_k$ die Frequenz und $A_k$ und $B_k$ die zugehörigen Koeffizienten. 
+
+Im Folgenden soll mit dem Programm Fouriersynthese %Bib setzen
+die Funktionen $f(x)=x$ und $f(x)=|sin(x)|$ nachgestellt und die jeweilligen Koeffizienten $B_k$ und $A_k$ ermittelt werden.
 \cite{sample}
