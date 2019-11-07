@@ -43,12 +43,13 @@ while k<=GK:
 
 ##PLOT 2 - x
 x2=np.linspace(-np.pi,np.pi,1000)
+x2_f=np.linspace(-np.pi,np.pi,1000)
 y2=x2
 ft_x=0
 for i in range(GK):
     ft_x += Bks[i]*np.sin(i*x2)
 
-plt.plot(x2,ft_x,label="Fouriersynthese")
+plt.plot(x2_f,ft_x,label="Fouriersynthese")
 plt.plot(x2,y2,label=r"$x$")
 plt.xlim(-np.pi-1,np.pi+1)
 plt.ylim(-5,5)
