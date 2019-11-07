@@ -21,7 +21,6 @@ Nach den Integrationen, ergeben sich folgende Werte für die verschiedenen $\ome
 
 \begin{table}
 \centering
-\label{tab:K_x}
     \begin{tabular}{S[table-format=3.1] S S S S}
         \toprule
         & \multicolumn{2}{c}{$f_2(x)=x$} & \multicolumn{2}{c}{$f_1(x)=|sin(x)|$} \\
@@ -49,8 +48,24 @@ Nach den Integrationen, ergeben sich folgende Werte für die verschiedenen $\ome
         \bottomrule
     \end{tabular}
     \caption{Koeffizenten $A_k$ und $B_k$}
+    \label{tab:tabelle}
 \end{table}
+\newpage
 
+Mit dem Programm Fouriersynthese \cite{Fouriersynthese} lassen sich mit den Koeffizenten \ref{tab:tabelle} die Fouriersynthesen darstellen.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{website/sin.jpg}
+    \caption{Fouriersynthese für $f(x)=|sin(x)|$}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{website/x.jpg}
+    \caption{Fouriersynthese für $f(x)=x$}
+\end{figure}
 
 \begin{figure}
     \centering
