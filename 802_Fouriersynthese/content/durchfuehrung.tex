@@ -1,12 +1,24 @@
+\newpage
 \section{Durchführung}
 \subsection{Fouriersynthese 1}
     Um den Plot für $f_1(x) = |\sin(x)|$ zu erstellen muss man zunächst entscheiden ob die Funktion gerade($f(x)=f(-x)$) oder ungerade ist.
     Da $f_1(x)$ eine gerade Funktion kommen keine Sinus-Terme in der Fourierreihe vor.
     Somit ist $B_k = 0$ und es müssen die jeweiligen $A_k$ berechnet werden.
-    Außerdem muss zum lösen eine passende Periode gewählt werden um integrieren zu können.
-    Um das Integral in \eqref{eqn:Ak} zu lösen muss $|\sin(x)|$ für die Intevalle von $-\frac{\pi}{2}$ bis 0 und für 0 bis $\frac{\pi}{2}$ definiert werden.
+    Außerdem muss zum lösen des Integrals eine passende Periode gewählt werden.
+    \begin{align}
+        A_k &= \frac{2}{\pi}\int_{-\pi/2}^{+\pi/2} |\sin(x)|\cos(\omega_k x)dx & mit\; A_0 &= \frac{1}{\pi}\int_{-\pi/2}^{+\pi/2} |\sin(x)|dx  \label{eqn:Aksin} 
+    \end{align}
+    Um das Integral in \eqref{eqn:Aksin} zu lösen muss $|\sin(x)|$ für die Intevalle von $-\frac{\pi}{2}$ bis 0 und für 0 bis $\frac{\pi}{2}$ definiert werden.
+    \begin{gather}
+        A_k = \frac{2}{\pi}\int_{-\pi/2}^{0} -\sin(x)\cos(\omega_k x)dx + \frac{2}{\pi}\int_{0}^{+\pi/2} \sin(x)\cos(\omega_k x)dx \\
+        mit \; A_0 = \frac{1}{\pi}\int_{-\pi/2}^{0} -\sin(x)dx +\frac{1}{\pi}\int_{0}^{+\pi/2} \sin(x)dx
+    \end{gather}
+
+\subsection{Fouriersynthese 2}
+    Die Funktion $f_2(x) = x$ ist eine ungerade Funktion und ist auf dem Intervall von $-\pi$ bis $\pi$ definiert.
+    Daher ist die Periodendauer $T = 2\pi$ und die Kosinus-Terme fallen weg und es gilt $A_k = 0$.\\
+    Für \eqref{eqn:Bk} gilt nun:
     \begin{equation}
-        A_k = \frac{2}{\pi}\int_{-\pi/2}^{+\pi/2} |\sin(x)|\cos(\omega_k x)dx
+        B_k = \frac{1}{\pi}\int_{-\pi}^{+\pi} x\cos(\omega_k x)dx
     \end{equation}
-\subsection{Plot 2}
 \label{sec:Durchführung}
