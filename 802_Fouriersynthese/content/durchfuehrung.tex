@@ -1,2 +1,12 @@
 \section{Durchführung}
+\subsection{Fouriersynthese 1}
+    Um den Plot für $f_1(x) = |\sin(x)|$ zu erstellen muss man zunächst entscheiden ob die Funktion gerade($f(x)=f(-x)$) oder ungerade ist.
+    Da $f_1(x)$ eine gerade Funktion kommen keine Sinus-Terme in der Fourierreihe vor.
+    Somit ist $B_k = 0$ und es müssen die jeweiligen $A_k$ berechnet werden.
+    Außerdem muss zum lösen eine passende Periode gewählt werden um integrieren zu können.
+    Um das Integral in \eqref{eqn:Ak} zu lösen muss $|\sin(x)|$ für die Intevalle von $-\frac{\pi}{2}$ bis 0 und für 0 bis $\frac{\pi}{2}$ definiert werden.
+    \begin{equation}
+        A_k = \frac{2}{\pi}\int_{-\pi/2}^{+\pi/2} |\sin(x)|\cos(\omega_k x)dx
+    \end{equation}
+\subsection{Plot 2}
 \label{sec:Durchführung}
