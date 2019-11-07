@@ -2,33 +2,29 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+% Subfigure ein bisschen klein, leider
+%\begin{figure}
+%    \begin{subfigure}{0.5\textwidth}
+%        \centering
+%        \includegraphics[width=\textwidth]{build/plot1.pdf}
+%        \caption{$f(x)=|sin(x)|$}
+%    \end{subfigure}
+%    \begin{subfigure}{0.5\textwidth}
+%        \centering
+%        \includegraphics[width=\textwidth]{build/plot2.pdf}
+%        \caption{$f(x)=x$}
+%    \end{subfigure}
+%    \caption{Fouriersynthese}
+%\end{figure}
 
-
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.75\textwidth, height=0.4635\textwidth]{build/plot1.pdf}
-    \caption{Fouriersynthese für $f(x)=|sin(x)|$}
-    \label{fig:FS_sin}
-\end{figure}
-
-
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.75\textwidth, height=0.4635\textwidth]{build/plot2.pdf}
-    \caption{Fouriersynthese für $f(x)=x$}
-    \label{fig:FS_sin}
-\end{figure}
-
+Nach den Integrationen, ergeben sich folgende Werte für die verschiedenen $\omega_k$ für die Koeffizenten $A_k$ und $B_k$
 
 \begin{table}
 \centering
-\caption{Koeffizenten $A_k$ und $B_k$}
 \label{tab:K_x}
     \begin{tabular}{S[table-format=3.1] S S S S}
         \toprule
-        & \multicolumn{2}{c}{$f(x)=x$} & \multicolumn{2}{c}{$f(x)=|sin(x)|$} \\
+        & \multicolumn{2}{c}{$f_2(x)=x$} & \multicolumn{2}{c}{$f_1(x)=|sin(x)|$} \\
         \cmidrule(lr){2-3}\cmidrule(lr){4-5}
         {$k$} & {$A_k$} & {$B_k$} & {$A_k$} & {$B_k$}\\
         \midrule
@@ -52,4 +48,20 @@
         17 & 0 &  0.12 & -0.001102 & 0 \\
         \bottomrule
     \end{tabular}
+    \caption{Koeffizenten $A_k$ und $B_k$}
 \end{table}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\textwidth, height=0.4635\textwidth]{build/plot1.pdf}
+    \caption{Fouriersynthese für $f_1(x)=|sin(x)|$}
+    \label{fig:FS_sin}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\textwidth, height=0.4635\textwidth]{build/plot2.pdf}
+    \caption{Fouriersynthese für $f_2(x)=x$}
+    \label{fig:FS_x}
+\end{figure}
