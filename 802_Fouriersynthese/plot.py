@@ -4,7 +4,7 @@ import sympy as sym
 from scipy import integrate
 from uncertainties.unumpy import (nominal_values as noms, std_devs as stds)
 
-GK=17 #Genauigkeit Fourier wahrer GK ist GK+1 weil A0 und B0 definiert ist
+GK=50 #Genauigkeit Fourier wahrer GK ist GK+1 weil A0 und B0 definiert ist
 
 #FUNKTION 1 - f(x)=x
 #-------------------------------------------------------------------------------------------------------------------
