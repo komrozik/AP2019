@@ -1,0 +1,9 @@
+#   Drahtdurchmesser    Kugelmasse  Kugeldurchmesser    Trägheitsmoment     Windungszahl    Radius          max. Strom
+#                                                       der Kugelhalterung  Helmholtzspule  Helmholtzspule  Helmholtzspule
+#   +- 0.01             +-0.04 proz +-0.007 proz
+#   mm                  g           mm                  g*cm^2                              mm              A
+    0.19                512.2       50.76               22.5                390             78              1.4
+    0.19
+    0.19
+    0.2
+    0.2
