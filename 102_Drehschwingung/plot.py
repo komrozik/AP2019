@@ -19,6 +19,7 @@ d_kf = unp.uarray(d_k,0.00007*d_k)
 J_kh = 22.5                                     #Trägheitsmoment der Kugelhalterung in g*cm^2 
 N = 390                                         #Windungszahl Helmholtzspule
 r_h = 78                                        #Radius der Helmholtzspule in mm
+d_h = d_k                                       #Abstatnd der Helmholtzspulen !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 I_max = 1.4                                     #Maximalstrom an der Helmholtzspule in A
 d_d = np.array([0.19,0.19,0.19,0.2,0.2])        #Durchmesser des Drahts in mm
 d_df = unp.uarray(d_d,0.01)
@@ -41,6 +42,10 @@ L1 = Mittelwert(L_1f)+Mittelwert(L_2f)
 L2 = Mittelwert(L_gf)-Mittelwert(L_sf)
 L = Mittelwert([L1,L2])                         #finale Länge
 
+J_k = (2/5)*M_k*(d_kf/2)**2                     #Trägheitsmoment der Kugel
+
+D = ((J_k+J_kh)*4*np.pi**2)/T_m**2              #D
+
 E= unp.uarray(21.00*10**10,0.05*10**10)         #Elastizitätsmodul
 
 G = 16/5 * np.pi * (M_kf*L*(d_kf/2)**2)/((T_m**2)*(d_dm/2)**4)+8*np.pi*(J_kh*L)/((T_m**2)*(d_dm/2)**4)  #Schubmodul
@@ -53,9 +58,36 @@ Q = E/(3*(1-2*my))                              #gemäß Formel (3)
 
 data = np.genfromtxt("data.txt", unpack = True)
 
-print (data[0])
-print("G:")
-print(G)
+mag = unp.uarray(1.25663706212*10**(-6),1.5*10**(-10))
+I = np.array([0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1])
+B = ((mag*I)/2)*(r_h**2/(r_h**2+d_h**2)**(3/2))
+
+m_01 = Mittelwert(((J_k+J_kh)*4*np.pi**2)/(data[0]**2*B[0])-D/B[0])
+#print(m_01)
+m_02 = Mittelwert(((J_k+J_kh)*4*np.pi**2)/(data[1]**2*B[1])-D/B[1])
+#print(m_02)
+m_03 = Mittelwert(((J_k+J_kh)*4*np.pi**2)/(data[2]**2*B[2])-D/B[2])
+#print(m_03)
+m_04 = Mittelwert(((J_k+J_kh)*4*np.pi**2)/(data[3]**2*B[3])-D/B[3])
+#print(m_04)
+m_05 = Mittelwert(((J_k+J_kh)*4*np.pi**2)/(data[4]**2*B[4])-D/B[4])
+#print(m_05)
+m_06 = Mittelwert(((J_k+J_kh)*4*np.pi**2)/(data[5]**2*B[5])-D/B[5])
+#print(m_06)
+m_07 = Mittelwert(((J_k+J_kh)*4*np.pi**2)/(data[6]**2*B[6])-D/B[6])
+#print(m_07)
+m_08 = Mittelwert(((J_k+J_kh)*4*np.pi**2)/(data[7]**2*B[7])-D/B[7])
+#print(m_08)
+m_09 = Mittelwert(((J_k+J_kh)*4*np.pi**2)/(data[8]**2*B[8])-D/B[8])
+#print(m_09)
+m_10 = Mittelwert(((J_k+J_kh)*4*np.pi**2)/(data[9]**2*B[9])-D/B[9])
+#print(m_10)
+m_f = np.array([m_01,m_02,m_03,m_04,m_05,m_06,m_07,m_08,m_09,m_10])
+m_mittel = Mittelwert(m_f)
+print(m_mittel)
+#print (data[0])
+#print("G:")
+#print(G)
 #print("Mittelwert Periodendauer")
 #print(Mittelwert(T_fehler))
 #print("Durchmesser Draht")
