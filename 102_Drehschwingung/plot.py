@@ -81,9 +81,10 @@ data_array= np.array([Mittelwert(data[0]),Mittelwert(data[1]),Mittelwert(data[2]
 
 mag = unp.uarray(1.25663706212*10**(-6),1.5*10**(-10))  #magnetische Feldkonstante
 I = np.array([0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1])
-B = ((mag*I)/2)*(r_h**2/(r_h**2+d_h**2)**(3/2))
+B = ((4/5)**(3/2)) * (mag*N*I)/(r_h)
+print(f'B {Mittelwert(B)}')
 
-m_01 = Mittelwert(((J_k+J_kh)*4*np.pi**2)/(data[0]**2*B[0])-D/B[0])
+m_01 = ((J_k+J_kh)*4*np.pi**2)/(data_array[0]**2*B[0])-D/B[0]
 print(f"m_01 {m_01}")
 m_02 = Mittelwert(((J_k+J_kh)*4*np.pi**2)/(data[1]**2*B[1])-D/B[1])
 print(f"m_02 {m_02}")
@@ -150,21 +151,21 @@ print(f"T_m09: {T_m09}")
 T_m10=Mittelwert(data[9])
 print(f"T_m10: {T_m10}")
 
-
+zeta= (4*np.pi**2*(J_k+J_kh))/(data_array)**2
 #Plot:
-def f(x,a):
-    return a*x
+def f(x,a,b):
+    return a*x+b
 #x = np.linspace(0,1)
 #plt.plot(x,x**2)
 #plt.show()
-print(data_array)
-plt.plot(unp.nominal_values(B),1/(data_array)**2, 'rx')
-params, covariance_matrix = curve_fit(f,unp.nominal_values(B),1/(data_array)**2)
-x_plot = np.linspace(0,0.000003)
+print(f'T Daten: {data_array}')
+plt.plot(unp.nominal_values(B),unp.nominal_values(zeta), 'rx')
+params, covariance_matrix = curve_fit(f,unp.nominal_values(B),unp.nominal_values(zeta))
+x_plot = np.linspace(0,0.005)
 plt.plot(x_plot,f(x_plot,*params))
 #plt.errorbar(unp.nominal_values(B[0][1]),unp.nominal_values(data[0]),yerr=unp.std_devs(data[0]),fmt='rx')
-plt.savefig('plot.pdf',bbox_inches='tight')
-print(m_mittel)
-print(params)
+plt.savefig('build/plot.pdf',bbox_inches='tight')
+print(f"m: {m_mittel}")
+print(f"Parameter:{params}")
 #plt.show()
 #plt.close()
