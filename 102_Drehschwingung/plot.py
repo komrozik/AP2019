@@ -46,19 +46,30 @@ L_gf = unp.uarray(L_g,0.1)
 L1 = Mittelwert(L_1f)+Mittelwert(L_2f)
 L2 = Mittelwert(L_gf)-Mittelwert(L_sf)
 L = Mittelwert([L1,L2])                         #finale Länge
+print("Länge Draht [cm]: ")
+print(L)
 L = L * 0.01                                    #Umrechnung
 
 J_k = (2/5)*M_k*(d_kf/2)**2                     #Trägheitsmoment der Kugel
+print("Trägheitsmoment der Kugel:")
+print(J_k)
+print("Trägheitsmoment der Halterung:")
+print(J_kh)
+print("Gesamtträgheitsmoment")
+print(J_kh + J_k)
 
 D = ((J_k+J_kh)*4*np.pi**2)/T_m**2              #D
 
 E= unp.uarray(21.00*10**10,0.05*10**10)         #Elastizitätsmodul
 
 G = 16/5 * np.pi * (M_kf*L*(d_kf/2)**2)/((T_m**2)*(d_dm/2)**4)+8*np.pi*(J_kh*L)/((T_m**2)*(d_dm/2)**4)  #Schubmodul
-
-my = (E/(2*G))-1                                #gemäß Formel (2)
+my = (E/(2*G))-1                                  #gemäß Formel (2)
+print("my: ")
+print(my)
 
 Q = E/(3*(1-2*my))                              #gemäß Formel (3)
+print("Q: ")
+print(Q)
 
 #Mit Magneten:
 
@@ -90,16 +101,17 @@ m_10 = Mittelwert(((J_k+J_kh)*4*np.pi**2)/(data[9]**2*B[9])-D/B[9])
 #print(m_10)
 m_f = np.array([m_01,m_02,m_03,m_04,m_05,m_06,m_07,m_08,m_09,m_10])
 m_mittel = Mittelwert(m_f)
+print("m_mittel:")
 print(m_mittel)
 #print (data[0])
 print("G:")
 print(G)
-#print("Mittelwert Periodendauer")
-#print(Mittelwert(T_fehler))
-#print("Durchmesser Draht")
-#print(d_d)
-#print(d_df)
-#print(d_dm)
+print("Mittelwert Periodendauer")
+print(Mittelwert(T_fehler))
+print("Durchmesser Draht")
+print(d_d)
+print(d_df)
+print(d_dm)
 
 #Plot:
 #plt.plot(unp.nominal_values(B[0]),unp.nominal_values(Mittelwert(data[0])))
