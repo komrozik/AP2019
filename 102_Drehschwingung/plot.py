@@ -14,15 +14,20 @@ def Mittelwert(y):
 #Allgemeine Werte:
 M_k = 512.2                                     #Kugelmasse in g
 M_kf = unp.uarray(M_k,0.0004*M_k)
+M_kf = M_kf* 0.001                              #Umrechnung
 d_k = 50.76                                     #Kugeldurchmesser in mm
 d_kf = unp.uarray(d_k,0.00007*d_k)
-J_kh = 22.5                                     #Trägheitsmoment der Kugelhalterung in g*cm^2 
+d_kf = d_kf*0.001                               #Umrechnung
+J_kh = 22.5                                     #Trägheitsmoment der Kugelhalterung in g*cm^2
+J_kh = J_kh * 0.0000001                         #Umrechnung
 N = 390                                         #Windungszahl Helmholtzspule
 r_h = 78                                        #Radius der Helmholtzspule in mm
-d_h = d_k                                       #Abstatnd der Helmholtzspulen !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+r_h = 78*0.001                                  #Umrechnung
+d_h = r_h                                       #Abstatnd der Helmholtzspulen
 I_max = 1.4                                     #Maximalstrom an der Helmholtzspule in A
 d_d = np.array([0.19,0.19,0.19,0.2,0.2])        #Durchmesser des Drahts in mm
 d_df = unp.uarray(d_d,0.01)
+d_df = d_df * 0.001                             #Umrechnung
 d_dm = Mittelwert(d_df)                         #Mittelwert des Drahtdurchmessers
 
 T=np.genfromtxt("data_T.txt", unpack = True)    #Werte der Messung ohne Magnetfeld
@@ -41,6 +46,7 @@ L_gf = unp.uarray(L_g,0.1)
 L1 = Mittelwert(L_1f)+Mittelwert(L_2f)
 L2 = Mittelwert(L_gf)-Mittelwert(L_sf)
 L = Mittelwert([L1,L2])                         #finale Länge
+L = L * 0.01                                    #Umrechnung
 
 J_k = (2/5)*M_k*(d_kf/2)**2                     #Trägheitsmoment der Kugel
 
@@ -58,7 +64,7 @@ Q = E/(3*(1-2*my))                              #gemäß Formel (3)
 
 data = np.genfromtxt("data.txt", unpack = True)
 
-mag = unp.uarray(1.25663706212*10**(-6),1.5*10**(-10))
+mag = unp.uarray(1.25663706212*10**(-6),1.5*10**(-10))  #magnetische Feldkonstante
 I = np.array([0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1])
 B = ((mag*I)/2)*(r_h**2/(r_h**2+d_h**2)**(3/2))
 
@@ -86,11 +92,18 @@ m_f = np.array([m_01,m_02,m_03,m_04,m_05,m_06,m_07,m_08,m_09,m_10])
 m_mittel = Mittelwert(m_f)
 print(m_mittel)
 #print (data[0])
-#print("G:")
-#print(G)
+print("G:")
+print(G)
 #print("Mittelwert Periodendauer")
 #print(Mittelwert(T_fehler))
 #print("Durchmesser Draht")
 #print(d_d)
 #print(d_df)
 #print(d_dm)
+
+#Plot:
+#plt.plot(unp.nominal_values(B[0]),unp.nominal_values(Mittelwert(data[0])))
+#plt.errorbar(unp.nominal_values(B[0][1]),unp.nominal_values(data[0]),yerr=unp.std_devs(data[0]),fmt='rx')
+#plt.savefig('plot.pdf',bbox_inches='tight')
+#plt.show()
+#plt.close()
