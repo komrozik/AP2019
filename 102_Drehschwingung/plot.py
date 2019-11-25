@@ -14,7 +14,7 @@ def Mittelwert(y):
 
 
 #Allgemeine Werte:
-M_k = 512.2                                     #Kugelmasse in g
+M_k = 512.2                                    #Kugelmasse in g
 M_kf = unp.uarray(M_k,0.0004*M_k)
 M_kf = M_kf* 0.001                              #Umrechnung
 d_k = 50.76                                     #Kugeldurchmesser in mm
@@ -52,7 +52,7 @@ L = Mittelwert([L1,L2])                         #finale Länge
 # print(L)
 L = L * 0.01                                    #Umrechnung
 
-J_k = (2/5)*M_k*(d_kf/2)**2                     #Trägheitsmoment der Kugel
+J_k = (2/5)*M_kf*(d_kf/2)**2                     #Trägheitsmoment der Kugel
 # print("Trägheitsmoment der Kugel:")
 # print(J_k)
 # print("Trägheitsmoment der Halterung:")
