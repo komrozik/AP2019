@@ -84,14 +84,7 @@ I = np.array([0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1])
 B = ((4/5)**(3/2)) * (mag*N*I)/(r_h)
 print(f'B {Mittelwert(B)}')
 
-<<<<<<< HEAD
-print("\nMittelwerte der B-Felder:")
-m_01 = Mittelwert(((J_k+J_kh)*4*np.pi**2)/(data[0]**2*B[0])-D/B[0])
-||||||| merged common ancestors
-m_01 = Mittelwert(((J_k+J_kh)*4*np.pi**2)/(data[0]**2*B[0])-D/B[0])
-=======
 m_01 = ((J_k+J_kh)*4*np.pi**2)/(data_array[0]**2*B[0])-D/B[0]
->>>>>>> 923a7fed15709cce61bd9c31d4ffa9a1b5bd0c4f
 print(f"m_01 {m_01}")
 m_02 = Mittelwert(((J_k+J_kh)*4*np.pi**2)/(data[1]**2*B[1])-D/B[1])
 print(f"m_02 {m_02}")
