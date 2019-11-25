@@ -107,12 +107,11 @@ print(f"m_10 {m_10}")
 m_f = np.array([m_01,m_02,m_03,m_04,m_05,m_06,m_07,m_08,m_09,m_10])
 m_mittel = Mittelwert(m_f)
 
-print(f"m_mittel: {m_mittel}")
+
 #print (data[0])
-print("G:")
-print(G)
-print("Mittelwert Periodendauer")
-print(Mittelwert(T_fehler))
+print(f"\nG: {G}")
+print(f"\nm_mittel: {m_mittel}")
+print(f"Mittelwert Periodendauer: {Mittelwert(T_fehler)}")
 print("Durchmesser Draht")
 print(d_d)
 print(d_df)
@@ -121,6 +120,7 @@ print(d_dm)
 
 
 #Mittelwerte von T bei verschieden A (0.1-1.0)
+print("\nMittelwerte von T bei A 0.1-1.0")
 T_m01=Mittelwert(data[0])
 print(f"T_m01: {T_m01}")
 
