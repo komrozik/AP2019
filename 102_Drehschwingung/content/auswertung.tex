@@ -1,3 +1,100 @@
+%TO DO
+%Trägheitsmoment Einheiten?
+%Fehler erklären?
+
 \newpage
 \section{Auswertung}
+Zu Beginn, muss das Gesamtträgheitsmoment $\theta_\text{Ges}$ ermittelt werden.
+Dies ergibt sich aus dem Trägheitsmoment der Kugel $\theta_\text{Kugel}$ (aus Gleichung \ref{eqn:trägheitsmoment}) und
+dem Trägheitsmoment der Kugelhalterung $\theta_\text{Halterung}$.
+\begin{gather}
+    \theta_\text{Kugel}=0.131972 \pm 0.000018\;\mathrm{?}\\
+    \theta_\text{Halterung}=22,5 \;\mathrm{gcm^2}\\ %umrechnung in plot.py in was?
+    \theta_\text{Ges}=0.131975 \pm 0.000018 \;\mathrm{?}
+\end{gather}
+
+\subsection{Das Schubmodul $G$ - Messungen ohne B-Feld}
+\begin{table}
+    \centering
+    \label{tab:tabelle_1}
+    \begin{tabular}{p{3cm} | p{2cm}}
+    \toprule
+    & T(s) \\
+    \midrule
+    &18.696\\
+    &18.699\\
+    &18.702\\
+    &18.763\\
+    &18.699\\
+    &18.695\\
+    &18.591\\
+    &18.647\\
+    &18.673\\
+    &18.665\\
+    &18.663\\
+    &18.635\\
+    \midrule
+    Mittelwert:     & ? \\
+    Ungenauigkeit:     & ? \\
+    \bottomrule
+    \end{tabular}
+    \caption{Periodendauer T}
+\end{table}
+\newpage
+\subsubsection{Berechnung des Schubmoduls $G$}
+Benötigt werden folgende Werte, um das Schubmodul $G$ nach Gleichung \ref{eqn:schubmodul_formel}
+zu bestimmen.
+\begin{table}
+    \centering
+    \label{tab:tabelle_1}
+    \begin{tabular}{p{3cm} | p{1.5cm} | p{1.5cm} | p{1.5cm} | p{1.5cm}}
+    \toprule
+    & L\;/\;cm & d \;/\;mm & $m_\text{k}$\;/\;g & 2$R_\text{k}$\;/\;mm\\
+    \midrule
+    & 66,38 & 0,19 & 512.2 &  50.76 \\
+    &      & 0,19 &       &        \\    
+    &      & 0,2  &       &        \\
+    &      & 0,2  &       &        \\
+    \midrule
+    Mittelwert:    &      & 0,0194 &       &        \\
+    Ungenauigkeit: & 0,07 & 0,0004 & 0,205 & 0,0036 \\
+    \bottomrule
+    \end{tabular}
+    \caption{Messunggrößen der Apperatur}
+    \label{tab:tabelle_2}
+\end{table}
+
+Für das Schubmodul $G$ ergibt sich somit:
+\begin{equation*}
+    G = (7,3 \cdot 10^{10} \pm 0,7 \cdot 10^{10} )\mathrm{\frac{N}{m^2}}
+\end{equation*}
+%G = (7.3\pm 0.7)e+10
+Dies enspricht einem prozentualen Fehler von $9,6\%$.
+
+\subsubsection{Berechnung der Querkontraktionszahl}
+Mit der Gleichung \ref{eqn:Beziehung} ergibt sich für die Poissonsche Querkontraktionszahl $\mu$
+\begin{equation*}
+    \mu = (0,45 \pm 0,13) \mathrm{?}
+    %0.45+/-0.13
+\end{equation*}
+Dies entspricht einem prozentualen Fehler von $28,9\%$.
+
+\subsubsection{Berechnung des Kompressionsmoduls Q}
+Mit der Gleichung \ref{eqn:Beziehung} 
+folgt für das Kompressionsmodul $Q$
+\begin{equation*}
+    Q = (0,7 \pm 1,7) 10^{12} \;\mathrm{Pa}
+    %(0.7+/-1.7)e+12
+\end{equation*}
+Dies entspricht einem prozentualen Fehler von $242,8\%$.
+\newpage
+\subsection{Das Magnetische Moment - Messung mit B-Feld}
+
+Für das Magnetische Feld $B$ im Inneren einer Helmholtz-Spulen gilt:
+\begin{equation}
+    B= \frac{8}{\sqrt{125}} \cdot \frac{\mu_0 I N}{R}
+\end{equation}
+wobei $N=390$ die Windungszahl und $R=78$mm der Radius der Spulen ist.
+
+
 \label{sec:Auswertung}
