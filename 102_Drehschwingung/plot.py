@@ -164,7 +164,7 @@ def f(x,a,b):
 print(f'T Daten: {data_array}')
 plt.plot(unp.nominal_values(B),unp.nominal_values(zeta), 'rx')
 params, covariance_matrix = curve_fit(f,unp.nominal_values(B),unp.nominal_values(zeta))
-
+errors = np.sqrt(np.diag(covariance_matrix))
 #Mit Fehler so wie bei hooksche gesetz?
 #params, covariance_matrix = np.polyfit(unp.nominal_values(B), zeta, deg=1, cov=True)
 
@@ -176,6 +176,7 @@ plt.xlabel("B in T")
 plt.savefig('build/plot.pdf',bbox_inches='tight')
 print(f"m: {m_mittel}")
 print(f"\nParameter:{params}")
+print(f"Fehler: {errors}")
 print(f'B Werte:\n{unp.nominal_values(B)}')
 print(f'Zeta :\n{unp.nominal_values(zeta)}')
 #plt.show()
