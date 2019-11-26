@@ -66,12 +66,8 @@ E= unp.uarray(21.00*10**10,0.05*10**10)         #Elastizitätsmodul
 
 G = 16/5 * np.pi * (M_kf*L*(d_kf/2)**2)/((T_m**2)*(d_dm/2)**4)+8*np.pi*(J_kh*L)/((T_m**2)*(d_dm/2)**4)  #Schubmodul
 my = (E/(2*G))-1                                  #gemäß Formel (2)
-#print("my: ")
-#print(my)
-
 Q = E/(3*(1-2*my))                              #gemäß Formel (3)
-#print("Q: ")
-#print(Q)
+
 
 #Mit Magneten:
 
@@ -110,6 +106,9 @@ m_mittel = Mittelwert(m_f)
 
 #print (data[0])
 print(f"\nG: {G}")
+print(f"E: {E}")
+print(f"my: {my} ")
+print(f"Q: {Q}")
 print(f"\nm_mittel: {m_mittel}")
 print(f"Mittelwert Periodendauer: {Mittelwert(T_fehler)}")
 print("Durchmesser Draht")
@@ -161,13 +160,17 @@ def f(x,a,b):
 print(f'T Daten: {data_array}')
 plt.plot(unp.nominal_values(B),unp.nominal_values(zeta), 'rx')
 params, covariance_matrix = curve_fit(f,unp.nominal_values(B),unp.nominal_values(zeta))
+
+#Mit Fehler so wie bei hooksche gesetz?
+#params, covariance_matrix = np.polyfit(unp.nominal_values(B), zeta, deg=1, cov=True)
+
 x_plot = np.linspace(0,0.005)
 plt.plot(x_plot,f(x_plot,*params))
 #plt.errorbar(unp.nominal_values(B[0][1]),unp.nominal_values(data[0]),yerr=unp.std_devs(data[0]),fmt='rx')
 plt.savefig('build/plot.pdf',bbox_inches='tight')
 print(f"m: {m_mittel}")
-print(f"Parameter:{params}")
-print(f'B Werte: {unp.nominal_values(B)}')
-print(f'Zeta : {unp.nominal_values(zeta)}')
+print(f"\nParameter:{params}")
+print(f'B Werte:\n{unp.nominal_values(B)}')
+print(f'Zeta :\n{unp.nominal_values(zeta)}')
 #plt.show()
 #plt.close()
