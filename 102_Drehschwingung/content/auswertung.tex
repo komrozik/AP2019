@@ -54,20 +54,21 @@ dem Trägheitsmoment der Kugelhalterung $\theta_\text{Halterung}$.
 \subsubsection{Berechnung des Schubmoduls $G$}
 Benötigt werden folgende Werte, um das Schubmodul $G$ nach Gleichung \ref{eqn:schubmodul_formel}
 zu bestimmen.
+Das Elastizitätsmodul $E$ des Materials sei gegeben.
 \begin{table}
     \centering
     \label{tab:tabelle_1}
-    \begin{tabular}{p{3cm} | p{1.5cm} | p{1.5cm} | p{1.5cm} | p{1.5cm}}
+    \begin{tabular}{p{3cm} | p{1.5cm} | p{1.5cm} | p{1.5cm} | p{1.5cm} |p{1.5cm}}
     \toprule
-    & L\;/\;cm & d \;/\;mm & $m_\text{k}$\;/\;g & 2$R_\text{k}$\;/\;mm\\
+    & L\;/\;cm & d \;/\;mm & $m_\text{k}$\;/\;g & 2$R_\text{k}$\;/\;mm & E\;/\;$10^{11}$Pa\\
     \midrule
-    & 66,38 & 0,19 & 512,2 &  50,76 \\
-    &      & 0,19 &       &        \\    
-    &      & 0,2  &       &        \\
-    &      & 0,2  &       &        \\
+    &66,38 & 0,19 & 512,2 &  50,76  & 2.100\\
+    &      & 0,19 &       &         &\\    
+    &      & 0,2  &       &         &\\
+    &      & 0,2  &       &         &\\
     \midrule
-    Mittelwert:    &      & 0,0194 &       &        \\
-    Ungenauigkeit: & 0,07 & 0,0004 & 0,205 & 0,0036 \\
+    Mittelwert:    &      & 0,0194 &       &        &\\
+    Ungenauigkeit: & 0,07 & 0,0004 & 0,205 & 0,0036 & 0.005\\
     \bottomrule
     \end{tabular}
     \caption{Messunggrößen der Apperatur}
@@ -132,8 +133,8 @@ zu finden.
 
 Somit ergibt sich:
 \begin{gather*}
-    m_\text{mag} = 0.05 \;\mathrm{\frac{kgm^2}{Ts^2}}\\\\
-    D = 3.55\cdot10^{-6} \;\mathrm{\frac{kgm^2}{s^2}}
+    m_\text{mag} = 0,05 \pm 8,41 \cdot 10^{-4} \;\mathrm{\frac{kgm^2}{Ts^2}}\\\\
+    D = 3,55\cdot10^{-6} \pm 2,35 \cdot 10^{-6} \;\mathrm{\frac{kgm^2}{s^2}}
 \end{gather*}
 
 \newpage
