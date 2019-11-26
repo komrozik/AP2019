@@ -17,11 +17,15 @@ def Mittelwert(y):
 M_k = 512.2                                    #Kugelmasse in g
 M_kf = unp.uarray(M_k,0.0004*M_k)
 M_kf = M_kf* 0.001                              #Umrechnung
+print(f"\nTrägheitsmoment Kugel: {M_kf} / kgm^2")
 d_k = 50.76                                     #Kugeldurchmesser in mm
 d_kf = unp.uarray(d_k,0.00007*d_k)
 d_kf = d_kf*0.001                               #Umrechnung
 J_kh = 22.5                                     #Trägheitsmoment der Kugelhalterung in g*cm^2
 J_kh = J_kh * 0.0000001                         #Umrechnung
+print(f"Trägheitsmoment Kugel: {J_kh} / kgm^2")
+print(f"Ges-Trägheitsmoment: {M_kf+J_kh} / kgm^2\n")
+
 N = 390                                         #Windungszahl Helmholtzspule
 r_h = 78                                        #Radius der Helmholtzspule in mm
 r_h = 78*0.001                                  #Umrechnung
