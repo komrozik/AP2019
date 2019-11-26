@@ -167,6 +167,8 @@ params, covariance_matrix = curve_fit(f,unp.nominal_values(B),unp.nominal_values
 x_plot = np.linspace(0,0.005)
 plt.plot(x_plot,f(x_plot,*params))
 #plt.errorbar(unp.nominal_values(B[0][1]),unp.nominal_values(data[0]),yerr=unp.std_devs(data[0]),fmt='rx')
+plt.ylabel(f"Zeta in $kg*m^2/s^2$")
+plt.xlabel("B in T")
 plt.savefig('build/plot.pdf',bbox_inches='tight')
 print(f"m: {m_mittel}")
 print(f"\nParameter:{params}")
