@@ -1,7 +1,11 @@
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 import numpy as np
+import sympy as sym
+from scipy import integrate
 import uncertainties.unumpy as unp 
 from uncertainties.unumpy import (nominal_values as noms, std_devs as stds)
-import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 
 
@@ -103,3 +107,6 @@ print(f"K1: gemessen {Kgtest}, berechnet {Kbtest}")
 
 #--------------------------------------------------------------------------------
 #PLOTS
+l=np.linspace(0,2)
+plt.plot(l,l**2)
+plt.show()
