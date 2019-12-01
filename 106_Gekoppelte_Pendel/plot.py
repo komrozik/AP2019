@@ -1,11 +1,7 @@
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
 import numpy as np
-import sympy as sym
-from scipy import integrate
 import uncertainties.unumpy as unp 
 from uncertainties.unumpy import (nominal_values as noms, std_devs as stds)
+import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 
 
@@ -105,5 +101,5 @@ Kgtest = (wg1_m**2-wg1_p**2)/(wg1_m**2+wg1_p**2)
 Kbtest = (wb1_m**2-wb1_p**2)/(wb1_m**2+wb1_p**2)
 print(f"K1: gemessen {Kgtest}, berechnet {Kbtest}")
 
--0.0299
-0.3
+#--------------------------------------------------------------------------------
+#PLOTS
