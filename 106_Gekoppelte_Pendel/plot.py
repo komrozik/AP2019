@@ -31,8 +31,16 @@ T1_p = data[2] #T_+ 72cm
 T2_p = data[3] #T_+ 80cm
 M1_p = Mittelwert(T1_p)
 M2_p = Mittelwert(T2_p)
+<<<<<<< HEAD
 wg1_p= 2*np.pi/M1_p #gemessen Frequenz mit wg=2pi/T
 wg2_p= 2*np.pi/M2_p
+||||||| merged common ancestors
+wg1_p= 1/M1_p #gemessen Frequenz mit wg=1/T
+wg2_p= 1/M2_p
+=======
+wg1_p= 2*np.pi/M1_p #gemessen Frequenz mit wg=1/T
+wg2_p= 2*np.pi/M2_p
+>>>>>>> 2f6caa5dc1134071a56a38b79f4ab8038d284d68
 print(f"Gleichsinnige Schwingung - Mittelwert\nPendel (72cm): {M1_p}\nPendel (80cm): {M2_p}")
 print(f"Werte Pendel1 {data[2]}\nWerte Pendel2: {data[3]}\n")
 
