@@ -107,6 +107,7 @@ print(f"K1: gemessen {Kgtest}, berechnet {Kbtest}")
 
 #--------------------------------------------------------------------------------
 #PLOTS
+<<<<<<< HEAD
 l=np.linspace(0,1)
 
 plt.plot(l,2*np.pi*np.sqrt(l/9.81),"k",label="Kurve")
