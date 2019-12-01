@@ -109,4 +109,17 @@ print(f"K1: gemessen {Kgtest}, berechnet {Kbtest}")
 #PLOTS
 l=np.linspace(0,2)
 plt.plot(l,l**2)
-plt.show()
+plt.savefig('build/plot.pdf',bbox_inches='tight')
+l=np.linspace(0,1)
+Werte72 = np.array([0.72,0.72,0.72,0.72,0.72,0.72,0.72,0.72,0.72,0.72])
+
+plt.plot(l,2*np.pi*np.sqrt(l/9.81),"k",label="Kurve")
+plt.plot(Werte72,T1_p,"b",label="Gleichsinnige Schwingung l=72cm")#einzelene Werte
+#plt.plot(0.72,M1_p,"bo")#Mittelwert
+#plt.plot(0.80,T2_p,"r",label="Gleichsinnige Schwingung l=80cm")#einzelene Werte
+#plt.plot(0.80,M2_p,"ro")#Mittelwert
+plt.xlim(0,1)
+plt.ylim(0,2)
+plt.xlabel("Länge $l$")
+plt.ylabel("Periode $T$")
+plt.savefig('plot.pdf',bbox_inches='tight')
