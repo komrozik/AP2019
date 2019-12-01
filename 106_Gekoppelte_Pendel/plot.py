@@ -31,8 +31,8 @@ T1_p = data[2] #T_+ 72cm
 T2_p = data[3] #T_+ 80cm
 M1_p = Mittelwert(T1_p)
 M2_p = Mittelwert(T2_p)
-wg1_p= 1/M1_p #gemessen Frequenz mit wg=1/T
-wg2_p= 1/M2_p
+wg1_p= 2*np.pi/M1_p #gemessen Frequenz mit wg=1/T
+wg2_p= 2*np.pi/M2_p
 print(f"Gleichsinnige Schwingung - Mittelwert\nPendel (72cm): {M1_p}\nPendel (80cm): {M2_p}")
 print(f"Werte Pendel1 {data[2]}\nWerte Pendel2: {data[3]}\n")
 
@@ -41,8 +41,8 @@ T1_m = data[7] #T_- 72cm
 T2_m = data[4] #T_- 80cm
 M1_m = Mittelwert(T1_m)
 M2_m = Mittelwert(T2_m)
-wg1_m= 1/M1_m #Frequenz mit w=1/T
-wg2_m= 1/M2_m
+wg1_m= 2*np.pi/M1_m #Frequenz mit w=1/T
+wg2_m= 2*np.pi/M2_m
 print(f"Gegenphasige Schwingung - Mittelwert\nPendel (72cm): {M1_m}\nPednel (80cm): {M2_m}"+'\x1b[6;30;42m' + ' Komisch!' + '\x1b[0m')
 print(f"Werte Pendel1 {data[7]}\nWerte Pendel2: {data[4]}\n")
 #!!! Längeres Pendel schneller --> Widerspruch?
@@ -52,7 +52,7 @@ T1_schwi = data[8] #T_s_schwingung 72cm
 T1_schwe = data_raw[9] #T_s_schwebung 72cm
 M1_schwi = Mittelwert(T1_schwi)
 M1_schwe = Mittelwert(T1_schwe)
-wg1_schwi= 1/M1_schwi #Frequenz mit w=1/T
+wg1_schwi= 2*np.pi/M1_schwi #Frequenz mit w=1/T
 print(f"Schwebung/Schwingung 72cm - Mittelwert\nSchwingung: {M1_schwi}\nSchwebung: {M1_schwe}")
 print(f"Schwingung {data[8]}\nSchwebung: {data_raw[9]}\n")
 
@@ -60,7 +60,7 @@ T2_schwi = data[5] #T_s_schwingung 80cm
 T2_schwe = data_raw[6] #T_s_schwebung 80cm
 M2_schwi = Mittelwert(T2_schwi)
 M2_schwe = Mittelwert(T2_schwe)
-wg2_schwi= 1/M2_schwi
+wg2_schwi= 2*np.pi/M2_schwi
 print(f"Schwebung/Schwingung 80cm - Mittelwert\nSchwingung: {M2_schwi}\nSchwebung: {M2_schwe}")
 print(f"Schwingung {data[5]}\nSchwebung: {data_raw[6]}\n\n")
 #------------------------------------------------------------------------------------------------------------------------------------------------------------
