@@ -2,6 +2,7 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
+#np.seterr(divide='ignore', invalid='ignore')
 import sympy as sym
 from scipy import integrate
 import uncertainties.unumpy as unp 
@@ -68,7 +69,10 @@ print(f"Schwingung {data[5]}\nSchwebung: {data_raw[6]}\n\n")
 #Kopplungskonstante K
 DK1=(T1_p**2-T1_m**2)/(T1_p**2+T1_m**2) #über Mittelwerte
 K1=Mittelwert(DK1)
-K2=(M2_p**2-M2_m**2)/(M2_p**2+M2_m**2)
+#K1=6.3
+DK2=(T2_p**2-T2_m**2)/(T2_p**2+T2_m**2)
+K2=Mittelwert(DK2)
+#K2=13
 print(f"Kopplungskonstante K (72cm): {K1}\nKopplungskonstante K (80cm): {K2}\n")
 
 #Frequenzen
@@ -107,16 +111,68 @@ print(f"K1: gemessen {Kgtest}, berechnet {Kbtest}")
 
 #--------------------------------------------------------------------------------
 #PLOTS
-<<<<<<< HEAD
-l=np.linspace(0,1)
+l=np.linspace(0,2,1000)
+Werte72 = np.array([0.72,0.72,0.72,0.72,0.72,0.72,0.72,0.72,0.72,0.72])
+Werte80 = np.array([0.80,0.80,0.80,0.80,0.80,0.80,0.80,0.80,0.80,0.80])
 
-plt.plot(l,2*np.pi*np.sqrt(l/9.81),"k",label="Kurve")
-plt.plot(0.72,T1_p,"b",label="Gleichsinnige Schwingung l=72cm")#einzelene Werte
-plt.plot(0.72,M1_p,"bo")#Mittelwert
-plt.plot(0.80,T2_p,"r",label="Gleichsinnige Schwingung l=80cm")#einzelene Werte
-plt.plot(0.80,M2_p,"ro")#Mittelwert
-plt.xlim(0,1)
-plt.ylim(0,2)
-plt.xlabel("Länge $l$")
-plt.ylabel("Periode $T$")
-plt.savefig('plot.pdf',bbox_inches='tight')
+#Gleichsinnige Schwingung von 72 & 80
+plt.plot(l,2*np.pi*np.sqrt(l/9.81),"k",label="Theoretische Schwingungsdauer")
+plt.plot(Werte72,T1_p,"b+",label="Gleichsinnige Schwingung l=72cm")#einzelene Werte
+plt.plot(0.72,M1_p,"bo",label="Mittelwert l=72cm")#Mittelwert
+plt.plot(Werte80,T2_p,"r+",label="Gleichsinnige Schwingung l=80cm")#einzelene Werte
+plt.plot(0.80,M2_p,"ro",label="Mittelwert l=80cm")#Mittelwert
+plt.xlim(0.65,0.85)
+plt.ylim(1.6,1.9)
+plt.xlabel("Länge $l\;/\;\mathrm{m}$")
+plt.ylabel("Periode $T\;/\;\mathrm{s}$")
+plt.legend()
+plt.savefig('plots/plot1.pdf',bbox_inches='tight')
+plt.close()
+
+#Gegensinnige Schwingung von 72cm k=0,08
+plt.plot(l,2*np.pi*np.sqrt(l/(9.81+2*K1)),"k",label=f"Theoretische Wert (k={K1})")
+plt.plot(Werte72,T1_m,"b+",label="Gegensinnige Schwingung l=72cm")
+plt.plot(0.72,M1_m,"bo",label="Mittelwert l=72cm")#Mittelwert
+plt.xlim(0.65,0.85)
+plt.ylim(1.25,1.9)
+plt.xlabel("Länge $l\;/\;\mathrm{m}$")
+plt.ylabel("Periode $T\;/\;\mathrm{s}$")
+plt.legend()
+plt.savefig('plots/plot2.pdf',bbox_inches='tight')
+plt.close()
+
+#Gegensinnige Schwingung von 80cm k=0,29
+plt.plot(l,2*np.pi*np.sqrt(l/(9.81+2*K2)),"k",label=f"Theoretische Wert (k={K2})")
+plt.plot(Werte80,T2_m,"r+",label="Gegensinnige Schwingung l=80cm")
+plt.plot(0.80,M2_m,"ro",label="Mittelwert l=80cm")#Mittelwert
+plt.xlim(0.65,0.85)
+plt.ylim(1.25,1.9)
+plt.xlabel("Länge $l\;/\;\mathrm{m}$")
+plt.ylabel("Periode $T\;/\;\mathrm{s}$")
+plt.legend()
+plt.savefig('plots/plot3.pdf',bbox_inches='tight')
+plt.close()
+
+#Gekoppelte Schwingung
+plt.plot(l,((2*np.pi*np.sqrt(l/9.81))**2*(2*np.pi*np.sqrt(l/(9.81+2*K1)))**2)/((2*np.pi*np.sqrt(l/9.81))**2-(2*np.pi*np.sqrt(l/(9.81+2*K1)))**2),"k",label=f"Theoretische Wert (k={K1})")
+plt.plot(Werte72,T1_schwe,"b+",label="Schwebungen l=72cm")
+plt.plot(0.72,M1_schwe,"bo",label="Mittelwert l=72cm")
+#plt.xlim(0.67,0.85)
+#plt.ylim(16,25)
+#plt.xlabel("Länge $l\;/\;\mathrm{m}$")
+plt.ylabel("Periode $T\;/\;\mathrm{s}$")
+plt.legend()
+plt.savefig("plots/plot4.pdf",bbox_inches='tight')
+plt.close()
+
+plt.plot(l,((2*np.pi*np.sqrt(l/9.81))**2*(2*np.pi*np.sqrt(l/((9.81+2*K2))))**2)/((2*np.pi*np.sqrt(l/9.81))**2-(2*np.pi*np.sqrt(l/(9.81+2*K2)))**2),"k",label=f"Theoretische Wert (k={K2})")
+plt.plot(Werte80,T2_schwe,"r+",label="Schwebungen l=80cm")
+plt.plot(0.8,M2_schwe,"ro",label="Mittelwert l=80cm")
+#plt.xlim(0.67,0.85)
+#plt.ylim(16,25)
+plt.xlabel("Länge $l\;/\;\mathrm{m}$")
+plt.ylabel("Periode $T\;/\;\mathrm{s}$")
+plt.legend()
+plt.savefig("plots/plot5.pdf",bbox_inches='tight')
+
+
