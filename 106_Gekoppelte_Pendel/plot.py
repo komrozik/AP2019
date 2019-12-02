@@ -69,10 +69,8 @@ print(f"Schwingung {data[5]}\nSchwebung: {data_raw[6]}\n\n")
 #Kopplungskonstante K
 DK1=(T1_p**2-T1_m**2)/(T1_p**2+T1_m**2) #über Mittelwerte
 K1=Mittelwert(DK1)
-#K1=6.3
 DK2=(T2_p**2-T2_m**2)/(T2_p**2+T2_m**2)
 K2=Mittelwert(DK2)
-#K2=13
 print(f"Kopplungskonstante K (72cm): {K1}\nKopplungskonstante K (80cm): {K2}\n")
 
 #Frequenzen
@@ -105,9 +103,9 @@ wb2_schwi= wb2_p-wb2_m
 print(f"Gekoppelt Frequenzen:\nGemessen (72cm):{wg1_schwi}\nBerechnet (72cm):{wb1_schwi}\nGemessen (80cm):{wg2_schwi}\nBerechnet (80cm):{wb2_schwi}\n")
 
 
-Kgtest = (wg1_m**2-wg1_p**2)/(wg1_m**2+wg1_p**2)
-Kbtest = (wb1_m**2-wb1_p**2)/(wb1_m**2+wb1_p**2)
-print(f"K1: gemessen {Kgtest}, berechnet {Kbtest}")
+TK1 = 2*np.pi**2*0.72/M1_m**2-9.81/2
+TK2 = 2*np.pi**2*0.80/M2_m**2-9.81/2
+print(f"K1: gemessen {TK1}, berechnet {TK2}")
 
 #--------------------------------------------------------------------------------
 #PLOTS
@@ -130,7 +128,7 @@ plt.savefig('plots/plot1.pdf',bbox_inches='tight')
 plt.close()
 
 #Gegensinnige Schwingung von 72cm k=0,08
-plt.plot(l,2*np.pi*np.sqrt(l/(9.81+2*K1)),"k",label=f"Theoretische Wert (k={K1})")
+plt.plot(l,2*np.pi*np.sqrt(l/(9.81+2*K1)),"k",label=f"Theoretische Wert (k={round(K1,3)})")
 plt.plot(Werte72,T1_m,"b+",label="Gegensinnige Schwingung l=72cm")
 plt.plot(0.72,M1_m,"bo",label="Mittelwert l=72cm")#Mittelwert
 plt.xlim(0.65,0.85)
@@ -142,7 +140,7 @@ plt.savefig('plots/plot2.pdf',bbox_inches='tight')
 plt.close()
 
 #Gegensinnige Schwingung von 80cm k=0,29
-plt.plot(l,2*np.pi*np.sqrt(l/(9.81+2*K2)),"k",label=f"Theoretische Wert (k={K2})")
+plt.plot(l,2*np.pi*np.sqrt(l/(9.81+2*K2)),"k",label=f"Theoretische Wert (k={round(K2,3)}))")
 plt.plot(Werte80,T2_m,"r+",label="Gegensinnige Schwingung l=80cm")
 plt.plot(0.80,M2_m,"ro",label="Mittelwert l=80cm")#Mittelwert
 plt.xlim(0.65,0.85)
@@ -152,9 +150,56 @@ plt.ylabel("Periode $T\;/\;\mathrm{s}$")
 plt.legend()
 plt.savefig('plots/plot3.pdf',bbox_inches='tight')
 plt.close()
+#Mit Theoretischen Ks
+#Gegensinnige Schwingung von 72cm k=0,08
+plt.plot(l,2*np.pi*np.sqrt(l/(9.81+2*TK1)),"k",label=f"Theoretische Wert (k={round(TK1,3)})")
+plt.plot(Werte72,T1_m,"b+",label="Gegensinnige Schwingung l=72cm")
+plt.plot(0.72,M1_m,"bo",label="Mittelwert l=72cm")#Mittelwert
+plt.xlim(0.65,0.85)
+plt.ylim(1.25,1.9)
+plt.xlabel("Länge $l\;/\;\mathrm{m}$")
+plt.ylabel("Periode $T\;/\;\mathrm{s}$")
+plt.legend()
+plt.savefig('plots/plot4.pdf',bbox_inches='tight')
+plt.close()
+
+#Gegensinnige Schwingung von 80cm k=0,29
+plt.plot(l,2*np.pi*np.sqrt(l/(9.81+2*TK2)),"k",label=f"Theoretische Wert (k={round(TK2,3)})")
+plt.plot(Werte80,T2_m,"r+",label="Gegensinnige Schwingung l=80cm")
+plt.plot(0.80,M2_m,"ro",label="Mittelwert l=80cm")#Mittelwert
+plt.xlim(0.65,0.85)
+plt.ylim(1.25,1.9)
+plt.xlabel("Länge $l\;/\;\mathrm{m}$")
+plt.ylabel("Periode $T\;/\;\mathrm{s}$")
+plt.legend()
+plt.savefig('plots/plot5.pdf',bbox_inches='tight')
+plt.close()
 
 #Gekoppelte Schwingung
-plt.plot(l,((2*np.pi*np.sqrt(l/9.81))**2*(2*np.pi*np.sqrt(l/(9.81+2*K1)))**2)/((2*np.pi*np.sqrt(l/9.81))**2-(2*np.pi*np.sqrt(l/(9.81+2*K1)))**2),"k",label=f"Theoretische Wert (k={K1})")
+plt.plot(l,((2*np.pi*np.sqrt(l/9.81))*(2*np.pi*np.sqrt(l/(9.81+2*K1))))/((2*np.pi*np.sqrt(l/9.81))-(2*np.pi*np.sqrt(l/(9.81+2*K1)))),"k",label=f"Theoretische Wert (k={round(K1,3)})")
+plt.plot(Werte72,T1_schwe,"b+",label="Schwebungen l=72cm")
+plt.plot(0.72,M1_schwe,"bo",label="Mittelwert l=72cm")
+plt.ylim(0,200)
+plt.xlim(0.5,1)
+plt.xlabel("Länge $l\;/\;\mathrm{m}$")
+plt.ylabel("Periode $T\;/\;\mathrm{s}$")
+plt.legend()
+plt.savefig("plots/plot6.pdf",bbox_inches='tight')
+plt.close()
+
+plt.plot(l,((2*np.pi*np.sqrt(l/9.81))*(2*np.pi*np.sqrt(l/(9.81+2*K2))))/((2*np.pi*np.sqrt(l/9.81))-(2*np.pi*np.sqrt(l/(9.81+2*K2)))),"k",label=f"Theoretische Wert (k={round(K2,3)})")
+plt.plot(Werte80,T2_schwe,"r+",label="Schwebungen l=80cm")
+plt.plot(0.8,M2_schwe,"ro",label="Mittelwert l=80cm")
+plt.xlim(0.5,1)
+plt.ylim(0,60)
+plt.xlabel("Länge $l\;/\;\mathrm{m}$")
+plt.ylabel("Periode $T\;/\;\mathrm{s}$")
+plt.legend()
+plt.savefig("plots/plot7.pdf",bbox_inches='tight')
+plt.close()
+
+#Mit Theoretischen Ks
+plt.plot(l,((2*np.pi*np.sqrt(l/9.81))*(2*np.pi*np.sqrt(l/(9.81+2*TK1))))/((2*np.pi*np.sqrt(l/9.81))-(2*np.pi*np.sqrt(l/(9.81+2*TK1)))),"k",label=f"Theoretische Wert (k={round(TK1,3)})")
 plt.plot(Werte72,T1_schwe,"b+",label="Schwebungen l=72cm")
 plt.plot(0.72,M1_schwe,"bo",label="Mittelwert l=72cm")
 #plt.xlim(0.67,0.85)
@@ -162,10 +207,10 @@ plt.plot(0.72,M1_schwe,"bo",label="Mittelwert l=72cm")
 #plt.xlabel("Länge $l\;/\;\mathrm{m}$")
 plt.ylabel("Periode $T\;/\;\mathrm{s}$")
 plt.legend()
-plt.savefig("plots/plot4.pdf",bbox_inches='tight')
+plt.savefig("plots/plot8.pdf",bbox_inches='tight')
 plt.close()
 
-plt.plot(l,((2*np.pi*np.sqrt(l/9.81))**2*(2*np.pi*np.sqrt(l/((9.81+2*K2))))**2)/((2*np.pi*np.sqrt(l/9.81))**2-(2*np.pi*np.sqrt(l/(9.81+2*K2)))**2),"k",label=f"Theoretische Wert (k={K2})")
+plt.plot(l,((2*np.pi*np.sqrt(l/9.81))*(2*np.pi*np.sqrt(l/(9.81+2*TK2))))/((2*np.pi*np.sqrt(l/9.81))-(2*np.pi*np.sqrt(l/(9.81+2*TK2)))),"k",label=f"Theoretische Wert (k={round(TK2,3)})")
 plt.plot(Werte80,T2_schwe,"r+",label="Schwebungen l=80cm")
 plt.plot(0.8,M2_schwe,"ro",label="Mittelwert l=80cm")
 #plt.xlim(0.67,0.85)
@@ -173,6 +218,9 @@ plt.plot(0.8,M2_schwe,"ro",label="Mittelwert l=80cm")
 plt.xlabel("Länge $l\;/\;\mathrm{m}$")
 plt.ylabel("Periode $T\;/\;\mathrm{s}$")
 plt.legend()
-plt.savefig("plots/plot5.pdf",bbox_inches='tight')
+plt.savefig("plots/plot9.pdf",bbox_inches='tight')
+
+
+
 
 
