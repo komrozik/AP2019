@@ -9,11 +9,15 @@ Im Folgenden soll die Ursache für die dramastischen Abweichungen analysiert wer
 Dafür soll zu Beginn die Messung an sich überprüft werden.
 Dazu betrachte man sich, die jeweilige theoretische Schwingungsdauer und 
 vergleich diese mit den gemessenen Schwnungsdauern.
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{plots/plot1.pdf}
     \caption{Gleichsinnige Schwingungen}
 \end{figure}
+Die Theoretische Kurve folgt aus Glichung (6!). Es wird deutlich, dass die gemessenen
+Schwingungsdauern $T_+$ mit den zu erwartenen Schwingungsdauern übereinstimmt.\\
+
+Für die Gegensinnige Schwingung ergibt sich der zu erwartende Theoretische Werte aus Geichung (8!).
 
 \begin{figure}
     \begin{subfigure}[c]{0.5\textwidth}
@@ -25,10 +29,8 @@ vergleich diese mit den gemessenen Schwnungsdauern.
         \subcaption{Pendel 80cm}
         \label{subfig:pedel80}
     \end{subfigure}
-    \caption{Gleichsinnige Schwingungsdauer}
+    \caption{Gegensinnige Schwingungsdauer}
 \end{figure}
-
-Dabei ergibt sich der zu erwartende Theoretische Werte aus Geichung (8!).
 
 Hier bei wird besonders gut deutlich, dass bei \ref{subfig:pendel80}, große Abweichungen
 vorliegen. Dies lässt sich nur auf einen Messfehler zurückführen.
@@ -36,8 +38,58 @@ Weiterführend sei zu beachten, dass die Kopplungskonstante die für die theoret
 verwendet wird, ebenfalls aus diesen falschen Werten stammt.
 
 Dies erklärt weiterführend, warum die Kopplungskonstant aus \ref{eqn:kopplung80} nicht die selben
-sind, bzw. warum die Konstante resultierend aus den Schwingsungsdauern der Pedellänge 80cm so weit von der
-Kopplungskonstanten die aus Schwingunsdauern des Pendel mit einer Länge von 72cm enfernt ist.
+sind.
+Fazit: Der Messfehler der Gegensinnigen Schwingung von der Pendellänge $l=80cm$ und $l=72cm$ ist 
+ist ein Ursprung der Fehler.
 
-Fazit: Der Messfehler der Gegensinnigen Schwingung von der Pendellänge $l=80cm$ ist 
-ist ein Ursprung der 
+Stellt man Gleichung (8!) um, um die Größenordung der Kopplungskonstante $K$ zu erörtern, so gilt:
+\begin{equation}
+    K=\frac{2\pi^2l}{T_{-}^2}-\frac{g}{2}
+\end{equation}
+Somit ergibt sich:
+\begin{align*}
+    \textrm{K für 72cm} = 0,833\\
+    \textrm{K für 80cm} = 3,995 
+\end{align*}
+
+Trägt man für diese Kopplungskonstanten die Gegensinnigen Schwingungen auf, dies Bestätig die Annahme
+das der Fehler in den gemessenen gegenphasigen Schwingungsdauern.  
+\begin{figure}
+    \begin{subfigure}[c]{0.5\textwidth}
+        \includegraphics[width=\textwidth]{plots/plot4.pdf}
+        \subcaption{Pedel 72cm}
+    \end{subfigure}
+    \begin{subfigure}[c]{0.5\textwidth}
+        \includegraphics[width=\textwidth]{plots/plot5.pdf}
+        \subcaption{Pendel 80cm}
+        \label{subfig:gegenNEU80}
+    \end{subfigure}
+    \caption{Gegensinnige Schwingungsdauer mit Kopplungskonstante}
+\end{figure}
+
+\newpage
+Für die Schwebung ergibt sich mit den Kopplungskonstanten:
+\begin{figure}
+    \begin{subfigure}[c]{0.5\textwidth}
+        \includegraphics[width=\textwidth]{plots/plot6.pdf}
+        \subcaption{Pedel 72cm}
+    \end{subfigure}
+    \begin{subfigure}[c]{0.5\textwidth}
+        \includegraphics[width=\textwidth]{plots/plot7.pdf}
+        \subcaption{Pendel 80cm}
+    \end{subfigure}
+    \caption{Schwebungsdauer mit Kopplungskonstante}
+\end{figure}
+
+Für die Schwebung mit den neuen Kopplungskonstanten:
+\begin{figure}
+    \begin{subfigure}[c]{0.5\textwidth}
+        \includegraphics[width=\textwidth]{plots/plot8.pdf}
+        \subcaption{Pedel 72cm}
+    \end{subfigure}
+    \begin{subfigure}[c]{0.5\textwidth}
+        \includegraphics[width=\textwidth]{plots/plot9.pdf}
+        \subcaption{Pendel 80cm}
+    \end{subfigure}
+    \caption{Schwebungsdauer mit neuen Kopplungskonstante}
+\end{figure}
