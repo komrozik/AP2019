@@ -1,2 +1,189 @@
+\newpage
 \section{Auswertung}
 \label{sec:Auswertung}
+\subsection{Längenprüfung}
+Für die Schwingungsdauer $T$ der beiden frei schwingenden Pendel (mit gleichen Längen):
+
+%Frei schwingende Pendel
+\begin{table}
+    \centering
+    \label{tab:Data_freischwingend}
+    \begin{tabular}{c c | c}
+        \toprule
+         & Pendel 1\;/\;s (72cm) & Pendel 2\;/\;s (72cm)\\
+        \midrule
+        & 1,688 & 1,694 \\
+        & 1,668 & 1,732 \\
+        & 1,688 & 1,720  \\
+        & 1,700  & 1,73  \\
+        & 1,674 & 1,694 \\
+        & 1,688 & 1,682 \\
+        & 1,712 & 1,700   \\
+        & 1,694 & 1,708 \\
+        & 1,70  & 1,726 \\
+        & 1,686 & 1,686 \\
+        \midrule
+        Mittelwert $\bar{T}$ (nach Gl. \ref{eqn:mittelwert}): & 1,69 & 1,71 \\
+        \bottomrule
+    \end{tabular} 
+    \caption{Frei schwingende Pendel}
+\end{table}
+
+Es wurde dabei versucht die Längen der beiden Pedel möglichst genau gleich einzustellen.
+Anhang der Mittelwerter der beiden Pendel lässt die Aussage bzw. Näherung treffen, beide Pendel seien exakt gleich lang.
+
+Der Mittelwert bildet sich dabei aus:
+\begin{equation}
+    \bar{T}=\frac{1}{n}\sum_{\textrm{i=1}}^n T_\textrm{i}
+    \label{eqn:mittelwert}
+\end{equation}
+\newpage
+%Gleichsinnig
+\subsection{Gleichsinnige Schwingung}
+Für die Gleichsinnige Schwingung ergaben sich für die beiden Pendellängen $l=72cm$ und $l=80cm$
+folgende Schwingungsdauern $T$:
+\begin{table}
+    \centering
+    \label{tab:Data_gleichphasig}
+    \begin{tabular}{c c | c}
+        \toprule
+        & Pendel 1\;/\;s (72cm) & Pendel 2\;/\;s (80cm)\\
+        \midrule
+            & 1,694 & 1,806 \\
+            & 1,706 & 1,794 \\
+            & 1,712 & 1,812 \\
+            & 1,720 & 1,794 \\
+            & 1,700 & 1,824 \\
+            & 1,688 & 1,812 \\
+            & 1,744 & 1,776 \\
+            & 1,720 & 1,782 \\
+            & 1,720 & 1,800 \\
+            & 1,676 & 1,806 \\        
+        \midrule
+        Mittelwert $\bar{T}$ (nach Gl. \ref{eqn:mittelwert}): & 1,708 & 1,801 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Gleichsinnige Schwingung}
+\end{table}
+
+Dabei spiegelt der Mittelwert die Proportionalität $T \sim l$ (siehe Gl.(6!)) wieder.\newline
+Aus den Messwerten ergibt sich eine Schwingungsfrequenz:
+\begin{table}
+    \centering
+    \label{tab:frq_gleichs}
+    \begin{tabular}{c c c}
+        \toprule
+        & \multicolumn{2}{c}{$w\;/\;\frac{1}{s}$}\\
+        \cmidrule(lr){2-3} 
+        & Pedel 72cm & Pedel 80cm\\
+        \midrule
+        Aus Messwerten (mit Gl.(!)) & 3,679 & 3,486 \\
+        Berechnet (mit Gl.(5))      & 3,691 & 3,501 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\newpage
+
+%Gegensinnig
+\subsection{Gegensinnige Schwingung}
+Für die Gegensinnige Schwinung ergaben sich die Schwingungsdauern:
+\begin{table}
+    \centering
+    \label{tab:Data_gegenphasig}
+    \begin{tabular}{c c | c}
+        \toprule
+        & Pendel 1\;/\;s (72cm) & Pendel 2\;/\;s (80cm)\\
+        \midrule
+        & 1,574 & 1,344 \\
+        & 1,568 & 1,344 \\
+        & 1,582 & 1,364 \\
+        & 1,576 & 1,33  \\
+        & 1,588 & 1,318 \\
+        & 1,574 & 1,35  \\
+        & 1,568 & 1,312 \\
+        & 1,588 & 1,332 \\
+        & 1,556 & 1,314 \\
+        & 1,564 & 1,312 \\
+        \midrule
+        Mittelwert $\bar{T}$ (nach Gl. \ref{eqn:mittelwert}): & 1,574 & 1,332 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Gegensinnige Schwingung}
+\end{table}
+Dabei ist anzumerken, dass hier nach Gl. (8!) ebenfalls eine $T \sim l$ Proportionalität
+gelten sollte. Dem wird sich in der Diskussion () gewittmed.\newline
+
+Aus den Messwerten ergibt sich eine Schwingungsfrequenz:
+\begin{table}
+    \centering
+    \label{tab:frq_gegens}
+    \begin{tabular}{c c c}
+        \toprule
+        & \multicolumn{2}{c}{$w\;/\;\frac{1}{s}$}\\
+        \cmidrule(lr){2-3} 
+        & Pedel 72cm & Pedel 80cm\\
+        \midrule
+        Aus Messwerten (mit Gl.(!)) & 3,992 & 4,717 \\
+        Berechnet (mit Gl.(5))      & 3,722 & 3,605 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\newpage
+%Gekoppelt
+\subsection{Gekoppelte Schwingung}
+Für die Schwingungsdauern und Schwebungsdauern der gekoppelten Schwingung:
+\begin{table}
+    \centering
+    \label{tab:Data_schw}
+    \caption{Schwingung und Schwebung des Pendels}
+    \begin{tabular}{c c | c || c | c}
+        \toprule
+        & \multicolumn{2}{c}{Pendel l=72cm} & \multicolumn{2}{c}{Pendel l=80cm} \\
+        \cmidrule(lr){2-3}\cmidrule(lr){4-5}
+        Gemessen: & $T_\text{Schwingung}$\;/\;s & $T_\text{Schwebung}$\;/\;s & $T_\text{Schwingung}$\;/\;s & $T_\text{Schwebung}$\;/\;s\\
+        \midrule
+        & 1,538 & 18,96 & 1,750 & 20,52 \\   
+        & 1,600 & 18,67 & 1,726 & 21,00 \\
+        & 1,600 & 18,43 & 1,744 & 21,38 \\
+        & 1,550 & 18,76 & 1,712 & 21,43 \\
+        & 1,636 & 18,95 & 1,726 & 19,83 \\
+        & 1,580 & 19,38 & 1,724 & 20,93 \\
+        & 1,632 & 18,46 & 1,694 & 21,84 \\
+        & 1,612 & 19,21 & 1,700 & 20,76 \\
+        & 1,636 & 18,66 & 1,706 & 20,50 \\
+        & 1,588 & 19,09 & 1,720 & 19,70 \\
+        \midrule
+        Mittelwert $\bar{T}$ (nach Gl. \ref{eqn.mittelwert}): & 1,597 & 18,857 & 1,721 & 20,789 \\
+        Berechnete $T_\textrm{S}$ (nach Gl.(9!)):  &       & 20,030 &       &  5,118 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+Die berechnete Schwebungsdauer der Pendellänge von 80cm, weicht dabei sehr stark ab. Dies wird sich in der Diskussion () gewittmed.\\
+
+Aus den Messwerten ergibt sich eine Schwingungsfrequenz:
+\begin{table}
+    \centering
+    \label{tab:frq_gleichs}
+    \begin{tabular}{c c c}
+        \toprule
+        & \multicolumn{2}{c}{$w\;/\;\frac{1}{s}$}\\
+        \cmidrule(lr){2-3} 
+        & Pedel 72cm & Pedel 80cm\\
+        \midrule
+        Aus Messwerten (mit Gl.(!)) & 3,934 & 3,653 \\
+        Berechnet (mit Gl.(5))      & -0,031 & -0,103 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Kopplungskonstante}
+Anhand der Gleichung (10!) lässt sich die Kopplungskonstante $K$ für
+die beiden Pendellängen ermitteln:
+\begin{gather}
+    K \textrm{ für 72cm Pedel} = 0.0816\\
+    K \textrm{ für 80cm Pedel} = 0.2926
+    \label{eqn:kopplung80}
+\end{gather}
+(siehe dazu Diskussion ebenfalls (!))
+
+
