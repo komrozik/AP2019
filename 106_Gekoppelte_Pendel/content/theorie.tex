@@ -2,34 +2,59 @@
 \label{sec:theorie}
 \subsection{Grundlagen}
 Bei der Betrachtung eines Pendels der Länge $l$ mit der Masse $m$ und vernachlässigung der Reibung kann man die Bewegungsgleichung anhand der angreifenden Kräfte bestimmen.
-Durch eine Auslenkung des Pendels wirkt eine Kraft 
-$F = m*a$ 
-die ein Drehmoment 
-$M = D_p*\Phi$ 
+Durch eine Auslenkung des Pendels wirkt eine Kraft $F = m\cdot a$ die ein Drehmoment    $ M = D_p \cdot \Phi$
 bewirkt mit $\Phi$ dem Auslenkwinkel und $D_p$ der Winkelrichtgröße.
-Mit der Kleinwinkelnäherung ergiebt dich fogende Bewegungsgleichung 
-$J*\Phi'' + D_p * \Phi = 0$ 
+Mit der Kleinwinkelnäherung ergibt sich folgende Bewegungsgleichung 
+\begin{equation}
+    J\cdot \ddot{\Phi} + D_p \cdot \Phi = 0
+\end{equation}
 mit der Frequenz 
-$\omega = \sqrt(\frac{D_p}{J})=\sqrt(\frac{g}{l})$
+\begin{equation}
+    \omega = \sqrt{\frac{D_p}{J}}=\sqrt{\frac{g}{l}}
+\end{equation}
 \subsection{Doppelpendel}
 Wenn man zei Pendel mit einer Feder koppelt wirkt ein zusätzliches Drehmoment auf die einzelnen Pendel 
-$M_1 = D_f*(\Phi_2-\Phi_1) und M_2=D_f*(\Phi_1-\Phi_2)$
+\begin{equation*}
+    M_1 = D_f\cdot (\Phi_2-\Phi_1)\; \text{und} \;M_2=D_f\cdot (\Phi_1-\Phi_2)
+\end{equation*}
 Damit entsteht ein System aus Differentialgleichungen
-%Hier DGL System
-Dieses Systembeschreibt die Schwingung der beiben Pendel und die Lösung der DGL's sind neue Schwingnungsgleicchungen mit den Frequnzen $\omega_1 \omega_2$ und den  Auslenkungen $\alpha_1 \alpha_2$
+\begin{align*}
+    J\cdot \ddot{\Phi}_1 + D \cdot \Phi_1 &= D_F (\Phi_2 - \Phi_1) \\
+    J\cdot \ddot{\Phi}_2 + D \cdot \Phi_2 &= D_F (\Phi_1 - \Phi_2)
+\end{align*}
+Dieses System beschreibt die Schwingung der beiben Pendel und die Lösung der DGL's sind neue Schwingnungsgleichungen mit den Frequnzen $\omega_1 \text{und} \;\omega_2$ und den  Auslenkungen $\alpha_1 \text{und}\; \alpha_2$
 Wir unterscheiden verschiedene Arten der Schwingung, abhängig von den Auslenkungen zu Beginn
 \begin{description}
     \item[Gleichsinnig $\alpha_1 = \alpha_2$]
         Über die Kopplung der Federn wirkt keine Kraft und die Schwingung wird somit nur durch die Gravitation beeinflusst.
         Die Eigenfrequenz bestimmt sich als
+        \begin{equation}
+            \omega_+ = \sqrt{\frac{g}{l}} \label{eqn:w_p}
+        \end{equation}
         Und die Periodendauer der Schwingnung lkäässt sich mit folgender Formel berechen 
+        \begin{equation}
+            T_+ = 2\pi \cdot \sqrt{\frac{l}{g}} = \frac{2\pi}{\omega_+} \label{eqn:T_p}
+        \end{equation}
     \item[Gegensinnig $\alpha_1 = -\alpha_2$]
         Die beiden Pendel werden um den gleichen Betrag in verschiedene Richtungen ausgelenkt.
         Dadurche entsteht eine symmetrische Schwingung bei der die Kraft der Kopplungsfeder auf die Pendel Betragsgleich aber mit umgekehrtem Vorzeichen wirkt.
         Mit Frequenz
-        Und Pderiodendauer
-    \item[Gekoppelt $\alpha_1 =0 \alpha_2 =! 0$]  
+        \begin{equation}
+            \omega_- = \sqrt{\frac{g}{l}+\frac{2K}{l}}\label{eqn:w_m}
+        \end{equation}
+        Und Periodendauer
+        \begin{equation}
+            T_- = 2\pi \cdot \sqrt{\frac{l}{g+2K}} = \frac{2\pi}{\omega_-}\label{eqn:T_m}
+        \end{equation}
+    \item[Gekoppelt $\alpha_1 =0 \quad \alpha_2 \neq 0$]
         Bei Start schwingt ein Pendel und übertragt seine Energeie auf dad andere PEndel, das Maximunm ist erreicht wenn ein Pendel ruht und das andere still steht.
         Die Zeit zwischen zwei Stillständen eines Pendels wird Schwebung genannt.
-        Die Schwebungsauer ist = und die Frequenz =  
+        Die Schwebungsauer und die Frequenz der Schwebung werden folgendermaßen berechnet:
+        \begin{align}
+            T_S &= \frac{T_+ \cdot T_-}{T_+ - T_-}  & \omega_S &= \omega_+ - \omega_- \label{eqn:Schwebung}
+        \end{align}
+        Die Art der Kopplung zweier Pendel kann über die Kopplungskonstante $K$ beschrieben werden, mit
+        \begin{equation}
+            K = \frac{\omega_-^2 - \omega_+^2}{\omega_-^2 + \omega_+^2} = \frac{T_+^2 - T_-^2}{T_+^2 + T_-^2} \label{eqn:Kopplung}
+        \end{equation}
 \end{description}
