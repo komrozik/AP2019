@@ -11,7 +11,7 @@ build/main.pdf: FORCE | build
 	  TEXINPUTS=build: \
 	  BIBINPUTS=build: \
 	  max_print_line=1048576 \
-	latexmk \
+	latexmk -pvc\
 	  --lualatex \
 	  --output-directory=build \
 	  --interaction=nonstopmode \
