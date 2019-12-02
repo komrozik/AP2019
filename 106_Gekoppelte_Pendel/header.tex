@@ -12,7 +12,17 @@
 
 % unverzichtbare Mathe-Befehle
 \usepackage{amsmath}
-% viele Mathe-Symbole
+\def\approxprop{%
+  \def\p{%
+    \setbox0=\vbox{\hbox{$\propto$}}%
+    \ht0=0.6ex \box0 }%
+  \def\s{%
+    \vbox{\hbox{$\sim$}}%
+  }%
+  \mathrel{\raisebox{0.7ex}{%
+      \mbox{$\underset{\s}{\p}$}%
+    }}%
+}
 \usepackage{amssymb}
 % Erweiterungen für amsmath
 \usepackage{mathtools}
