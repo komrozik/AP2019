@@ -2,46 +2,47 @@
 \label{sec:Diskussion}
 
 In der Auswertung kam es bereits zu einigen unrealistischen und offensichtlichen
-falschen Werten die alle aus Berechnungen stammten.
+falschen Werten, die alle aus Berechnungen stammten.
 Im Folgenden soll die Ursache für die dramastischen Abweichungen analysiert werden.
 
 
 Dafür soll zu Beginn die Messung an sich überprüft werden.
-Dazu wird die jeweilige theoretische Schwingungsdauer mit den gemessenen Schwingungsdauern verglichen.
+Dazu wird die jeweilige theoretische Schwingungsdauer mit den gemessenen Schwingungsdauern vergliechen.
 \begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{plots/plot1.pdf}
     \caption{Gleichsinnige Schwingungen}
 \end{figure}
-Die Theoretische Kurve folgt aus Glichung (6!). Es wird deutlich, dass die gemessenen
+Die theoretische Kurve folgt aus Gleichung \ref{eqn:T_p}. Es wird deutlich, dass die gemessenen
 Schwingungsdauern $T_+$ mit den zu erwartenen Schwingungsdauern übereinstimmt.\\
 
-Für die gegensinnige Schwingung ergibt sich der zu erwartende theoretische Werte aus Geichung (8!).
+Für die gegensinnige Schwingung ergibt sich der zu erwartende theoretische Werte aus Gleichung \ref{eqn:T_m}.
 
 \begin{figure}
     \begin{subfigure}[c]{0.5\textwidth}
         \includegraphics[width=\textwidth]{plots/plot2.pdf}
         \subcaption{Pedel 72cm}
+        \label{fig:pendel72}
     \end{subfigure}
     \begin{subfigure}[c]{0.5\textwidth}
         \includegraphics[width=\textwidth]{plots/plot3.pdf}
         \subcaption{Pendel 80cm}
-        \label{fig:pedel80}
+        \label{fig:pendel80}
     \end{subfigure}
     \caption{Gegensinnige Schwingungsdauer}
 \end{figure}
 
-Hier bei wird besonders gut deutlich, dass bei \ref{fig:pendel80}, große Abweichungen
+Hier bei wird besonders gut deutlich, dass bei der Abbildung \ref{fig:pendel72}, besonders aber in Abbildung \ref{fig:pendel80}, große Abweichungen
 vorliegen. Dies lässt sich nur auf einen Messfehler zurückführen.
 Weiterführend sei zu beachten, dass die Kopplungskonstante die für die theoretische Kurve
 verwendet wird, ebenfalls aus diesen falschen Werten stammt.
 
 Dies erklärt weiterführend, warum die Kopplungskonstant aus \ref{eqn:kopplung80} nicht die selben
 sind.
-Behauptung: Der Messfehler der Gegensinnigen Schwingung von der Pendellänge $l=80cm$ und $l=72cm$ ist 
+Behauptung: Der Messfehler der gegensinnigen Schwingung von der Pendellänge $l=80cm$ und $l=72cm$ ist 
 ist ein Ursprung der Fehler.
 
-Stellt man Gleichung (\ref{eqn:T_m}) um, um die Größenordung der Kopplungskonstante $K$ zu erörtern, so gilt:
+Stellt man Gleichung \ref{eqn:T_m} um, um die Größenordung der Kopplungskonstante $K$ zu erörtern, so gilt:
 \begin{equation}
     K=\frac{2\pi^2l}{T_{-}^2}-\frac{g}{2}
 \end{equation}
@@ -52,9 +53,9 @@ Somit ergibt sich:
 \end{align*}
 Für diese neuen Kopplungskonstanten sei gesagt, dass sie nur als Größenordnung diehnen.
 Denn durch die passenden gleichsinnigen Schwingungsdauern $T_+$und den fehlerhaften gegensinnigen Schwingungsdauern $T_-$
-folgt nach Gleichung (\ref{eqn:Kopplungkonstante}) eine fehlerhaft Kopplungkonstante $K$.
+folgt nach Gleichung \ref{eqn:Kopplung} eine fehlerhaft Kopplungkonstante $K$.
  
-Trägt man für diese neuen Kopplungskonstanten die gegensinnigen Schwingungen auf, dies Bestätig die Annahme
+Trägt man für diese neuen Kopplungskonstanten die gegensinnigen Schwingungen auf, bestätigt dies die Annahme,
 das der Fehler in den gemessenen gegenphasigen Schwingungsdauern.  
 \begin{figure}
     \begin{subfigure}[c]{0.5\textwidth}
