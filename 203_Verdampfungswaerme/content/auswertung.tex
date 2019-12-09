@@ -1,3 +1,33 @@
 \newpage
 \section{Auswertung}
 \label{sec:Auswertung}
+\subsection{Niedrigdruckbereich}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{build/plot_a.pdf}
+    \caption{Ausgleichskurve für den Bereich unter 1 Bar}
+    \label{fig:Niedrigdruck}
+\end{figure}
+Damit werden aus der Ausgleichsgeraden die Parameter bestimmt:
+\begin{align}
+    a &= -141\pm 5 \; \text{K}\\
+    b &= 0.99\pm 0.09
+\end{align}
+Nachdem Gleichung (\ref{eqn:logarithm_p}) nach $L$ umgestellt wird folgt für $a$:
+\begin{align}
+    ln(p &= -\frac{L}{R}\frac{1}{T}+\text{const} // L &= -a\cdot R
+\end{align}
+Mit dem Fehler nach (???) folgt:
+\begin{align}
+    L = (1.18 \pm 0.04)\cdot 10^3 \; \frac{\text{J}}{\text{mol}}
+\end{align}
+\subsection{Hochdruckbereich}
+Mit der Gleichung (\ref{eqn:L}) folgt für L:
+\begin{align}
+    L = T(V_D - V_F) \frac{dp}{dT}
+\end{align}
+In der Formel wird $V_F$ vernachlässigt und $V_D$ wird mit folgender Formel berechnet:
+\begin{align}
+    \biggl( p+\frac{a}{V_D^2} \biggr) V &= RT\;\; \text{mit} \; a = 0,9 \; \frac{\text{Joule}\;{\text{m}}^3}{{\text{Mol}^2}}\\
+    V &= \frac{RT}{2p} \pm \sqrt{{\frac{RT}{2p}}^2-\frac{a}{p}}
+\end{align}
