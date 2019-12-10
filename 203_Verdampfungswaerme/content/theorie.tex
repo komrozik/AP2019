@@ -1,4 +1,3 @@
-\newpage
 \section{Theorie}
 \label{sec:theorie}
 Ziel: Bestimmung der Dampfdruckkurve im Bereich ca. 30-1000mbar.
@@ -70,6 +69,7 @@ Liegt die Temperatur $T$ weit unter dem kritischen Punkt K.P., so gelten folgend
 somit folgt:
 \begin{equation}
     (V_D-V_F)\;dp=\frac{L}{T}\;dT
+    \label{eqn:L}
 \end{equation}
 Dabei können $V_D$ und $V_F$ komplizierte Funktionen der Temperatur $T$ sein, wodurch eine 
 Integration im allgemeinen schwierig ist.\\
@@ -77,4 +77,5 @@ Unter den angeführten Bedingungen folgt aber für die Integration:
 \begin{gather}
     \textrm{ln($p$)} = -\frac{L}{R}\;\frac{1}{T}+\textrm{const}
    \Longleftrightarrow p=p_0\;exp(-\frac{L}{R}\cdot \frac{1}{T})
+   \label{eqn:logarithm_p}
 \end{gather}

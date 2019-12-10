@@ -1,53 +1,71 @@
-\newpage
 \section{Auswertung}
 \label{sec:Auswertung}
-
-%mit daten aus data1
-\begin{table}
+\subsection{Niedrigdruckbereich}
+\begin{figure}
     \centering
-    \begin{tabular}{c c || c c}
-    \toprule
-     $T\;/\;$°C & $p\;/\;$mbar & $T\;/\;$°C & $p\;/\;$mbar\\
-    \midrule
-    21&      26& 64&      237\\
-    22&      28& 65&      247\\
-    29&      40& 66&      262\\
-    30&      40& 67&      270\\
-    31&      42& 68&      287\\
-    32&      44& 69&      301\\
-    33&      48& 70&      310\\
-    34&      50& 71&      326\\
-    35&      55& 72&      331\\
-    36&      60& 73&      347\\
-    37&      62& 74&      367\\
-    38&      70& 75&      390\\
-    39&      71& 76&      407\\
-    40&      73& 77&      416\\
-    41&      76& 78&      433\\
-    42&      79& 79&      448\\
-    43&      84& 80&      471\\
-    44&      89& 81&      491\\
-    45&      95& 82&      509\\
-    46&      100& 83&      528\\
-    47&      104& 84&      551\\
-    48&      110& 85&      572\\
-    49&      116& 86&      589\\
-    50&      121& 87&      610\\
-    51&      126& 88&      641\\
-    52&      132& 89&      665\\
-    53&      140& 90&      686\\
-    54&      145& 91&      716\\
-    55&      151& 92&      750\\
-    56&      158& 93&      763\\
-    57&      175& 94&      804\\
-    58&      181& 95&      837\\
-    59&      188& 96&      866\\
-    60&      199& 97&      890\\
-    61&      206& 98&      930\\
-    62&      213& 99&      960\\
-    63&      225& 100&     999\\
-      &         & 101&     1040\\      
-    \bottomrule        
-    \end{tabular}
-    \caption{Werte}
-\end{table}
+    \includegraphics[width=0.7\textwidth]{build/plot_a.pdf}
+    \caption{Ausgleichskurve für den Bereich unter 1 Bar}
+    \label{fig:Niedrigdruck}
+\end{figure}
+Damit werden aus der Ausgleichsgeraden die Parameter bestimmt:
+\begin{align*}
+    a &= -5148 \pm 15 \; \text{K}\\
+    b &= 11.52 \pm 0.05
+\end{align*}
+Nachdem Gleichung (\ref{eqn:logarithm_p}) nach $L$ umgestellt wird folgt für $a$:
+\begin{align*}
+    \ln(p) &= -\frac{L}{R}\frac{1}{T}+\text{const} \\ L &= -a\cdot R
+\end{align*}
+Daraus folgt:
+\begin{align*}
+    L = (42.80\pm 0,12)\cdot 10^3 \; \frac{\text{J}}{\text{mol}}
+\end{align*}
+Aus dieser Verdampfungswärme $L$ soll nun die äußere Verdampfungswärme $L_a$ bestimmt werden.
+Dazu muss man die Volumenarbeit $W = pV$ mit der idealen Gasgleichung gleichsetzen.
+Für 100°C ergibt sich:
+\begin{align*}
+    L_a = pV = RT = 3101,3 \; \frac{\text{J}}{\text{mol}}
+\end{align*}
+Die dementsprechende innere Energie wird nun über die Differenz von $L$ und $L_a$ berechnet
+\begin{align*}
+    L_i = L - L_a = (39,70\pm0,12)\cdot 10^3 \; \frac{\text{J}}{\text{mol}}
+\end{align*}
+Um die genauere innere Energie jedes einzelnen Moleküls zu erhalten muss die gesamte innere Energie noch durch die Avogardo Konstante geteilt werden.
+\begin{align*}
+    L_i = 0.4115\pm 0.0012 eV
+\end{align*}
+\subsection{Hochdruckbereich}
+Mit der Gleichung (\ref{eqn:L}) folgt für L:
+\begin{align*}
+    L = T(V_D - V_F) \frac{dp}{dT}
+\end{align*}
+In der Formel wird $V_F$ vernachlässigt und $V_D$ wird mit folgender Formel berechnet:
+\begin{align*}
+    \biggl( p+\frac{a}{V_D^2} \biggr) V &= RT\;\; \text{mit} \; a = 0,9 \; \frac{\text{Joule}\;{\text{m}}^3}{{\text{Mol}^2}}\\
+    V &= \frac{RT}{2p} \pm \sqrt{{\frac{RT}{2p}}^2-\frac{a}{p}}
+\end{align*}
+Für den Bereich über 1 Bar ist L temperaturabhängig, daher wird hier p nicht logarithmisch über T geplottet.
+Als Fit wird hier ein Polynom 3. Ordnung verwendet.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{build/plot_b.pdf}
+    \caption{Ausgleichskurve für den Bereich über 1 Bar}
+    \label{fig:Hochdruck}
+\end{figure}
+\\Der Fit in Form von $p(T) = aT^3+bT^2+cT+d$ hat folgende Parameter:
+\begin{align*}
+    a &= (4,3\pm 1,4)\cdot 10^-6 \; \frac{\text{PA}}{\text{K}^3}\\
+    b &= -0,0040\pm 0,0019 \; \frac{\text{PA}}{\text{K}^2}\\
+    c &= 1,2\pm 0,8 \; \frac{\text{PA}}{\text{K}}\\
+    d &= -1,1\pm 1,1  \; \text{Pa}
+\end{align*}
+Mit Formel (11) in Formel (9) eingesetzt und den passenden Messwerten ergibt sich für L in Abhängigkeit von der Temperatur
+\begin{align*}
+    L(T) = \frac{(3aT^3+2bT^2+cT)}{aT^3+bT^2+cT+d}\cdot \biggl( \frac{RT}{2} \pm \sqrt{\frac{RT}{2}^2 - 0,9 \cdot (aT^3+bT^2+cT+d)} \biggr)
+\end{align*}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{build/plot_c.pdf}
+    \caption{Verdampfungswärme nach Temperatur aufgetragen}
+    \label{fig:Hochdruck}
+\end{figure}
