@@ -120,6 +120,7 @@ plt.close()
 
 #------------------------------------------------------------------------------
 #OUTPUTS
+#Ausgleichsgerade Temp plot
 print(f"Ausgleichsgerade T1:\nA:{unparams1[0]}\nB:{unparams1[1]}\nC:{unparams1[2]}\n")
 print(f"Ausgleichsgerade T2:\nA:{unparams2[0]}\nB:{unparams2[1]}\nC:{unparams2[2]}\n")
 
