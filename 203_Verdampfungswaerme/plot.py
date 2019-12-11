@@ -99,7 +99,6 @@ print(f"Parameter c: {unparams_b[2]}")
 print(f"Parameter d: {unparams_b[3]}")
 
 A = 0.9 
-
 # def L_berechnet(T,a,b,c,d):
 #     return(T/(pol(T,a,b,c,d)) * ( (R*T/2) + np.sqrt(( R*T/2 )**2 + A*(pol(T,a,b,c,d)) ) ) (3*a*T**2+2*b*T+c))
 
