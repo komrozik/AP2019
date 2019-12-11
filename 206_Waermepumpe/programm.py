@@ -1,28 +1,43 @@
+#INFOs siehe commit
+
+
 import numpy as np
 import matplotlib
 matplotlib.use('Qt4Agg')
 import matplotlib.pyplot as plt
 import sympy as sym
 from scipy import integrate
+import uncertainties.unumpy as unp 
+from uncertainties.unumpy import (nominal_values as noms, std_devs as stds)
 from scipy.optimize import curve_fit
 
 t,p1,p2,T1,T2,N=np.genfromtxt("data.txt",unpack=True)
 t*=60#sec
 T1=T1+273.15 #umrechnung in kelvin
 T2=T2+273.15 #umrechnung in kelvin
+C_Cu=750
+C_w=12570
 
 def function(x,A,B,C):
     return A*x**2+B*x+C
 def ableitung_function(x,A,B):
     return 2*A*x+B
 
+def functionL(x,a,b,c,d):
+    return a*x**3+b*x**2+c*x+d
+
 #Güteziffer
-def guetez(C_w,C_Cu,Tt,):
+def guetez(C_w,C_Cu,Tt,N):
     #C_w = Kapazität Wasser
     #C_Cu = Kapazität Kupfer
     #Tt = dT/dt
     Qt=(C_w+C_Cu)*Tt
-    return Qt/N
+    vreal=[0]*4
+    i=0
+    while i<=3:
+        vreal[i]=Qt[i]/N[i]
+        i=i+1
+    return vreal
 def mittelwert(data):
     return sum(data)/len(data)
 
@@ -35,10 +50,14 @@ plt.plot(t,T2,"g+",label="T2-Verlauf")
 plt.grid(True)
 
 #Temp curvefit
-params1, covarianc_matrix1=curve_fit(function,t,T1)
-params2, covarianc_matrix2=curve_fit(function,t,T2)
+params1, covariance_matrix1=curve_fit(function,t,T1)
+params2, covariance_matrix2=curve_fit(function,t,T2)
 plt.plot(t,function(t,*params1), "b-",label="Ausgleichsgerade T1")
 plt.plot(t,function(t,*params2), "g-",label="Ausgleichsgerade T2")
+errors1 = np.sqrt(np.diag(covariance_matrix1))
+errors2 = np.sqrt(np.diag(covariance_matrix2))
+unparams1 = unp.uarray(params1,errors1)
+unparams2 = unp.uarray(params2,errors2)
 
 plt.legend(loc="best")
 plt.savefig("build/plot_temp.pdf",bbox_inches='tight')
@@ -60,28 +79,80 @@ plt.ylabel("Druck $p2\;/\;\mathrm{bar}$")
 #plt.show()
 plt.close()
 
+
+#e)
+#(p,T) Kurven
+plt.plot(T1,p1,"b+",label="$(T_1,p_1)$ Dampfdruck Kurve")
+#plt.plot(T2,p2,"r+",label="$(T_2,p_2)$ Dampfdruck Kurve") Monometerfehler p1
+#curve_fit
+paramsL1, covariance_matrixL1=curve_fit(functionL,T1,p1)
+errorsL1 = np.sqrt(np.diag(covariance_matrixL1))
+unparamsL1 = unp.uarray(paramsL1,errorsL1)
+plt.plot(T1,functionL(T1,*paramsL1), "b-",label="Ausgleichskurve")
+
+#plt.xlim(20+273,55+273)
+#plt.ylim(np.log(5),np.log(13))
+plt.xlabel("Temperatur $T_1\;/\;K$")
+plt.ylabel("$p_1$")
+plt.show()
+plt.close()
+#Ĺ berechnen mit
+#(T/(functionL(T,a,b,c,d)) * ( (R*T/2) + np.sqrt(( R*T/2 )**2 + A*(functionL(T,a,b,c,d)) ) ) (3*a*T**2+2*b*T+c))
+a=paramsL1[0]
+b=paramsL1[1]
+c=paramsL1[2]
+d=paramsL1[3]
+R=8.314
+
+# Aberechnen
+A=1
+
+LT1=(3*a*T1**3+2*b*T1**2+c*T1/(functionL(T1,a,b,c,d))*((R*T1/2)+np.sqrt(R*T1**2/2+A*(functionL(T1,a,b,c,d)))))
+print(LT1)
+
+
+plt.plot(T1,LT1)
+plt.xlabel("Temperatur $T_1\;/\;K$")
+plt.ylabel("$L\;/\;J/mol$")
+plt.show()
+plt.close()
+
+
+#------------------------------------------------------------------------------
 #OUTPUTS
-print(f"Ausgleichsgerade T1:\nA:{params1[0]}\nB:{params1[1]}\nC:{params1[2]}\n")
-print(f"Ausgleichsgerade T2:\nA:{params2[0]}\nB:{params2[1]}\nC:{params2[2]}\n")
+print(f"Ausgleichsgerade T1:\nA:{unparams1[0]}\nB:{unparams1[1]}\nC:{unparams1[2]}\n")
+print(f"Ausgleichsgerade T2:\nA:{unparams2[0]}\nB:{unparams2[1]}\nC:{unparams2[2]}\n")
 
 
-T1t=[ableitung_function(t[3],params1[0],params1[1]),ableitung_function(t[7],params1[0],params1[1]),ableitung_function(t[13],params1[0],params1[1]),ableitung_function(t[17],params1[0],params1[1])]
+T1t=[ableitung_function(t[3],unparams1[0],unparams1[1]),ableitung_function(t[7],unparams1[0],unparams1[1]),ableitung_function(t[13],unparams1[0],unparams1[1]),ableitung_function(t[17],unparams1[0],unparams1[1])]
 print(f"Differentialquotient T1:\n{t[3]} & {T1[3]} & {T1t[0]} & \\\\")
 print(f"{t[7]} & {T1[7]} & {T1t[1]} & \\\\")
 print(f"{t[13]} & {T1[13]} & {T1t[2]} & \\\\")
 print(f"{t[17]} & {T1[17]} & {T1t[3]} & \\\\")
 print(f"Mittelwert: {mittelwert(T1t)}\n")
 
-T2t=[ableitung_function(t[3],params2[0],params2[1]),ableitung_function(t[7],params2[0],params2[1]),ableitung_function(t[13],params2[0],params2[1]),ableitung_function(t[17],params2[0],params2[1])]
+T2t=[ableitung_function(t[3],unparams2[0],unparams2[1]),ableitung_function(t[7],unparams2[0],unparams2[1]),ableitung_function(t[13],unparams2[0],unparams2[1]),ableitung_function(t[17],unparams2[0],unparams2[1])]
 print(f"Differentialquotient T2:\n{t[3]} & {T2[3]} & {T2t[0]} & \\\\")
 print(f"{t[7]} & {T2[7]} & {T2t[1]} & \\\\")
 print(f"{t[13]} & {T2[13]} & {T2t[2]} & \\\\")
 print(f"{t[17]} & {T2[17]} & {T2t[3]} & \\\\")
 print(f"Mittelwert: {mittelwert(T2t)}\n")
 
+
+#d)
+#videal mit T1/(T1-T2)
 videal=[0]*18
 i=0
 while(i<=17):
     videal[i]=T1[i]/(T1[i]-T1[i+1])
     i=i+1
-print(videal)
+
+#vreal
+Nv=[N[3],N[7],N[13],N[17]]
+vreal=guetez(C_w,C_Cu,T1t,Nv)
+print(f"videal: {videal}\n")
+print(f"vreal: {vreal}")
+#print(f"T1:{T1}")
+
+#Dampfdruck Kurve für L werte ax^3+bx^2+cx+d"
+print(f"Ausgleichskurve (p1,T1) für L:\na:{unparamsL1[0]}\nb:{unparamsL1[1]}\nc:{unparamsL1[2]}\nd:{unparamsL1[3]}")
