@@ -12,6 +12,8 @@ from uncertainties.unumpy import (nominal_values as noms, std_devs as stds)
 from scipy.optimize import curve_fit
 
 t,p1,p2,T1,T2,N=np.genfromtxt("data.txt",unpack=True)
+p1 += 1
+p2 += 1
 t*=60#sec
 T1=T1+273.15 #umrechnung in kelvin
 T2=T2+273.15 #umrechnung in kelvin
@@ -94,7 +96,7 @@ plt.plot(T1,functionL(T1,*paramsL1), "b-",label="Ausgleichskurve")
 #plt.ylim(np.log(5),np.log(13))
 plt.xlabel("Temperatur $T_1\;/\;K$")
 plt.ylabel("$p_1$")
-plt.show()
+#plt.show()
 plt.close()
 #Ĺ berechnen mit
 #(T/(functionL(T,a,b,c,d)) * ( (R*T/2) + np.sqrt(( R*T/2 )**2 + A*(functionL(T,a,b,c,d)) ) ) (3*a*T**2+2*b*T+c))
@@ -114,7 +116,7 @@ print(LT1)
 plt.plot(T1,LT1)
 plt.xlabel("Temperatur $T_1\;/\;K$")
 plt.ylabel("$L\;/\;J/mol$")
-plt.show()
+#plt.show()
 plt.close()
 
 
@@ -184,3 +186,13 @@ while i<=3:
 
 print(f"Das ist L: {L_array}")
 print(f"Das ist der Massendurchsatz: {dm}")
+
+p2_array = [p2[3],p2[7],p2[13],p2[17]]
+p1_array = [p1[3],p1[7],p1[13],p1[17]]
+rho0 = 5.51  # in kg/m^3
+T0 = 273.15  # in kelvin
+p0 = 1  # in bar
+kappa = 1.14  # dim. los
+d_rho = ((rho0*T0)/p0) * p1_array/T1
+Nmech = 1/(kappa - 1) * (p2_array * (p1_array/p2_array)**(1/kappa) - p1_array) * 1/d_rho * dm *1e3 *1e-1 # in W, 1e-1 wegen bar nach Pascal
+print(f"Nmech: {Nmech}")
