@@ -13,6 +13,9 @@ from scipy.optimize import curve_fit
 def Mittelwert(y):
     return (sum(y))/len(y)
 
+def standartabw(x,xm):
+    return np.sqrt(sum((x-xm)**2)/len(x))
+
 #IMPORT DATA
 data_raw=np.genfromtxt("data.txt", unpack = True)
 data=data_raw/5 #für alle außer für Schwebung
@@ -24,7 +27,10 @@ T_P1 = data[0] #T_1
 T_P2 = data[1] #T_2 
 M_P1 = Mittelwert(T_P1)
 M_P2 = Mittelwert(T_P2)
+S_P1= standartabw(T_P1,M_P1)
+S_P2= standartabw(T_P2,M_P2)
 print(f"Frei schwingende Pendel - Mittelwerte\nPendel1 (72cm): {M_P1}\nPedel2 (72cm): {M_P2}")
+print(f"Frei schwingende Pendel - Standartabweichung\nPendel1 (72cm): {S_P1}\nPedel2 (72cm): {S_P2}")
 print(f"Werte Pendel1 {data[0]}\nWerte Pendel2: {data[1]}\n")
 
 #Gleichsinnige Schwingung mit Pendellängen l1 und l2
@@ -32,9 +38,12 @@ T1_p = data[2] #T_+ 72cm
 T2_p = data[3] #T_+ 80cm
 M1_p = Mittelwert(T1_p)
 M2_p = Mittelwert(T2_p)
+S1_p= standartabw(T1_p,M1_p)
+S2_p= standartabw(T2_p,M2_p)
 wg1_p= 2*np.pi/M1_p #gemessen Frequenz mit wg=2pi/T
 wg2_p= 2*np.pi/M2_p
 print(f"Gleichsinnige Schwingung - Mittelwert\nPendel (72cm): {M1_p}\nPendel (80cm): {M2_p}")
+print(f"Gleichsinnige Schwingung - Standartabweichung\nPendel (72cm): {S1_p}\nPendel (80cm): {S2_p}")
 print(f"Werte Pendel1 {data[2]}\nWerte Pendel2: {data[3]}\n")
 
 #Gegenphasige Schwingung mit Pendellänge l1 und l2
@@ -42,9 +51,12 @@ T1_m = data[7] #T_- 72cm
 T2_m = data[4] #T_- 80cm
 M1_m = Mittelwert(T1_m)
 M2_m = Mittelwert(T2_m)
+S1_m= standartabw(T1_m,M1_m)
+S2_m= standartabw(T2_m,M2_m)
 wg1_m= 2*np.pi/M1_m #Frequenz mit w=1/T
 wg2_m= 2*np.pi/M2_m
 print(f"Gegenphasige Schwingung - Mittelwert\nPendel (72cm): {M1_m}\nPednel (80cm): {M2_m}"+'\x1b[6;30;42m' + ' Komisch!' + '\x1b[0m')
+print(f"Gegenphasige Schwingung - Standartabweichung\nPendel (72cm): {S1_m}\nPednel (80cm): {S2_m}"+'\x1b[6;30;42m' + ' Komisch!' + '\x1b[0m')
 print(f"Werte Pendel1 {data[7]}\nWerte Pendel2: {data[4]}\n")
 #!!! Längeres Pendel schneller --> Widerspruch?
 
@@ -53,16 +65,22 @@ T1_schwi = data[8] #T_s_schwingung 72cm
 T1_schwe = data_raw[9] #T_s_schwebung 72cm
 M1_schwi = Mittelwert(T1_schwi)
 M1_schwe = Mittelwert(T1_schwe)
+S1_schwi= standartabw(T1_schwi,M1_schwi)
+S1_schwe= standartabw(T1_schwe,M1_schwe)
 wg1_schwi= 2*np.pi/M1_schwi #Frequenz mit w=1/T
 print(f"Schwebung/Schwingung 72cm - Mittelwert\nSchwingung: {M1_schwi}\nSchwebung: {M1_schwe}")
+print(f"Schwebung/Schwingung 72cm - Schandartabweichung\nSchwingung: {S1_schwi}\nSchwebung: {S1_schwe}")
 print(f"Schwingung {data[8]}\nSchwebung: {data_raw[9]}\n")
 
 T2_schwi = data[5] #T_s_schwingung 80cm
 T2_schwe = data_raw[6] #T_s_schwebung 80cm
 M2_schwi = Mittelwert(T2_schwi)
 M2_schwe = Mittelwert(T2_schwe)
+S2_schwi= standartabw(T2_schwi,M2_schwi)
+S2_schwe= standartabw(T2_schwe,M2_schwe)
 wg2_schwi= 2*np.pi/M2_schwi
 print(f"Schwebung/Schwingung 80cm - Mittelwert\nSchwingung: {M2_schwi}\nSchwebung: {M2_schwe}")
+print(f"Schwebung/Schwingung 80cm - Schandartabweichung\nSchwingung: {S2_schwi}\nSchwebung: {S2_schwe}")
 print(f"Schwingung {data[5]}\nSchwebung: {data_raw[6]}\n\n")
 #------------------------------------------------------------------------------------------------------------------------------------------------------------
 
