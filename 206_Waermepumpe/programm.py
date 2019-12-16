@@ -170,7 +170,7 @@ plt.plot(x_plot,functionL(x_plot,*params_L),label='Fit')
 plt.ylabel(f"p")
 plt.xlabel(f"T in K")
 plt.legend()
-plt.savefig("build/plot_b.pdf",bbox_inches='tight')
+plt.savefig("build/plot_L.pdf",bbox_inches='tight')
 #plt.show()
 plt.close()
 
@@ -193,6 +193,7 @@ rho0 = 5.51  # in kg/m^3
 T0 = 273.15  # in kelvin
 p0 = 1  # in bar
 kappa = 1.14  # dim. los
-d_rho = ((rho0*T0)/p0) * p1_array/T1
-Nmech = 1/(kappa - 1) * (p2_array * (p1_array/p2_array)**(1/kappa) - p1_array) * 1/d_rho * dm *1e3 *1e-1 # in W, 1e-1 wegen bar nach Pascal
+d_rho = ((rho0*T0)/p0) * p1/T1
+d_rho = [d_rho[3],d_rho[7],d_rho[13],d_rho[17]]
+Nmech = 1/(kappa - 1) * (p2_array[0] * (p1_array[0] *1/p2_array[0])**(1/kappa) - p1_array[0]) * 1/d_rho[0] * dm[0] *1e3 *1e-1 # in W, 1e-1 wegen bar nach Pascal
 print(f"Nmech: {Nmech}")

@@ -1,7 +1,7 @@
 all: build/main.pdf
 
 # hier Python-Skripte:
-build/plot_temp.pdf:plot.py programm.py header-matplotlib.tex | build
+build/plot_temp.pdf: programm.py header-matplotlib.tex | build
 	TEXINPUTS=$$(pwd): python programm.py
 	
 

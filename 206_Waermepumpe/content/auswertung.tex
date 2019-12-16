@@ -92,6 +92,48 @@
         
         \end{tabular}
     \end{table}
-    \subsection{Massendurchsatz}
-    \subsection{Mechanische Kompressionsleistung}
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Massendurchsatz}
+Zuerst wird die Verdampfungswärme mithilfe einer linearen Regression wie in Versuch 203 bestimmt.
+
+\begin{figure}
+  \includegraphics{build/plot_L.pdf}
+  \caption{Dampfdruckkurve für $\symup{P}$ und $\symup{T}$ im warmen Reservoir.}
+  \label{fig:Dampfp}
+\end{figure}
+
+Es wird eine Ausgleichsrechnung mit
+\begin{equation}
+  f(x)= Ax^3+Bx^2+Cx+D
+\end{equation}
+Wobei $A, B , C$ und $D$ die Koeffizienten der Rechnung sind.
+\\
+Die Paramter der linearen Ausgleichsrechnung ergeben sich zu
+\begin{align*}
+  \symup{A} &= \SI{17721.75 \pm 1000.48}{\kelvin} \\
+  \symup{B} &= \num{9.29(39)} \\
+  \symup{C} &= \num{9.29(39)} \\
+  \symup{D} &= \num{9.29(39)} \:
+\end{align*}
+\\
+Die Unsicherheit ergibt sich mit der Gauß'schen Fehlerfortpflanzung nach
+\begin{equation}
+  \increment \symup{L} = \frac{1}{M} \increment \symup{A}
+  \label{eqn:gauss}
+\end{equation}
+Mit dem so erhaltenen Wert für $L$ wird nun der Massendurchsatz gemäß
+\eqref{eqn:massendurchsatz} bestimmt.
+Der Massendurchsatz $\symup{d}m / \symup{d}t$ an der jeweiligen Messstelle ist
+in Tabelle \ref{tab:durchsätzli} aufgeführt.
+
+Die Unsicherheiten entstehen wieder nach Gaußfehler \ref{eqn:gauss}.
+Für $\increment \dot{m}$ gilt dann
+\begin{equation}
+  \increment \dot{m} = \frac{1}{L} \sqrt{\dot{Q}_\text{kalt}^2 (\increment L)^2
+  + (\increment \dot{Q}_\text{kalt})^2}
+\end{equation}
+
+\subsection{Mechanische Kompressionsleistung}
     
