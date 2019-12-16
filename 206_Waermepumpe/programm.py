@@ -145,7 +145,7 @@ print(f"Mittelwert: {mittelwert(T2t)}\n")
 videal=[0]*18
 i=0
 while(i<=17):
-    videal[i]=T1[i]/(T1[i]-T1[i+1])
+    videal[i]=T1[i]/(T1[i]-T2[i])
     i=i+1
 
 #vreal
@@ -156,4 +156,31 @@ print(f"vreal: {vreal}")
 #print(f"T1:{T1}")
 
 #Dampfdruck Kurve für L werte ax^3+bx^2+cx+d"
-print(f"Ausgleichskurve (p1,T1) für L:\na:{unparamsL1[0]}\nb:{unparamsL1[1]}\nc:{unparamsL1[2]}\nd:{unparamsL1[3]}")
+params_L, covariance_matrix_L = curve_fit(functionL,T1,p1)
+errors_L = np.sqrt(np.diag(covariance_matrix_L))
+unparams_L = unp.uarray(params_L,errors_L)
+plt.plot(T1,p1,"kx",label="Dampfdruck")
+A =0.9
+L_berechnet = T1/(functionL(T1,*params_L)) * ( (R*T1/2) + np.sqrt(( R*T1/2 )**2 + A*(functionL(T1,*params_L)) ) )* (3*params_L[0]*T1**2+2*params_L[1]*T1+params_L[2])
+
+x_plot = np.linspace(T1[0],T1[18])
+plt.plot(x_plot,functionL(x_plot,*params_L),label='Fit')
+plt.ylabel(f"p")
+plt.xlabel(f"T in K")
+plt.legend()
+plt.savefig("build/plot_b.pdf",bbox_inches='tight')
+#plt.show()
+plt.close()
+
+#Massendurchsatz:
+
+Qt=(C_w+C_Cu)*T1t
+L_array = [L_berechnet[3],L_berechnet[7],L_berechnet[13],L_berechnet[17]]
+dm = [0]*4
+i=0
+while i<=3:
+    dm[i]=Qt[i]/N[i]
+    i=i+1
+
+print(f"Das ist L: {L_array}")
+print(f"Das ist der Massendurchsatz: {dm}")
