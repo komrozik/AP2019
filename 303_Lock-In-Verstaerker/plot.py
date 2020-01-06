@@ -13,26 +13,27 @@ from scipy.optimize import curve_fit
 
 #5) LED | d=distanc, V=Spannung
 d,V=np.genfromtxt("data3.txt", unpack = True)
-d=d-18.6
+
 kehr_V=1/V
 i=0
-while(i<len(d)-1):
-    print(f"{d[i]} & {d[i+1]} \\\\ \n")
-    i=i+1
+# while(i<len(d)-1):
+#     print(f"{d[i]} & {d[i+1]} \\\\ \n")
+#     i=i+1
 
 
-x_plot = np.linspace(0,36)
+x_plot = np.linspace(18,55)
 def function(x,a,b):
     return (a*1/(x**2))+b
 params, covariance_matrix = curve_fit(function,d,V)
+#print(f"Parameter: {params}")
+#print(f"Spannung: {V}")
 errors = np.sqrt(np.diag(covariance_matrix))
-plt.plot(x_plot,function(x_plot,*params),label='Fit')
-
+plt.plot(x_plot-18.5,function(x_plot,*params),label='Fit')
+d=d-18.5
 plt.plot(d,V,"rx",label="Messwerte")
 plt.ylabel(f"Spannung $U \;/\;V$")
 plt.xlabel(f"Entfernung$\;/\;cm$")
 plt.legend()
 plt.savefig('build/plotLED.pdf',bbox_inches='tight')
-plt.close()
-
 #plt.show()
+plt.close()
