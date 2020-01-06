@@ -20,21 +20,19 @@ while(i<=len(d)-1):
     i=i+1
 
 
-
-x_plot = np.linspace(0,36)
+x_plot = np.linspace(18,55)
 def function(x,a,b):
     return (a*1/(x**2))+b
 params, covariance_matrix = curve_fit(function,d,V)
+#print(f"Parameter: {params}")
+#print(f"Spannung: {V}")
 errors = np.sqrt(np.diag(covariance_matrix))
-unparams = unp.uarray(params,errors)
-print(f"a={unparams[0]} b={unparams[1]}")
-
-plt.plot(x_plot,function(x_plot,*params),label='Fit')
+plt.plot(x_plot-18.5,function(x_plot,*params),label='Fit')
+d=d-18.5
 plt.plot(d,V,"rx",label="Messwerte")
 plt.ylabel(f"Spannung $U \;/\;V$")
 plt.xlabel(f"Entfernung$\;/\;cm$")
 plt.legend()
 plt.savefig('build/plotLED.pdf',bbox_inches='tight')
-plt.close()
-
 #plt.show()
+plt.close()
