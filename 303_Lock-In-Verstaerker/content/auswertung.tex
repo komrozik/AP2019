@@ -52,8 +52,8 @@ Die Intensität $U$ verhält sich dabei im Abstand $d$ wie folgt:
 \end{equation*}
 Die Parameter der gefitteten Funktion sind damit:
 \begin{align}
-    a= Wcm^2\\
-    b= W
+    a= 2783 Wcm^2\\
+    b= -0,921 W
 \end{align}
 Der maximale Abstand $d_{max}$ befindet sich bei: $d_{max}=29.4$cm.
 
@@ -137,3 +137,86 @@ Im folgenden sind die Oszillator-Bilder der Spannungen für die Phasenverschiebu
     \caption{Phase 225° mit Rauschen}        
     \label{fig:MAP012}
 \end{figure}
+
+\begin{table}
+    \centering
+    \begin{tabular}{c c}
+        \toprule
+        $d\;/\;$cm & $U\;/\;$V\\
+        \midrule
+        0.0 & 0.0 \\ 
+        30.0 & 1.5 \\ 
+        60.0 & 3.5 \\ 
+        90.0 & 4.0 \\ 
+        120.0 & 3.75 \\ 
+        150.0 & 2.0 \\ 
+        180.0 & 0.5 \\ 
+        210.0 & -1.0 \\ 
+        240.0 & -3.0 \\ 
+        270.0 & -3.5 \\ 
+        300.0 & -3.0 \\ 
+        330.0 & -1.5 \\ 
+        360.0 & 0.0 \\ 
+        \bottomrule
+    \end{tabular}
+    \caption{Messung der Spannung verschiedener Phasen}
+    \label{tab:V1_Werte}
+\end{table}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{build/plot1.pdf}
+    \caption{Messwerte - Spannung in abhängigkeit von der Phase}        
+    \label{fig:plot1}
+\end{figure}
+
+Die Spannung $U$ kann durch 
+\begin{equation*}
+    U_{out} = \frac{2}{\pi} A*cos(\frac{\phi}{180}\pi+B)
+\end{equation*}
+berechnet werden.
+Durch eine Ausgleichsrechnung ergibt sich
+\begin{align*}
+    A=  -5.763 V\\
+    B=  1.513
+\end{align*}
+\begin{table}
+    \centering
+    \begin{tabular}{c c}
+        \toprule
+        $d\;/\;$cm & $U\;/\;$V\\
+        \midrule
+        0.0 & -4.5 \\
+        30.0 & -4.0 \\
+        60.0 & -2.0 \\
+        90.0 & -0.9 \\
+        120.0 & 1.5 \\
+        150.0 & 4.0 \\
+        180.0 & 4.75 \\
+        210.0 & 4.5 \\
+        240.0 & 3.0 \\
+        270.0 & 1.0 \\
+        300.0 & -1.0 \\
+        330.0 & -3.5 \\
+        360.0 & -4.5 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Messung der Spannung verschiedener Phasen mit Rauschen}
+    \label{tab:V2_Werte}
+\end{table}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{build/plot1.pdf}
+    \caption{Messwerte - Spannung in abhängigkeit von der Phase mit Rauschen}        
+    \label{fig:plot2}
+\end{figure}
+Die Spannung $U$ kann wieder durch 
+\begin{equation*}
+    U_{out} = \frac{2}{\pi} A*cos(\frac{\phi}{180}\pi+B)
+\end{equation*}
+berechnet werden.
+Durch eine weitere Ausgleichsrechnung ergibt sich
+\begin{align*}
+    A=  -7.137 V\\
+    B=  6.115
+\end{align*}

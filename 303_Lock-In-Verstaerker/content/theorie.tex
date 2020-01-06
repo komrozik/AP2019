@@ -7,7 +7,7 @@ Aufbau sowie Funktion eines Lock-In-Verstärkers untersuchen.
 
 Ein Lock-In-Verstärker beinhaltet einen integrierten phasenempfindlichen Detektor.
 Er wird zur Messung von stark verrauschten Signalen verwendet.
-Dafür wählt man eine Referenzfrequen $\omega_0$, mit derer das Messignal moduliert wird.
+Dafür wählt man eine Referenzfrequenz $\omega_0$, mit der das Messsignal moduliert wird.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{bilder/aufbau_schema.jpg}
@@ -16,20 +16,20 @@ Dafür wählt man eine Referenzfrequen $\omega_0$, mit derer das Messignal modul
 \end{figure}
 
 Hauptbestandteil sind dabei Bandpassfilter (lässt nur Signale eines bestimmten Bandpasses passieren),
-Phasenschieber, Mischer und ein Tiefpassfilter (lässt Signale unterhalb der Grenzfrquenz passieren).
+Phasenschieber, Mischer und ein Tiefpassfilter (lässt Signale unterhalb der Grenzfrequenz passieren).
 \subsection{Funktionsweise}
 
-Basis ist ein verrauschtes Nutzsignal $U_{sig}$. Dieses Signal
+Basis ist ein verrauschtes Nutzsignal $U_{\text{sig}}$. Dieses Signal
 passiert zu erst den Bandpassfilter, der die Rauschanteil um $\omega_0$ entfernt.
-Dies wird im Mischer mit einem Referenzsignal $U_{ref}$ mit der Frequen $\omega_0$ multipliziert.
+Dies wird im Mischer mit einem Referenzsignal $U_{\text{ref}}$ mit der Frequenz $\omega_0$ multipliziert.
 Dabei kann über den Phasenschieber die Phasenlage $\Phi$ reguliert werden, sodass
 die Signale synchronisiert werden können ($\Delta \Phi=0$).
 Im nachfolgenden integriert der Tiefpass das Mischsignal und mittelt Rauschbeträge
 heraus. Schließlich gilt für das Ausgangssignal:
 \begin{equation}
-    U_{out} \propto U_0 \;\textrm{cos}\;\Phi
+    U_{\text{out}} \propto U_0 \;\textrm{cos}\;\Phi
 \end{equation}
 Die Bandbreite des Rauschens,kann durch die Zeitkonstante $\tau=RC$
 des Tiefpasses beliebig klein variiert werden.
-Dieses Kompination verbessert die Güte um das 100fache, gegenüber einem
+Dieses Kompination verbessert die Güte um das 100 fache, gegenüber einem
 einfachen Bandpass.
