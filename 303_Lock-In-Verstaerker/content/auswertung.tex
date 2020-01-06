@@ -8,30 +8,31 @@ Zu 5.)\\
     \centering
     \begin{tabular}{c c}
         \toprule
-        $x\;/\;$cm & $U\;/\;$V\\
+        $d\;/\;$cm & $U\;/\;$V\\
         \midrule
-        0.0 & 0.39 \\ 
-        0.4 & 1.4 \\ 
-        1.4 & 2.4 \\ 
-        2.4 & 3.4 \\ 
-        3.4 & 4.4 \\ 
-        4.4 & 5.4 \\ 
-        5.4 & 6.4 \\ 
-        6.4 & 7.4 \\ 
-        7.4 & 9.4 \\ 
-        9.4 & 10.4 \\ 
-        10.3 & 11.4 \\ 
-        11.4 & 13.4 \\ 
-        13.4 & 15.4 \\ 
-        15.4 & 17.4 \\ 
-        17.4 & 19.4 \\ 
-        19.4 & 21.4 \\ 
-        21.4 & 23.4 \\ 
-        23.4 & 25.4 \\ 
-        25.4 & 27.4 \\ 
-        27.4 & 29.4 \\ 
-        29.4 & 31.4 \\ 
-        31.4 & 35.4 \\
+        0.0 & 8.0 \\ 
+        0.4 & 7.5 \\ 
+        1.4 & 6.0 \\ 
+        2.4 & 5.25 \\ 
+        3.4 & 4.5 \\ 
+        4.4 & 4.0 \\ 
+        5.4 & 3.5 \\ 
+        6.4 & 3.0 \\ 
+        7.4 & 2.75 \\ 
+        9.4 & 2.25 \\ 
+        10.4 & 2.0 \\ 
+        11.4 & 2.0 \\ 
+        13.4 & 1.5 \\ 
+        15.4 & 1.5 \\ 
+        17.4 & 1.25 \\ 
+        19.4 & 1.0 \\ 
+        21.4 & 1.0 \\ 
+        23.4 & 0.9 \\ 
+        25.4 & 0.75 \\ 
+        27.4 & 0.6 \\ 
+        29.4 & 0.5 \\ 
+        31.4 & 0.5 \\ 
+        35.4 & 0.5 \\ 
         \bottomrule
     \end{tabular}
     \caption{Messung der Intensität mit der Photodiode}
@@ -45,6 +46,20 @@ Zu 5.)\\
     \label{fig:plotLED}
 \end{figure}
 
+Die Intensität $U$ verhält sich dabei im Abstand $d$ wie folgt:
+\begin{equation*}
+    U=a\;\frac{1}{x^2}+b
+\end{equation*}
+Die Parameter der gefitteten Funktion sind damit:
+\begin{align}
+    a= Wcm^2\\
+    b= W
+\end{align}
+Der maximale Abstand $d_{max}$ befindet sich bei: $d_{max}=29.4$cm.
+
+\subsection{Funktionsweise Lock-In-Verstärker}
+Zu 2.)\\
+Im folgenden sind die Oszillator-Bilder der Spannungen für die Phasenverschiebungen $\phi = 0°, 90°, 135°, 180°$ und $225°$ dargestellt.
 
 \begin{figure}
     \centering
@@ -88,12 +103,12 @@ Zu 5.)\\
     \label{fig:MAP007}
 \end{figure}
 
-% \begin{figure}
-%     \centering
-%     \includegraphics[width=0.5\textwidth]{bilder/MAP008.png}
-%     \caption{MAP008}        
-%     \label{fig:MAP008}
-% \end{figure}
+ \begin{figure}
+     \centering
+     \includegraphics[width=0.5\textwidth]{bilder/MAP008.png}
+     \caption{Phase 30° mit Rauschen}        
+     \label{fig:MAP008}
+ \end{figure}
 
 \begin{figure}
     \centering
