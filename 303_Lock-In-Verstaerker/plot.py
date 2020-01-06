@@ -16,7 +16,7 @@ d,V=np.genfromtxt("data3.txt", unpack = True)
 d=d-18.6
 kehr_V=1/V
 i=0
-while(i<len(d)):
+while(i<len(d)-1):
     print(f"{d[i]} & {d[i+1]} \\\\ \n")
     i=i+1
 
