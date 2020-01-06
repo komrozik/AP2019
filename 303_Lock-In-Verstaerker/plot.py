@@ -13,7 +13,6 @@ from scipy.optimize import curve_fit
 
 #5) LED | d=distanc, V=Spannung
 d,V=np.genfromtxt("data3.txt", unpack = True)
-d=d-18.6
 i=0
 while(i<=len(d)-1):
     print(f"{d[i]} & {V[i]} \\\\ \n")
