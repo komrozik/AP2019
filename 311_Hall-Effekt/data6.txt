@@ -1,0 +1,14 @@
+#Zink d_zn=0.08mm -  Magnetfeld konstant
+#Stromstärke(B)     HALL_Spannung       durchfließender Strom
+5                   -0.0012             0
+5                   -0.0373             1
+5                   -0.0755             2
+5                   -0.1136             3
+5                   -0.1530             4
+5                   -0.1919             5
+5                   -0.2291             6
+5                   -0.2671             7
+5                   -0.3090             8
+5                   -0.3512             9
+5                   -0.3957             10
+

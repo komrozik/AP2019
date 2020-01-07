@@ -1,0 +1,14 @@
+#Kupfer d_cu=18um - durchfließender Strom konstant
+#Stromstärke(B)     HALL_Spannung       durchfließender Strom
+#I/A                U/mV                I/A   
+0                   0.0081              10
+0.5                 0.0055              10
+1.0                 0.0039              10
+1.5                 0.0012              10
+2.0                 -0.0008             10
+2.5                 -0.0025             10
+3.0                 -0.0048             10
+3.5                 -0.0068             10
+4.0                 -0.0086             10
+4.5                 -0.0097             10
+5.0                 -0.0110             10

@@ -1,0 +1,4 @@
+#Kupfer CU - Materialwerte
+#Widerstand     Länge
+#Ohm            cm      
+2.7340          137

@@ -1,0 +1,4 @@
+#Silber Ag - Materialwerte
+#Widerstand     Länge   Dicke
+#Ohm            cm      um
+0.5873          173     100
