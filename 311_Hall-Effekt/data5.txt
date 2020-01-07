@@ -1,0 +1,13 @@
+#Zink d_zn=0.08mm -  Durchfließender Strom konstant
+#Stromstärke(B)     HALL_Spannung       durchfließender Strom
+0                   -0.4094             10
+0.5                 -0.4042             10
+1.0                 -0.4024             10
+1.5                 -0.4004             10
+2.0                 -0.3981             10
+2.5                 -0.3981             10
+3.0                 -0.3950             10
+3.5                 -0.3928             10
+4.0                 -0.3900             10
+4.5                 -0.3880             10
+5.0                 -0.3800             10

@@ -1,0 +1,14 @@
+#Kupfer d_cu=18um - konstantes B-Feld
+#Stromstärke(B)     HALL_Spannung       durchfließender Strom
+#I/A                U/mV                I/A
+5                   0.0029              0
+5                   0.0005              1
+5                   -0.0015             2
+5                   -0.0030             3
+5                   -0.0044             4
+5                   -0.0056             5
+5                   -0.0075             6
+5                   -0.0088             7
+5                   -0.0110             8
+5                   -0.0129             9
+5                   -0.0140             10
