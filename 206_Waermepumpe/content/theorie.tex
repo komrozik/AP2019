@@ -1,14 +1,14 @@
  \section*{Ziel}
     Es soll die Güteziffer $\nu$ einer Wärmepumpe, der Massendurchsatz 
-    von Dichlordifluormethan $Cl_2F_2C$ und mechanische Leistung des verwendeten
+    von Dichlordifluormethan $Cl_2F_2C$ und die mechanische Leistung des verwendeten
     Kompressors ermittelt werden.
 \section{Theorie}  
 \label{sec:theorie}
     Natürlicherweiße fließt Wärmeenergie in einem abgeschlossenen
-    System vom heißen ins kalte Resservoir.
+    System von einem heißen immer ins kalte Reservoir.
     Möchte man den Wärmefluss umkehren, so muss Arbeit verrichtet werden.
     Diese Aufgabe übernimmt eine sogenannte Wärmepumpe.\\
-    Es gilt nach dem Ersten Hauptsatz der Theromdynamik:
+    Es gilt nach dem ersten Hauptsatz der Theromdynamik:
     \begin{equation}
         Q_1=Q_2+A
         \label{eqn:1HS}
@@ -25,8 +25,9 @@
         \frac{Q_1}{T_1}-\frac{Q_2}{T_2}>0
     \end{equation*}\\
 
+    Die Güteziffer einer Wärmepumpe ist definert als 
     \begin{equation}
-        \text{Die Güteziffer einer Wärmepumpe ist definert als } \nu=\frac{Q_1}{A}
+        \nu=\frac{Q_1}{A}
         \label{eqn:v_main}
     \end{equation}
     somit folgt mit Gleichung \eqref{eqn:1HS}, \eqref{eqn:2HS} und \eqref{eqn:v_main}:
@@ -34,13 +35,14 @@
         \nu_{ideal}=\frac{Q_1}{A}=\frac{T_1}{T_1-T_2}>\nu_{real}
     \end{equation}
 
-    Die reale Güteziffer ergibt sich nach:
+Die reale Güteziffer ergibt sich nach:
+    
     \begin{equation}
         \nu_{real}=\frac{\Delta Q_1}{\Delta tN}=(m_2c_w + m_kc_k)\;\frac{\Delta T_2}{\Delta tN}=L\frac{\Delta m}{\Delta tN}     
     \end{equation}
-        Mit $N$ gemittelte Leistungsaufnahme über $\Delta t$ des kompressors \newline
-        Mit $m$ als Massendurchsatz\\
-        Mit $L$ als Verdampfungswärme
+        
+    Dabei ist $N$ die über die Zeit $\Delta t$ gemittelte Leistungsaufnahme des Kompressors, $m$
+    der Massendurchsatz und $L$ die Verdampfungswärme.
 
 %selbstziterung weil wir geil sind    
 \subsection*{Verdampfungswärme $L$}
@@ -52,6 +54,10 @@ Gibt die Enerie an, die benötigt wird, um einen Mol einer Flüssigkeit in Dampf
 der gleichen Temperatur umzuwandeln. 
 \cite{Verdampfungswärme}[4]
 \end{flushleft}
+
+
+
+
 \subsection*{Mechanische Kompressionsleistung}
 Für die machanische Kompressionsleistung $N_{mech}$ gilt:
 \begin{gather}
@@ -59,11 +65,14 @@ Für die machanische Kompressionsleistung $N_{mech}$ gilt:
     N_{mech}=\frac{\Delta A_m}{\Delta t}=\frac{1}{\kappa -1}(p_b\sqrt[\kappa]{\frac{p_a}{p_b}}-p_a)\frac{\Delta V_A}{\Delta t}=\frac{1}{\kappa -1}(p_b\sqrt[\kappa]{\frac{p_a}{p_b}}-p_a)\frac{1}{\rho}\frac{\Delta m}{\Delta t}\label{eqn:kompress2}
 \end{gather}
 wobei $\rho$ die Dichte des Gases beschreibt und $p_a$ den Druck.
+
+
+
 \subsection*{Wärmepumpe}
-Nun soll die funktionsweise der Wärmepumpe erörtert werden.
-Diese verwendet ein reales Gas,welches beim Phasen Wärmeenergie umwandel, hier also beim Verdampfen Wärme 
+Nun soll die Funktionsweise der Wärmepumpe erörtert werden.
+Diese verwendet ein reales Gas, welches beim phasen Wärmeenergie umwandel, hier also beim Verdampfen Wärme 
 aufnimmt und diese beim Verflüssigen wieder abgiebt.
-Dabei wir ein Gas mit einer möglichst hohen Kondensationswärme verwendet.
+Dabei wird ein Gas mit einer möglichst hohen Kondensationswärme verwendet.
 Der generelle Aufbau ist dabei in Abbildung \ref{fig:aufbau_generell} gezeigt.
 \begin{figure}[H]
     \centering
@@ -74,12 +83,12 @@ Der generelle Aufbau ist dabei in Abbildung \ref{fig:aufbau_generell} gezeigt.
 Der dargestellte Kompressor $K$ leistet dabei die nötige Arbeit und 
 erzeugt dabei einen Mediumkreislauf. Für die Druckzonen
 der Reservoire 1 und 2 sorgt das Drosselventil $D$.
-Dies verfügt über eine Steuereinheit, sodass die Ventielöffnung
+Dieses verfügt über eine Steuereinheit, sodass die Ventielöffnung
 anhand der Temperaturdifferenz der beiden Reservoire geregelt werden kann.\\
 
-Genauer, wird in im Reservoire 1 das Medium bei einem Druck von $p_1$ kondensiert, dass heißt das Medium gibt Wärmeenergie
+Genauer, wird in dem Reservoire 1 das Medium bei einem Druck von $p_1$ kondensiert, dass heißt, das Medium gibt Wärmeenergie
 ab und somit nimmt die Wasser Temperatur $T_1$ zu.
-Nach dem das Druchventiel $D$ durchlaufen wurde verdampft das Medium bei einem Druck von $p_2$ und nimmt dabei Wärmeenergie auf,
+Nachdem das Druckventiel $D$ durchlaufen wurde verdampft das Medium bei einem Druck von $p_2$ und nimmt dabei Wärmeenergie auf,
 wodurch die Temperatur $T_2$ im Reservoire 2 abnimmt.
 
 Um einen Reibungsfeien Ablauf zu der Anlage gewärhleisten, sind
