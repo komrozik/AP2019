@@ -1,16 +1,17 @@
+\newpage
 \section{Auswertung}
 \label{sec:Auswertung}
 
 \subsection{Temperaturverläufe}
-    Die Termperaturverläufe in einem Diagramm dargestellt:
+    Die Temperaturverläufe in Abbildung \ref{fig:plot_temp} dargestellt
     \begin{figure}
         \centering
         \includegraphics[width=\textwidth]{build/plot_temp.pdf}
         \caption{Temperaturverläufe}
         \label{fig:plot_temp}
-\end{figure}
+    \end{figure}
 
-\subsection{nicht-lineare Ausgleichsrechnung}
+\subsection{Nicht-lineare Ausgleichsrechnung}
     Mit der folgenden Näherung, werden nun die in \ref{fig:plot_temp}
     dargestellten Ausgleichsgeraden bestimmt\cite{curvefit}:
     \begin{equation}
@@ -23,7 +24,7 @@
             \toprule
             & $T_1\;/\;K$ & $T_2\;/\;K$ \\
             \midrule
-            A\;/\;$K/s^2$& (-3.8\pm0.9)E-06 & (1.01\pm0.16)E-05 \\
+            A\;/\;$K/s^2$& $(-3.8\pm0.9)\;10^{-6}$ & $(1.01\pm0.16)\;10^{-5}$ \\
             B\;/\;$K/s$& 0.0304\pm0.0012 & -0.0339\pm0.0019 \\
             C\;/\;$K$& 293.88\pm0.30 & 298.5\pm0.5 \\
             \bottomrule
@@ -88,10 +89,10 @@
         \toprule
         Zeit $t\;/\;s$ & Güteziffer $v_{ideal}$ & Güteziffer $v_{real}$  \\
         \midrule
-        240.0 & 34.9244186046513 & 0.0001 \pm 6.3684\\
-        480.0 &  13.54845814977974 & 0.0001 \pm 7.1512\\
-        840.0 & 7.8283950617283935 & 0.0001 \pm 9.3051\\
-        1080.0 & 6.695426195426199 & 0.0001 \pm 1.1104\\
+        120.0 & 96.02 & 1.97\pm0.08 \\
+        480.0 & 24.77 & 1.87\pm0.09 \\
+        840.0 & 7.83 & 1.60\pm0.13 \\
+        1140.0 & 6.56 & 1.45\pm0.16 \\
         \end{tabular}
     \end{table}
     
