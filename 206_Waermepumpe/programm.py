@@ -134,7 +134,7 @@ while(i<=17):
 
 #vreal
 Nv=[N[3],N[7],N[13],N[17]]
-vreal=guetez(C_w,C_Cu,T1t,Nv)
+vreal=guetez(C_w,C_Cu,T2t,Nv)
 print(f"videal: {videal}\n")
 print(f"vreal: {vreal}")
 #print(f"T1:{T1}")
