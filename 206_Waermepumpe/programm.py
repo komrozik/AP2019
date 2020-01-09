@@ -1,6 +1,3 @@
-#INFOs siehe commit
-
-
 import numpy as np
 import matplotlib
 matplotlib.use('Qt4Agg')
@@ -67,21 +64,6 @@ plt.savefig("build/plot_temp.pdf",bbox_inches='tight')
 plt.close()
 
 
-#p1 Plot
-plt.plot(t,p1,"r+",label="r+")
-plt.xlabel("Zeit $t\;/\;min$")
-plt.ylabel("Druck $p1\;/\;\mathrm{bar}$")
-#plt.show()
-plt.close()
-
-#p2 Plot
-plt.plot(t,p2,"r+",label="r+")
-plt.xlabel("Zeit $t\;/\;min$")
-plt.ylabel("Druck $p2\;/\;\mathrm{bar}$")
-#plt.show()
-plt.close()
-
-
 #e)
 #(p,T) Kurven
 plt.plot(T1,p1,"b+",label="$(T_1,p_1)$ Dampfdruck Kurve")
@@ -96,7 +78,7 @@ plt.plot(T1,functionL(T1,*paramsL1), "b-",label="Ausgleichskurve")
 #plt.ylim(np.log(5),np.log(13))
 plt.xlabel("Temperatur $T_1\;/\;K$")
 plt.ylabel("$p_1$")
-#plt.show()
+plt.show()
 plt.close()
 #Ĺ berechnen mit
 #(T/(functionL(T,a,b,c,d)) * ( (R*T/2) + np.sqrt(( R*T/2 )**2 + A*(functionL(T,a,b,c,d)) ) ) (3*a*T**2+2*b*T+c))
@@ -106,7 +88,7 @@ c=paramsL1[2]
 d=paramsL1[3]
 R=8.314
 
-# Aberechnen
+# A berechnen
 A=1
 
 LT1=(3*a*T1**3+2*b*T1**2+c*T1/(functionL(T1,a,b,c,d))*((R*T1/2)+np.sqrt(R*T1**2/2+A*(functionL(T1,a,b,c,d)))))
@@ -157,32 +139,63 @@ print(f"videal: {videal}\n")
 print(f"vreal: {vreal}")
 #print(f"T1:{T1}")
 
-#Dampfdruck Kurve für L werte ax^3+bx^2+cx+d"
-params_L, covariance_matrix_L = curve_fit(functionL,T1,p1)
-errors_L = np.sqrt(np.diag(covariance_matrix_L))
-unparams_L = unp.uarray(params_L,errors_L)
-plt.plot(T1,p1,"kx",label="Dampfdruck")
-A =0.9
-L_berechnet = T1/(functionL(T1,*params_L)) * ( (R*T1/2) + np.sqrt(( R*T1/2 )**2 + A*(functionL(T1,*params_L)) ) )* (3*params_L[0]*T1**2+2*params_L[1]*T1+params_L[2])
+#-----------------------------
+#Dampfdruckkurve
 
-x_plot = np.linspace(T1[0],T1[18])
+params_L, cov_L = curve_fit(functionL,1/T1,np.log(p1/p1_0))
+errors_L = np.sqrt(np.diag(cov_L))
+unparams_L = unp.uarray(params_L,errors_L)
+
+A =0.9
+x_plot = np.linspace(1/T1[0],1/T1[18])
 plt.plot(x_plot,functionL(x_plot,*params_L),label='Fit')
-plt.ylabel(f"p")
-plt.xlabel(f"T in K")
+
+
+plt.plot(1/T1,np.log(p1/p1_0),"rx",label="Dampfdruck")
+plt.ylabel(f"ln(p/p_0)")
+plt.xlabel(f"$1/T$ in $1/K$")
 plt.legend()
 plt.savefig("build/plot_L.pdf",bbox_inches='tight')
 #plt.show()
+L_berechnet = params_L[0]*R
+#print(f"Verdampfungswärme: {L_berechnet}")
 plt.close()
+
+#---------------------
+#Massendurchsatz
+Qt=(C_w+C_Cu)*T1t
+
+#_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+
+#Dampfdruck Kurve für L werte ax^3+bx^2+cx+d"
+# params_L, covariance_matrix_L = curve_fit(functionL,T1,p1)
+# errors_L = np.sqrt(np.diag(covariance_matrix_L))
+# unparams_L = unp.uarray(params_L,errors_L)
+# plt.plot(T1,p1,"kx",label="Dampfdruck")
+# A =0.9
+# L_berechnet = T1/(functionL(T1,*params_L)) * ( (R*T1/2) + np.sqrt(( R*T1/2 )**2 + A*(functionL(T1,*params_L)) ) )* (3*params_L[0]*T1**2+2*params_L[1]*T1+params_L[2])
+
+# x_plot = np.linspace(T1[0],T1[18])
+# plt.plot(x_plot,functionL(x_plot,*params_L),label='Fit')
+# plt.ylabel(f"p")
+# plt.xlabel(f"T in K")
+# plt.legend()
+# plt.savefig("build/plot_L.pdf",bbox_inches='tight')
+# #plt.show()
+# plt.close()
 
 #Massendurchsatz:
 
-Qt=(C_w+C_Cu)*T1t
-L_array = [L_berechnet[3],L_berechnet[7],L_berechnet[13],L_berechnet[17]]
-dm = [0]*4
-i=0
-while i<=3:
-    dm[i]=Qt[i]/N[i]
-    i=i+1
+# Qt=(C_w+C_Cu)*T1t
+# L_array = [L_berechnet[3],L_berechnet[7],L_berechnet[13],L_berechnet[17]]
+# dm = [0]*4
+# i=0
+# while i<=3:
+#     dm[i]=Qt[i]/N[i]
+#     i=i+1
+
+#_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
 print(f"Das ist L: {L_array}")
 print(f"Das ist der Massendurchsatz: {dm}")
