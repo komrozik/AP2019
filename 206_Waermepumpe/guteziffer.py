@@ -9,6 +9,7 @@ from uncertainties.unumpy import (nominal_values as noms, std_devs as stds)
 from scipy.optimize import curve_fit
 
 t,p1,p2,T1,T2,N=np.genfromtxt("data.txt",unpack=True)
+p1_0=4.5 
 p1 += 1
 p2 += 1
 t*=60#sec
@@ -16,6 +17,7 @@ T1=T1+273.15 #umrechnung in kelvin
 T2=T2+273.15 #umrechnung in kelvin
 C_Cu=750
 C_w=12570
+R=8.314
 
 def function(x,A,B,C):
     return A*x**2+B*x+C
@@ -51,3 +53,57 @@ Zeit & videal & vreal\n
 """
 
 print(guetetabelle)
+
+def functionL(x,a,b):
+    return -a*x+b
+
+
+#-----------------------------
+#Dampfdruckkurve
+
+params_L, cov_L = curve_fit(functionL,1/T1,np.log(p1/p1_0))
+errors_L = np.sqrt(np.diag(cov_L))
+unparams_L = unp.uarray(params_L,errors_L)
+
+A =0.9
+x_plot = np.linspace(1/T1[0],1/T1[18])
+plt.plot(x_plot,functionL(x_plot,*params_L),label='Fit')
+
+
+plt.plot(1/T1,np.log(p1/p1_0),"rx",label="Dampfdruck")
+plt.ylabel(f"ln(p/p_0)")
+plt.xlabel(f"$1/T$ in $1/K$")
+plt.legend()
+plt.savefig("build/plot_L.pdf",bbox_inches='tight')
+#plt.show()
+L_berechnet = params_L[0]*R
+print(f"Verdampfungswärme: {L_berechnet}")
+plt.close()
+
+#---------------------
+#Massendurchsatz
+dmt = (vreal*Nm)/L_berechnet
+
+massendurchsatz= f"""
+Massendurchsatz\n
+-----------------------------\n
+Zeit & massendurchsatz\n
+{t[1]} & {dmt[1]}\\\\\n
+{t[7]} & {dmt[4]}\\\\\n
+{t[13]} & {dmt[13]} \\\\\n
+{t[18]} & {dmt[18]} \\\\\n
+-----------------------------\n
+"""
+print(massendurchsatz)
+
+# Kompressorleistung
+
+rho0 = 5.51
+T0 = 273.15
+p0 = 1 
+kappa = 1.14
+
+rho = (rho0*T0)/(p0)*p1/T1
+
+N_mech = 1/(kappa-1)*(p1*(p2/p1)**(1/kappa)-p2)*1/rho*dmt
+print(f"Mechanisch{N_mech}")
