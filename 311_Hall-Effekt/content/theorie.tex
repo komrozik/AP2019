@@ -1,24 +1,89 @@
 \newpage
 \section{Theorie}
 \label{sec:theorie}
+
+
 \subsection{Ziele}
 Mit dem Versuch sollen verschiedene mikroskopische Paramteter verschiedener Metallproben bestimmt und ausgewertet werden.
-\subsection{Elektronen pro Volumeneinheit und mittlere Flugzeit}
-Als mittlere Flugzeit $\tau querstrich$ wird die Zeit bezeichnet die ein Elektron zwischen zwei Zusammenstößen im Kristallgitter des Metalls "fliegt".
-Das Elektron wird dabei durch ein außen anliegendes E-Feld beschleunigt
-\begin{equation*}
-     b = - \frac{e_0}{m_0} E %Vektorpfeile!!!!!!!!
-\end{equation*} 
-Damit ergibt sich eine mittlere Geschwindigkeitsänderung von 
-\begin{equation*}
-    \Delta v = -\frac{e_0}{m_0} E \tau %Vektorpfeile!!!!!!!!
-\end{equation*}
-und die mittlere Driftgeschwindigkeit 
-\begin{equation*}
-     v_d = \frac{1}{2}\Delta v %Vektorpfeile!!!!!!!!
-\end{equation*}
-mit $n$ Elektronen pro Volumeneinheit kann die Stromdichte $j$ berechnet werden mit
-\begin{equation*}
-    j = -n v_d e_0 = \frac{1}{2} \frac{e_0^2}{m_0} E \tau n%Vektorpfeile!!!!!!!!
-\end{equation*}
+Darunter zählen:\\
+\begin{itemize}\itemsep0pt
+    \item Spezifischer Widerstand $\rho$
+    \item Spezifische Leifähigkeit $\sigma$
+    \item Ladungsträger pro Volumen
+    \item Zahl der Ladungsträger pro Atom
+    \item Mittlere Flugzeit
+    \item Mittlere Dirftgeschwindigkeit
+    \item Beweglichkeit $\mu$
+    \item Totalgeschwindigkeit
+    \item Mittlere freie Weglänge $\bar{l}$
+\end{itemize}
+\subsection{Bandstruktur und elektrische Leitfähigkeit von Kristallen}
+Atome sind eng benachbart. Aus diesem Grund folgen die Elektronen dem Pauli-Prinzip.
+D.h. innerhalb eines System dürfen die Elektronen nicht im gleichen Quantenzustand vorliegen.
+Somit besitzt jedes Elektron eine geringfügig unterschiedliche Energie. Die Energiebänder gehen dabei
+aus diesen Energieniveaus hervor.\\
+\begin{description}
+\item[Energiebänder überlappen sich]
+Elektronen können in einem spontanen Übergang vom unteren in das obere Band übergehen. Sie bilden dabei Leerstellen,
+welche als "Löcher" bezeichnet werden. Beim Einfluss eines äußeren elektrischen Feldes verhalten sich diese wie
+positive Ladungen und sind somit ortsveränderlich.\\
+Dies hat Einfluss auf die elektrische Leitfähigkeit. Das Resultat bilder der anomale Hall-Effekt. 
+\item[Energiebänder bilden Löcher]
+Tritt zwischen zwei Bändern eine endliche Lücke auf, so nennt man diese "verbotene Zone".
+Diese beeinhalten Energien, welche die Elektronen im Festkörper nicht annehmen können.
+\end{description}
+Sind die Atomschalen komplett gefüllt, so können die Elektronen keine Energien aufnehmen und
+abgeben, folglich tragen sie nicht zur Leitfähigkeit bei.
+Ist die äußere Schale nicht komplett gefüllt, so können die Elektronen Energien aufnehmen/abgeben.
+Legt man nun ein elektrisches Feld an, so nimmt das Elektron Energie auf und bewegt sich auf den elektrischen
+Feldlinien, ein makroskopischer Strom ist messbar. Diese Elektronen nennt man Leistungselektronen.\\
+
+Generell Wechselwirken die Leistungselektronen nicht miteinander und den zurückgelassenden Ionenrümpfen.
+Idealisiert haben sie somit eine unedlich hohe Leifähigkeit.\\
+Pratisch führen Kristallbaufehler und Verschmutzungen zu Zusammenstößen zwischen den bewegten Elektronen und den Fehlstellen.
+Die mittlere Flugzeit $\vec{\tau}$ spiegelt dabei das Zeitintervall zwischen zwei Zusammenstößen wieder.\\
+Wird nun ein elektrische Feld an eine Probe angelegt, so bewegt sich das Elektron gleichmäßig beschleunigt in der Zeit $\bar{\tau}$
+entlang von $\vec{E}$.\\
+Die Beschleunigung $\vec{b}$ ist abhängig von der Ladung des Elektrons (also $-e_0$) und dessen Ruhemasse $m_0$ 
+\begin{equation}
+    \vec{b}=-\frac{e_0}{m_0}\vec{E}
+\end{equation}
+Daraus resultier die Geschwindigkeitsänderung $\Delta \vec{\bar{v}}$
+\begin{equation}
+    \Delta \vec{\bar{v}}=-\frac{e_0}{m_0}\vec{E}\bar{\tau}
+\end{equation}
+Für die Driftgeschwindigkeit $\vec{\bar{v_d}}$ gilt:
+\begin{equation}
+    \vec{\bar{v_d}}=\frac{1}{2} \Delta \vec{\bar{v}}
+\end{equation}
+
+\subsection{Elektrischer Widerstand homogener Leiter}
+Die Leitfähigkeit $S$:
+\begin{equation}
+    S=\frac{1}{2}\frac{e_0^2}{m_0}n\bar{\tau}\frac{Q}{L}
+\end{equation}
+
+Der Strom $I$ ist:
+\begin{equation}
+    I=S \cdot U
+\end{equation}
+Der elektrische Widerstand $R$ ergibt sich somit aus:
+\begin{equation}
+    R=2\frac{m_0}{e_0^2}\frac{1}{n\bar{\tau}}\frac{L}{Q}
+\end{equation}
+
+Daraus folgende die geometrieunabhängigen Größen
+spezifische Leifähigkeit $\sigma$
+\begin{equation}
+    \sigma = \frac{1}{2}\frac{e_0^2}{m_0}n\bar{\tau}
+\end{equation}
+Spezifischer Widerstand $\rho$
+\begin{equation}
+    \rho = 2 \frac{m_0}{e_0^2}\frac{1}{n\bar{\tau}}
+\end{equation}
+
+
+
+
+
 
