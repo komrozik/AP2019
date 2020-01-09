@@ -9,6 +9,7 @@ from uncertainties.unumpy import (nominal_values as noms, std_devs as stds)
 from scipy.optimize import curve_fit
 
 t,p1,p2,T1,T2,N=np.genfromtxt("data.txt",unpack=True)
+p1_0=4.5
 p1 += 1
 p2 += 1
 t*=60#sec
@@ -22,8 +23,8 @@ def function(x,A,B,C):
 def ableitung_function(x,A,B):
     return 2*A*x+B
 
-def functionL(x,a,b,c,d):
-    return a*x**3+b*x**2+c*x+d
+def functionL(x,a,b):
+    return -a*x+b
 
 #Güteziffer
 def guetez(C_w,C_Cu,Tt,N):
@@ -64,42 +65,43 @@ plt.savefig("build/plot_temp.pdf",bbox_inches='tight')
 plt.close()
 
 
-#e)
-#(p,T) Kurven
-plt.plot(T1,p1,"b+",label="$(T_1,p_1)$ Dampfdruck Kurve")
-#plt.plot(T2,p2,"r+",label="$(T_2,p_2)$ Dampfdruck Kurve") Monometerfehler p1
-#curve_fit
-paramsL1, covariance_matrixL1=curve_fit(functionL,T1,p1)
-errorsL1 = np.sqrt(np.diag(covariance_matrixL1))
-unparamsL1 = unp.uarray(paramsL1,errorsL1)
-plt.plot(T1,functionL(T1,*paramsL1), "b-",label="Ausgleichskurve")
+#e)  
+#Auskommentiert weil ees mit der alten Funktion gefittet wurde...
+# #(p,T) Kurven
+# plt.plot(T1,p1,"b+",label="$(T_1,p_1)$ Dampfdruck Kurve")
+# #plt.plot(T2,p2,"r+",label="$(T_2,p_2)$ Dampfdruck Kurve") Monometerfehler p1
+# #curve_fit
+# paramsL1, covariance_matrixL1=curve_fit(functionL,T1,p1)
+# errorsL1 = np.sqrt(np.diag(covariance_matrixL1))
+# unparamsL1 = unp.uarray(paramsL1,errorsL1)
+# plt.plot(T1,functionL(T1,*paramsL1), "b-",label="Ausgleichskurve")
 
-#plt.xlim(20+273,55+273)
-#plt.ylim(np.log(5),np.log(13))
-plt.xlabel("Temperatur $T_1\;/\;K$")
-plt.ylabel("$p_1$")
-plt.show()
-plt.close()
-#Ĺ berechnen mit
-#(T/(functionL(T,a,b,c,d)) * ( (R*T/2) + np.sqrt(( R*T/2 )**2 + A*(functionL(T,a,b,c,d)) ) ) (3*a*T**2+2*b*T+c))
-a=paramsL1[0]
-b=paramsL1[1]
-c=paramsL1[2]
-d=paramsL1[3]
+# #plt.xlim(20+273,55+273)
+# #plt.ylim(np.log(5),np.log(13))
+# plt.xlabel("Temperatur $T_1\;/\;K$")
+# plt.ylabel("$p_1$")
+# #plt.show()
+# plt.close()
+# #Ĺ berechnen mit
+# #(T/(functionL(T,a,b,c,d)) * ( (R*T/2) + np.sqrt(( R*T/2 )**2 + A*(functionL(T,a,b,c,d)) ) ) (3*a*T**2+2*b*T+c))
+# a=paramsL1[0]
+# b=paramsL1[1]
+# c=paramsL1[2]
+# d=paramsL1[3]
 R=8.314
 
-# A berechnen
-A=1
+# # A berechnen
+# A=1
 
-LT1=(3*a*T1**3+2*b*T1**2+c*T1/(functionL(T1,a,b,c,d))*((R*T1/2)+np.sqrt(R*T1**2/2+A*(functionL(T1,a,b,c,d)))))
-print(LT1)
+# LT1=(3*a*T1**3+2*b*T1**2+c*T1/(functionL(T1,a,b,c,d))*((R*T1/2)+np.sqrt(R*T1**2/2+A*(functionL(T1,a,b,c,d)))))
+# print(LT1)
 
 
-plt.plot(T1,LT1)
-plt.xlabel("Temperatur $T_1\;/\;K$")
-plt.ylabel("$L\;/\;J/mol$")
-#plt.show()
-plt.close()
+# plt.plot(T1,LT1)
+# plt.xlabel("Temperatur $T_1\;/\;K$")
+# plt.ylabel("$L\;/\;J/mol$")
+# #plt.show()
+# plt.close()
 
 
 #------------------------------------------------------------------------------
@@ -156,7 +158,7 @@ plt.ylabel(f"ln(p/p_0)")
 plt.xlabel(f"$1/T$ in $1/K$")
 plt.legend()
 plt.savefig("build/plot_L.pdf",bbox_inches='tight')
-#plt.show()
+plt.show()
 L_berechnet = params_L[0]*R
 #print(f"Verdampfungswärme: {L_berechnet}")
 plt.close()
@@ -197,8 +199,8 @@ Qt=(C_w+C_Cu)*T1t
 
 #_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
-print(f"Das ist L: {L_array}")
-print(f"Das ist der Massendurchsatz: {dm}")
+#print(f"Das ist L: {L_array}")
+#print(f"Das ist der Massendurchsatz: {dm}")
 
 p2_array = [p2[3],p2[7],p2[13],p2[17]]
 p1_array = [p1[3],p1[7],p1[13],p1[17]]
@@ -208,5 +210,5 @@ p0 = 1  # in bar
 kappa = 1.14  # dim. los
 d_rho = ((rho0*T0)/p0) * p1/T1
 d_rho = [d_rho[3],d_rho[7],d_rho[13],d_rho[17]]
-Nmech = 1/(kappa - 1) * (p2_array[0] * (p1_array[0] *1/p2_array[0])**(1/kappa) - p1_array[0]) * 1/d_rho[0] * dm[0] *1e3 *1e-1 # in W, 1e-1 wegen bar nach Pascal
-print(f"Nmech: {Nmech}")
+#Nmech = 1/(kappa - 1) * (p2_array[0] * (p1_array[0] *1/p2_array[0])**(1/kappa) - p1_array[0]) * 1/d_rho[0] * dm[0] *1e3 *1e-1 # in W, 1e-1 wegen bar nach Pascal
+#print(f"Nmech: {Nmech}")
