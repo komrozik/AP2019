@@ -27,6 +27,7 @@ def functionL(x,a,b):
 
 #-----------------------------
 #Dampfdruckkurve
+
 params_L, cov_L = curve_fit(functionL,1/T1,np.log(p1/p1_0))
 errors_L = np.sqrt(np.diag(cov_L))
 unparams_L = unp.uarray(params_L,errors_L)
@@ -48,3 +49,4 @@ plt.close()
 
 #---------------------
 #Massendurchsatz
+Qt=(C_w+C_Cu)*T1t
