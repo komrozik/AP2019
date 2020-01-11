@@ -3,8 +3,9 @@
 \label{sec:theorie}
 
 
-\subsection{Ziele}
-Mit dem Versuch sollen verschiedene mikroskopische Paramteter verschiedener Metallproben bestimmt und ausgewertet werden.
+\subsection*{Ziel}
+Mit dem Versuch sollen verschiedene mikroskopische Paramteter verschiedener Metallproben 
+(Kupfer, Silber und Zink) bestimmt und ausgewertet werden.
 Darunter zählen:\\
 \begin{itemize}\itemsep0pt
     \item Spezifischer Widerstand $\rho$
@@ -12,7 +13,7 @@ Darunter zählen:\\
     \item Ladungsträger pro Volumen
     \item Zahl der Ladungsträger pro Atom
     \item Mittlere Flugzeit
-    \item Mittlere Dirftgeschwindigkeit
+    \item Mittlere Dirftgeschwindigkeit $\bar{v_d}$
     \item Beweglichkeit $\mu$
     \item Totalgeschwindigkeit
     \item Mittlere freie Weglänge $\bar{l}$
@@ -38,9 +39,9 @@ Ist die äußere Schale nicht komplett gefüllt, so können die Elektronen Energ
 Legt man nun ein elektrisches Feld an, so nimmt das Elektron Energie auf und bewegt sich auf den elektrischen
 Feldlinien, ein makroskopischer Strom ist messbar. Diese Elektronen nennt man Leistungselektronen.\\
 
-Generell Wechselwirken die Leistungselektronen nicht miteinander und den zurückgelassenden Ionenrümpfen.
-Idealisiert haben sie somit eine unedlich hohe Leifähigkeit.\\
-Pratisch führen Kristallbaufehler und Verschmutzungen zu Zusammenstößen zwischen den bewegten Elektronen und den Fehlstellen.
+Generell wechselwirken die Leistungselektronen nicht miteinander und den zurückgelassenden Ionenrümpfen.
+Idealisiert hat das MAterial somit eine unedlich hohe Leifähigkeit.\\
+Praktisch führen Kristallbaufehler und Verschmutzungen zu Zusammenstößen zwischen den bewegten Elektronen und den Fehlstellen.
 Die mittlere Flugzeit $\vec{\tau}$ spiegelt dabei das Zeitintervall zwischen zwei Zusammenstößen wieder.\\
 Wird nun ein elektrische Feld an eine Probe angelegt, so bewegt sich das Elektron gleichmäßig beschleunigt in der Zeit $\bar{\tau}$
 entlang von $\vec{E}$.\\
@@ -54,8 +55,9 @@ Daraus resultier die Geschwindigkeitsänderung $\Delta \vec{\bar{v}}$
 \end{equation}
 Für die Driftgeschwindigkeit $\vec{\bar{v_d}}$ gilt:
 \begin{equation}
-    \vec{\bar{v_d}}=\frac{1}{2} \Delta \vec{\bar{v}}
+    \vec{\bar{v_d}}=\frac{1}{2} \Delta \vec{\bar{v}}=\mu\vec{E}
 \end{equation}
+mit der Beweglichkeit $\mu$
 
 \subsection{Elektrischer Widerstand homogener Leiter}
 Die Leitfähigkeit $S$:
@@ -69,10 +71,10 @@ Der Strom $I$ ist:
 \end{equation}
 Der elektrische Widerstand $R$ ergibt sich somit aus:
 \begin{equation}
-    R=2\frac{m_0}{e_0^2}\frac{1}{n\bar{\tau}}\frac{L}{Q}
+    R=2\frac{m_0}{e_0^2}\frac{1}{n\bar{\tau}}\frac{L}{Q}=\frac{1}{S}
 \end{equation}
 
-Daraus folgende die geometrieunabhängigen Größen
+Daraus folgende die geometrieunabhängigen Größen:\\
 spezifische Leifähigkeit $\sigma$
 \begin{equation}
     \sigma = \frac{1}{2}\frac{e_0^2}{m_0}n\bar{\tau}
@@ -81,6 +83,33 @@ Spezifischer Widerstand $\rho$
 \begin{equation}
     \rho = 2 \frac{m_0}{e_0^2}\frac{1}{n\bar{\tau}}
 \end{equation}
+
+
+
+\subsection{Der Hall Effekt - Bestimmung von Ladungsträgerdichte n}
+Für die enstehende Spannung (genannt Hallspannung ($U_H$) bei einer stromdurchflossenden $I_q$
+elektrischen Leiterplatte der dicke $b$ im Magnetfeld $\vec{B}$ gilt
+\begin{equation}
+    U_H=E_y \cdot b = \bar{v_d}\;B\cdot b = -\frac{1}{n \; e_0}\frac{B \cdot I_q}{d}
+\end{equation}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{bilder/HAll.jpg}
+    \caption{Anordungung zur Beobachtung des Hall Effektes \cite[265]{Anleitung}}
+    \label{fig:hall}
+\end{figure}
+
+
+
+\subsection{Leitfähigkeitsparameter}
+Mittlere freie Weglänge 
+\begin{equation}
+    \bar{l}=\bar{\tau} \cdot |v| \approx \bar{\tau}\sqrt{\frac{2\;E_F}{m_0}}  
+\end{equation}
+mit der Totalgeschwindigkeit $|v|$ bei der Fermi-Energie $E_F$
+\begin{equation}
+    |v|\approx \sqrt{\frac{2\;E_F}{m_0}}    
+\end{equation} 
 
 
 
