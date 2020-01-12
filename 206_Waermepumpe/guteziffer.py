@@ -107,3 +107,14 @@ rho = (rho0*T0)/(p0)*p1/T1
 
 N_mech = 1/(kappa-1)*(p1*(p2/p1)**(1/kappa)-p2)*1/rho*dmt
 print(f"Mechanisch{N_mech}")
+kompressorleistung= f"""
+Kompressorleistung\n
+-----------------------------\n
+Zeit & Kompressorleistung\n
+{t[1]} & {N_mech[1]}\\\\\n
+{t[7]} & {N_mech[4]}\\\\\n
+{t[13]} & {N_mech[13]} \\\\\n
+{t[18]} & {N_mech[18]} \\\\\n
+-----------------------------\n
+"""
+print(kompressorleistung)

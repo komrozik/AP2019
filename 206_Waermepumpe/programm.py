@@ -147,7 +147,7 @@ print(f"vreal: {vreal}")
 params_L, cov_L = curve_fit(functionL,1/T1,np.log(p1/p1_0))
 errors_L = np.sqrt(np.diag(cov_L))
 unparams_L = unp.uarray(params_L,errors_L)
-
+print(f"Die Parameter der L Ausgleich sind:{unparams_L}")
 A =0.9
 x_plot = np.linspace(1/T1[0],1/T1[18])
 plt.plot(x_plot,functionL(x_plot,*params_L),label='Fit')
@@ -158,14 +158,15 @@ plt.ylabel(f"ln(p/p_0)")
 plt.xlabel(f"$1/T$ in $1/K$")
 plt.legend()
 plt.savefig("build/plot_L.pdf",bbox_inches='tight')
-plt.show()
+#plt.show()
 L_berechnet = params_L[0]*R
-#print(f"Verdampfungswärme: {L_berechnet}")
+print(f"Verdampfungswärme: {L_berechnet}")
 plt.close()
 
 #---------------------
 #Massendurchsatz
-Qt=(C_w+C_Cu)*T1t
+
+# Ist in Güteziffer.py
 
 #_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
