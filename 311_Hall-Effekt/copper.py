@@ -13,7 +13,10 @@ def f(x,a,b):
     return a*x+b
 
 #Konstanten
-e_0=-1.602*10**(-19)
+e_0   =   -1.602176634     * 10**(-19)#C
+m_0 =   9.1093837015    * 10**(-31) #kg
+h   =   6.62607015      * 10**(-34)#J*s
+
 
 ##----------Magnetfeld----------
 #Funktion um das B-Feld zu bekanntem Strom zu berechnen.
@@ -51,26 +54,22 @@ rho_k = (R_k*(np.pi*unp.uarray(30,1)*10**(-6))**2)/(l_k*10**(-2))
 r_k = np.sqrt(0.018*10**(-6)*(l_k*10**(-2))/(R_k*np.pi**2)) #dicke die es sein muss für lit wert, wir haben nicht gemessen
 print(f"Spezifischer Wiederstand von Kupfer: {rho_k*10**(6)} Mikro Ohm")
 
-#Anzahl der Elektronen pro Volumeneinheit | n
-#Data 3 Kupfer | I_b_k = Stromstärke des B Felds, U_hall_k = Hallspannung, I_d_k = Durchflussstrom(konstant 10 A)
 
-# I_b_k,U_hall_k,I_d_k = np.genfromtxt("data3.txt", unpack = True)
-# B_k = f(I_b_k,*B_params)
-# params_Bk,cov_Bk = curve_fit(f,U_hall_k,B_k)
-# errors_Bk = np.sqrt(np.diag(cov_Bk))
-# B_k_err = unp.uarray(params_Bk[0],errors_Bk[0])*U_hall_k+unp.uarray(params_Bk[1],errors_Bk[1])
 
-#Data 4 Kupfer |  I_d_k = Durchflussstrom,U_hall_k = Hallspannung,I_b_k = Stromstärke des B Felds(konstant 5 A)
+R,l,d=np.genfromtxt("data10.txt", unpack = True)
+rho = (R*(np.pi*unp.uarray(69,1)*10**(-6))**2)/(l*10**(-2)) #fake Dicke  :(
+r = np.sqrt(0.016*10**(-6)*(l*10**(-2))/(R*np.pi**2)) #dicke die es sein muss für lit wert, wir haben nicht gemessen
+print(f"Spezifischer Wiederstand von Silber: {rho*10**(6)} Mikro Ohm") 
 
-# I_b_k,U_hall_k,I_d_k = np.genfromtxt("data4.txt", unpack = True)
-# params_Idk,cov_Idk = curve_fit(f,U_hall_k,I_b_k)
-# errors_Idk = np.sqrt(np.diag(cov_Idk))
-# I_d_k_err = unp.uarray(params_Idk[0],errors_Idk[0])*U_hall_k+unp.uarray(params_Bk[1],errors_Bk[1])
-# x_plot = np.linspace(-0.015,0.003)
-# plt.plot(x_plot,f(x_plot,*params_Idk),label = "linearer Fit")
-# plt.plot(U_hall_k,I_d_k,"rx",label="Messwerte")
-# plt.show()
-# print(f"Strom error: {errors_Idk}")
-# print(f"Strom : {I_d_k_err}")
+U_hall = 1
+B_err = 1
+I_err = 1 #
 
-n = - (1)/(e_0*U_hall)*(B)/()
+n = - (1)/(e_0*U_hall)*(B_err*I_err)/(d)
+E_F = (h**2)/(2*m_0)*(((3)/(8*np.pi)*n)**2)**(1/3)
+tau = 2*(m_0)/(e_0**2)*(1)/(n*rho)
+v_drift = -(n*e_0)/(1)
+v_total = np.sqrt((2*E_F)/(m_0))
+v_delta = 2* v_drift
+l = tau*v_total
+mu = -(v_delta*m_0)/(v_drift*tau*e_0)
