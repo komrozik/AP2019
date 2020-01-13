@@ -46,10 +46,10 @@ print(magnetfeld)
 ## --------Magnetfeld fertig--------
 
 ##---------Kupfer---------
-R_k,l_k,d_k=np.genfromtxt("data9.txt", unpack = True)
-rho_k = (R_k*(np.pi*unp.uarray(30,1)*10**(-6))**2)/(l_k*10**(-2))
-r_k = np.sqrt(0.018*10**(-6)*(l_k*10**(-2))/(R_k*np.pi**2)) #dicke die es sein muss für lit wert, wir haben nicht gemessen
-print(f"Spezifischer Wiederstand von Kupfer: {rho_k*10**(6)} Mikro Ohm")
+# R_k,l_k,d_k=np.genfromtxt("data9.txt", unpack = True)
+# rho_k = (R_k*(np.pi*unp.uarray(30,1)*10**(-6))**2)/(l_k*10**(-2))
+# r_k = np.sqrt(0.018*10**(-6)*(l_k*10**(-2))/(R_k*np.pi**2)) #dicke die es sein muss für lit wert, wir haben nicht gemessen
+# print(f"Spezifischer Wiederstand von Kupfer: {rho_k*10**(6)} Mikro Ohm")
 
 #Anzahl der Elektronen pro Volumeneinheit | n
 #Data 3 Kupfer | I_b_k = Stromstärke des B Felds, U_hall_k = Hallspannung, I_d_k = Durchflussstrom(konstant 10 A)
@@ -72,15 +72,3 @@ print(f"Spezifischer Wiederstand von Kupfer: {rho_k*10**(6)} Mikro Ohm")
 # plt.show()
 # print(f"Strom error: {errors_Idk}")
 # print(f"Strom : {I_d_k_err}")
-
-n = - (1)/(e_0*U_hall)*(B)/()
-
-##---------Silber--------- 
-R_s,l_s,d_s=np.genfromtxt("data10.txt", unpack = True)
-rho_s = (R_s*(np.pi*unp.uarray(69,1)*10**(-6))**2)/(l_s*10**(-2))
-r_s = np.sqrt(0.016*10**(-6)*(l_s*10**(-2))/(R_s*np.pi**2)) #dicke die es sein muss für lit wert, wir haben nicht gemessen
-print(f"Spezifischer Wiederstand von Silber: {rho_s*10**(6)} Mikro Ohm") 
-
-##---------Zink----------- 
-rho_z = 6*10**(-8) #mikro Ohm Litereaturwert
-print(f"Literaturwert Spezifischer Wiederstand von Zink: {rho_z*10**(6)} Mikro Ohm")
