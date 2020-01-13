@@ -49,27 +49,28 @@ print(magnetfeld)
 ## --------Magnetfeld fertig--------
 
 ##---------Kupfer---------
-R_k,l_k,d_k=np.genfromtxt("data9.txt", unpack = True)
+R,l,d=np.genfromtxt("data9.txt", unpack = True)
 rho_k = (R_k*(np.pi*unp.uarray(30,1)*10**(-6))**2)/(l_k*10**(-2))
 r_k = np.sqrt(0.018*10**(-6)*(l_k*10**(-2))/(R_k*np.pi**2)) #dicke die es sein muss für lit wert, wir haben nicht gemessen
 print(f"Spezifischer Wiederstand von Kupfer: {rho_k*10**(6)} Mikro Ohm")
 
-
-
-R,l,d=np.genfromtxt("data10.txt", unpack = True)
-rho = (R*(np.pi*unp.uarray(69,1)*10**(-6))**2)/(l*10**(-2)) #fake Dicke  :(
-r = np.sqrt(0.016*10**(-6)*(l*10**(-2))/(R*np.pi**2)) #dicke die es sein muss für lit wert, wir haben nicht gemessen
-print(f"Spezifischer Wiederstand von Silber: {rho*10**(6)} Mikro Ohm") 
-
 U_hall = 1
 B_err = 1
-I_err = 1 #
+I_err = 1
 
-n = - (1)/(e_0*U_hall)*(B_err*I_err)/(d)
+n =  -(1)/(e_0*U_hall)*(B_err*I_err)/(d)
+#print(f"n :{n}")
 E_F = (h**2)/(2*m_0)*(((3)/(8*np.pi)*n)**2)**(1/3)
+#print(f"E_F :{E_F}")
 tau = 2*(m_0)/(e_0**2)*(1)/(n*rho)
+#print(f"Tau :{tau}")
 v_drift = -(n*e_0)/(1)
-v_total = np.sqrt((2*E_F)/(m_0))
+#print(f"Drift v :{v_drift}")
+v_total = ((2*E_F)/(m_0))**(1/2)
+#print(f"Total v :{v_total}")
 v_delta = 2* v_drift
+#print(f"Delta v :{v_delta}")
 l = tau*v_total
+#print(f"l:{l}")
 mu = -(v_delta*m_0)/(v_drift*tau*e_0)
+#print(f"My: {mu}")
