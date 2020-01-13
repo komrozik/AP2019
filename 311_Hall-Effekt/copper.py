@@ -12,7 +12,7 @@ from scipy.optimize import curve_fit
 def f(x,a,b):
     return a*x+b
 
-#Konstantin
+#Konstanten
 e_0=-1.602*10**(-19)
 
 ##----------Magnetfeld----------
@@ -74,13 +74,3 @@ print(f"Spezifischer Wiederstand von Kupfer: {rho_k*10**(6)} Mikro Ohm")
 # print(f"Strom : {I_d_k_err}")
 
 n = - (1)/(e_0*U_hall)*(B)/()
-
-##---------Silber--------- 
-R_s,l_s,d_s=np.genfromtxt("data10.txt", unpack = True)
-rho_s = (R_s*(np.pi*unp.uarray(69,1)*10**(-6))**2)/(l_s*10**(-2))
-r_s = np.sqrt(0.016*10**(-6)*(l_s*10**(-2))/(R_s*np.pi**2)) #dicke die es sein muss für lit wert, wir haben nicht gemessen
-print(f"Spezifischer Wiederstand von Silber: {rho_s*10**(6)} Mikro Ohm") 
-
-##---------Zink----------- 
-rho_z = 6*10**(-8) #mikro Ohm Litereaturwert
-print(f"Literaturwert Spezifischer Wiederstand von Zink: {rho_z*10**(6)} Mikro Ohm")
