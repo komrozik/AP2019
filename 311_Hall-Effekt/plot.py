@@ -21,21 +21,21 @@ I,B=np.genfromtxt("data2.txt", unpack = True)
 #     i=i+1
 
 
-params,cov = curve_fit(f,B,I)
-Bparams,Bcov = curve_fit(f,I,B)
-errors = np.sqrt(np.diag(cov))
-x_plot = np.linspace(0,1200)
+Iparams,Icov = curve_fit(f,I,B)
+Bparams,Bcov = curve_fit(f,B,I)
+errors = np.sqrt(np.diag(Icov))
+x_plot = np.linspace(0,5)
 
-plt.plot(x_plot,f(x_plot,*params),label = "linearer Fit")
-plt.plot(B,I,"rx",label="Messwerte")
-plt.xlabel(f"Magnetfeld $B \;\;mT$")
-plt.ylabel(f"Stromstärke $I \;\; A$")
+plt.plot(x_plot,f(x_plot,*Iparams),label = "linearer Fit")
+plt.plot(I,B,"rx",label="Messwerte")
+plt.ylabel(f"Magnetfeld $B \;\;mT$")
+plt.xlabel(f"Stromstärke $I \;\; A$")
 plt.legend()
 plt.savefig('build/plot1.pdf',bbox_inches='tight')
 #plt.show()
 plt.close()
 
-#2) Data 3 | I_b = Stromstärke des B Felds, U_hall = Hallspannung, I_d = Durchflussstrom(konstant 10 A)
+#2) Data 3 Kupfer | I_b = Stromstärke des B Felds, U_hall = Hallspannung, I_d = Durchflussstrom(konstant 10 A)
 I_b,U_hall,I_d = np.genfromtxt("data3.txt", unpack = True)
 
 #i=0
@@ -43,10 +43,10 @@ I_b,U_hall,I_d = np.genfromtxt("data3.txt", unpack = True)
 #     print(f"{B[i]} & {I[i]} \\\\ \n")
 #     i=i+1
 
-B = f(I_b,*Bparams)
+B = f(I_b,*Iparams)
 params,cov = curve_fit(f,B,U_hall)
 errors = np.sqrt(np.diag(cov))
-x_plot = np.linspace(0,1300)
+x_plot = np.linspace(f(0,*Iparams),f(5,*Iparams))
 
 plt.plot(x_plot,f(x_plot,*params),label = "linearer Fit")
 plt.plot(B,U_hall,"rx",label="Messwerte")
@@ -57,7 +57,7 @@ plt.savefig('build/plot1.pdf',bbox_inches='tight')
 #plt.show()
 plt.close()
 
-#3) Data 4 |  I_d = Durchflussstrom,U_hall = Hallspannung,I_b = Stromstärke des B Felds(konstant 5 A)
+#3) Data 4 Kupfer |  I_d = Durchflussstrom,U_hall = Hallspannung,I_b = Stromstärke des B Felds(konstant 5 A)
 I_b,U_hall,I_d = np.genfromtxt("data4.txt", unpack = True)
 
 #i=0
@@ -79,7 +79,7 @@ plt.savefig('build/plot1.pdf',bbox_inches='tight')
 #plt.show()
 plt.close()
 
-#4) Data 5 | I_b = Stromstärke des B Felds, U_hall = Hallspannung, I_d = Durchflussstrom(konstant 10 A)
+#4) Data 5 Zink | I_b = Stromstärke des B Felds, U_hall = Hallspannung, I_d = Durchflussstrom(konstant 10 A)
 I_b,U_hall,I_d = np.genfromtxt("data5.txt", unpack = True)
 
 #i=0
@@ -87,10 +87,10 @@ I_b,U_hall,I_d = np.genfromtxt("data5.txt", unpack = True)
 #     print(f"{B[i]} & {I[i]} \\\\ \n")
 #     i=i+1
 
-B = f(I_b,*Bparams)
+B = f(I_b,*Iparams)
 params,cov = curve_fit(f,B,U_hall)
 errors = np.sqrt(np.diag(cov))
-x_plot = np.linspace(0,1300)
+x_plot = np.linspace(f(0,*Iparams),f(5,*Iparams))
 
 plt.plot(x_plot,f(x_plot,*params),label = "linearer Fit")
 plt.plot(B,U_hall,"rx",label="Messwerte")
@@ -101,7 +101,7 @@ plt.savefig('build/plot1.pdf',bbox_inches='tight')
 #plt.show()
 plt.close()
 
-#5) Data 6 |  I_d = Durchflussstrom,U_hall = Hallspannung,I_b = Stromstärke des B Felds(konstant 5 A)
+#5) Data 6 Zink |  I_d = Durchflussstrom,U_hall = Hallspannung,I_b = Stromstärke des B Felds(konstant 5 A)
 I_b,U_hall,I_d = np.genfromtxt("data6.txt", unpack = True)
 
 #i=0
@@ -123,7 +123,7 @@ plt.savefig('build/plot1.pdf',bbox_inches='tight')
 #plt.show()
 plt.close()
 
-#6) Data 7 | I_b = Stromstärke des B Felds, U_hall = Hallspannung, I_d = Durchflussstrom(konstant 10 A)
+#6) Data 7 Silber| I_b = Stromstärke des B Felds, U_hall = Hallspannung, I_d = Durchflussstrom(konstant 10 A)
 I_b,U_hall,I_d = np.genfromtxt("data7.txt", unpack = True)
 
 #i=0
@@ -131,10 +131,10 @@ I_b,U_hall,I_d = np.genfromtxt("data7.txt", unpack = True)
 #     print(f"{B[i]} & {I[i]} \\\\ \n")
 #     i=i+1
 
-B = f(I_b,*Bparams)
+B = f(I_b,*Iparams)
 params,cov = curve_fit(f,B,U_hall)
 errors = np.sqrt(np.diag(cov))
-x_plot = np.linspace(0,1300)
+x_plot = np.linspace(f(0,*Iparams),f(5,*Iparams))
 
 plt.plot(x_plot,f(x_plot,*params),label = "linearer Fit")
 plt.plot(B,U_hall,"rx",label="Messwerte")
@@ -142,11 +142,11 @@ plt.xlabel(f"Magnetfeld $B \;\;mT$")
 plt.ylabel(f"Hall Spannung $U \;\; mV$")
 plt.legend()
 plt.savefig('build/plot1.pdf',bbox_inches='tight')
-plt.show()
+#plt.show()
 plt.close()
 
-#7) Data 8 |  I_d = Durchflussstrom,U_hall = Hallspannung,I_b = Stromstärke des B Felds(konstant 5 A)
-I_b,U_hall,I_d = np.genfromtxt("data4.txt", unpack = True)
+#7) Data 8 Silber|  I_d = Durchflussstrom,U_hall = Hallspannung,I_b = Stromstärke des B Felds(konstant 5 A)
+I_b,U_hall,I_d = np.genfromtxt("data8.txt", unpack = True)
 
 #i=0
 # while(i<=len(B)-1):
