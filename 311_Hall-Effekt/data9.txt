@@ -1,4 +1,4 @@
 #Kupfer CU - Materialwerte
-#Widerstand     Länge
-#Ohm            cm      
-2.7340          137
+#Widerstand     Länge   Dicke   Drahtdicke = 30 um???
+#Ohm            cm      um
+2.7340          137     18
