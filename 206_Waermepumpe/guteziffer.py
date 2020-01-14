@@ -44,11 +44,11 @@ print(f"vreal:\n{vreal}\n")
 guetetabelle= f"""
 Gütetabelle\n
 -----------------------------\n
-Zeit & videal & vreal\n
-{t[1]} & {videal[1]} & {vreal[1]} \\\\\n
-{t[7]} & {videal[4]} & {vreal[4]} \\\\\n
-{t[13]} & {videal[13]} & {vreal[13]} \\\\\n
-{t[18]} & {videal[18]} & {vreal[18]} \\\\\n
+Zeit & videal & vreal & %-Fehler\n
+{t[1]} & {videal[1]} & {vreal[1]}   &{(vreal[1]-videal[1])/videal[1]*100} \\\\\n
+{t[7]} & {videal[4]} & {vreal[4]}   &{(vreal[4]-videal[4])/videal[4]*100} \\\\\n
+{t[13]} & {videal[13]} & {vreal[13]}&{(vreal[13]-videal[13])/videal[13]*100} \\\\\n
+{t[18]} & {videal[18]} & {vreal[18]}&{(vreal[18]-videal[18])/videal[18]*100}\\\\\n
 -----------------------------\n
 """
 
@@ -76,8 +76,9 @@ plt.xlabel(f"$1/T$ in $1/K$")
 plt.legend()
 plt.savefig("build/plot_L.pdf",bbox_inches='tight')
 #plt.show()
-L_berechnet = params_L[0]*R
-print(f"Verdampfungswärme: {L_berechnet}")
+mol_masse=120.9 #g/mol 
+L_berechnet = unparams_L[0]/mol_masse*R
+print(f"Verdampfungswärme: {L_berechnet} J/g")
 plt.close()
 
 #---------------------
@@ -102,19 +103,22 @@ rho0 = 5.51
 T0 = 273.15
 p0 = 1 
 kappa = 1.14
+T0_0=21.7
 
-rho = (rho0*T0)/(p0)*p1/T1
+#rho = (rho0*T0)/(p0)*p1/T1
+rho = (p1*rho0*T0_0)/(p0*T1)
+#print(f"roh {rho}")
 
 N_mech = 1/(kappa-1)*(p1*(p2/p1)**(1/kappa)-p2)*1/rho*dmt
 print(f"Mechanisch{N_mech}")
 kompressorleistung= f"""
 Kompressorleistung\n
 -----------------------------\n
-Zeit & Kompressorleistung\n
-{t[1]} & {N_mech[1]}\\\\\n
-{t[7]} & {N_mech[4]}\\\\\n
-{t[13]} & {N_mech[13]} \\\\\n
-{t[18]} & {N_mech[18]} \\\\\n
+Zeit & rho & Kompressorleistung\n
+{t[1]} & {rho[1]}&{N_mech[1]}\\\\\n
+{t[7]} & {rho[4]}&{N_mech[4]}\\\\\n
+{t[13]} & {rho[13]}&{N_mech[13]} \\\\\n
+{t[18]} & {rho[18]}&{N_mech[18]} \\\\\n
 -----------------------------\n
 """
 print(kompressorleistung)
