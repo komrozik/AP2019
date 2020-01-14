@@ -7,28 +7,7 @@
 
 
 %data3
-\begin{table}
-    \centering
-    \begin{tabular}{c c c}
-        \toprule
-        $I_{Spule} \;/\;$A & $U_H\;/\;$mV & $I_{durch} \;/\;$A\\
-        \midrule
-        0                   &0,0081              &10\\
-        0,5                 &0,0055              &10\\
-        1,0                 &0,0039              &10\\
-        1,5                 &0,0012              &10\\
-        2,0                 &-0,0008             &10\\
-        2,5                 &-0,0025             &10\\
-        3,0                 &-0,0048             &10\\
-        3,5                 &-0,0068             &10\\
-        4,0                 &-0,0086             &10\\
-        4,5                 &-0,0097             &10\\
-        5,0                 &-0,0110             &10\\
-        \bottomrule
-    \end{tabular}
-    \caption{Hall Spannung für Kupfer- konstanter Duchflussstrom}
-    \label{tab:Cu_B}
-\end{table}
+
 
 %data4
 
@@ -108,6 +87,8 @@
     \caption{Hall Spannung für Silber- konstantes Magnetfeld}
     \label{tab:Ag_I}
 \end{table}
+
+% -------------Magnetfeld------------
 \subsection{Magnetfeldmessung}
 Zu Beginn des Experiments wird das Magnetfeld in Abhängigkeit des Spulenstroms bestimmt (\ref{tab:Br}).
 Zwischen den beiden Größen besteht ein linearer Zusammenhang, daher lässt sich die Kurve durch eine Ausgleichsgerade annähern.
@@ -148,6 +129,8 @@ Mit der Ausgleichsgeraden
     b &= 32\pm 24\\
 \end{align*}
 Aus der Umkerfunktion dieser Ausgleichsrechnung lässt sich in den folgenden Berechnungen das B-Feld aus dem angelegten Spulenstrom bestimmen.
+
+
 % --------KUPFER
 \subsection{Kupfer}
 \subsubsection{Geometrische Messungen und Wiederstand}
@@ -207,6 +190,134 @@ Mit der Ausgleichsgeraden
 
 \subsubsection{Hall Spannung bei konstantem Querstrom}
 Um die Abhängigkeit der Hall Spannung vom äußeren Magnetfeld $B$ festzustellen wurde der Querstrom $I_q$ konstant auf 10 Ampere gehalten.
+% Data 3
+\begin{table}
+    \centering
+    \begin{tabular}{c c c}
+        \toprule
+        $I_{B} \;/\;$A & $U_H\;/\;$mV & $I_{q} \;/\;$A\\
+        \midrule
+        0                   &0,0081              &10\\
+        0,5                 &0,0055              &10\\
+        1,0                 &0,0039              &10\\
+        1,5                 &0,0012              &10\\
+        2,0                 &-0,0008             &10\\
+        2,5                 &-0,0025             &10\\
+        3,0                 &-0,0048             &10\\
+        3,5                 &-0,0068             &10\\
+        4,0                 &-0,0086             &10\\
+        4,5                 &-0,0097             &10\\
+        5,0                 &-0,0110             &10\\
+        \bottomrule
+    \end{tabular}
+    \caption{Hall Spannung für Kupfer- konstanter Duchflussstrom}
+    \label{tab:Cu_B}
+\end{table}
+% Plot 3
+\begin{figure}[H]
+    \centering
+    \includegraphics{build/plot3.pdf}
+    \caption{Hall Spannung in Abhängigkeit vom Magnetfeld - Kupfer}
+    \label{fig:Cu_B}
+\end{figure}
+Mit der Ausgleichsgeraden
+\begin{align*}
+    y &= mx + b\\
+    m &= \cdot (-164 \pm 3)10^{-5}\\
+    b &=  0.0023\pm0.0003 \\ % Signifikante Stellen????
+\end{align*}
+
+
+\subsubsection{Bestimmung der mikroskopischen Parameter}
+Über die gemessene Hall Spannung,das dazugehörige B-Feld und den Querstrom kann man über \ref{eqn:U_Hall} auf die Anzahl der Ladungsträger pro Volumen schließen.
+\begin{equation*}
+    n = -\frac{1}{e_0 U_H}\cdot \frac{B\cdot I_q}{d}
+\end{equation*}
+Weiterhin lässt sich mit den so errechneten Werten für n der Energie Parameter $E_F$ berechnen.
+\begin{equation*}
+    E_F = \frac{h^2}{2 m_0}\cdot \left(\frac{3}{8\pi}\cdot n \right)^{\frac{2}{3}}
+\end{equation*}
+Über $E_F$ lässt sich der nächste Parameter, die Totalgeschwindigkeit $|\bar{v}|$, berechnen.
+\begin{equation*}
+    |\bar{v}| = \left(\frac{2 E_F}{m_0}\right)^{\frac{1}{2}}
+\end{equation*}
+Außerdem lässt sich aus n und der zuvor berechneten spezifischen Leitfähigkeit $\rho$ die mittlere Flugzeit $\bar{\tau}$ berechnen.
+\begin{equation*}
+    \bar{\tau} = 2 \frac{m_0}{e_0^2} \cdot \frac{1}{n \rho}
+\end{equation*}
+Aus der mitlleren Flugzeit $\bar{\tau}$ kann dann noch die mittlere freie Weglänge $\bar{l}$ bestimmt werden.
+\begin{equation*}
+    \bar{l} = \bar{\tau} \cdot |\bar{v}|
+\end{equation*}
+Nun muss noch die Beweglichkeit der Ladungsträger $\mu$ über das äußere elektrische Feld $\vec{E}$ und die Driftgeschwindigkeit $\vec{\bar{v}}_d$ bestimmt werdenbestimmt werden
+\begin{align*}
+    \vec{\bar{v}}_d &= -\frac{n \cdot e_0}{j} \\
+    \Delta \vec{\bar{v}} &= 2\cdot \vec{\bar{v}}_d\\
+    \mu = \frac{E}{\vec{\bar{v}}_d} &= - \frac{\Delta \vec{\bar{v}}\cdot m_0 }{\vec{\bar{v}}_d \cdot \bar{\tau} \cdot e_0}\\
+\end{align*}
+
+%----------Tabelle
+\begin{table}
+    \centering
+    \begin{tabular}{c c c c c}
+        \toprule
+        $U_H$ & $B$ & $n$  & $\bar{\tau}$ & $\vec{\bar{v}}_d$ \\
+        \midrule
+        $0.00740\pm 0.00034  $& $33\pm 24                 $& $(4.8\pm 3.4)\cdot 10^{21}      $& $(2.0\pm 1.4)\cdot 10^{-7}      $& $(8\pm 5)\cdot 10^{2}          $\\
+        $0.00546\pm 0.00035  $& $159\pm 24                $& $(1.93\pm 0.33)\cdot 10^{22}    $& $(4.9\pm 1.0)\cdot 10^{-8}      $& $(3.1\pm 0.5)\cdot 10^{3}      $\\
+        $0.0035\pm 0.0004    $& $284\pm 25                $& $(2.1\pm 0.6)\cdot 10^{22}      $& $(4.6\pm 1.4)\cdot 10^{-8}      $& $(3.3\pm 0.9)\cdot 10^{3}      $\\
+        $0.0016\pm 0.0004    $& $410\pm 26                $& $(-4.0\pm 3.3)\cdot 10^{22}     $& $(-2.4\pm 2.0)\cdot 10^{-8}     $& $(-6\pm 5)\cdot 10^{3}         $\\
+        $-0.0004\pm 0.0004   $& $535\pm 28                $& $(8\pm 8)\cdot 10^{23}          $& $(1.2\pm 1.1)\cdot 10^{-9}      $& $(1.3\pm 1.2)\cdot 10^{5}      $\\
+        $-0.0023\pm 0.0005   $& $661\pm 31                $& $(2.77\pm 0.33)\cdot 10^{23}    $& $(3.4\pm 0.5)\cdot 10^{-9}      $& $(4.4\pm 0.5)\cdot 10^{4}      $\\
+        $-0.0043\pm 0.0005   $& $786\pm 33                $& $(2.55\pm 0.18)\cdot 10^{23}    $& $(3.7\pm 0.4)\cdot 10^{-9}      $& $(4.08\pm 0.29)\cdot 10^{4}    $\\
+        $-0.0062\pm 0.0005   $& $(9.1\pm 0.4)\cdot 10^{2}      $& $(2.63\pm 0.15)\cdot 10^{23}    $& $(3.6\pm 0.4)\cdot 10^{-9}      $& $(4.22\pm 0.24)\cdot 10^{4}    $\\
+        $-0.0081\pm 0.0006   $& $(1.04\pm 0.04)\cdot 10^{3}    $& $(2.80\pm 0.14)\cdot 10^{23}    $& $(3.4\pm 0.4)\cdot 10^{-9}      $& $(4.49\pm 0.23)\cdot 10^{4}    $\\
+        $-0.0101\pm 0.0006   $& $(1.16\pm 0.04)\cdot 10^{3}    $& $(3.01\pm 0.14)\cdot 10^{23}    $& $(3.17\pm 0.33)\cdot 10^{-9}    $& $(4.82\pm 0.23)\cdot 10^{4}    $\\
+        $-0.0120\pm 0.0007   $& $(1.29\pm 0.05)\cdot 10^{3}    $& $(3.23\pm 0.15)\cdot 10^{23}    $& $(2.95\pm 0.30)\cdot 10^{-9}    $& $(5.18\pm 0.23)\cdot 10^{4}    $\\
+
+        \bottomrule
+    \end{tabular}
+    \caption{Parameter für Kupfer}
+    \label{tab:Cu_B}
+\end{table}
+
+\begin{table}
+    \centering
+    \begin{tabular}{c c c c}
+        \toprule
+        $U_H$ & $|\bar{v}|$ & $\bar{l}$ & $\mu$ \\
+        $V$ & $m/s$ & $m$ & $lol$\\
+        \midrule
+        $0.00740\pm 0.00034$   &  $(6.0\pm 1.4)\cdot 10^{3}   $   & $0.0012\pm 0.0006          $      & $(6\pm 4)\cdot 10^{-5}$   \\
+        $0.00546\pm 0.00035$    & $ (9.6\pm 0.6)\cdot 10^{3}  $    &$ 0.00047\pm 0.00007       $      & $0.00023\pm 0.00004   $   \\
+        $0.0035\pm 0.0004  $    & $ (9.8\pm 0.9)\cdot 10^{3}  $    &$ 0.00045\pm 0.00009       $      & $0.00025\pm 0.00007   $   \\
+        $0.0016\pm 0.0004  $    & $ (1.23\pm 0.34)\cdot 10^{4}$    &$ -0.00029\pm 0.00016      $      & $-0.0005\pm 0.0004    $   \\
+        $-0.0004\pm 0.0004 $    & $ (3.3\pm 1.1)\cdot 10^{4}  $    &$ (3.9\pm 2.5)\cdot 10^{-5}$      & $0.010\pm 0.009       $   \\
+        $-0.0023\pm 0.0005 $    & $ (2.34\pm 0.09)\cdot 10^{4}$    &$ (8.0\pm 1.0)\cdot 10^{-5}$      & $0.0033\pm 0.0005     $   \\
+        $-0.0043\pm 0.0005 $    & $ (2.27\pm 0.05)\cdot 10^{4}$    &$ (8.5\pm 0.9)\cdot 10^{-5}$      & $0.00304\pm 0.00035   $   \\
+        $-0.0062\pm 0.0005 $    & $ (2.29\pm 0.04)\cdot 10^{4}$    &$ (8.3\pm 0.8)\cdot 10^{-5}$      & $0.00314\pm 0.00034   $   \\
+        $-0.0081\pm 0.0006 $    & $ (2.34\pm 0.04)\cdot 10^{4}$    &$ (8.0\pm 0.8)\cdot 10^{-5}$      & $0.00334\pm 0.00035   $   \\
+        $-0.0101\pm 0.0006 $    & $ (2.40\pm 0.04)\cdot 10^{4}$    &$ (7.6\pm 0.7)\cdot 10^{-5}$      & $0.0036\pm 0.0004     $   \\
+        $-0.0120\pm 0.0007 $    & $ (2.46\pm 0.04)\cdot 10^{4}$    &$ (7.2\pm 0.7)\cdot 10^{-5}$      & $0.0039\pm 0.0004     $   \\
+
+        \bottomrule
+    \end{tabular}
+    \caption{Parameter 2 für Kupfer}
+    \label{tab:Cu_B}
+\end{table}
+%_________
+
+% --------SILBER
+\subsection{Silber}
+\subsubsection{Geometrische Messungen und Wiederstand}
+\subsubsection{Hall Spannung bei konstantem B-Feld}
+\subsubsection{Hall Spannung bei konstantem Querstrom}
+\subsubsection{Bestimmung der mikroskopischen Parameter}
+% --------ZINK
+\subsection{Zink}
+\subsubsection{Geometrische Messungen und Wiederstand}
+\subsubsection{Hall Spannung bei konstantem B-Feld}
+\subsubsection{Hall Spannung bei konstantem Querstrom}
 % Data 5
 \begin{table}
     \centering
@@ -240,35 +351,9 @@ Um die Abhängigkeit der Hall Spannung vom äußeren Magnetfeld $B$ festzustelle
 Mit der Ausgleichsgeraden
 \begin{align*}
     y &= mx + b\\
-    m &= \cdot (1,93\pm0,15)10^{-5}\\
+    m &= \cdot (1,93\pm0,15)10^{-5}\\ % ZINK????
     b &=  -0.409006\pm 0.001123\\ % Signifikante Stellen????
 \end{align*}
 
-
-\subsubsection{Bestimmung der mikroskopischen Parameter}
-Über die gemessene Hall Spannung,das dazugehörige B-Feld und den Querstrom kann man über \ref{eqn:U_Hall} auf die Anzahl der Ladungsträger pro Volumen schließen.
-\begin{equation*}
-    n = -\frac{1}{e_0 U_H}\cdot \frac{B\cdot I_q}{d}
-\end{equation*}
-Weiterhin lässt sich mit den so errechneten Werten für n der Energie Parameter $E_F$ berechnen.
-\begin{equation*}
-    E_F = \frac{h^2}{2 m_0}\cdot (\frac{3}{8\pi}\cdot n )^{\frac{2}{3}}
-\end{equation*}
-Über $E_F$ lässt sich der nächste Parameter, die Totalgeschwindigkeit $|\bar{v}|$, berechnen.
-\begin{equation*}
-    |\bar{v}| = (\frac{2 E_F}{m_0})^{\frac{1}{2}}
-\end{equation*}
-Außerdem lässt sich aus n und der zuvor berechneten spezifischen Leitfähigkeit $\rho$ die
-% --------SILBER
-\subsection{Silber}
-\subsubsection{Geometrische Messungen und Wiederstand}
-\subsubsection{Hall Spannung bei konstantem B-Feld}
-\subsubsection{Hall Spannung bei konstantem Querstrom}
-\subsubsection{Bestimmung der mikroskopischen Parameter}
-% --------ZINK
-\subsection{Zink}
-\subsubsection{Geometrische Messungen und Wiederstand}
-\subsubsection{Hall Spannung bei konstantem B-Feld}
-\subsubsection{Hall Spannung bei konstantem Querstrom}
 \subsubsection{Bestimmung der mikroskopischen Parameter}
 \label{sec:Auswertung}
