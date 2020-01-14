@@ -50,9 +50,9 @@ print(magnetfeld)
 
 ##---------Kupfer---------
 R,l,d=np.genfromtxt("data9.txt", unpack = True)
-rho_k = (R_k*(np.pi*unp.uarray(30,1)*10**(-6))**2)/(l_k*10**(-2))
-r_k = np.sqrt(0.018*10**(-6)*(l_k*10**(-2))/(R_k*np.pi**2)) #dicke die es sein muss für lit wert, wir haben nicht gemessen
-print(f"Spezifischer Wiederstand von Kupfer: {rho_k*10**(6)} Mikro Ohm")
+rho = (R*np.pi*(1/2*unp.uarray(0.218,0.01)*10**(-3))**2)/(l*10**(-2))
+r = np.sqrt(0.018*10**(-6)*(l*10**(-2))/(R*np.pi**2)) #dicke die es sein muss für lit wert, wir haben nicht gemessen
+print(f"Spezifischer Wiederstand von Kupfer: {rho*10**(6)} Mikro Ohm")
 
 U_hall = 1
 B_err = 1

@@ -48,7 +48,7 @@ print(magnetfeld)
 ## --------Magnetfeld fertig--------
 
 R,l,d=np.genfromtxt("data10.txt", unpack = True)
-rho = (R*(np.pi*unp.uarray(69,1)*10**(-6))**2)/(l*10**(-2)) #fake Dicke  :(
+rho = (R*np.pi*(1/2*unp.uarray(0.218,0.01)*10**(-3))**2)/(l*10**(-2)) #fake Dicke  :(
 r = np.sqrt(0.016*10**(-6)*(l*10**(-2))/(R*np.pi**2)) #dicke die es sein muss für lit wert, wir haben nicht gemessen
 print(f"Spezifischer Wiederstand von Silber: {rho*10**(6)} Mikro Ohm") 
 
