@@ -46,8 +46,9 @@ Strom & Magnetfeld\n
 """
 print(magnetfeld)
 ## --------Magnetfeld fertig--------
-rho_z = 6*10**(-8) #mikro Ohm Litereaturwert
-print(f"Literaturwert Spezifischer Wiederstand von Zink: {rho_z*10**(6)} Mikro Ohm")
+rho = 6*10**(-8) #mikro Ohm Litereaturwert
+d = 100
+print(f"Literaturwert Spezifischer Wiederstand von Zink: {rho*10**(6)} Mikro Ohm")
 
 #----------Magnetfeld und strom
 #6) Data 5 Zink| I_b = Stromstärke des B Felds, U_hall_b = Hallspannung, I_d = Durchflussstrom(konstant 10 A)
@@ -86,21 +87,40 @@ l = tau*v_total
 mu = -(v_delta*m_0)/(v_drift*tau*e_0)
 #print(f"My: {mu}")
 
-tabelle= f"""
-Tabelle\n
+tabelle1= f"""
+Tabelle 1\n
 -----------------------------\n
-Hall Spannung & Magnetfeld & Ladungsträger pro Volumen & mittlere Flugzeit & Driftgeschwindigkeit & Totalgeschwindigkeit & mittlere freie Weglänge & Beweglichkeit  \n
-{U_hall[0]} & {B_err[0]} & {n[0]} & {tau[0]} & {v_drift[0]} & {v_total[0]} & {l[0]} & {mu[0]} \\\\
-{U_hall[1]} & {B_err[1]} & {n[1]} & {tau[1]} & {v_drift[1]} & {v_total[1]} & {l[1]} & {mu[1]} \\\\
-{U_hall[2]} & {B_err[2]} & {n[2]} & {tau[2]} & {v_drift[2]} & {v_total[2]} & {l[2]} & {mu[2]} \\\\
-{U_hall[3]} & {B_err[3]} & {n[3]} & {tau[3]} & {v_drift[3]} & {v_total[3]} & {l[3]} & {mu[3]} \\\\
-{U_hall[4]} & {B_err[4]} & {n[4]} & {tau[4]} & {v_drift[4]} & {v_total[4]} & {l[4]} & {mu[4]} \\\\
-{U_hall[5]} & {B_err[5]} & {n[5]} & {tau[5]} & {v_drift[5]} & {v_total[5]} & {l[5]} & {mu[5]} \\\\
-{U_hall[6]} & {B_err[6]} & {n[6]} & {tau[6]} & {v_drift[6]} & {v_total[6]} & {l[6]} & {mu[6]} \\\\
-{U_hall[7]} & {B_err[7]} & {n[7]} & {tau[7]} & {v_drift[7]} & {v_total[7]} & {l[7]} & {mu[7]} \\\\
-{U_hall[8]} & {B_err[8]} & {n[8]} & {tau[8]} & {v_drift[8]} & {v_total[8]} & {l[8]} & {mu[8]} \\\\
-{U_hall[9]} & {B_err[9]} & {n[9]} & {tau[9]} & {v_drift[9]} & {v_total[9]} & {l[9]} & {mu[9]} \\\\
-{U_hall[10]} & {B_err[10]} & {n[10]} & {tau[10]} & {v_drift[10]} & {v_total[10]} & {l[10]} & {mu[10]} \\\\
+Hall Spannung & Magnetfeld & Ladungsträger pro Volumen & mittlere Flugzeit & Driftgeschwindigkeit\n
+{U_hall[0]}  & {B_err[0]}  & {n[0]}  & {tau[0]}  & {v_drift[0]}  \\\\
+{U_hall[1]}  & {B_err[1]}  & {n[1]}  & {tau[1]}  & {v_drift[1]}  \\\\
+{U_hall[2]}  & {B_err[2]}  & {n[2]}  & {tau[2]}  & {v_drift[2]}  \\\\
+{U_hall[3]}  & {B_err[3]}  & {n[3]}  & {tau[3]}  & {v_drift[3]}  \\\\
+{U_hall[4]}  & {B_err[4]}  & {n[4]}  & {tau[4]}  & {v_drift[4]}  \\\\
+{U_hall[5]}  & {B_err[5]}  & {n[5]}  & {tau[5]}  & {v_drift[5]}  \\\\
+{U_hall[6]}  & {B_err[6]}  & {n[6]}  & {tau[6]}  & {v_drift[6]}  \\\\
+{U_hall[7]}  & {B_err[7]}  & {n[7]}  & {tau[7]}  & {v_drift[7]}  \\\\
+{U_hall[8]}  & {B_err[8]}  & {n[8]}  & {tau[8]}  & {v_drift[8]}  \\\\
+{U_hall[9]}  & {B_err[9]}  & {n[9]}  & {tau[9]}  & {v_drift[9]}  \\\\
+{U_hall[10]} & {B_err[10]} & {n[10]} & {tau[10]} & {v_drift[10]} \\\\
 -----------------------------\n
 """
-print(tabelle)
+print(tabelle1)
+
+tabelle2= f"""
+Tabelle 2\n
+-----------------------------\n
+Hall Spannung  & Totalgeschwindigkeit & mittlere freie Weglänge & Beweglichkeit  \n
+{U_hall[0]}  & {v_total[0]}  & {l[0]}  & {mu[0]}  \\\\
+{U_hall[1]}  & {v_total[1]}  & {l[1]}  & {mu[1]}  \\\\
+{U_hall[2]}  & {v_total[2]}  & {l[2]}  & {mu[2]}  \\\\
+{U_hall[3]}  & {v_total[3]}  & {l[3]}  & {mu[3]}  \\\\
+{U_hall[4]}  & {v_total[4]}  & {l[4]}  & {mu[4]}  \\\\
+{U_hall[5]}  & {v_total[5]}  & {l[5]}  & {mu[5]}  \\\\
+{U_hall[6]}  & {v_total[6]}  & {l[6]}  & {mu[6]}  \\\\
+{U_hall[7]}  & {v_total[7]}  & {l[7]}  & {mu[7]}  \\\\
+{U_hall[8]}  & {v_total[8]}  & {l[8]}  & {mu[8]}  \\\\
+{U_hall[9]}  & {v_total[9]}  & {l[9]}  & {mu[9]}  \\\\
+{U_hall[10]} & {v_total[10]} & {l[10]} & {mu[10]} \\\\
+-----------------------------\n
+"""
+print(tabelle2)
