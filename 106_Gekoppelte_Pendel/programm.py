@@ -132,3 +132,7 @@ print(f"Gekoppelt Frequenzen:\nGemessen (72cm):{wg1_schwi}\nBerechnet (72cm):{wb
 TK1 = 2*np.pi**2*0.72/M1_m**2-9.81/2
 TK2 = 2*np.pi**2*0.80/M2_m**2-9.81/2
 print(f"K1: gemessen {TK1}, berechnet {TK2}")
+
+DK1=(M1_p**2-M1_m**2)/(M1_p**2+M1_m**2) #über Mittelwerte
+DK2=(M2_p**2-M2_m**2)/(M2_p**2+M2_m**2)
+print(f"Kopplungskonstante K (72cm): {DK1}\nKopplungskonstante K (80cm): {DK2}\n")
