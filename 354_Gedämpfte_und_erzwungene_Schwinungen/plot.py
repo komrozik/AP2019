@@ -57,8 +57,8 @@ werte_params=f"""
     L: {L_e}\\
     Theorie\
     k=R/2L: {R1_e/(2*L_e)}\n
-    Rap: {np.sqrt(4*L/C)}
-     """
+    Rap: {np.sqrt(4*L/C)}                                       
+     """                                                                    #Rap mit fehlern
 print(werte_params)
 
 #Theoriekurve plotten
@@ -88,4 +88,46 @@ plt.ylabel("$U\;/\;V$")
 plt.xlabel("$w\,/\,kHz$")
 plt.legend()
 plt.savefig("bilder/plotc.pdf",bbox_inches='tight')
+plt.close()
+
+#Impedanzkurve
+line_w=np.linspace(5,60)
+line_W=line_w*1000
+plt.plot(line_w,np.sqrt(R2**2+(line_W*L-1/(line_W*C))**2),"r-",label="Theoriewerte")
+plt.ylabel("$Z\;/\;$Ohm")
+plt.xlabel("$w\,/\,kHz$")
+plt.legend()
+plt.savefig("bilder/plotZ.pdf",bbox_inches='tight')
+plt.close()
+#----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Aufgabe d)
+#----------------------------------------------------------------------
+w,a,b=np.genfromtxt("datad.txt",unpack=True)
+phi=a/b*np.pi
+print("w    &   a   &   b   &   phi\n")
+for x in range(0,len(w)-1):
+    print(f"{w[x]} & {a[x]} & {b[x]} & {phi[x].round(2)} \\\\")
+
+plt.plot(w,phi,"rx",label="Phasenverschiebung")
+plt.xlabel("$w\;/\;kHz$")
+plt.ylabel("$\Delta \phi \;/\;$rad")
+plt.legend(loc="best")
+plt.savefig("bilder/plotph.pdf",bbox_inches='tight')
 plt.show()
+#----------------------------------------------------------------------
