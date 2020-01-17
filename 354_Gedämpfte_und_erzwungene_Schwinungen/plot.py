@@ -21,7 +21,7 @@ R2_e=ufloat(271.6,0.2)#Ohm
 L_e=ufloat(3.5,0.01)*10**(-3)#H
 C_e=ufloat(5.00,0.2)*10**(-9)#F
 
-A=4 #y=A*e^{-R/(2L)*t} der Startwert aus den Daten für die Theoriekurve
+A=4-(0.7*2)#V #y=A*e^{-R/(2L)*t} der Startwert aus den Daten für die Theoriekurve
 
 
 #Aufgabe a)
@@ -32,6 +32,8 @@ A=4 #y=A*e^{-R/(2L)*t} der Startwert aus den Daten für die Theoriekurve
 #Der Dämpfungswiderstand Reff und die Ablinkdauer Tex sollen daraus berechnet werden.
 
 def funktiona(t,k):
+    return 4*np.exp(-k*t)
+def funktiona_theo(t,k):
     return 4*np.exp(-k*t)
 
 
@@ -62,7 +64,7 @@ werte_params=f"""
 print(werte_params)
 
 #Theoriekurve plotten
-plt.plot(t,funktiona(t,R1/(2*L)),"b--",label="Theoriekurve")
+plt.plot(t,funktiona_theo(t,R1/(2*L)),"b--",label="Theoriekurve")
 plt.legend()
 plt.xlabel("$t\;/\;\mu s$")
 plt.ylabel("$U_C\;/\;V$")
