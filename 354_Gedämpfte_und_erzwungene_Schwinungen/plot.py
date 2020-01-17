@@ -31,6 +31,15 @@ A=4-(0.7*2)#V #y=A*e^{-R/(2L)*t} der Startwert aus den Daten für die Theoriekur
 #,eine e-Funktion. 
 #Der Dämpfungswiderstand Reff und die Ablinkdauer Tex sollen daraus berechnet werden.
 
+#Idee zur Fehler behebeung. Die funktiona konvergiert gegen 0 für t gegen unendlich.
+#in dem Theomodruck ist es aber nicht 0 sonder 1.4V. Wenn man alle messwerte UC-1.4 rechnet
+#und auch die KOnstante A -1.4 rechnet passt der Plot perfekt ABER Reff wird noch gößer...
+#Problem weiterhin THEORIEKURVE...
+#U=R*I - da I=Aexp(R/(2L)*t) musste man eigenlich das ganz noc mit R1 multiplizieren
+# wird dann aber noch unpassender.
+
+
+
 def funktiona(t,k):
     return 4*np.exp(-k*t)
 def funktiona_theo(t,k):
