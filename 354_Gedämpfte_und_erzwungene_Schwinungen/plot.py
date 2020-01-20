@@ -21,7 +21,7 @@ R2_e=ufloat(271.6,0.2)#Ohm
 L_e=ufloat(3.5,0.01)*10**(-3)#H
 C_e=ufloat(5.00,0.2)*10**(-9)#F
 
-A=4 #y=A*e^{-R/(2L)*t} der Startwert aus den Daten für die Theoriekurve
+A=4-(0.7*2)#V #y=A*e^{-R/(2L)*t} der Startwert aus den Daten für die Theoriekurve
 
 
 #Aufgabe a)
@@ -31,7 +31,18 @@ A=4 #y=A*e^{-R/(2L)*t} der Startwert aus den Daten für die Theoriekurve
 #,eine e-Funktion. 
 #Der Dämpfungswiderstand Reff und die Ablinkdauer Tex sollen daraus berechnet werden.
 
+#Idee zur Fehler behebeung. Die funktiona konvergiert gegen 0 für t gegen unendlich.
+#in dem Theomodruck ist es aber nicht 0 sonder 1.4V. Wenn man alle messwerte UC-1.4 rechnet
+#und auch die KOnstante A -1.4 rechnet passt der Plot perfekt ABER Reff wird noch gößer...
+#Problem weiterhin THEORIEKURVE...
+#U=R*I - da I=Aexp(R/(2L)*t) musste man eigenlich das ganz noc mit R1 multiplizieren
+# wird dann aber noch unpassender.
+
+
+
 def funktiona(t,k):
+    return 4*np.exp(-k*t)
+def funktiona_theo(t,k):
     return 4*np.exp(-k*t)
 
 
@@ -57,12 +68,12 @@ werte_params=f"""
     L: {L_e}\\
     Theorie\
     k=R/2L: {R1_e/(2*L_e)}\n
-    Rap: {np.sqrt(4*L/C)}
-     """
+    Rap: {np.sqrt(4*L/C)}                                       
+     """                                                                    #Rap mit fehlern
 print(werte_params)
 
 #Theoriekurve plotten
-plt.plot(t,funktiona(t,R1/(2*L)),"b--",label="Theoriekurve")
+plt.plot(t,funktiona_theo(t,R1/(2*L)),"b--",label="Theoriekurve")
 plt.legend()
 plt.xlabel("$t\;/\;\mu s$")
 plt.ylabel("$U_C\;/\;V$")
@@ -88,4 +99,46 @@ plt.ylabel("$U\;/\;V$")
 plt.xlabel("$w\,/\,kHz$")
 plt.legend()
 plt.savefig("bilder/plotc.pdf",bbox_inches='tight')
-#plt.show()
+plt.close()
+
+#Impedanzkurve
+line_w=np.linspace(5,60)
+line_W=line_w*1000
+plt.plot(line_w,np.sqrt(R2**2+(line_W*L-1/(line_W*C))**2),"r-",label="Theoriewerte")
+plt.ylabel("$Z\;/\;$Ohm")
+plt.xlabel("$w\,/\,kHz$")
+plt.legend()
+plt.savefig("bilder/plotZ.pdf",bbox_inches='tight')
+plt.close()
+#----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Aufgabe d)
+#----------------------------------------------------------------------
+w,a,b=np.genfromtxt("datad.txt",unpack=True)
+phi=a/b*np.pi
+print("w    &   a   &   b   &   phi\n")
+for x in range(0,len(w)-1):
+    print(f"{w[x]} & {a[x]} & {b[x]} & {phi[x].round(2)} \\\\")
+
+plt.plot(w,phi,"rx",label="Phasenverschiebung")
+plt.xlabel("$w\;/\;kHz$")
+plt.ylabel("$\Delta \phi \;/\;$rad")
+plt.legend(loc="best")
+plt.savefig("bilder/plotph.pdf",bbox_inches='tight')
+plt.show()
+#----------------------------------------------------------------------
