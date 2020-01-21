@@ -51,11 +51,12 @@ UC=UC*2-(0.7*2) #Volt - Umrechnung da Oszilator auf 2V/Div.
 t=t*20*10**(-6) #s - Umrechnung da Oszillator auf 20us/Div.
 
 #Messwerte plotten
-plt.plot(t,UC,"rx",label="Messdaten")
+tp=t*10**6
+plt.plot(tp,UC,"rx",label="Messdaten")
 
 #Messwerte fitten
-line=np.linspace(0,t[len(t)-1])
-params, cov= curve_fit(funktiona,t,UC)
+line=np.linspace(0,tp[len(tp)-1])
+params, cov= curve_fit(funktiona,tp,UC)
 errors = np.sqrt(np.diag(cov))
 unparams = unp.uarray(params,errors)
 plt.plot(line,funktiona(line,*params),"g",label='Ausgleichs e-Funktion')
@@ -73,7 +74,7 @@ werte_params=f"""
 print(werte_params)
 
 #Theoriekurve plotten
-plt.plot(t,funktiona_theo(t,R2/(2*L)),"b--",label="Theoriekurve")
+plt.plot(tp,funktiona_theo(t,R2/(2*L)),"b--",label="Theoriekurve")
 plt.legend()
 plt.xlabel("$t\;/\;\mu s$")
 plt.ylabel("$U_C\;/\;V$")
