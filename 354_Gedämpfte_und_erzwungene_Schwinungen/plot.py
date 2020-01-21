@@ -41,13 +41,13 @@ A=4-(0.7*2)#V #y=A*e^{-R/(2L)*t} der Startwert aus den Daten für die Theoriekur
 
 
 def funktiona(t,k):
-    return 4*np.exp(-k*t)
+    return (4-(0.7*2))*np.exp(-k*t)
 def funktiona_theo(t,k):
-    return 4*np.exp(-k*t)
+    return (4-(0.7*2))*np.exp(-k*t)
 
 
 UC,t=np.genfromtxt("dataa.txt",unpack=True)
-UC=UC*2 #Volt - Umrechnung da Oszilator auf 2V/Div.
+UC=UC*2-(0.7*2) #Volt - Umrechnung da Oszilator auf 2V/Div.
 t=t*20*10**(-6) #s - Umrechnung da Oszillator auf 20us/Div.
 
 #Messwerte plotten
@@ -73,7 +73,7 @@ werte_params=f"""
 print(werte_params)
 
 #Theoriekurve plotten
-plt.plot(t,funktiona_theo(t,R1/(2*L)),"b--",label="Theoriekurve")
+plt.plot(t,funktiona_theo(t,R2/(2*L)),"b--",label="Theoriekurve")
 plt.legend()
 plt.xlabel("$t\;/\;\mu s$")
 plt.ylabel("$U_C\;/\;V$")
