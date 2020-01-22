@@ -1,0 +1,13 @@
+
+#Für alle weiteren Sachen (umrechnungsfaktoren und co) siehe datawpi.txt
+#-------------------------------------------------------------------------
+#Ck	Vph=0	UG(5V/Div)	U2(2V/Div.)
+#nF		Kästchen (muss umgerechnet werden)
+1.01	47.2	2.8		0.8	
+2.03	40.3	2.6		0.8
+3.00	37.2	2.4		0.8
+4.00	35.9	2.4		0.8
+5.02	34.9	2.4		0.8
+6.47	34.0	2.4		0.8
+8.00	33.4	2.4		0.8
+9.99	32.9	2.4		0.8	
