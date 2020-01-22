@@ -1,0 +1,12 @@
+#Anzahl der Maxima/MInima für verschiedene Kopplungskondensatoren Ck
+#Fehler Ck pm0.3%
+#Ck	Max	Min
+#nF	Anzahlen
+1.01	2	1
+2.03	2	3
+3.00	4	3
+4.00	6	5
+5.02	7	6
+6.47	9	8	
+8.00	11	10
+9.99	13	13
