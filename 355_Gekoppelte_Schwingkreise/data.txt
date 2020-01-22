@@ -1,0 +1,8 @@
+#Schaltung 1
+#L	C	CSp
+#mH	nF	nF
+32.351	0.8015	0.037
+
+
+#Eingestelle Resonanzfrequenz wR (kHZ)
+30.4

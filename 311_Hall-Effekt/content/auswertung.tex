@@ -1,27 +1,5 @@
 \newpage
 \section{Auswertung}
-%Schonmal die Tabellen für dich ;-)
-
-
-%data2
-
-
-%data3
-
-
-%data4
-
-
-%data5
-
-
-%data6
-
-
-%data7
-
-
-%data8
 
 % -------------Magnetfeld------------
 \subsection{Magnetfeldmessung}
@@ -60,8 +38,8 @@ Zwischen den beiden Größen besteht ein linearer Zusammenhang, daher lässt sic
 Mit der Ausgleichsgeraden
 \begin{align*}
     y &= mx + b\\
-    m &= 251\pm 8\\  
-    b &= 32\pm 24\\
+    m &= \SI{251\pm 8}{\milli \tesla \per \ampere} \\  
+    b &= \SI{32\pm 24}{\milli \tesla}\\
 \end{align*}
 Aus der Umkerfunktion dieser Ausgleichsrechnung lässt sich in den folgenden Berechnungen das B-Feld aus dem angelegten Spulenstrom bestimmen.
 
@@ -186,10 +164,14 @@ Um die Abhängigkeit der Hall Spannung vom äußeren Magnetfeld $B$ festzustelle
 \end{figure}
 Mit der Ausgleichsgeraden
 \begin{align*}
-    y &= mx + b\\
-    m &= \cdot (-164 \pm 3)10^{-5}\\
-    b &=  0.0023\pm0.0003 \\ % Signifikante Stellen????
+    y &= a \cdot x + b\\
+    a &=  \SI{-15,4 \pm 0,5 }{\square \meter \per \second}\\
+    b &=  \SI{7,9\pm0,4}{\tesla}\\
 \end{align*}
+Daraus ergibt sich n mit:
+\begin{align}
+    n = \SI{2,24\pm0,06 e29}{\per \cubic \metre}
+\end{align}
 
 \subsubsection{Werte für die mikroskopischen Parameter}
 %----------Tabelle
