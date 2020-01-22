@@ -1,0 +1,45 @@
+\input{header.tex}
+
+\title{Zusatzversuch bei Firma Schnöring}
+\author{%
+  Konstantin Mrozik\\%
+  \href{mailto:konstantin.mrozik@udo.edu}{konstantin.mrozik@udo.edu}%
+  \and%
+  Marcel Kebekus\\%
+  \href{mailto:marcel.kebekus@udo.edu}{marcel.kebekus@udo.edu}%
+}
+\date{%
+  Durchführung: 
+  \hspace{3em}
+  Abgabe: 
+}
+\publishers{TU Dortmund – Fakultät Physik}
+\makeatletter         
+\def\@maketitle{
+\raggedright
+\includegraphics[width=\textwidth]{bilder/lo_TU-Do 2008/logo_rgb_jpg}\\[8ex]
+\begin{center}
+{\Huge \bfseries \sffamily \@title }\\[4ex] 
+{\Large  \@author}\\[4ex] 
+\@date\\[8ex]
+\publishers\\
+\end{center}}
+\makeatother
+
+
+\begin{document}
+
+
+\maketitle
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+\input{content/theorie.tex}
+\input{content/durchfuehrung.tex}
+%\input{content/auswertung.tex}
+%\input{content/diskussion.tex}
+%\newpage
+\nocite{*}
+\printbibliography
+
+\end{document}
