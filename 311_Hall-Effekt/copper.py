@@ -56,7 +56,9 @@ print(magnetfeld)
 R,l,d=np.genfromtxt("data9.txt", unpack = True)
 rho = (R*np.pi*(1/2*unp.uarray(0.218,0.01)*10**(-3))**2)/(l*10**(-2))
 r = np.sqrt(0.018*10**(-6)*(l*10**(-2))/(R*np.pi**2)) #dicke die es sein muss für lit wert, wir haben nicht gemessen
-print(f"Spezifischer Wiederstand von Kupfer: {rho*10**(6)} Mikro Ohm")
+print(f"Spezifischer Wiederstand von Kupfer: {rho*10**(6)} Mikro Ohm meter")
+rho = 0.018*10**(-6)
+print(f"Spezifischer Literaturwiederstand : {rho*10**(6)} Mikro Ohm meter")
 
 #______________Durchflussstrom konstant__________________
 #2) Data 3 Kupfer | I_b = Stromstärke des B Felds, U_hall = Hallspannung, I_d = Durchflussstrom(konstant 10 A)
@@ -92,18 +94,26 @@ E_F = (h**2)/(2*m_0) * (3/(8*np.pi)*n)**(2/3)
 #E_F = E_F *(6.242*10**18) #in eV
 print(f"Wert für E_F: {E_F}")
 
-v_drift = -(n*e_0)/(1)
-print(f"Drift v :{v_drift}")
 v_total = ((2*E_F)/(m_0))**(1/2)
 print(f"Total v :{v_total}")
-v_delta = 2* v_drift
-print(f"Delta v :{v_delta}")
+
 tau = 2*(m_0)/(e_0**2)*(1)/(n*rho)
 print(f"Tau :{tau}")
+
 l = tau*v_total
 print(f"l:{l}")
-mu = -(v_delta*m_0)/(v_drift*tau*e_0)
+
+v_drift = -1/(n*e_0*10**(-6))
+print(f"Drift v :{v_drift}")
+
+
+mu = (2*m_0)/(e_0**2*n*tau)*10**(6)
 print(f"My: {mu}")
+
+sigma = 1/2*(e_0**2)/(m_0)*n*tau * 10**(-6)
+print(f"Sigma: {sigma}")
+
+
 
 
 
@@ -111,14 +121,14 @@ print(f"My: {mu}")
 #3) Data 4 Kupfer |  I_d = Durchflussstrom,U_hall = Hallspannung,I_b = Stromstärke des B Felds(konstant 5 A)
 I_b,U_hall,I_d = np.genfromtxt("data4.txt", unpack = True)
 
-#i=0
-# while(i<=len(B)-1):
-#     print(f"{B[i]} & {I[i]} \\\\ \n")
-#     i=i+1
-
-#B = f(I_b,*B_params)
+B = f(I_b,*B_params)
 params,cov = curve_fit(f,I_d,U_hall)
 errors = np.sqrt(np.diag(cov))
+print("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII\n")
+print(f"HIER BEGINNEN DIE PARAMETER aus dem I-Feld Plot:\n")
+print(f"""Die Parameter für den \"U_hall in Abh. von B\" Plot sind:\n
+        a: {params[0]*10**6} +- {errors[0]*10**6}
+        b: {params[1]*10**3} +- {errors[1]*10**3}]""")
 x_plot = np.linspace(0,10)
 plt.plot(x_plot,f(x_plot,*params),label = "linearer Fit")
 plt.plot(I_d,U_hall,"rx",label="Messwerte")
@@ -129,53 +139,29 @@ plt.savefig('build/plot4.pdf',bbox_inches='tight')
 #plt.show()
 plt.close()
 
+n = (B[0])/(e_0*d*(10**(-6))*unp.uarray(params[0],errors[0]))
+print(f"Der Parameter n in 1/m^3 ist: {n}")
 
-#######################################################
-#Korrektur Ende
-#######################################################
+E_F = (h**2)/(2*m_0) * (3/(8*np.pi)*n)**(2/3)
+#E_F = E_F *(6.242*10**18) #in eV
+print(f"Wert für E_F: {E_F}")
 
-# ##---------Kupfer---------
-# R,l,d=np.genfromtxt("data9.txt", unpack = True)
-# rho = (R*np.pi*(1/2*unp.uarray(0.218,0.01)*10**(-3))**2)/(l*10**(-2))
-# r = np.sqrt(0.018*10**(-6)*(l*10**(-2))/(R*np.pi**2)) #dicke die es sein muss für lit wert, wir haben nicht gemessen
-# print(f"Spezifischer Wiederstand von Kupfer: {rho*10**(6)} Mikro Ohm")
+v_total = ((2*E_F)/(m_0))**(1/2)
+print(f"Total v :{v_total}")
 
-# #----------Magnetfeld und strom
-# #6) Data 3 Kupfer| I_b = Stromstärke des B Felds, U_hall_b = Hallspannung, I_d = Durchflussstrom(konstant 10 A)
-# I_b,U_hall_b,I_d = np.genfromtxt("data3.txt", unpack = True)
+tau = 2*(m_0)/(e_0**2)*(1)/(n*rho)
+print(f"Tau :{tau}")
 
-# B = f(I_b,*B_params)
-# params,cov = curve_fit(f,B,U_hall_b)
-# errors = np.sqrt(np.diag(cov))
-# U_hall = unp.uarray(params[0],errors[0])*B+unp.uarray(params[1],errors[1])
+l = tau*v_total
+print(f"l:{l}")
 
-
-# #7) Data 4 Kupfer|  I_d = Durchflussstrom,U_hall_d = Hallspannung,I_b = Stromstärke des B Felds(konstant 5 A)
-# I_b,U_hall_d,I_d = np.genfromtxt("data4.txt", unpack = True)
-
-# params,cov = curve_fit(f,I_d,U_hall_d)
-# errors = np.sqrt(np.diag(cov))
-
-# I_err = (U_hall-unp.uarray(params[1],errors[1]))/(unp.uarray(params[0],errors[0]))
-# #----------------
+v_drift = -1/(n*e_0*10**(-6))
+print(f"Drift v :{v_drift}")
 
 
-# n =  (1)/(e_0*U_hall)*(B_err*I_err)/(d)
-# #print(f"n :{n}")
-# E_F = (h**2)/(2*m_0)*(((3)/(8*np.pi)*n)**2)**(1/3)
-# #print(f"E_F :{E_F}")
-# tau = 2*(m_0)/(e_0**2)*(1)/(n*rho)
-# #print(f"Tau :{tau}")
-# v_drift = -(n*e_0)/(1)
-# #print(f"Drift v :{v_drift}")
-# v_total = ((2*E_F)/(m_0))**(1/2)
-# #print(f"Total v :{v_total}")
-# v_delta = 2* v_drift
-# #print(f"Delta v :{v_delta}")
-# l = tau*v_total
-# #print(f"l:{l}")
-# mu = -(v_delta*m_0)/(v_drift*tau*e_0)
-# #print(f"My: {mu}")
+mu = (2*m_0)/(e_0**2*n*tau)*10**(6)
+print(f"My: {mu}")
+
 
 # tabelle1= f"""
 # Tabelle 1\n
