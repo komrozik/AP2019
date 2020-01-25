@@ -93,6 +93,11 @@ plt.close()
 
 #Aufgabe c)
 #----------------------------------------------------------------------
+U_0=1
+
+def U(U_0,L,C,R,w):
+    return U_0/(np.sqrt((1-L*C*w**2)**2+(w*R*C)**2))
+
 w,U=np.genfromtxt("datac.txt",unpack=True)
 
 plt.plot(w,U,"r+",label="Messwerte")
@@ -105,6 +110,7 @@ plt.close()
 #Impedanzkurve
 line_w=np.linspace(5,60)
 line_W=line_w*1000
+plt.plot(line_w,U(U_0,L,C,R1,line_w))
 plt.plot(line_w,np.sqrt(R2**2+(line_W*L-1/(line_W*C))**2),"r-",label="Theoriewerte")
 plt.ylabel("$Z\;/\;$Ohm")
 plt.xlabel("$w\,/\,kHz$")
