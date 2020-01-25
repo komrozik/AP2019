@@ -64,11 +64,6 @@ print(f"Spezifischer Literaturwiederstand : {rho*10**(6)} Mikro Ohm meter")
 #2) Data 3 Kupfer | I_b = Stromstärke des B Felds, U_hall = Hallspannung, I_d = Durchflussstrom(konstant 10 A)
 I_b,U_hall,I_d = np.genfromtxt("data3.txt", unpack = True)
 
-#i=0
-# while(i<=len(B)-1):
-#     print(f"{B[i]} & {I[i]} \\\\ \n")
-#     i=i+1
-
 B = f(I_b,*B_params)
 params,cov = curve_fit(f,B,U_hall)
 errors = np.sqrt(np.diag(cov))
@@ -89,6 +84,14 @@ plt.close()
 
 n = (I_d[0])/(e_0*d*(10**(-6))*unp.uarray(params[0],errors[0]))
 print(f"Der Parameter n in 1/m^3 ist: {n}")
+
+#Parameter z:
+m_atom = 63.546 * 1.6605402 * 10**(-27) #von u in kg umgerechnet
+n_atom = 8.92 *10**(3)*1/m_atom
+
+z = n/n_atom
+print(f"Der Parameter z ist:{z}")
+#Ende Z
 
 E_F = (h**2)/(2*m_0) * (3/(8*np.pi)*n)**(2/3)
 #E_F = E_F *(6.242*10**18) #in eV
@@ -141,6 +144,14 @@ plt.close()
 
 n = (B[0])/(e_0*d*(10**(-6))*unp.uarray(params[0],errors[0]))
 print(f"Der Parameter n in 1/m^3 ist: {n}")
+
+#Parameter z:
+m_atom = 63.546 * 1.6605402 * 10**(-27) #von u in kg umgerechnet
+n_atom = 8.92 *10**(3)*1/m_atom
+
+z = n/n_atom
+print(f"Der Parameter z ist:{z}")
+#Ende Z
 
 E_F = (h**2)/(2*m_0) * (3/(8*np.pi)*n)**(2/3)
 #E_F = E_F *(6.242*10**18) #in eV
