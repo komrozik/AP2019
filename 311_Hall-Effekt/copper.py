@@ -67,7 +67,8 @@ I_b,U_hall,I_d = np.genfromtxt("data3.txt", unpack = True)
 B = f(I_b,*B_params)
 params,cov = curve_fit(f,B,U_hall)
 errors = np.sqrt(np.diag(cov))
-print("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB\n")
+print("\n\nBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB")
+print("Durchflussstrom I konstant")
 print(f"HIER BEGINNEN DIE PARAMETER aus dem B-Feld Plot:\n")
 print(f"""Die Parameter für den \"U_hall in Abh. von B\" Plot sind:\n
         a: {params[0]*10**6} +- {errors[0]*10**6}
@@ -115,7 +116,7 @@ print(f"My: {mu}")
 
 sigma = 1/2*(e_0**2)/(m_0)*n*tau * 10**(-6)
 print(f"Sigma: {sigma}")
-
+print(f"\n \n")
 
 
 
@@ -127,7 +128,8 @@ I_b,U_hall,I_d = np.genfromtxt("data4.txt", unpack = True)
 B = f(I_b,*B_params)
 params,cov = curve_fit(f,I_d,U_hall)
 errors = np.sqrt(np.diag(cov))
-print("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII\n")
+print("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII")
+print("B feld konstant")
 print(f"HIER BEGINNEN DIE PARAMETER aus dem I-Feld Plot:\n")
 print(f"""Die Parameter für den \"U_hall in Abh. von B\" Plot sind:\n
         a: {params[0]*10**6} +- {errors[0]*10**6}
