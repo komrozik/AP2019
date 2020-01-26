@@ -116,6 +116,10 @@ print(f"My: {mu}")
 
 sigma = 1/2*(e_0**2)/(m_0)*n*tau * 10**(-6)
 print(f"Sigma: {sigma}")
+
+A_H = 1/(e_0*n)
+print(f"Hall Konstante: {A_H}")
+
 print(f"\n \n")
 
 
@@ -175,6 +179,9 @@ print(f"Drift v :{v_drift}")
 mu = (2*m_0)/(e_0**2*n*tau)*10**(6)
 print(f"My: {mu}")
 
+
+A_H = 1/(e_0*n)
+print(f"Hall Konstante: {A_H}")
 
 # tabelle1= f"""
 # Tabelle 1\n

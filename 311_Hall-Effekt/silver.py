@@ -80,8 +80,8 @@ n = (I_d[0])/(e_0*d*(10**(-6))*unp.uarray(params[0],errors[0]))
 print(f"Der Parameter n in 1/m^3 ist: {n}")
 
 #Parameter z:
-m_atom = 63.546 * 1.6605402 * 10**(-27) #von u in kg umgerechnet
-n_atom = 8.92 *10**(3)*1/m_atom
+m_atom = 107.8682 * 1.6605402 * 10**(-27) #von u in kg umgerechnet
+n_atom = 10.49 *10**(3)*1/m_atom
 
 z = n/n_atom
 print(f"Der Parameter z ist:{z}")
@@ -110,7 +110,8 @@ print(f"My: {mu}")
 sigma = 1/2*(e_0**2)/(m_0)*n*tau * 10**(-6)
 print(f"Sigma: {sigma}")
 
-
+A_H = 1/(e_0*n)
+print(f"Hall Konstante: {A_H}")
 
 
 #7) Data 8 Silber|  I_d = Durchflussstrom,U_hall_d = Hallspannung,I_b = Stromstärke des B Felds(konstant 5 A)
@@ -137,8 +138,8 @@ n = (B[0])/(e_0*d*(10**(-6))*unp.uarray(params[0],errors[0]))
 print(f"Der Parameter n in 1/m^3 ist: {n}")
 
 #Parameter z:
-m_atom = 63.546 * 1.6605402 * 10**(-27) #von u in kg umgerechnet
-n_atom = 8.92 *10**(3)*1/m_atom
+m_atom = 107.8682 * 1.6605402 * 10**(-27) #von u in kg umgerechnet
+n_atom = 10.49 *10**(3)*1/m_atom
 
 z = n/n_atom
 print(f"Der Parameter z ist:{z}")
@@ -166,6 +167,9 @@ print(f"My: {mu}")
 
 sigma = 1/2*(e_0**2)/(m_0)*n*tau * 10**(-6)
 print(f"Sigma: {sigma}")
+
+A_H = 1/(e_0*n)
+print(f"Hall Konstante: {A_H}")
 ##----------------------------------------
 
 # tabelle1= f"""
