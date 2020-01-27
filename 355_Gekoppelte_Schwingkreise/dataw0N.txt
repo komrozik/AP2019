@@ -1,9 +1,17 @@
 #Frequenzen in Abhängigkeit von Ck mit Hilfe von Lissajous-Figuren
 # Fehler Ck: pm0.3%
+<<<<<<< HEAD
+#I/A p-p: 15	Umrechnungfaktor F: 15A/(2.3*5V/Div.)
+			--> I=F*(gemessene Kästchen*Oszilloreinstellung)
+||||||| merged common ancestors
+#I/A p-p: 15	Umrechnungfaktor F: 15A/(2.3*5V/Div.) 
+			--> I=F*(gemessene Kästchen*Oszilloreinstellung)
+=======
 #I/A p-p: 15	Umrechnungfaktor F: 15A/(2.3*5V/Div.) 
 #			--> I=F*(gemessene Kästchen*Oszilloreinstellung)
+>>>>>>> 7566f1410ee3b58981432c2a94b7d4d8cdb09f50
 #----------------------------------------------------------------------------
-#Ck	w (bei Phase pi)	UG(5V/Div.)	U2(2V/Div.)	
+#Ck	w (bei Phase pi)	UG(5V/Div.)	U2(2V/Div.)
 #nF	khz			in Kästchen (umrechnen)
 1.01	30.5			2.3		1.4
 2.03	30.6			2.4		1.4
