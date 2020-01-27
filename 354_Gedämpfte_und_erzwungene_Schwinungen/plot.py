@@ -97,35 +97,19 @@ line_w=np.linspace(25,45)
 line_W=line_w*1000
 U_0=1
 
-<<<<<<< HEAD
-def Utheo(U_0,L,C,R,w):
-    print((np.sqrt((1-L*C*w**2)**2+(w*R*C)**2)))
-    return U_0/(np.sqrt((1-L*C*w**2)**2+(w*R*C)**2))
-||||||| merged common ancestors
-def U(U_0,L,C,R,w):
-    return U_0/(np.sqrt((1-L*C*w**2)**2+(w*R*C)**2))
-=======
 def U_funktion(w):
     return 1.5/(np.sqrt((1-L*C*w**2)**2+(w*R2*C)**2))
->>>>>>> 7566f1410ee3b58981432c2a94b7d4d8cdb09f50
 
 line_w= np.linspace(15,55)
 line_W=line_w*1000
 
-<<<<<<< HEAD
-plt.plot(line_w,Utheo(U_0,L,C,R1,line_W),label="Theoriekurve")
-||||||| merged common ancestors
-=======
 w,U=np.genfromtxt("datac.txt",unpack=True)
 plt.plot(line_w,U_funktion(line_W*6.6),label="Theoriekurve")
->>>>>>> 7566f1410ee3b58981432c2a94b7d4d8cdb09f50
 plt.plot(w,U,"r+",label="Messwerte")
 plt.ylabel("$U\;/\;V$")
 plt.xlabel("$w\,/\,kHz$")
 plt.legend()
-plt.show()
 plt.savefig("bilder/plotc.pdf",bbox_inches='tight')
-plt.show()
 plt.close()
 
 #Impedanzkurve
