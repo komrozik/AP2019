@@ -91,19 +91,24 @@ plt.close()
 
 
 
-#Aufgabe c)
+#Aufgabe c) - NAchgetragen werden muss ein Theoriekurve. Die aber immer zu einer Geraden wird
 #----------------------------------------------------------------------
+line_w=np.linspace(25,45)
+line_W=line_w*1000
 U_0=1
 
-def U(U_0,L,C,R,w):
+def Utheo(U_0,L,C,R,w):
+    print((np.sqrt((1-L*C*w**2)**2+(w*R*C)**2)))
     return U_0/(np.sqrt((1-L*C*w**2)**2+(w*R*C)**2))
 
 w,U=np.genfromtxt("datac.txt",unpack=True)
 
+plt.plot(line_w,Utheo(U_0,L,C,R1,line_W),label="Theoriekurve")
 plt.plot(w,U,"r+",label="Messwerte")
 plt.ylabel("$U\;/\;V$")
 plt.xlabel("$w\,/\,kHz$")
 plt.legend()
+plt.show()
 plt.savefig("bilder/plotc.pdf",bbox_inches='tight')
 plt.close()
 
