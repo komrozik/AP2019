@@ -64,15 +64,11 @@ print(f"Spezifischer Literaturwiederstand : {rho*10**(6)} Mikro Ohm meter")
 #2) Data 3 Kupfer | I_b = Stromstärke des B Felds, U_hall = Hallspannung, I_d = Durchflussstrom(konstant 10 A)
 I_b,U_hall,I_d = np.genfromtxt("data3.txt", unpack = True)
 
-#i=0
-# while(i<=len(B)-1):
-#     print(f"{B[i]} & {I[i]} \\\\ \n")
-#     i=i+1
-
 B = f(I_b,*B_params)
 params,cov = curve_fit(f,B,U_hall)
 errors = np.sqrt(np.diag(cov))
-print("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB\n")
+print("\n\nBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB")
+print("Durchflussstrom I konstant")
 print(f"HIER BEGINNEN DIE PARAMETER aus dem B-Feld Plot:\n")
 print(f"""Die Parameter für den \"U_hall in Abh. von B\" Plot sind:\n
         a: {params[0]*10**6} +- {errors[0]*10**6}
@@ -89,6 +85,14 @@ plt.close()
 
 n = (I_d[0])/(e_0*d*(10**(-6))*unp.uarray(params[0],errors[0]))
 print(f"Der Parameter n in 1/m^3 ist: {n}")
+
+#Parameter z:
+m_atom = 63.546 * 1.6605402 * 10**(-27) #von u in kg umgerechnet
+n_atom = 8.92 *10**(3)*1/m_atom
+
+z = n/n_atom
+print(f"Der Parameter z ist:{z}")
+#Ende Z
 
 E_F = (h**2)/(2*m_0) * (3/(8*np.pi)*n)**(2/3)
 #E_F = E_F *(6.242*10**18) #in eV
@@ -113,6 +117,10 @@ print(f"My: {mu}")
 sigma = 1/2*(e_0**2)/(m_0)*n*tau * 10**(-6)
 print(f"Sigma: {sigma}")
 
+A_H = 1/(e_0*n)
+print(f"Hall Konstante: {A_H}")
+
+print(f"\n \n")
 
 
 
@@ -124,7 +132,8 @@ I_b,U_hall,I_d = np.genfromtxt("data4.txt", unpack = True)
 B = f(I_b,*B_params)
 params,cov = curve_fit(f,I_d,U_hall)
 errors = np.sqrt(np.diag(cov))
-print("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII\n")
+print("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII")
+print("B feld konstant")
 print(f"HIER BEGINNEN DIE PARAMETER aus dem I-Feld Plot:\n")
 print(f"""Die Parameter für den \"U_hall in Abh. von B\" Plot sind:\n
         a: {params[0]*10**6} +- {errors[0]*10**6}
@@ -141,6 +150,14 @@ plt.close()
 
 n = (B[0])/(e_0*d*(10**(-6))*unp.uarray(params[0],errors[0]))
 print(f"Der Parameter n in 1/m^3 ist: {n}")
+
+#Parameter z:
+m_atom = 63.546 * 1.6605402 * 10**(-27) #von u in kg umgerechnet
+n_atom = 8.92 *10**(3)*1/m_atom
+
+z = n/n_atom
+print(f"Der Parameter z ist:{z}")
+#Ende Z
 
 E_F = (h**2)/(2*m_0) * (3/(8*np.pi)*n)**(2/3)
 #E_F = E_F *(6.242*10**18) #in eV
@@ -162,6 +179,9 @@ print(f"Drift v :{v_drift}")
 mu = (2*m_0)/(e_0**2*n*tau)*10**(6)
 print(f"My: {mu}")
 
+
+A_H = 1/(e_0*n)
+print(f"Hall Konstante: {A_H}")
 
 # tabelle1= f"""
 # Tabelle 1\n
