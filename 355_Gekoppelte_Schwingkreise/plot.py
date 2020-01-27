@@ -79,20 +79,35 @@ nu_m = np.array([47.2,40.3,37.2,35.9,34.9,34.0,33.4,32.9]) * 10**3
 a_m = np.abs(nu_m_t - nu_m) / nu_m_t
 print(f"Abweichung der Frequenz der Fundamentalschwingung der gegenphasigen Schwingung von der theorie: {a_m}\n")
 
-R= 48
 
+
+
+R= 48
 C_k,nu_p,U_G_p,U2_p = np.genfromtxt("dataw0N.txt",unpack = True)
+C_k,nu_m,U_G_m,U2_m = np.genfromtxt("datawpiN.txt",unpack = True)
 nu_p = nu_p * 1000
+nu_m = nu_m *1000
 C_k = C_k*10**(-9)
 F = 15/(2.3*5)
 I_G_p = F * U_G_p*5
-I_2_p = F * U2_p *2
+I_2_p = U2_p *2/R
+I_2_m = U2_m *2/R
 
+def I_theo(U,w,k):
+    return U * 1/( (4 * w**2 * k**2 * R**2 * (w * L - 1/w * (1/C + 1/k) )**2 + (1/(w*k) - w*k*(w * L - 1/w * (1/C + 1/k) )**2 +w*R**2*k)**2 )**(1/2) )
 
-x = np.linspace(0, 1.3 * 10**(-8),8)
+x = np.linspace(180000, 470000,10000)
 
-plt.plot(unp.nominal_values(C_k), I_2_p, "x", label = r"Strom bei $\nu^+$ Messwerten")
-plt.plot(x, I_G_p, "-", label = r"Strom bei $\nu^+$ Theoriewerten")
+#plt.plot(nu_m, I_2_m, "x", label = r"Strom bei $\nu^+$ Messwerten")
+plt.plot(x, I_theo(2.4*5,x,C_k[0]), "-", label = r"$C_k = 1.01$nF")
+plt.plot(x, I_theo(2.4*5,x,C_k[1]), "-", label = r"$C_k = 2.03$nF")
+plt.plot(x, I_theo(2.4*5,x,C_k[2]), "-", label = r"$C_k = 3.00$nF")
+plt.plot(x, I_theo(2.4*5,x,C_k[3]), "-", label = r"$C_k = 4.00$nF")
+plt.plot(x, I_theo(2.4*5,x,C_k[4]), "-", label = r"$C_k = 5.02$nF")
+plt.plot(x, I_theo(2.4*5,x,C_k[5]), "-", label = r"$C_k = 6.37$nF")
+plt.plot(x, I_theo(2.4*5,x,C_k[6]), "-", label = r"$C_k = 8.00$nF")
+plt.plot(x, I_theo(2.4*5,x,C_k[7]), "-", label = r"$C_k = 9.99$nF")
+
 plt.xlabel(r"$C_k$ / nF")
 plt.ylabel(r"$I$ / A")
 plt.legend(loc = "best")
