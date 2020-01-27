@@ -4,14 +4,37 @@
 \subsection{Zeitabhängigkeit der Amplitude}
 Die Abhängigkeit der Amplitude von der Zeit hat eine exponentielle abklingende Form und lässt sich damit gut an eine e-Funktion annähern.
 Allerdings stimmt die gemessene Zeitabhängigkeit nicht mit der Theoriekurve überein, was durch Probleme bei dem Ablesen der Werte vom Oszilloskop
-und durch einen Fehler in der Skalierung der Werte zu erklären ist.
+und durch einen Fehler in der Skalierung der Werte zu erklären ist.\\
+Es stellt sich heraus, dass die Dämpfungskoeffizenten (hier: der Widerstand) im Argument der e-Funktion \ref{eqn:efunktion} um einen Faktor
+von ca. 2 zu klein ist, sodass die Theoriekurve nicht ganz auf die Messung passt.\\
+Grund dafür sind ignorierte Faktoren, wie z.\;B. den kapazivien Einfluss der Spule sowie den
+Widerstand der Kabel selbst.
+
+
+
 \subsection{Aperiodischer Grenzfall}
 Der theoretisch berechnete Wert für den Wiederstand um den aperiodischen Grenzfall zu erreichen beträgt $R_{theo}=1673,32 \Omega$.
 Mit der Messung und Betrachtung des Bildes ließ sich der experimentelle Wert für den Wiederstand auf $R_{exp} = 1475\Omega$ bestimmen.
-Die gemessene Wert weicht um circa $15\%$ von dem theoretisch berechneten Wert ab,diese Abweichung kann durch die inneren Wiederstände des Aufbaus und durch Störungen am Messfühler erklärt werden.
+Die gemessene Wert weicht um circa $15\%$ von dem theoretisch berechneten Wert ab. Diese Abweichung kann durch die inneren Wiederstände des Aufbaus, durch Störungen am Messfühler
+sowie eine eine ungenaue Abmessung am Oszilloskop erklärt werden.
 
 \subsection{Frequenzabhängigkeit der Kondensatorspannung}
-Es ist zu vermuten das sich ein Hochpunkt bei ca. $35kHz$ befindet.
-Es hätten noch mehr Werte gemessen werden müssen um sicher das Maximum bestimmen zu können.
-Die Frequenzabhängigen Wiederstände (in Abbildung \ref{fig:Frequenzabh_Wiederstand}) lassen auf einen anderen Verlauf der Kondensatorspannung schließen.
-Die unterschiede zwischen den theoretisch berechneten und den experimentell bestimmten Werten sind auf innere Wiederstände des Versuchsaufbaus und des Tastkopfes zurückzuführen.
+Beim Auftragen der Kondensatorspannung $U_C$ gegen die Frequenz $\omega$ zeigt sich 
+ein glockenkurven ähnliches Verhalten.
+Es ist zu vermuten, dass sich der Hochpunkt bei ca. $35kHz$ befindet, was die Resonanzfrequenz darstellt,
+die Eigenfrequenz des Schwingkreises. Es hätten noch mehr Werte gemessen werden 
+müssen, um sicher das Maximum bestimmen zu können.
+Aufgetragen wurde dies in einer linearen Verhältnis.
+Dabei müssen die Frequenzen mit einem Faktor 5 multipliziert werden, damit sich die
+Theoriekurve dem gemessen Umstand anähert. Dies ist auf eine fehlerhafte Einstellung
+am Frequenzgenerator zurückzuführen.
+\\
+Die Frequenzabhängigen Wiederstände nehmen mit tiefen Frequenz zu und fallen für hohen
+Frequenzen experimentelle ab.
+\\
+Der Phasenunterschied im Frequenzbereich von 29 bis 42kHz zeigt nur sehr kleine 
+Phasenunterschiede auf. Zu vermuten ist, dass die Phasenverschiebung erst bei tieferen
+Frequenz einiger 100Hz überhaupt bemerktbar ist.\\
+Da die Spule tiefe Frequenzen einfacher passieren lässt und der Kondensator dagegen
+hohe Frequenzen passieren lässt, resultiert daraus eine Verzögerung für tiefe Frequenzen.
+Hier müsste eine breites Frequenzspektrum betrachtet werden.  
