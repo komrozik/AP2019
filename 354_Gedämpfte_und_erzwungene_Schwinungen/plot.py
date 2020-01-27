@@ -95,22 +95,25 @@ plt.close()
 #----------------------------------------------------------------------
 U_0=1
 
-def U(U_0,L,C,R,w):
-    return U_0/(np.sqrt((1-L*C*w**2)**2+(w*R*C)**2))
+def U_funktion(w):
+    return 1.5/(np.sqrt((1-L*C*w**2)**2+(w*R2*C)**2))
+
+line_w= np.linspace(15,55)
+line_W=line_w*1000
 
 w,U=np.genfromtxt("datac.txt",unpack=True)
-
+plt.plot(line_w,U_funktion(line_W*6.6),label="Theoriekurve")
 plt.plot(w,U,"r+",label="Messwerte")
 plt.ylabel("$U\;/\;V$")
 plt.xlabel("$w\,/\,kHz$")
 plt.legend()
 plt.savefig("bilder/plotc.pdf",bbox_inches='tight')
+plt.show()
 plt.close()
 
 #Impedanzkurve
-line_w=np.linspace(5,60)
+line_w= np.linspace(5,60)
 line_W=line_w*1000
-plt.plot(line_w,U(U_0,L,C,R1,line_w))
 plt.plot(line_w,np.sqrt(R2**2+(line_W*L-1/(line_W*C))**2),"r-",label="Theoriewerte")
 plt.ylabel("$Z\;/\;$Ohm")
 plt.xlabel("$w\,/\,kHz$")
