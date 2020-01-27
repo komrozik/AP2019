@@ -35,3 +35,104 @@ plt.ylabel("I(t)")
 plt.xticks([0],[0])
 plt.legend()
 plt.savefig("build/schwebung.pdf",bbox_inches='tight')
+plt.close()
+
+#----------------------------------------------------------------------
+
+L = 32.351 #mH
+L = L*10**(-3) # in H
+C = 0.8015 #nF
+C = C*10**(-9) # in Farad
+CSp = 0.037 #nF
+CSp = CSp*10**(-9) # in Farad
+
+C_k,n_max,n_min = np.genfromtxt("dataa.txt",unpack = True)
+
+C_k = C_k*10**(-9) # in Farad
+C_k = unp.uarray(C_k,C_k*0.03)
+
+#Theoretische Werte für die Frequenzen
+nu_p_t = 1/(2 * np.pi * (L*(C+CSp))**(1/2))
+nu_p_t = np.array([nu_p_t,nu_p_t,nu_p_t,nu_p_t,nu_p_t,nu_p_t,nu_p_t,nu_p_t])
+nu_m_t = 1/(2 * np.pi * (L * ( (1/C+2/C_k)**(-1)+ CSp) )**(1/2))
+print(f"Frequenz positiv {nu_p_t}")
+print(f"Frequenz negativ {nu_m_t}")
+
+#Verhältnis der Frequenzen:
+print(f"Verhältnis der Frequenzen experimentell, 1 durch : {n_max}")
+
+n_theorie = (nu_m_t + nu_p_t) / (2 * (nu_m_t - nu_p_t))
+print(f"Verhältnis der Frequenzen theoretisch, 1 durch : {n_theorie}")
+
+# Abweichung des Experiments von der Theorie:
+a_n = np.abs(n_theorie-n_max)/n_theorie
+print(f"Abweichung von der theorie: {a_n}\n")
+
+# Abweichung des Experiments Resonanzfrequenz (nu plus) von der Theorie:
+nu_p = np.array([30.5, 30.5, 30.5, 30.5, 30.5, 30.5, 30.5, 30.5])
+nu_p = nu_p * 1000
+a_p = np.abs(nu_p_t - nu_p) / nu_p_t
+print(f"Abweichung der Resonanzfrequenz von der theorie: {a_p}\n")
+
+# Abweichung des Experiments gegenphasige Schwingungsfrequenz (nu minus) von der Theorie:
+nu_m = np.array([47.2,40.3,37.2,35.9,34.9,34.0,33.4,32.9]) * 10**3
+a_m = np.abs(nu_m_t - nu_m) / nu_m_t
+print(f"Abweichung der Frequenz der Fundamentalschwingung der gegenphasigen Schwingung von der theorie: {a_m}\n")
+
+R= 48
+
+C_k,nu_p,U_G_p,U2_p = np.genfromtxt("dataw0N.txt",unpack = True)
+nu_p = nu_p * 1000
+C_k = C_k*10**(-9)
+F = 15/(2.3*5)
+I_G_p = F * U_G_p*5
+I_2_p = F * U2_p *2
+
+
+x = np.linspace(0, 1.3 * 10**(-8),8)
+
+plt.plot(unp.nominal_values(C_k), I_2_p, "x", label = r"Strom bei $\nu^+$ Messwerten")
+plt.plot(x, I_G_p, "-", label = r"Strom bei $\nu^+$ Theoriewerten")
+plt.xlabel(r"$C_k$ / nF")
+plt.ylabel(r"$I$ / A")
+plt.legend(loc = "best")
+plt.savefig("build/Stromverlauf.pdf")
+plt.show()
+plt.close()
+
+
+# U_Ampl_p = np.array([1.4, 1.4, 1.4, 1.4, 1.4, 1.4, 1.4, 1.4])
+# U_Ampl_m = np.array([0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8])
+# R = 48
+# U_1 = 2.4
+# U_2 = 2.4
+# x = np.array([0, 1.3 * 10**(-8)])
+
+# I_1t = np.array([U_1 / (2*R), U_1 / (2*R)])
+# I_2t = np.array([U_2 / (2*R), U_2 / (2*R)])
+# I_1 = U_Ampl_p / R
+# I_2 = U_Ampl_m / R
+
+# plt.plot(unp.nominal_values(C_k), I_1, "x", label = r"Strom bei $\nu^+$ Messwerten")
+# plt.plot(unp.nominal_values(C_k), I_2, "x", label = r"Strom bei $\nu^-$ Messwerten")
+# plt.plot(x, I_1t, "-", label = r"Strom bei $\nu^+$ Theoriewerten")
+# plt.plot(x, I_2t, "-", label = r"Strom bei $\nu^-$ Theoriewerten")
+# plt.xlabel(r"$C_k$ / nF")
+# plt.ylabel(r"$I$ / A")
+# plt.legend(loc = "best")
+# plt.savefig("Stromverlauf.pdf")
+# plt.show()
+# plt.clf()
+
+
+y = np.array([0, 1.3 * 10**(-8)])
+
+plt.plot(unp.nominal_values(C_k), nu_p, "x", label = r"$\nu^+$ Messwerte")
+plt.plot(unp.nominal_values(C_k), nu_m, "x", label = r"$\nu^-$ Messwerte")
+plt.plot(unp.nominal_values(C_k), nu_p_t, "-", label = r"$\nu^+$ Theoriekurve")
+plt.plot(unp.nominal_values(C_k), unp.nominal_values(nu_m_t), "-", label = r"$\nu^-$ Theoriekurve")
+plt.xlabel(r"$C_k$ / nF")
+plt.ylabel(r"$\nu$ / kHz")
+plt.legend(loc = "best")
+plt.savefig("build/Frequenzverlauf.pdf")
+plt.show()
