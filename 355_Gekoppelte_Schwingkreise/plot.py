@@ -108,7 +108,7 @@ plt.plot(x, I_theo(2.4*5,x,C_k[5]), "-", label = r"$C_k = 6.37$nF")
 plt.plot(x, I_theo(2.4*5,x,C_k[6]), "-", label = r"$C_k = 8.00$nF")
 plt.plot(x, I_theo(2.4*5,x,C_k[7]), "-", label = r"$C_k = 9.99$nF")
 
-plt.xlabel(r"$C_k$ / nF")
+plt.xlabel(r"$\omega$ / Hz")
 plt.ylabel(r"$I$ / A")
 plt.legend(loc = "best")
 plt.savefig("build/Stromverlauf.pdf")
