@@ -3,10 +3,11 @@
 \subsection{Justierung}
 Zunächst werden die beiden Schwingkreise auf die gleiche Resonanzfrequenz eingestellt.
 Die Größenordung ermittelt man dabei, indem das Strommaximum des linken Schwingkreises sucht.
-Die dazu gehörige Frequent sntspricht dabei in etwa der Resonanzfrequent.\\
-Für eine genauere Ermittlung untersuche man mit Hilfe der Lissajous-Figure die Phase $\varphi$
-zwischen der Generatorspannung und dem Schwingkreisstrom. Im Falle der Resonanz ist $\varphi=0$.
-Nun wird der zweite Schwinkreis mithilfe einer regelbaren Kapazität auf diese Resonanzfrequenz
+Die dazu gehörige Frequenz entspricht dabei in etwa der Resonanzfrequenz.\\
+Für eine genauere Ermittlung untersuche man mit Hilfe der Lissajous-Figur die Phase $\varphi$
+zwischen der Generatorspannung und dem Schwingkreisstrom. Im Falle der Resonanz ist $\varphi=\pi/2$ 
+und die Lissajous-Figur stellt eine Ellipse/Kreis dar.
+Nun wird der zweite Schwingkreis mithilfe einer regelbaren Kapazität auf diese Resonanzfrequenz
 abgestimmt.\newline
 
 Für einen groben Frequenzbereich für einen beobachtbaren Energieaustausch gilt 
@@ -18,7 +19,7 @@ mit $L=32$mH und $C=0.8nF$
     \centering
     \includegraphics[width=0.4\textwidth]{bilder/justierung.jpg}
     \caption{
-        Schaltung zur genauen Bestimmtung der Resonanzfrequenz.
+        Schaltung zur genauen Bestimmung der Resonanzfrequenz.
         Dabei wird ein Schwingkreis an einen Sinusgenerator angeschlossen.
         Jeweils der Strom des Generators und des Schwingkreises werden auf 
         dem Oszilliskop im XY-Betrieb betrachtet. \cite[305]{Anleitung}
@@ -28,15 +29,15 @@ mit $L=32$mH und $C=0.8nF$
 
 
 \subsection{Austausch der Schwingungsenergie zwischen den Einzelsystemen}
-Mit einer Rechteckspannung wird einer der Schwinkreise angeregt während der andere
-keine externe erregung ausgesetzt wird. Die beiden Schwingkreise sind dabei über den
+Mit einer Rechteckspannung wird einer der Schwingkreise angeregt während der andere
+keiner externe Erregung ausgesetzt wird. Die beiden Schwingkreise sind dabei über den
 Kopplungskondensator $C_k$ gekoppelt. Die Schwingungsenergie kann mithilfe des
 Oszilliskop am Kopplungsglied betrachtet werden.\\
 Die entstehende Schwebung der Form \ref{schw1} und \ref{schw2}
 wird am Oszilliskop beobachtet.\\
 Somit kann ein Verhältnis zwischen der Schwingungs- und Schwebungsfrequenz in 
 Abhängigkeit der Größe des Koppelkondensator $C_k$ mit $2\leq C_k \leq 12$nF ermittelt 
-werden, durch die Anzahl der Schwingsmaxima innerhal einer Schwebungperiode.
+werden, durch die Anzahl der Schwingungsmaxima innerhalb einer Schwebungsperiode.
 \begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{bilder/a.jpg}
@@ -46,11 +47,13 @@ werden, durch die Anzahl der Schwingsmaxima innerhal einer Schwebungperiode.
     }
     \label{fig:Versuchsaufbau}
 \end{figure}
-\subsection{Fundermentalschwingungen}
-Die rechtecksignal aus Abbildung \ref{fig:Versuchsaufbau} wird durch ein Sinussignal
+\subsection{Fundamentalschwingungen}
+Das rechtecksignal aus Abbildung \ref{fig:Versuchsaufbau} wird durch ein Sinussignal
 ersetzt. Mit den Lissajous-Figuren bei denen die X-Komponente die Generatorspannung 
 und die Y Komponente den Schwingkreis wiederspieglet.
-Man findet die Fundermentalschwingungen in Abhängigkeit von $C_k$ bei $\varphi=0$ bzw $\varphi=\frac{\pi}{2}$.\\
+Man findet die Fundamentalschwingungen in Abhängigkeit von $C_k$ bei $\varphi=0$ bzw $\varphi=\pi$.
+Hierbei stellen die Lissajous-Figuren eine Gerade da, welche für $\pi=0$ steigt und
+für $\phi=\pi$ fällt.\\
 
 \subsection{Verlauf der Ströme}
 Nun betrachte man den Verlauf der Ströme $I_2$ und $I_k$ in Abhängigkeit der Frequenz.
