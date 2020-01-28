@@ -91,24 +91,27 @@ C_k = C_k*10**(-9)
 F = 15/(2.3*5)
 I_G_p = F * U_G_p*5
 I_2_p = U2_p *2/R
+I_G_m = F*U_G_m
 I_2_m = U2_m *2/R
 
-def I_theo(U,w,k):
+# def I_theo_p(U,w,k):
+#     return U*w*k
+def I_theo_m(U,w,k):
     return U * 1/( (4 * w**2 * k**2 * R**2 * (w * L - 1/w * (1/C + 1/k) )**2 + (1/(w*k) - w*k*(w * L - 1/w * (1/C + 1/k) )**2 +w*R**2*k)**2 )**(1/2) )
 
-x = np.linspace(180000, 470000,10000)
+x = np.linspace(nu_m[0], nu_m[7],10000)
 
-#plt.plot(nu_m, I_2_m, "x", label = r"Strom bei $\nu^+$ Messwerten")
-plt.plot(x, I_theo(2.4*5,x,C_k[0]), "-", label = r"$C_k = 1.01$nF")
-plt.plot(x, I_theo(2.4*5,x,C_k[1]), "-", label = r"$C_k = 2.03$nF")
-plt.plot(x, I_theo(2.4*5,x,C_k[2]), "-", label = r"$C_k = 3.00$nF")
-plt.plot(x, I_theo(2.4*5,x,C_k[3]), "-", label = r"$C_k = 4.00$nF")
-plt.plot(x, I_theo(2.4*5,x,C_k[4]), "-", label = r"$C_k = 5.02$nF")
-plt.plot(x, I_theo(2.4*5,x,C_k[5]), "-", label = r"$C_k = 6.37$nF")
-plt.plot(x, I_theo(2.4*5,x,C_k[6]), "-", label = r"$C_k = 8.00$nF")
-plt.plot(x, I_theo(2.4*5,x,C_k[7]), "-", label = r"$C_k = 9.99$nF")
+plt.plot(nu_m, I_2_m, "x", label = r"Strom bei $\nu^+$ Messwerten")
+plt.plot(x, I_theo_m(2.4*5,2*np.pi*x,C_k[0]), "-", label = r"$C_k = 1.01$nF")
+plt.plot(x, I_theo_m(2.4*5,2*np.pi*x,C_k[1]), "-", label = r"$C_k = 2.03$nF")
+plt.plot(x, I_theo_m(2.4*5,2*np.pi*x,C_k[2]), "-", label = r"$C_k = 3.00$nF")
+plt.plot(x, I_theo_m(2.4*5,2*np.pi*x,C_k[3]), "-", label = r"$C_k = 4.00$nF")
+plt.plot(x, I_theo_m(2.4*5,2*np.pi*x,C_k[4]), "-", label = r"$C_k = 5.02$nF")
+plt.plot(x, I_theo_m(2.4*5,2*np.pi*x,C_k[5]), "-", label = r"$C_k = 6.37$nF")
+plt.plot(x, I_theo_m(2.4*5,2*np.pi*x,C_k[6]), "-", label = r"$C_k = 8.00$nF")
+plt.plot(x, I_theo_m(2.4*5,2*np.pi*x,C_k[7]), "-", label = r"$C_k = 9.99$nF")
 
-plt.xlabel(r"$\omega$ / Hz")
+plt.xlabel(r"$\nu$ / Hz")
 plt.ylabel(r"$I$ / A")
 plt.legend(loc = "best")
 plt.savefig("build/Stromverlauf.pdf")
@@ -141,11 +144,17 @@ plt.close()
 
 
 y = np.array([0, 1.3 * 10**(-8)])
+Ck_array = np.linspace(0,1.3 * 10**(-8),1000)
+def nu_m_function(k):
+   return 1/(2 * np.pi * (L * ( (1/C+2/k)**(-1)+ CSp) )**(1/2))
+
+def nu_p_function(k):
+   return 1/(2 * np.pi * (L*(C+CSp))**(1/2)) *(k/k)
 
 plt.plot(unp.nominal_values(C_k), nu_p, "x", label = r"$\nu^+$ Messwerte")
 plt.plot(unp.nominal_values(C_k), nu_m, "x", label = r"$\nu^-$ Messwerte")
-plt.plot(unp.nominal_values(C_k), nu_p_t, "-", label = r"$\nu^+$ Theoriekurve")
-plt.plot(unp.nominal_values(C_k), unp.nominal_values(nu_m_t), "-", label = r"$\nu^-$ Theoriekurve")
+plt.plot(Ck_array, nu_p_function(Ck_array), "-", label = r"$\nu^+$ Theoriekurve")
+plt.plot(Ck_array, nu_m_function(Ck_array), "-", label = r"$\nu^-$ Theoriekurve")
 plt.xlabel(r"$C_k$ / nF")
 plt.ylabel(r"$\nu$ / kHz")
 plt.legend(loc = "best")
