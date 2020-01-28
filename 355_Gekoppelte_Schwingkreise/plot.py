@@ -24,8 +24,7 @@ def g(a,b,c,t):
 
 t=np.linspace(0,2*np.pi,10000)
 plt.plot(t,l(a,b,c,t),"k",label="System 1 mit $I_1(t)$")
-plt.plot(t,n(a,b,c,t),label="System 2 mit $I_2(t)$")
-plt.plot(t,g(a,b,c,t),"r--",label="$Schwebung im System 1$")
+plt.plot(t,g(a,b,c,t),"r--",label="Schwebung im System 1")
 plt.plot(t,-g(a,b,c,t),"r--")
 plt.ylim(-c-0.25,c+0.25)
 plt.xlim(0,2*np.pi)
@@ -34,7 +33,20 @@ plt.xlabel("t")
 plt.ylabel("I(t)")
 plt.xticks([0],[0])
 plt.legend()
-plt.savefig("build/schwebung.pdf",bbox_inches='tight')
+plt.savefig("build/schwebung1.pdf",bbox_inches='tight')
+plt.close()
+
+plt.plot(t,n(a,b,c,t),label="System 2 mit $I_2(t)$")
+plt.plot(t,g(a,b,c,t),"r--",label="Schwebung im System 1")
+plt.plot(t,-g(a,b,c,t),"r--")
+plt.ylim(-c-0.25,c+0.25)
+plt.xlim(0,2*np.pi)
+plt.yticks([-c,0,c],["$-I_0$",0,"$I_0$"])
+plt.xlabel("t")
+plt.ylabel("I(t)")
+plt.xticks([0],[0])
+plt.legend()
+plt.savefig("build/schwebung2.pdf",bbox_inches='tight')
 plt.close()
 
 #----------------------------------------------------------------------
@@ -98,7 +110,7 @@ def I_theo(U,w,k):
 
 x = np.linspace(180000, 470000,10000)
 
-#plt.plot(nu_m, I_2_m, "x", label = r"Strom bei $\nu^+$ Messwerten")
+plt.plot(nu_m, I_2_m, "x", label = r"Strom bei $\nu^+$ Messwerten")
 plt.plot(x, I_theo(2.4*5,x,C_k[0]), "-", label = r"$C_k = 1.01$nF")
 plt.plot(x, I_theo(2.4*5,x,C_k[1]), "-", label = r"$C_k = 2.03$nF")
 plt.plot(x, I_theo(2.4*5,x,C_k[2]), "-", label = r"$C_k = 3.00$nF")
