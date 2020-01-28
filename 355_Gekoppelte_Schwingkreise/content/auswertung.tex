@@ -11,20 +11,20 @@ Mit \ref{eqn:Fundamental_Frequenzen1} und \ref{eqn:Fundamental_Frequenzen2} ergi
     \centering
     \begin{tabular}{c c c}
         \toprule
-        $C_k$    &   $\nu^-$  &  $\nu^+$ \\
+        $C_k \; / \; \si{\nano \farad}$    &   $\nu^- \; / \; \si{\kilo \hertz}$  &  $\nu^+ \; / \; \si{\kilo \hertz}$ \\
         \midrule
-        1,01 & \SI[per-mode = reciprocal-positive-first]{475\pm 3 e-02}{\per \second}         & \SI[per-mode = reciprocal-positive-first]{305 e-02}{\per \second}  \\
-        2,03 & \SI[per-mode = reciprocal-positive-first]{401,8\pm 2,4 e-02}{\per \second}     & \SI[per-mode = reciprocal-positive-first]{305 e-02}{\per \second}  \\
-        3,00 & \SI[per-mode = reciprocal-positive-first]{374,1\pm 1,8 e-02}{\per \second}     & \SI[per-mode = reciprocal-positive-first]{305 e-02}{\per \second}  \\
-        4,00 & \SI[per-mode = reciprocal-positive-first]{358,5\pm 1,4 e-02}{\per \second}     & \SI[per-mode = reciprocal-positive-first]{305 e-02}{\per \second}  \\
-        5,02 & \SI[per-mode = reciprocal-positive-first]{348,54\pm 1,19 e-02}{\per \second}   & \SI[per-mode = reciprocal-positive-first]{305 e-02}{\per \second}  \\
-        6,47 & \SI[per-mode = reciprocal-positive-first]{339,4\pm 0,9 e-02}{\per \second}     & \SI[per-mode = reciprocal-positive-first]{305 e-02}{\per \second}  \\
-        8,00 & \SI[per-mode = reciprocal-positive-first]{333,3\pm 0,7 e-02}{\per \second}     & \SI[per-mode = reciprocal-positive-first]{305 e-02}{\per \second}  \\
-        9,99 & \SI[per-mode = reciprocal-positive-first]{328,0\pm 0,6 e-02}{\per \second}     & \SI[per-mode = reciprocal-positive-first]{305 e-02}{\per \second}  \\
+        1,01 & \num{47,5\pm 0,3 }         & \num{30,5 }  \\
+        2,03 & \num{40,18\pm 0,24 }     & \num{30,5 }  \\
+        3,00 & \num{37,41\pm 0,18 }     & \num{30,5 }  \\
+        4,00 & \num{35,85\pm 0,14 }     & \num{30,5 }  \\
+        5,02 & \num{34,854\pm 0,119 }   & \num{30,5 }  \\
+        6,47 & \num{33,94\pm 0,09 }     & \num{30,5 }  \\
+        8,00 & \num{33,33\pm 0,07 }     & \num{30,5 }  \\
+        9,99 & \num{32,80\pm 0,06 }     & \num{30,5 }  \\
         \bottomrule
     \end{tabular}
-    \caption{Magnetfeldmessung (reihe)}
-    \label{tab:Br}
+    \caption{Frequenzen der Fundamentalschwingungen}
+    \label{tab:Frequenzen}
 \end{table}
 
 
@@ -35,7 +35,7 @@ Mit \ref{eqn:Fundamental_Frequenzen1} und \ref{eqn:Fundamental_Frequenzen2} ergi
         $C_k$    &   Verhältnis der Frequenzen & Experiment & Abweichung von Theorie und Experiment\\
         \midrule
         1,01 & \num{2,30\pm 0,04}     & \num{2}        & \num{0,131\pm 0,015}\\        
-        2,03 & \num{3,67\pm 0,08}     & \num{2}        & \num{0,4556270\pm 0,0120003}\\
+        2,03 & \num{3,67\pm 0,08}     & \num{2}        & \num{0,4556\pm 0,0120}\\
         3,00 & \num{4,957\pm 0,118}   & \num{4}        & \num{0,193\pm 0,019}\\
         4,00 & \num{6,27\pm 0,15}     & \num{6}        & \num{0,043\pm 0,024}\\
         5,02 & \num{7,61\pm 0,19}     & \num{7}        & \num{0,080\pm 0,023}\\
@@ -44,11 +44,25 @@ Mit \ref{eqn:Fundamental_Frequenzen1} und \ref{eqn:Fundamental_Frequenzen2} ergi
         9,99 & \num{14,1\pm 0,3}      & \num{13}       & \num{0,078\pm 0,025}\\
        \bottomrule
     \end{tabular}
-    \caption{Magnetfeldmessung (reihe)}
-    \label{tab:Br}
+    \caption{Frequenzverhältnisse der Fundametalschwingungen und Abweichung der Messwerte von der Theorie}
+    \label{tab:Frequenzverhältnisse}
 \end{table}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \textwidth]{build/Frequenzverlauf.pdf}
+    \caption{Verlauf der Frequenzen}
+    \label{fig:frequenzverlauf}
+\end{figure}
 
+\subsection{Stromabhängigkeit von der Frequenz}
+Im folgenden wird die Abhängigkeit des Stromes von den Frequenzen für verschiedene $C_k$ dargestellt.
+\begin{figure}
+    \centering
+    \includegraphics[width = \textwidth]{build/Stromverlauf.pdf}
+    \caption{Stromverlauf in Abhängigkeit der Frequenzen}
+    \label{fig:Stromverlauf}
+\end{figure}
 
 
 
