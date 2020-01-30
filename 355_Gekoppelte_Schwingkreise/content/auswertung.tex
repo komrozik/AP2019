@@ -3,36 +3,48 @@
 %Anmerkung von Marcel aus Errinnerung
 % 4. Vorbereitende Justierung - die ermittelte Resonanzfrquenz soll mit Theoretischen veglichen werden
 %                               und mögliche Abweichungen diskutiert werden
-\subsection{Berechnung Frequenzen}
-Zu Beginn werden die Frequenzen der Fundamentalschwingungen theoretisch bestimmt und ihr Verhältnis wird mit den experimentell bestimmten Werten verglichen.
-Mit \ref{eqn:Fundamental_Frequenzen1} und \ref{eqn:Fundamental_Frequenzen2} ergibt sich:
 
+\subsection{Berechnung Frequenzen}Für die Auswertung der Messdaten werden zuerst die theoretischen Werte der Fundamentalschwingungen bestimmt.
+Nach \ref{eqn:Fundamental_Frequenzen1} und \ref{eqn:Fundamental_Frequenzen2} gilt:
+\begin{align*}
+    \nu_+ &= \frac{1}{2\pi} \frac{1}{\sqrt{L\cdot \left(C + C_{Sp}\right)}}\\
+    \nu_- &= \frac{1}{2\pi} \frac{1}{\sqrt{L\cdot \left(\left(\frac{1}{C}+\frac{1}{C_k}\right)^{-1} + C_{Sp}\right)}}\\
+\end{align*}
+Das Verhältnis der beiden Frequenzen bestimmt sich dann mit \ref{eqn:Verhältnis}.
+Mithilfe der Messwerte wird nun die Abweichung der Messwerte von den Theoriewerten bestimmt.
+\begin{equation}
+    a_n = \frac{|n_{theorie} -n_{experiment}|}{n_{theorie}}
+    \label{eqn:Abweichung}
+\end{equation}
+Die Abweichung der verschiedenen Fundamentalfrequenzen lässt sich dementsprechend mit $\nu_{theoretisch}$ und $\nu_{experiment}$ berechnen.
+
+Zu Beginn werden die Frequenzen der Fundamentalschwingungen $\nu_+$ und $\nu_-$ theoretisch bestimmt und die Abweichungen $a_{\nu_+}$ und $a_{\nu_-}$ der experimentellen Werte bestimmt.
 \begin{table}[H]
     \centering
-    \begin{tabular}{c c c}
+    \begin{tabular}{c c c c c c c}
         \toprule
-        $C_k \; / \; \si{\nano \farad}$    &   $\nu^- \; / \; \si{\kilo \hertz}$  &  $\nu^+ \; / \; \si{\kilo \hertz}$ \\
+        $C_k \; / \; \si{\nano \farad}$    &   $\nu^- \; / \; \si{\kilo \hertz}$  &  $\nu^+ \; / \; \si{\kilo \hertz}$ & $\nu_{-,theorie} \; / \; \si{\kilo \hertz} $ & $\nu_{+,theorie} \; / \; \si{\kilo \hertz}$ & $a_{\nu_+}$ & $a_{\nu_-}$\\
         \midrule
-        1,01 & \num{47,5\pm 0,3 }         & \num{30,5 }  \\
-        2,03 & \num{40,18\pm 0,24 }     & \num{30,5 }  \\
-        3,00 & \num{37,41\pm 0,18 }     & \num{30,5 }  \\
-        4,00 & \num{35,85\pm 0,14 }     & \num{30,5 }  \\
-        5,02 & \num{34,854\pm 0,119 }   & \num{30,5 }  \\
-        6,47 & \num{33,94\pm 0,09 }     & \num{30,5 }  \\
-        8,00 & \num{33,33\pm 0,07 }     & \num{30,5 }  \\
-        9,99 & \num{32,80\pm 0,06 }     & \num{30,5 }  \\
+        1,01  &  \num{47,2} & \num{30,5} & \num{47,5\pm 0,3 }       & \num{30,557 }    &  \num{0,0018}    & \num{0,006 \pm 0,008}\\
+        2,03  &  \num{40,3} & \num{30,5} & \num{40,18\pm 0,24 }     & \num{30,557 }    &  \num{0,0018}    & \num{0,002 \pm 0,006}\\
+        3,00  &  \num{37,2} & \num{30,5} & \num{37,41\pm 0,18 }     & \num{30,557 }    &  \num{0,0018}    & \num{0,005 \pm 0,004}\\
+        4,00  &  \num{35,9} & \num{30,5} & \num{35,85\pm 0,14 }     & \num{30,557 }    &  \num{0,0018}    & \num{0,001 \pm 0,004}\\
+        5,02  &  \num{34,9} & \num{30,5} & \num{34,854\pm 0,119 }   & \num{30,557 }    &  \num{0,0018}    & \num{0,001 \pm 0,003}\\
+        6,47  &  \num{34,0} & \num{30,5} & \num{33,94\pm 0,09 }     & \num{30,557 }    &  \num{0,0018}    & \num{0,001 \pm 0,002}\\
+        8,00  &  \num{33,4} & \num{30,5} & \num{33,33\pm 0,07 }     & \num{30,557 }    &  \num{0,0018}    & \num{0,002 \pm 0,002}\\
+        9,99  &  \num{32,9} & \num{30,5} & \num{32,80\pm 0,06 }     & \num{30,557 }    &  \num{0,0018}    & \num{0,002 \pm 0,001}\\
         \bottomrule
     \end{tabular}
     \caption{Frequenzen der Fundamentalschwingungen}
     \label{tab:Frequenzen}
 \end{table}
 
-
+Nun werden noch die Verhältnisse der Frequenzen nach \ref{eqn:Verhältnis} bestimmt und ihre Abweichung nach \ref{eqn:Abweichung}.
 \begin{table}[H]
     \centering
     \begin{tabular}{c c c c}
         \toprule
-        $C_k$    &   Verhältnis der Frequenzen & Experiment & Abweichung von Theorie und Experiment\\
+        $C_k$    &   $n_{theoretisch}$ & $n_{experiment}$ & $a_n$\\
         \midrule
         1,01 & \num{2,30\pm 0,04}     & \num{2}        & \num{0,131\pm 0,015}\\        
         2,03 & \num{3,67\pm 0,08}     & \num{2}        & \num{0,4556\pm 0,0120}\\
@@ -57,13 +69,33 @@ Mit \ref{eqn:Fundamental_Frequenzen1} und \ref{eqn:Fundamental_Frequenzen2} ergi
 
 \subsection{Stromabhängigkeit von der Frequenz}
 Im folgenden wird die Abhängigkeit des Stromes von den Frequenzen für verschiedene $C_k$ dargestellt.
+Hierbei lässt sich der Strom $I$ durch \ref{eqn:StromI} darstellen wie in \ref{fig:Stromverlauf} zu sehen.
 \begin{figure}
     \centering
-    \includegraphics[width = \textwidth]{build/Stromverlauf.pdf}
+    \includegraphics[width = 0.75\textwidth]{build/Stromverlauf.pdf}
     \caption{Stromverlauf in Abhängigkeit der Frequenzen}
     \label{fig:Stromverlauf}
 \end{figure}
 
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c c c c}
+        \toprule
+        $C_k$    &   $I_{theoretisch}$ & $I_{experiment}$ & $a_I$\\
+        \midrule %
+        1,01 & \num{0.0057}         & \num{0.0083}        & \num{0.4464}     \\        
+        2,03 & \num{0.0113}         & \num{0.0083}        & \num{0.2677}     \\
+        3,00 & \num{0.0122}         & \num{0.0083}        & \num{0.3171}     \\
+        4,00 & \num{0.0166}         & \num{0.0083}        & \num{0.4983}     \\
+        5,02 & \num{0.0186}         & \num{0.0083}        & \num{0.5538}     \\
+        6,47 & \num{0.0213}         & \num{0.0083}        & \num{0.6097}     \\
+        8,00 & \num{0.0241}         & \num{0.0083}        & \num{0.6544}     \\       
+        9,99 & \num{0.0277}         & \num{0.0083}        & \num{0.6998}     \\
+       \bottomrule
+    \end{tabular}
+    \caption{Frequenzverhältnisse der Fundametalschwingungen und Abweichung der Messwerte von der Theorie}
+    \label{tab:Frequenzverhältnisse}
+\end{table}
 
 
 \label{sec:Auswertung}
