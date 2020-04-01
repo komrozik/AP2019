@@ -10,8 +10,8 @@ werden Zugfedern verwendet. Trotz der benötigten Größe des Einbauraumes und d
 Stelle an den Ösen, werden Zugfedern vor allem aufgrund ihrer Knickfreiheit verwendet.
 Führungselemente wie Hülsen oder Dorn sind somit überflüssig und somit besteht die Möglichkeit
 einer reibungsfreien zentrischen Kraftübertragung.\\
-IM folgenden soll kurz auf die verschiedenen Komponenten und Unterschiede zwischen
-ZUgfedern eingegangen werden:
+Im folgenden soll kurz auf die verschiedenen Komponenten und Unterschiede zwischen
+Zugfedern eingegangen werden:
 \begin{enumerate}
     \item Federbauform und Ösenform
     \item Vorspannung
@@ -35,7 +35,7 @@ den Vorteil einer höhren Lebensdauer hat.
 
 
 \subsection{Ösenform}
-Die Ösen der Zugfedern (bzw. die Ösenanbindung am Übergangsbogen) bilden eine schwierige Region, da es dort oftmal zu Ösenbrüchen
+Die (klassischen) Ösen der Zugfedern (bzw. die Ösenanbindung am Übergangsbogen) bilden eine schwierige Region, da es dort oftmal zu Ösenbrüchen
 kommen kann. Aufgrund dessen sind Zugfedern nicht für Dauerfest-Einsätze geeignet.
 Als klassisch gilt die 1/1 deutsche Öse oder der Hakenöse.
 Für eine erhöhte Lebensdauer verwendet man auch einen eingerollten Gewindebolzen 
@@ -55,7 +55,7 @@ Die Öse bildet dabei den zentralen Angriffspunkt für drei Kräfte: Zugbelastun
 
 \subsection{Beanspruchungsart}
 Generell unterscheidet man zwischen einer statischen und einer dynamischen Beanspruchung.
-Von einer statischen Beanspruchung einer Zugfeder sricht man bei einer zeitlich
+Von einer statischen Beanspruchung einer Zugfeder spicht man bei einer zeitlich
 konstanten Belastung, bzw. einer Belastung mit weniger als 10000 Hüben oder 
 kleinen Hubspannungen.
 Hat die Feder mehr als 10000 Lastwechsel oder Hubspannungen die konstanten und veränderlichen sind,
@@ -64,9 +64,11 @@ so spricht man von einer dynamischen Beanspruchung.
 
 
 \subsection{Vorspannung}
-Bei der Herstellung entsteht eine Vorspannung ufgrund eines Drilles gegen die nächste
-Windung. Dadurch wird die Betribslänge der Zugfeder minimiert, sie ist allerdings mit höhren Produktionskosten
-verbunden.
+Bei der Herstellung entsteht eine Vorspannung aufgrund eines Drilles gegen die nächste
+Windung. Dadurch wird die Betriebslänge der Zugfeder minimiert, sie ist allerdings mit höhren Produktionskosten
+verbunden.\\
+Am Beginn des Kraft-Weg-Diagramm äußert sich die Vorspannung durch einen senkrechten Anstieg
+bis $F_0$ und verläuft danach in der Neigung der Federkonstanten.  
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{bilder/Input/Vorspannung.jpg}
@@ -102,7 +104,7 @@ verbunden.
 \end{figure}
 Für zylinderische Zugfedern aus Draht mit einem Kreisquerschnitt gilt:\\\\
 
-Die Federrate (auch Federkonstante) $R$:
+Die Federkonstante (auch Federrate) $R$:
 \begin{equation}
     %Federrate
     R=\frac{F}{s}=\frac{Gd^4}{8D^3n}=\frac{F-F_0}{s}
@@ -116,15 +118,27 @@ Die Federkraft $F$:
     \label{eqn:federkraft}
 \end{equation}
 
+Die Federungsarbeit $W$:
+\begin{equation}
+    %Arbeit
+    W=F_0 \cdot s = \frac{1}{2}\;(F-F_0) \cdot s
+    \label{eqn:federungsarbeit}
+\end{equation}
+
 Der Federweg $s$:
 \begin{equation}
     %Federweg
     s=\frac{8D^3(F-F_0)}{GD^4}
     \label{eqn:federweg}
 \end{equation}
+\newline
 
+
+
+
+% NÖTIG????? ------------------------------------
 Für den Festigkeitsnachweis der Zugfeder ist die Ermittlung der Schubspannung $\tau$
-nötig, welche für die dynamischenBeanspruchungen mit einem Faktor $k$ korrigiert werden müssen.
+nötig, welche für die dynamischen Beanspruchungen mit einem Faktor $k$ korrigiert werden müssen.
 
 \begin{equation}
     %Schubspannung
@@ -139,11 +153,11 @@ Für die zulässige Spannung ergib sich
 \begin{equation}
     \tau_{zul}=0.45 \cdot R_m
 \end{equation}
-Dabei spiegelt $R_m$ die ZUgfestigkeit des Federstahls wieder.\\
+Dabei spiegelt $R_m$ die Zugfestigkeit des Federstahls wieder.\\
 Ist dabei $s_n$ der zu $\tau_{zul}$ Federweg, so sollte in der Praxis nur 80\% dieses
 Federweges ausgnutzt werden um Relaxation (Kraftverlust) zu vermeiden.
 Also $s_{prax}=0.8 \cdot s_n$  
-
+%--------------------------------------------
 
 
 
