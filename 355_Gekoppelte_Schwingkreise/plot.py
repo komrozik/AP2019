@@ -102,9 +102,10 @@ nu_m = nu_m *1000
 C_k = C_k*10**(-9)
 F = 15/(2.3*5)
 I_G_p = F * U_G_p*5
-I_2_p = U2_p *2/R
+I_2_p = U2_p /(2*R)
 I_G_m = F*U_G_m
-I_2_m = U2_m *2/R
+I_2_m = U2_m /(2*R)
+I_k = I_G_p - I_G_m
 
 # def I_theo_p(U,w,k):
 #     return U*w*k
@@ -113,7 +114,7 @@ def I_theo_m(U,w,k):
 
 x = np.linspace(nu_m[0], nu_m[7],10000)
 
-plt.plot(nu_m, I_2_m, "x", label = r"Strom bei $\nu^+$ Messwerten")
+plt.plot(nu_m, I_2_m, "x", label = r"Strom bei $\nu^-$ Messwerten")
 plt.plot(x, I_theo_m(2.4*5,2*np.pi*x,C_k[0]), "-", label = r"$C_k = 1.01$nF")
 plt.plot(x, I_theo_m(2.4*5,2*np.pi*x,C_k[1]), "-", label = r"$C_k = 2.03$nF")
 plt.plot(x, I_theo_m(2.4*5,2*np.pi*x,C_k[2]), "-", label = r"$C_k = 3.00$nF")
@@ -122,14 +123,69 @@ plt.plot(x, I_theo_m(2.4*5,2*np.pi*x,C_k[4]), "-", label = r"$C_k = 5.02$nF")
 plt.plot(x, I_theo_m(2.4*5,2*np.pi*x,C_k[5]), "-", label = r"$C_k = 6.37$nF")
 plt.plot(x, I_theo_m(2.4*5,2*np.pi*x,C_k[6]), "-", label = r"$C_k = 8.00$nF")
 plt.plot(x, I_theo_m(2.4*5,2*np.pi*x,C_k[7]), "-", label = r"$C_k = 9.99$nF")
-
 plt.xlabel(r"$\nu$ / Hz")
-plt.ylabel(r"$I$ / A")
+plt.ylabel(r"$I_2$ / A")
 plt.legend(loc = "best")
 plt.savefig("build/Stromverlauf.pdf")
 plt.show()
 plt.close()
 
+I_theoriewerte = np.array([I_theo_m(2.4*5,2*np.pi*nu_m[0],C_k[0]),
+I_theo_m(2.4*5,2*np.pi*nu_m[1],C_k[1]),
+I_theo_m(2.4*5,2*np.pi*nu_m[2],C_k[2]),
+I_theo_m(2.4*5,2*np.pi*nu_m[3],C_k[3]),
+I_theo_m(2.4*5,2*np.pi*nu_m[4],C_k[4]),
+I_theo_m(2.4*5,2*np.pi*nu_m[5],C_k[5]),
+I_theo_m(2.4*5,2*np.pi*nu_m[6],C_k[6]),
+I_theo_m(2.4*5,2*np.pi*nu_m[7],C_k[7])])
+I_theoriewerte = I_theoriewerte
+print(f"Theoriewerte I: {I_theoriewerte}")
+
+print(f"Experimentwerte: {I_2_m}")
+
+a_I = np.abs(I_theoriewerte - I_2_m)/I_theoriewerte
+print(f"Abweichung: {a_I}")
+
+
+# plt.plot(C_k, I_G_p, "x", label = r"Strom bei $C_k$ Messwerten")
+# plt.xlabel(r"$C_k$ / F")
+# plt.ylabel(r"$I_2$ / A")
+# plt.legend(loc = "best")
+# plt.savefig("build/Stromverlauf2.pdf")
+# plt.show()
+# plt.close()
+
+# plt.plot(C_k, I_2_p, "x", label = r"Strom bei $C_k$ Messwerten")
+# plt.xlabel(r"$C_k$ / F")
+# plt.ylabel(r"$I_2$ / A")
+# plt.legend(loc = "best")
+# plt.savefig("build/Stromverlauf3.pdf")
+# plt.show()
+# plt.close()
+
+# plt.plot(C_k, I_k, "x", label = r"Strom bei $C_k$ Messwerten")
+# plt.xlabel(r"$C_k$ / F")
+# plt.ylabel(r"$I_2$ / A")
+# plt.legend(loc = "best")
+# plt.savefig("build/Stromverlauf4.pdf")
+# plt.show()
+# plt.close()
+
+# plt.plot(C_k, I_G_m, "x", label = r"Strom bei $C_k$ Messwerten")
+# plt.xlabel(r"$C_k$ / F")
+# plt.ylabel(r"$I_2$ / A")
+# plt.legend(loc = "best")
+# plt.savefig("build/Stromverlauf5.pdf")
+# plt.show()
+# plt.close()
+
+# plt.plot(C_k, I_2_m, "x", label = r"Strom bei $C_k$ Messwerten")
+# plt.xlabel(r"$C_k$ / F")
+# plt.ylabel(r"$I_2$ / A")
+# plt.legend(loc = "best")
+# plt.savefig("build/Stromverlauf6.pdf")
+# plt.show()
+# plt.close()
 
 # U_Ampl_p = np.array([1.4, 1.4, 1.4, 1.4, 1.4, 1.4, 1.4, 1.4])
 # U_Ampl_m = np.array([0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8])
@@ -156,7 +212,7 @@ plt.close()
 
 
 y = np.array([0, 1.3 * 10**(-8)])
-Ck_array = np.linspace(0,1.3 * 10**(-8),1000)
+Ck_array = np.linspace(0.1 *10**(-8),1.3 * 10**(-8),1000)
 def nu_m_function(k):
    return 1/(2 * np.pi * (L * ( (1/C+2/k)**(-1)+ CSp) )**(1/2))
 
@@ -167,7 +223,7 @@ plt.plot(unp.nominal_values(C_k), nu_p, "x", label = r"$\nu^+$ Messwerte")
 plt.plot(unp.nominal_values(C_k), nu_m, "x", label = r"$\nu^-$ Messwerte")
 plt.plot(Ck_array, nu_p_function(Ck_array), "-", label = r"$\nu^+$ Theoriekurve")
 plt.plot(Ck_array, nu_m_function(Ck_array), "-", label = r"$\nu^-$ Theoriekurve")
-plt.xlabel(r"$C_k$ / nF")
+plt.xlabel(r"$C_k$ / F")
 plt.ylabel(r"$\nu$ / kHz")
 plt.legend(loc = "best")
 plt.savefig("build/Frequenzverlauf.pdf")
