@@ -1,4 +1,4 @@
-#Feder 1 
+#Feder 1
 #Dicke  Länge
 #mm     mm
 3.69    54.45

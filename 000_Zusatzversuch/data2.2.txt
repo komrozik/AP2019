@@ -1,4 +1,4 @@
-#Feder 1 
+#Feder 1
 #Kraft1  Kraft2
 #N      N
 8.70    5.21
