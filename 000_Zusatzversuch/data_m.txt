@@ -1,0 +1,4 @@
+#Gewichte von 5 Federn
+#1  2   3   4   5
+#g  g   g   g   g
+6.728   6.555   6.906   7.287   6.171
