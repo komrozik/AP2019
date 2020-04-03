@@ -17,7 +17,7 @@ L0A=[L1_z,L2_z]
 xL0A=L0A*mm_m
 
 #c FAKE-Wert abzug an Wicklungen damit Theorie auf Kurve passt...
-c=65
+c=12 #ca. LH
 
 
 #Datenimport:
@@ -324,9 +324,9 @@ def funkt_D(x,k):
     return k*(1/(x**3)) 
 
 def theorie_D(D):
-    n=L1_0_mittelwert/d-c
+    n=(L1_0_mittelwert-c)/d
     print(L1_0_mittelwert/d)
-    return (G*d**4)/(8*n*D**3)
+    return (G*d**4)/(8*n*((D-d)**3))
 
 paramsD, covD = curve_fit(funkt_D,xd[0:3],y[0:3])
 errorsD = np.sqrt(np.diag(covD))
@@ -346,14 +346,15 @@ print(f"params D^(-3) k_D: {unparamsD}")
 
 #Varriere Federwindungszahl n
 #plot Federkonstante-Windungszahl Diagramm Für Feder 1,4,5
-n=[L1_0_mittelwert/(d*mm_m)-c,L4_0_mittelwert/(d*mm_m)-c,L5_0_mittelwert/(d*mm_m)-c]
+n=[(L1_0_mittelwert-c)/(d*mm_m),(L4_0_mittelwert-c)/(d*mm_m),(L5_0_mittelwert-c)/(d*mm_m)]
+print(f"n:{n}")
 xn_run=np.linspace(n[2]-20,n[1]+20)
 #Für n wird erstmal Lx_0/d angenommen                                    FALSCH
 
 def funkt_n(n,k):                                           #mit +b wäre besser
     return k*1/n
 def theorie_n(n):
-    D=3.68/mm_m#mm
+    D=3.68-0.43/mm_m#mm
     return (G*d**4)/(8*D**3*n)
 
 paramsn, covn = curve_fit(funkt_n,n,Rn)
