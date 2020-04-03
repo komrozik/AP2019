@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #Feder 1
 #Dicke  Länge
 #mm     mm
@@ -6,3 +7,14 @@
 3.68    54.58
 3.68    54.69
 3.68    54.54
+||||||| merged common ancestors
+=======
+#Feder 1 
+#Dicke  Länge
+#mm     mm
+3.69    54.45
+3.69    54.53
+3.68    54.58
+3.68    54.69
+3.68    54.54
+>>>>>>> 4725ae2bea169a0e96b27f3c21c1fb3c50c57da5
