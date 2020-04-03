@@ -1,3 +1,5 @@
+#Erklärung unter:    git log 148ceab17919e81230b12114c35c81f549f60c7a
+
 import numpy as np
 import uncertainties.unumpy as unp 
 from uncertainties.unumpy import (nominal_values as noms, std_devs as stds)
@@ -182,7 +184,7 @@ x=np.linspace(L3_0_mittelwert*mm_m,L2_z*mm_m)
 plt.errorbar(xL0A,FA3,yerr=F3_err,fmt="ob",label=f"Feder 3 \n(D:{round(D3_mittelwert*mm_m,1)}$\;$mm, L:konst)")
 plt.plot(x,R3*x+F3_0,"--b")
 
-plt.xlabel("Federweg $L\;/\;$mm")
+plt.xlabel("Länge der belasteten Feder $L\;/\;$mm")
 plt.ylabel("Federkraft $F\;/\;$N")
 plt.legend()
 plt.savefig("build/D_kraftweg_dia.pdf")
@@ -246,7 +248,7 @@ plt.plot(x,R5*x+F5_0,"--m")
 #plt.plot(xS_2,R4*xS_2+F4_0,"<r",label="Schnittpunkt 1,4,5")#dis
 
 
-plt.xlabel("Federweg $L\;/\;$m")
+plt.xlabel("Länge der belasteten Feder $L\;/\;$mm")
 plt.ylabel("Federkraft $F\;/\;$N")
 #ax = plt.subplot(111)#dis
 #box = ax.get_position()
@@ -347,7 +349,6 @@ print(f"params D^(-3) k_D: {unparamsD}")
 #Varriere Federwindungszahl n
 #plot Federkonstante-Windungszahl Diagramm Für Feder 1,4,5
 n=[(L1_0_mittelwert-c)/(d*mm_m),(L4_0_mittelwert-c)/(d*mm_m),(L5_0_mittelwert-c)/(d*mm_m)]
-print(f"n:{n}")
 xn_run=np.linspace(n[2]-20,n[1]+20)
 #Für n wird erstmal Lx_0/d angenommen                                    FALSCH
 
