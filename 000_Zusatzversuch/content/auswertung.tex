@@ -28,7 +28,7 @@
         \midrule
         $\bar{L_a}\;/\;$mm & 58.78 & 59.048 & 58.364 & 62.95 & 54.55\\
         $L_{a_S}\;/\;$mm & 0.09 & 0.06 & 0.16 & 0.059 & 0.078\\
-        $n$ & & & & & \\
+        $n_{wirk}$ & 108.79 & 109.41 & 107.82 & 118.49 & 98.97 \\(berechnet)\\
         \midrule
         $F1\;/\;$N bei $L1=105\;$mm & 4.8 & 5.21 & 4.46 & 4.26 & 5.5\\
                          & 4.86 & 5.28 & 4.48 & 4.25 & 5.5\\
@@ -57,7 +57,7 @@
              $L_0$ Federlänge,
              $\bar{L}$ Mittelwert der Federlänge,
              $L_{0_S}$ Standartabweichung der Federlänge,
-             $n$ Windungszahl,
+             $n_{wirk}$ Windungszahl,
              $F1$,$F2$ Federkräfte,
              $\bar{F1}$,$\bar{F2}$ Mittelwert der Federkräfte,
              $R$ Federkonstante,
@@ -72,7 +72,7 @@
 \begin{figure}[H]
     \center
     \includegraphics[width=0.9\textwidth]{build/D_kraftweg_dia.pdf}
-    \caption{Feder 1,2,3 mit unterschiedlichen Federdurchmessern $D$ bei konstanter Basis Federwindungszahl $n$.
+    \caption{Feder 1,2,3 mit unterschiedlichen Federaußendurchmessern $D_a$ bei konstanter Basiswindungszahl $n$.
     Aufgetragen in einem Kraft-Weg-Diagramm. Gemessen wurden dabei
     die für L1 und L2 resultierenden Federkräfte F1 und F2.}
     \label{tab:LF_D}
@@ -83,9 +83,10 @@ Für die jeweiligen Ausgleichsgeraden aus \ref{tab:LF_D} wird ein Polyfit \cite{
 ersten Grades durchgeführt und daraus die Steigung, also die Federkonstante $R$ so wie eine Verschiebung
 in der vertikalen $v$ ermittelt.\\
 Aus \ref{eqn:federrate} mit
-\begin{equation}
-  F=R \cdot s + v ,
-\end{equation}
+\begin{align*}
+  F&=R \cdot L + v ,\\
+  F&=R \cdot s + F_0
+\end{align*}
 folgen somit die in \ref{tab:Wertetabelle} aufgeführten Federkonstanten.
 \begin{align*}
   R1= 0.086\;\si{\N\per\mm}, &&  v1= -4.14\;\si{\N},\\
@@ -96,17 +97,17 @@ folgen somit die in \ref{tab:Wertetabelle} aufgeführten Federkonstanten.
 \subsection{Innere Vorspannkraft ermitteln}
 \label{sec:vorspannkraft}
 Um nun aus den Verschiebungswerten $v$ auf die innere Vorspannkraft $F_0$ verschiebe
-man die Gerade so, dass nun der Federweg $\Delta L$ betrachtet wird.
-Die Kraft $F_0$, die zuvor bei der Federlänge $L_0$ lag, liegt nun bei $\Delta L=0$
+man die Gerade so, dass nun der Federweg $s$ betrachtet wird.
+Die Kraft $F_0$, die zuvor bei der Federlänge $L_0$ lag, liegt nun bei $s=0$
 und beschreibt die zugehörige Vorspannkraft $F_0$.
 \begin{figure}[H]
   \center
   \includegraphics[width=0.9\textwidth]{build/f0_123_dia.pdf}
   \caption
   {
-    Federkraft $F$ betrachtet für $\Delta L$,y-Achsenabschnittet bildet dabei die innere Vorspannkraft $F_0$.
+    Federkraft $F$ betrachtet für Federweg $s$, y-Achsenabschnittet bildet dabei die innere Vorspannkraft $F_0$.
     So folgt aus einer Geradengleichung mit $y_0=R\cdot(L-L_0)+b$ dass $y_{\Delta L}=y_0+R \cdot L_0=R \cdot L+b$
-    wobei für $L=0$ folglich gilt $y_{\Delta L}(L=0)=b:=F_0$.
+    wobei für $L=0$ folglich gilt $y_{\Delta L}(L=0)=b=:F_0$.
   }
 \end{figure}
 Somit ergeben sich für die jeweilligen inneren Vorspannkräfte $F_0$
@@ -161,19 +162,19 @@ die innere Vorspannkraft $F_0$ ermittelt wird
 \begin{figure}[H]
   \center
   \includegraphics[width=0.9\textwidth]{build/n_konstante_dia.pdf}
-  \caption{Einfluss der Windungszahl $n$ auf die Federkonstante $R$}
+  \caption{Einfluss der Windungszahl $n_{wirk}$ auf die Federkonstante $R$}
 \end{figure}
 
 \subsubsection{Ausgleichsgerade}
 
 Es folgt aus \ref{eqn:federrate}
 \begin{align*}
-  R=\frac{G\;d^4}{8\;D^3}\cdot \frac{1}{n} \\\\  
+  R=\frac{G\;d^4}{8\;D^3}\cdot \frac{1}{n_{wirk}} \\\\  
   \text{mit } k_n=\frac{G\;d^4}{8\;D^3}
 \end{align*}
 Es folgt die Funktion
 \begin{equation*}
-  R(n)=k_n \cdot \frac{1}{n}
+  R(n)=k_n \cdot \frac{1}{n_{wirk}}
 \end{equation*}
 mit dem Parameter
 \begin{equation*}
@@ -188,7 +189,15 @@ mit dem Parameter
   \caption{Massenresulate aus der Variation der Federdicke $D_a$
           und der Windungszahl $n$ der Federkonstanten $R$ gegenübergestellt. }
 \end{figure}
-
-
+\begin{figure}[H]
+  \center
+  \includegraphics[width=0.9\textwidth]{build/m_D_dia.pdf}
+  \caption{}
+\end{figure}
+\begin{figure}[H]
+  \center
+  \includegraphics[width=0.9\textwidth]{build/m_n_dia.pdf}
+  \caption{}
+\end{figure}
 
 \label{sec:Auswertung}
