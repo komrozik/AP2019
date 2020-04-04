@@ -11,7 +11,7 @@ def standabw(x,xm):
     return np.sqrt(sum((x-xm)**2)/len(x))
 mm_m=1
 G=71000*mm_m**2 #N/m^2
-d=0.430/mm_m #m aus zeichung    
+d=0.430/mm_m #m aus zeichung 0.43425optimum    
 L0_z=58/mm_m  #pm2  mm (aus Zeichnung, anstreben)
 L1_z=105/mm_m #mm (aus Zeichnung)
 L2_z=142/mm_m #mm (aus Zeichnung)
@@ -108,26 +108,19 @@ FA5=[F51_mittelwert,F52_mittelwert]
 #Plots:
 #Feder 1-3, Dicke wurde varriert
 def rate1(L,R,F):
-    return R*L+F
+    return R*(L-L1_0_mittelwert)+F
 
-def rate2(L,R):
-    return R*L
 
 paramsR1, covR1 = curve_fit(rate1,xL0A,FA1)
 errorsR1 = np.sqrt(np.diag(covR1))
 unparamsR1 = unp.uarray(paramsR1,errorsR1) 
-print(f"POLYFIT, RATE R1 CURVE FIT R verwendet:{unparamsR1[0]}, F0:{unparamsR1[1]}")
 
-paramsR12, covR12 = curve_fit(rate2,xL0A,FA1)#           PROBLEMATIK: R beschrieben für Feder1
-#paramsR22, covR22 = curve_fit(rate2,L0A,FA2)#           (1) Bestimmung mit rate1: R=0.08 aber F=-4.2, was ist hierbei F?
-#paramsR32, covR32 = curve_fit(rate2,L0A,FA3)#           (2) Bestimmung mit rate2: R=0.05
-#paramsR42, covR42 = curve_fit(rate2,L0A,FA4)#               Schnöring R=0.078   Voher dieser Wert? Klassisch F/s=R=0.05
-#paramsR52, covR52 = curve_fit(rate2,L0A,FA5)#           --> Theoriekruven passen aber besser auf (2)
+paramsR2, covR2 = curve_fit(rate1,L0A,FA2)            
+paramsR3, covR3 = curve_fit(rate1,L0A,FA3)           
+paramsR4, covR4 = curve_fit(rate1,L0A,FA4)               
+paramsR5, covR5 = curve_fit(rate1,L0A,FA5)           
 
-
-errorsR12 = np.sqrt(np.diag(covR12))
-unparamsR12 = unp.uarray(paramsR12,errorsR12) 
-print(f"RATE R2 CURVE FIT R:{unparamsR12[0]}")
+print(f"RATE R1 CURVE FIT R verwendet:{unparamsR1[0]}, F0:{unparamsR1[1]}")
 
 #DISKUSSIONSPLOT - Schnittpunkt und Nullstellen:
 R1,F1_0= polyfit(xL0A,FA1,1)
@@ -141,11 +134,11 @@ F0_true=[F1_0+L1_0_mittelwert*R1,F2_0+L2_0_mittelwert*R2,F3_0+L3_0_mittelwert*R3
 
 #R mit dF und dL
 #--------------------------
-R1=(F11_mittelwert-F12_mittelwert)/(L1_z-L2_z)
-R2=(F21_mittelwert-F22_mittelwert)/(L1_z-L2_z)
-R3=(F31_mittelwert-F32_mittelwert)/(L1_z-L2_z)
-R4=(F41_mittelwert-F42_mittelwert)/(L1_z-L2_z)
-R5=(F51_mittelwert-F52_mittelwert)/(L1_z-L2_z)
+#R1=(F11_mittelwert-F12_mittelwert)/(L1_z-L2_z)
+#R2=(F21_mittelwert-F22_mittelwert)/(L1_z-L2_z)
+#R3=(F31_mittelwert-F32_mittelwert)/(L1_z-L2_z)
+#R4=(F41_mittelwert-F42_mittelwert)/(L1_z-L2_z)
+#R5=(F51_mittelwert-F52_mittelwert)/(L1_z-L2_z)
 
 Fx_0=[F1_0,F2_0,F3_0,F4_0,F5_0]
 R=[R1,R2,R3,R4,R5]
@@ -212,7 +205,7 @@ plt.plot(0,F0_true[2],"ob",label=f"Feder 3 \n(D:{round(D3_mittelwert*mm_m,1)}$\;
 plt.plot(xL0A,[F31_mittelwert,F32_mittelwert],"ob")
 
 
-plt.xlabel("Federweg $\Delta L\;/\;$mm")
+plt.xlabel("Federweg $s\;/\;$mm")
 plt.ylabel("Federkraft $F\;/\;$N")
 plt.legend()
 plt.savefig("build/f0_123_dia.pdf")
@@ -323,7 +316,7 @@ y=[R1/mm_m,R2/mm_m,R3/mm_m,R4/mm_m,R5/mm_m]
 Rn=[R1/mm_m,R4/mm_m,R5/mm_m]
 x_run=np.linspace(D2_mittelwert-0.5,D3_mittelwert+0.5,1000)
 def funkt_D(x,k):
-    return k*(1/(x**3)) 
+    return k*(1/(x-d)**3)
 
 def theorie_D(D):
     n=(L1_0_mittelwert-c)/d
@@ -339,7 +332,7 @@ plt.plot(x_run,funkt_D(x_run,*paramsD),"--",label="Fit mit D^(-3)")
 plt.plot(xd[0],R[0],"ok",label=f"Feder 1 Basis \n(D:{round(D1_mittelwert,2)}$\;$mm, L:{round(L1_0_mittelwert,1)}$\;$mm)")
 plt.plot(xd[1],R[1],"og",label=f"Feder 2 \n(D:{round(D2_mittelwert,1)}$\;$mm, L:konst)")
 plt.plot(xd[2],R[2],"ob",label=f"Feder 3 \n(D:{round(D3_mittelwert,1)}$\;$mm, L:konst)")
-plt.xlabel("Federdicke $D_a\;/\;$mm")
+plt.xlabel("Federdicke $D\;/\;$mm")
 plt.ylabel("Federkonstante $R\;/\;$ N/mm")
 plt.legend()
 plt.savefig("build/dicke_konstante_dia.pdf")
@@ -350,6 +343,7 @@ print(f"params D^(-3) k_D: {unparamsD}")
 #plot Federkonstante-Windungszahl Diagramm Für Feder 1,4,5
 n=[(L1_0_mittelwert-c)/(d*mm_m),(L4_0_mittelwert-c)/(d*mm_m),(L5_0_mittelwert-c)/(d*mm_m)]
 xn_run=np.linspace(n[2]-20,n[1]+20)
+print(f"nwirk:{n},n2:{(L2_0_mittelwert-c)/(d*mm_m)},n3:{(L3_0_mittelwert-c)/(d*mm_m)}")
 #Für n wird erstmal Lx_0/d angenommen                                    FALSCH
 
 def funkt_n(n,k):                                           #mit +b wäre besser
@@ -368,7 +362,7 @@ plt.plot(xn_run,funkt_n(xn_run,*paramsn),"--",label="Fit mit 1/n")
 plt.plot(n[0],R[0],"ok",label=f"Feder 1 Basis \n(D:{round(D1_mittelwert,2)}mm ,L:{round(L1_0_mittelwert,1)}mm)")
 plt.plot(n[1],R[3],"oc",label=f"Feder 4 \n(D:konst,L:{round(L4_0_mittelwert,1)}mm)")
 plt.plot(n[2],R[4],"om",label=f"Feder 5 \n(D:konst,L:{round(L5_0_mittelwert,1)}mm)")
-plt.xlabel("Windungszahl $n$")
+plt.xlabel("wirkende Windungszahl $n_{wirk}$")
 plt.ylabel("Federkonstante $R\;/\;$N/mm")
 plt.legend()
 plt.savefig("build/n_konstante_dia.pdf")
@@ -415,7 +409,7 @@ plt.plot(0,F0_true[0],"ok")
 plt.plot(L1_z-L1_0_mittelwert,F11_mittelwert,"ok")
 plt.plot(L2_z-L1_0_mittelwert,F12_mittelwert,"ok")
 plt.legend()
-plt.xlabel("Federweg $\Delta L\;/\;$mm")
+plt.xlabel("Federweg $s\;/\;$mm")
 plt.ylabel("Federkraft $F\;/\;$N")
 
 
@@ -448,10 +442,29 @@ plt.plot(0,F0_true[1],"hb")
 plt.plot(L1_z-L2_0_mittelwert,F21_mittelwert,"hb")
 plt.plot(L2_z-L2_0_mittelwert,F22_mittelwert,"hb")
 plt.legend()
-plt.xlabel("Federweg $\Delta L\;/\;$mm")
+plt.xlabel("Federweg $s\;/\;$mm")
 plt.ylabel("Federkraft $F\;/\;$N")
 plt.savefig("build/schnö_12_dia.pdf")
-plt.show()
+plt.close()
+
+plt.plot(D1_mittelwert,M1/5,"ok",label="Feder 1")
+plt.plot(D2_mittelwert,M2/5,"ob",label="Feder 2")
+plt.plot(D3_mittelwert,M3/5,"oy",label="Feder 3")
+plt.xlabel("Federausßendruchmesser $D_a\;/\;$mm")
+plt.ylabel("Masse $m\;/\;$g")
+plt.legend()
+plt.savefig("build/m_D_dia.pdf")
+plt.close()
+
+n=[(L1_0_mittelwert-c)/(d*mm_m),(L4_0_mittelwert-c)/(d*mm_m),(L5_0_mittelwert-c)/(d*mm_m)]
+plt.plot(n[0],M1/5,"ok",label="Feder 1")
+plt.plot(n[1],M4/5,"og",label="Feder 4")
+plt.plot(n[2],M5/5,"or",label="Feder 5")
+plt.xlabel("Wicklungzahl $n$")
+plt.ylabel("Masse $m\;/\;$g")
+plt.legend()
+plt.savefig("build/m_n_dia.pdf")
+plt.close()
 
 
 
