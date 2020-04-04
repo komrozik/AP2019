@@ -1,24 +1,28 @@
 \newpage
-\section*{Ziel}
-Es soll die Federkonstante $R$ einer Zugfeder im Hinblick auf die Paramter des Federaußendurchmesser $D_a$ und der Windungszahl $n$
-untersucht werden. Schließlich sollen die Ergebnisse mit der Federberechnung der Firma Schnöring verglichen werden.
-Somit soll rückschließend ein Möglichkeit zur Materialeinsparung 
-innerhalb eines vorgegebenen Ratentoleranzbereich gefunden werden.  
+\section*{Zielsetzung}
+Im Folgenden wird der Einfluss von Parametern, wie dem Federaußendruchmesser $D_a$
+und der Federwindungszahl $n$ auf die Federkonstante $R$ einer Zugfeder untersucht
+und mit der Theorie sowie der verwendeten Federberechnung der Firma Schnöring verglichen.\\
+
+Des Weiteren betrachte man den benötigten Materialeinsatz in Abhängigkeit des Federaußendurchmessers $D_a$ und 
+der Windungszahl $n$.\\
+Schlussendlich wird eine Aussage getroffen, wie durch die Verwendung dieser Parametern 
+ein möglichst geringen Materialeinsatz für diese Zugfeder erzielt werden kann.  
+
+ 
 
 \section{Zugfedern allgemein}
 Überall wo die Krafteinwirkung nicht auf Druck, sondern auf Zug erbracht werden muss
 werden Zugfedern verwendet. Trotz der benötigten Größe des Einbauraumes und der sensiblen
 Stelle an den Ösen, werden Zugfedern vor allem aufgrund ihrer Knickfreiheit verwendet.
-Führungselemente wie Hülsen oder Dorn sind somit überflüssig und somit besteht die Möglichkeit
+Führungselemente wie Hülsen oder Dorn sind somit überflüssig und es besteht die Möglichkeit
 einer reibungsfreien zentrischen Kraftübertragung.\\
-Im folgenden soll kurz auf die verschiedenen Komponenten und Unterschiede zwischen
+Im Folgenden soll kurz auf die verschiedenen Komponenten und Unterschiede zwischen
 Zugfedern eingegangen werden:
 \begin{enumerate}
     \item Federbauform und Ösenform
     \item Vorspannung
-    \item Relaxation, Schubspannung und Federkräften
     \item Belastungsart
-    \item Federwerkstoff und Oberfläche
 \end{enumerate}
 
 
@@ -53,7 +57,6 @@ Die Öse bildet dabei den zentralen Angriffspunkt für drei Kräfte: Zugbelastun
     \caption{Verschiedene Ösenformen \cite{AusM2}}
 \end{figure}
 
-
 \subsection{Beanspruchungsart}
 Generell unterscheidet man zwischen einer statischen und einer dynamischen Beanspruchung.
 Von einer statischen Beanspruchung einer Zugfeder spicht man bei einer zeitlich
@@ -61,8 +64,6 @@ konstanten Belastung, bzw. einer Belastung mit weniger als 10000 Hüben oder
 kleinen Hubspannungen.
 Hat die Feder mehr als 10000 Lastwechsel oder Hubspannungen die konstanten und veränderlichen sind,
 so spricht man von einer dynamischen Beanspruchung.
-\newpage
-
 
 \subsection{Vorspannung}
 Bei der Herstellung entsteht eine Vorspannung aufgrund eines Drilles gegen die nächste
@@ -75,6 +76,37 @@ bis $F_0$ und verläuft danach in der Neigung der Federkonstanten.
     \includegraphics[width=0.6\textwidth]{bilder/Input/Vorspannung.jpg}
     \caption{Zugfeder Weg-Kraft-Diagramm \cite{KompZ}}
 \end{figure}
+\newpage
+\section{Federberechnung Praxis}
+
+    In der Praxis bildet für die verwendete Zugfeder (hier eine Trompetenfeder, genaueres in Abschnitt \ref{sec:feder})
+    die geforderte resultierende Kraft $F1$ und $F2$ an zwei festgelegten belasteten Federlängen $L1$ und $L2$
+    die Grundlage zur Federberechnung.\\
+
+    Für die Federlänge $L0$ (also Länge der unbelasteten Feder) gibt es keinen fest vorgeschrieben Wert.\\
+    Dies resultiert daraus, dass bei der Anwendung, anderes als bei Druckfedern, eine weiter zusätzliche Streckung
+    der Feder gefordert ist und somit der Einbauraum größer wird.\newline
+
+    Dabei wird in der Fertigung, um im Toleranzbereich der geforderten Federkräfte zu bleiben, $F2$ durch
+    die Änderung von Federaußendruchmesser $D_a$ oder Drahtdicke $d$ korrigiert und $F1$  durch die Änderung
+    von der Federlänge $L0$ und Windungszahl $n$ korriegiert.\\
+
+    Die wichtigsten Paramter bilden dabei:
+    \begin{align*}
+        L1 &:& &\text{Länge 1 der belasteten Feder}\\
+        F1 &:& &\text{Federkraft bei L1}\\
+        L2 &:& &\text{Länge 2 der belasteten Feder}\\
+        F2 &:& &\text{Federkraft bei L2}\\
+        R &:& &\text{Federkonstante/-rate}\\
+        d &:& &\text{Drahtdicke}\\
+        D_a &:& &\text{Federaußendurchmesser}\\
+        n &:& &\text{(gesamt) Wicklungszahl}\\
+        n_{wirk}&:& &\text{wirkende (federnde) Wicklungszahl}\\
+        s &:& &\text{Federweg}=\Delta L \\
+    \end{align*}  
+
+
+
 
 
 
@@ -106,31 +138,40 @@ bis $F_0$ und verläuft danach in der Neigung der Federkonstanten.
 Für zylinderische Zugfedern aus Draht mit einem Kreisquerschnitt gilt:\\\\
 
 Die Federkonstante (auch Federrate) $R$:
+
 \begin{equation}
     %Federrate
-    R=\frac{\Delta F}{\Delta s}=\frac{Gd^4}{8D^3n}=\frac{\Delta F-F_0}{\Delta s},
+    R=\frac{\Delta F}{s}=\frac{Gd^4}{8D^3n_{wirk}}=\frac{F-F_0}{L},
     \label{eqn:federrate}
+\end{equation}
+
+mit der wirkende Federdicke $D$:
+\begin{equation}
+    D=D_a-d,
 \end{equation}
 
 Die Federkraft $F$:
 \begin{equation}
     %Federkraft
-    F=\frac{Gd^4s}{8D^3n}+F_0=R \cdot s +F_0,
+    F=\frac{Gd^4s}{8D^3n_{wirk}}+F_0=R \cdot s +F_0,
     \label{eqn:federkraft}
+\end{equation}
+
+Die wirkende (federnde) Wicklungszahl $n_{wirk}$ für verwendete Trompetenfeder
+\begin{equation}
+    n_{wirk}=\frac{L0-LH}{d}    
+\end{equation}
+
+Das Wickelverhältnis $w$:
+\begin{equation}
+    w=\frac{D}{d},
 \end{equation}
 
 Die Federungsarbeit $W$:
 \begin{equation}
     %Arbeit
-    W=F_0 \cdot \Delta s = \frac{1}{2}\;(\Delta F-F_0) \cdot \Delta s,
+    W=F_0 \cdot s = \frac{1}{2}\;(F-F_0) \cdot L,
     \label{eqn:federungsarbeit}
-\end{equation}
-
-Der Federweg $s$:
-\begin{equation}
-    %Federweg
-    s=\frac{8D^3(F-F_0)}{GD^4}.
-    \label{eqn:federweg}
 \end{equation}
 \newline
 
