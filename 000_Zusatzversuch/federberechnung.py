@@ -65,7 +65,7 @@ def ist_calculate(D,L1_0,F11,F22):
     k=((Di/d)+0.5)/((Di/d)-0.75)
     tk1=k*ti1
     tk2=k*ti2
-    tkh=k+tih
+    tkh=k*tih
     tkO=883.613 #asu Goodman Diagramm, Materialkonstante?
     tkH=None
 
