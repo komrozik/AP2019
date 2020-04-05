@@ -120,24 +120,29 @@ def ist_calculate(D,L1_0,F11,F22):
         --------------------------------------------------------------------
     """)
 
-def Soll_calculate(F1,F2,L1,L2,Lo):
+
+def Soll_calculate(F1,F2,L1,L2,Dm,Lom):
+    
     Lx=[L1,L2]
     Fx=[F1,F2]
     LH=11.755
 
-    R=(F1-F2)/(L1-L2)
-    R_f,F= polyfit(Lx,Fx,1)
-    Fo=F+Lo*R
-    Lk=Lo-LH
-    Ln=Lo+Sn
-    n=(Lo-LH)/d
-    nt=n+2
-    De=0
-    
-    Di=De-d
+    De=Dm
+    Di=De-d#
     D=(De+Di)/2
     AD=standabw(D1,De)
-    Lo=sum(L1_0)/len(L1_0)
+    R=(F1-F2)/(L1-L2)
+    R_f,F= polyfit(Lx,Fx,1)
+    Fn=0
+    Lo=Lom
+    Fo=F+Lo*R
+    Lk=Lo-LH
+    Sn=(Fn-Fo)/R
+    Ln=Lo+Sn
+
+    #d_soll
+    d_s=None
+    
 
     
     
@@ -146,9 +151,8 @@ def Soll_calculate(F1,F2,L1,L2,Lo):
     AF1=standabw(F11,F1)#0.021
     F2=sum(F12)/len(F12)#7.97
     AF2=standabw(F12,F2)#0.03
-    Fn=0
     
-    Sn=(Fn-Fo)/R
+    
     
 
 
@@ -179,9 +183,10 @@ def Soll_calculate(F1,F2,L1,L2,Lo):
         G={G}, E={E}, p={p}
         --------------------------------------------------------------------
         d \t=\t       \t\t    {round(d,2)}\tmm\t
+        d (soll) \t=\t    \t\t            \tmm\t
         De\t=\t       \t\t    {round(De,2)}\tmm\t
         AD\t=\pm\t    \t\t    {round(AD,2)}\tmm\t
-        n\t=\t        \t\t    {round(n,2)}\t\t
+        n\t=\t        \t\t    \t\t
         Lo\t=\t       \t\t    {round(Lo,2)}\tmm\t
         Fo\t=\t       \t\t    {round(Fo,2)}\tN\t
         Fozul\t=\t    \t\t    {Fozul}\tN\t
@@ -219,3 +224,4 @@ def Soll_calculate(F1,F2,L1,L2,Lo):
     """)
 
 ist_calculate(D1,L1_0,F11,F12)
+Soll_calculate(5,7.9,105,142,3.68,58.78)
