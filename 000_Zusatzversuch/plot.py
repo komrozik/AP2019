@@ -327,6 +327,10 @@ paramsD, covD = curve_fit(funkt_D,xd[0:3],y[0:3])
 errorsD = np.sqrt(np.diag(covD))
 unparamsD = unp.uarray(paramsD,errorsD)
 
+
+k=[G/(8*L1_0_mittelwert),G/(8*L2_0_mittelwert),G/(8*L3_0_mittelwert)]
+print(k)
+
 plt.plot(x_run,theorie_D(x_run),"--r",label="Theoriekurve nach (1)")
 plt.plot(x_run,funkt_D(x_run,*paramsD),"--",label="Fit mit D^(-3)")
 plt.plot(xd[0],R[0],"ok",label=f"Feder 1 Basis \n(D:{round(D1_mittelwert,2)}$\;$mm, L:{round(L1_0_mittelwert,1)}$\;$mm)")
