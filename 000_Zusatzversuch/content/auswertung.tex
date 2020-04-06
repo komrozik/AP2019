@@ -7,7 +7,7 @@
         \toprule
         & Feder 1 & Feder 2 & Feder 3 & Feder 4 & Feder 5 \\ & (Basisfeder)\\
         \midrule
-        $m\;/\;$g & 1.3456 & 1.311 & 1.3812 & 1.4574 & 1.2342 \\
+        $m\;/\;$g Stk. & 1.3456 & 1.311 & 1.3812 & 1.4574 & 1.2342 \\
         \midrule
         $D_a\;/\;$mm & 3.68 & 3.57 & 3.82 & 3.69 & 3.69 \\
           & 3.67 & 3.57 & 3.81 & 3.68 & 3.69 \\
@@ -43,7 +43,9 @@
                          & 8.04 & 8.77 & 7.4 & 7.14 & 8.93\\
         \midrule
         $\bar{F1}\;/\;$N & 4.83 & 5.27 & 4.49 & 4.264 & 5.49\\
+        $F1_S\;/\;N$     & 0.021& 0.03 & 0.02 & 0.0241& 0.012\\ 
         $\bar{F2}\;/\;$N & 7.99 & 8.74 & 7.35 & 7.19 & 8.92\\
+        $F2_S\;/\;N$     & 0.03 &0.024 & 0.026& 0.028& 0.017\\ 
         \midrule
         $R$ & 0.086 & 0.094 & 0.077 & 0.079 & 0.093\\
         \midrule
@@ -71,7 +73,7 @@
 \subsection{Variable Federdicke}
 \begin{figure}[H]
     \center
-    \includegraphics[width=0.9\textwidth]{plots/D_kraftweg_dia.pdf}
+    \includegraphics[width=0.8\textwidth]{plots/D_kraftweg_dia.pdf}
     \caption{Feder 1,2,3 mit unterschiedlichen Federaußendurchmessern $D_a$ bei konstanter Basiswindungszahl $n$.
     Aufgetragen in einem Kraft-Weg-Diagramm. Gemessen wurden dabei
     die für L1 und L2 resultierenden Federkräfte F1 und F2.}
@@ -100,9 +102,13 @@ Um nun aus den Verschiebungswerten $v$ auf die innere Vorspannkraft $F_0$ versch
 man die Gerade so, dass nun der Federweg $s$ betrachtet wird.
 Die Kraft $F_0$, die zuvor bei der Federlänge $L_0$ lag, liegt nun bei $s=0$
 und beschreibt die zugehörige Vorspannkraft $F_0$.
+\begin{align*}
+  F&=R \cdot L + v=R\cdot L0+v\\
+  R&=R \cdot s + (v+L0 \cdot R) \text{ mit }F0:= (v+L0 \cdot R) \\
+\end{align*}
 \begin{figure}[H]
   \center
-  \includegraphics[width=0.9\textwidth]{plots/f0_123_dia.pdf}
+  \includegraphics[width=0.8\textwidth]{plots/f0_123_dia.pdf}
   \caption
   {
     Federkraft $F$ betrachtet für Federweg $s$, y-Achsenabschnittet bildet dabei die innere Vorspannkraft $F_0$.
@@ -121,8 +127,9 @@ Somit ergeben sich für die jeweilligen inneren Vorspannkräfte $F0$
 
 \begin{figure}[H]
   \center
-  \includegraphics[width=0.9\textwidth]{plots/dicke_konstante_dia.pdf}
+  \includegraphics[width=0.8\textwidth]{plots/dicke_konstante_dia.pdf}
   \caption{Die Federdicke $D_a$ gegen die Federkonstante $R$ aufgetragen.}
+  \label{fig:R_D_dia}
 \end{figure}
 
 \subsubsection{Ausgleichsgerade}
@@ -145,7 +152,7 @@ mit dem Parameter
 \subsection{Variable Federwindungszahl}
 \begin{figure}[H]
     \center
-    \includegraphics[width=0.9\textwidth]{plots/n_kraftweg_dia.pdf}
+    \includegraphics[width=0.8\textwidth]{plots/n_kraftweg_dia.pdf}
     \caption{Feder 1,4,5 mit unterschiedlichen Windungszahlen $n$ bei konstanter Basis Federdicke $D_a$.
     Aufgetragen in einem Kraft-Weg-Diagramm. Gemessen wurden dabei die für L1
     und L2 resultierenden Federkräfte F1 und F2}
@@ -161,8 +168,9 @@ die innere Vorspannkraft $F_0$ ermittelt wird
 
 \begin{figure}[H]
   \center
-  \includegraphics[width=0.9\textwidth]{plots/n_konstante_dia.pdf}
+  \includegraphics[width=0.8\textwidth]{plots/n_konstante_dia.pdf}
   \caption{Einfluss der Windungszahl $n_{wirk}$ auf die Federkonstante $R$}
+  \label{fig:R_n_dia}
 \end{figure}
 
 \subsubsection{Ausgleichsgerade}
@@ -185,18 +193,18 @@ mit dem Parameter
 \subsection{Betrachtung der Masse}
 \begin{figure}[H]
   \center
-  \includegraphics[width=0.9\textwidth]{plots/masse_konstante_dia.pdf}
+  \includegraphics[width=0.8\textwidth]{plots/masse_konstante_dia.pdf}
   \caption{Massenresulate aus der Variation der Federdicke $D_a$
           und der Windungszahl $n$ der Federkonstanten $R$ gegenübergestellt. }
 \end{figure}
 \begin{figure}[H]
   \center
-  \includegraphics[width=0.9\textwidth]{plots/m_D_dia.pdf}
+  \includegraphics[width=0.8\textwidth]{plots/m_D_dia.pdf}
   \caption{}
 \end{figure}
 \begin{figure}[H]
   \center
-  \includegraphics[width=0.9\textwidth]{plots/m_n_dia.pdf}
+  \includegraphics[width=0.8\textwidth]{plots/m_n_dia.pdf}
   \caption{}
 \end{figure}
 
