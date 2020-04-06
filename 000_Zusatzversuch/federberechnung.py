@@ -25,7 +25,7 @@ F1_err= [standabw(F11,F11_mittelwert),standabw(F12,F12_mittelwert)]
 FA1=[F11_mittelwert,F12_mittelwert]
 
 G=71000
-d=0.430
+d=0.43#opt
 werkstoff="x10CrNi18-8  DIN EN 10270-3"
 E= 185000 
 p= 7.90
@@ -80,40 +80,40 @@ def ist_calculate(D,L1_0,F11,F22):
         {werkstoff}
         G={G}, E={E}, p={p}
         --------------------------------------------------------------------
-        d \t=\t       \t\t    {round(d,2)}\tmm\t
+        d \t=\t       \t\t    {round(d,4)}\tmm\t
         De\t=\t       \t\t    {round(De,2)}\tmm\t
         AD\t=\pm\t    \t\t    {round(AD,2)}\tmm\t
-        n\t=\t        \t\t    {round(n,2)}\t\t
+        n\t=\t        \t    {round(n,2)}\t\t
         Lo\t=\t       \t\t    {round(Lo,2)}\tmm\t
         Fo\t=\t       \t\t    {round(Fo,2)}\tN\t
         Fozul\t=\t    \t\t    {Fozul}\tN\t
-        L1\t=\t       \t\t    {round(L1,2)}\tmm\t
+        L1\t=\t       \t\t    {round(L1,2)}\t\tmm\t
         F1\t=\t       \t\t    {round(F1,2)}\tN\t
         AF1\t=\pm\t   \t\t    {round(AF1,2)}\tN\t
-        L2\t=\t       \t\t    {round(L2,2)}\tmm\t
-        F2\t=\t       \t\t    {round(F2,2)}\tN\t
+        L2\t=\t       \t\t    {round(L2,2)}\t\tmm\t
+        F2\t=\t       \t\t    {round(F2,2)}\t\tN\t
         AF2\t=\pm\t   \t\t    {round(AF2,2)}\tN\t
         Lk\t=\t       \t\t    {round(Lk,2)}\tmm\t
         Ln\t=\t       \t\t    {round(Ln,2)}\tmm!\t
-        Fn\t=\t       \t\t    {round(Fn,2)}\tN!\t
-        R\t=\t        \t\t    {round(R,2)}\tN/mm\t\n
+        Fn\t=\t       \t\t    {round(Fn,2)}\t\tN!\t
+        R\t=\t        \t    {round(R,2)}\tN/mm\t\n
         to\t=\t       \t\t    {round(to,2)}\tN/mm^2!\t
         tozul\t=\t    \t\t    {round(tozul,2)}\tN/mm^2!\t
         ti1\t=\t      \t\t    {round(ti1,2)}\tN/mm^2\t
         ti2\t=\t      \t\t    {round(ti2,2)}\tN/mm^2\t
         tih\t=\t      \t\t    {round(tih,2)}\tN/mm^2\t
-        tzul\t=\t     \t\t    {round(tzul,2)}\tN/mm^2\t
+        tzul\t=\t     \t\t    {round(tzul,2)}\t\tN/mm^2\t
         \n
         tk1\t=\t      \t\t    {round(tk1,2)}\tN/mm^2\t
         tk2\t=\t      \t\t    {round(tk2,2)}\tN/mm^2\t
         tkh\t=\t      \t\t    {round(tkh,2)}\tN/mm^2\t
         tkO\t=\t      \t\t    {round(tkO,2)}\tN/mm^2\t
         tkH\t=\t      \t\t    {tkH}\tN/mm^2\t
-        k\t=\t        \t\t    {round(k,2)}\t\t
+        k\t=\t        \t    {round(k,2)}\t\t
         \n
-        q\t=\t        \t\t    {round(q,2)}\t\t
+        q\t=\t        \t    {round(q,2)}\t\t
         \n
-        w\t=\t        \t\t    {round(w,2)}\t\t
+        w\t=\t        \t    {round(w,2)}\t\t
         2LH\t=\t      \t\t    {round(LH,2)}\tmm\t
         \n
         Gewicht\t:\t  \t\t    {round(gewicht,3)}\tkg/1000 Stück\t
