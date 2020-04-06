@@ -180,7 +180,7 @@ plt.plot(x,R3*x+F3_0,"--b")
 plt.xlabel("Länge der belasteten Feder $L\;/\;$mm")
 plt.ylabel("Federkraft $F\;/\;$N")
 plt.legend()
-plt.savefig("build/D_kraftweg_dia.pdf")
+plt.savefig("plots/D_kraftweg_dia.pdf")
 plt.close()
 
 #True PLOT FOR ds
@@ -208,7 +208,7 @@ plt.plot(xL0A,[F31_mittelwert,F32_mittelwert],"ob")
 plt.xlabel("Federweg $s\;/\;$mm")
 plt.ylabel("Federkraft $F\;/\;$N")
 plt.legend()
-plt.savefig("build/f0_123_dia.pdf")
+plt.savefig("plots/f0_123_dia.pdf")
 plt.close()
 
 
@@ -247,9 +247,9 @@ plt.ylabel("Federkraft $F\;/\;$N")
 #box = ax.get_position()
 #plt.legend(loc='center left', bbox_to_anchor=(1,0.5))#dis
 plt.legend()
-plt.savefig("build/n_kraftweg_dia.pdf")
+plt.savefig("plots/n_kraftweg_dia.pdf")
 #plt.tight_layout()
-#plt.savefig("build/diss_kraft_dia.pdf")#dis
+#plt.savefig("plots/diss_kraft_dia.pdf")#dis
 plt.close()
 
 
@@ -339,7 +339,7 @@ plt.plot(xd[2],R[2],"ob",label=f"Feder 3 \n(D:{round(D3_mittelwert,1)}$\;$mm, L:
 plt.xlabel("Federdicke $D\;/\;$mm")
 plt.ylabel("Federkonstante $R\;/\;$ N/mm")
 plt.legend()
-plt.savefig("build/dicke_konstante_dia.pdf")
+plt.savefig("plots/dicke_konstante_dia.pdf")
 plt.close()
 print(f"params D^(-3) k_D: {unparamsD}")
 
@@ -369,7 +369,7 @@ plt.plot(n[2],R[4],"om",label=f"Feder 5 \n(D:konst,L:{round(L5_0_mittelwert,1)}m
 plt.xlabel("wirkende Windungszahl $n_{wirk}$")
 plt.ylabel("Federkonstante $R\;/\;$N/mm")
 plt.legend()
-plt.savefig("build/n_konstante_dia.pdf")
+plt.savefig("plots/n_konstante_dia.pdf")
 plt.close()
 #Massen gegenüber Federkonstante
 plt.plot(xm[0],y[0],"ok",label=f"Feder 1 Basis \n(D:{round(D1_mittelwert,2)}$\;$mm, L:{round(L1_0_mittelwert,1)}$\;$mm)")
@@ -380,7 +380,7 @@ plt.plot(xm[4],y[4],"o",label=f"Feder 5 \n(D:konst, L:{round(L5_0_mittelwert,1)}
 plt.xlabel("Federmasse $m\;/\;g$")
 plt.ylabel("Federkonstante $R\;/\;$ N/m")
 plt.legend()
-plt.savefig("build/masse_konstante_dia.pdf")
+plt.savefig("plots/masse_konstante_dia.pdf")
 plt.close()
 
 #Diskussion-Vergleich mit schnöring Federberechnung
@@ -448,7 +448,7 @@ plt.plot(L2_z-L2_0_mittelwert,F22_mittelwert,"hb")
 plt.legend()
 plt.xlabel("Federweg $s\;/\;$mm")
 plt.ylabel("Federkraft $F\;/\;$N")
-plt.savefig("build/schnö_12_dia.pdf")
+plt.savefig("plots/schnö_12_dia.pdf")
 plt.close()
 
 plt.plot(D1_mittelwert,M1/5,"ok",label="Feder 1")
@@ -457,7 +457,7 @@ plt.plot(D3_mittelwert,M3/5,"oy",label="Feder 3")
 plt.xlabel("Federausßendruchmesser $D_a\;/\;$mm")
 plt.ylabel("Masse $m\;/\;$g")
 plt.legend()
-plt.savefig("build/m_D_dia.pdf")
+plt.savefig("plots/m_D_dia.pdf")
 plt.close()
 
 n=[(L1_0_mittelwert-c)/(d*mm_m),(L4_0_mittelwert-c)/(d*mm_m),(L5_0_mittelwert-c)/(d*mm_m)]
@@ -467,7 +467,7 @@ plt.plot(n[2],M5/5,"or",label="Feder 5")
 plt.xlabel("Wicklungzahl $n$")
 plt.ylabel("Masse $m\;/\;$g")
 plt.legend()
-plt.savefig("build/m_n_dia.pdf")
+plt.savefig("plots/m_n_dia.pdf")
 plt.close()
 
 
