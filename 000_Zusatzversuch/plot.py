@@ -353,7 +353,7 @@ print(f"nwirk:{n},n2:{(L2_0_mittelwert-c)/(d*mm_m)},n3:{(L3_0_mittelwert-c)/(d*m
 def funkt_n(n,k):                                           #mit +b wäre besser
     return k*1/n
 def theorie_n(n):
-    D=3.68-0.43/mm_m#mm
+    D=3.68-d/mm_m#mm
     return (G*d**4)/(8*D**3*n)
 
 paramsn, covn = curve_fit(funkt_n,n,Rn)
