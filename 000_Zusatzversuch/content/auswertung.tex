@@ -19,16 +19,16 @@
         $\bar{D_a}\;/\;$mm & 3.68* & 3.57 & 3.818 & 3.69 & 3.684\\
         $D_{a_S}\;/\;$mm& 0.007 & 0 & 0.004 & 0.03 & 0.005\\
         \midrule
-        $L_a\;/\;$mm & 58.76 & 59.02 & 58.1 & 62.87 & 54.45 \\
-          & 58.89 & 59.11 & 58.41 & 62.94 & 54.53 \\
-          & 58.79 & 58.99 & 58.32 & 63.03 & 54.58 \\
-          & 58.88 & 59.13 & 58.38 & 63.01 & 54.69 \\
-          & 58.61 & 58.99 & 58.61 & 62.92 & 54.54 \\
-          & 58.76 &         &         &         &         \\
+        $L0$ 	& 57.04 	& 57.3 		& 56.38 	& 61.15 	& 52.73 	\\
+                & 57.17 	& 57.39 	& 56.69 	& 61.22 	& 52.81 	\\
+                & 57.07 	& 57.27 	& 56.6 		& 61.31 	& 52.86 	\\
+                & 57.16 	& 57.41 	& 56.66 	& 61.29 	& 52.97 	\\
+                & 56.89 	& 57.27 	& 56.89 	& 61.2 		& 52.82 	\\
+                & 57.04 	&         	&         	&         	&   \\
         \midrule
-        $\bar{L_a}\;/\;$mm & 58.78 & 59.048 & 58.364 & 62.95 & 54.55\\
-        $L_{a_S}\;/\;$mm & 0.09 & 0.06 & 0.16 & 0.059 & 0.078\\
-        $n_{wirk}$ & 108.79 & 109.41 & 107.82 & 118.49 & 98.97 \\(berechnet)\\
+        $\bar{L0}\;/\;$mm & 57.06 	& 57.33 	& 56.64 	& 61.23 	& 52.84	\\
+        $L0{_S}\;/\;$mm & 0.093 	& 0.060 	& 0.16 	& 0.059 	& 0.078	\\
+        $n_{wirk}$ & 109.36 & 109.98 & 108.39 & 119.07 & 99.54 \\(berechnet)\\
         \midrule
         $F1\;/\;$N bei $L1=105\;$mm & 4.8 & 5.21 & 4.46 & 4.26 & 5.5\\
                          & 4.86 & 5.28 & 4.48 & 4.25 & 5.5\\
@@ -49,7 +49,7 @@
         \midrule
         $R$ & 0.086 & 0.094 & 0.077 & 0.079 & 0.093\\
         \midrule
-        $F_0\;/\;$N & 0.88 & 0.96 & 0.88 & 0.94 & 0.81\\ 
+        $F_0\;/\;$N & 0.73 & 0.79 & 0.75 & 0.81 & 0.65\\ 
         \bottomrule
     \end{tabular}
     \caption{$m$ Federmasse,
@@ -59,18 +59,21 @@
              $L_0$ Federlänge,
              $\bar{L}$ Mittelwert der Federlänge,
              $L_{0_S}$ Standartabweichung der Federlänge,
-             $n_{wirk}$ Windungszahl,
+             $n_{wirk}$ wirkende Windungszahl,
              $F1$,$F2$ Federkräfte,
              $\bar{F1}$,$\bar{F2}$ Mittelwert der Federkräfte,
              $R$ Federkonstante,
-             $F0$ Innere Vorspannkraft\\
-             * Wird im folgenden als Basiswert verwendet
+             $F0$ Innere Vorspannkraft
     }
     \label{tab:Wertetabelle}
 \end{table}
 
 
 \subsection{Variable Federdicke}
+Im Folgenden werden die wirkenden Windung $n_{wirk}$ als konstant mit $n_1=109.4$ angenommen, 
+da die maximale Abweichung von $\Delta n_{max}=0.97$ als hinreichend klein angenommen wird.
+
+
 \begin{figure}[H]
     \center
     \includegraphics[width=0.8\textwidth]{plots/D_kraftweg_dia.pdf}
@@ -118,9 +121,9 @@ und beschreibt die zugehörige Vorspannkraft $F_0$.
 \end{figure}
 Somit ergeben sich für die jeweilligen inneren Vorspannkräfte $F0$
 \begin{align*}
-  F0_1=  0.88 \;\si{\N},\\
-  F0_2=  0.96 \;\si{\N},\\
-  F0_3=  0.88 \;\si{\N}.\\
+  F0_1=  0.73 \;\si{\N},\\
+  F0_2=  0.79 \;\si{\N},\\
+  F0_3=  0.75 \;\si{\N}.\\
 \end{align*}
 
 
@@ -145,7 +148,7 @@ Es folgt die Funktion
 \end{equation*}
 mit dem Parameter
 \begin{equation*}
-  k_D=(4.28 \pm 0.012) \;\si{\N\meter\squared}
+  k_D=(2.94 \pm 0.03) \;\si{\N\mm\squared}
 \end{equation*}
 
 
@@ -161,9 +164,9 @@ Analog wie in Abschnitt \ref{sec:fit} folgt für die Federkonstante $R$
 und den Verschiebungswert $v$ aus dem mit der Methodik aus \ref{sec:vorspannkraft}
 die innere Vorspannkraft $F_0$ ermittelt wird
 \begin{align*}
-  R1= 0.086\;\si{\N\per\mm}, &&  v1= -4.14\;\si{\N}, && F1_0=0.88\;\si{\N}\\
-  R4= 0.079\;\si{\N\per\mm}, &&  v4= -4.03\;\si{\N}, && F4_0=0.94\;\si{\N}\\
-  R5= 0.092\;\si{\N\per\mm}, &&  v5= -4.26\;\si{\N}. && F5_0=0.81\;\si{\N}\\
+  R1= 0.086\;\si{\N\per\mm}, &&  v1= -4.14\;\si{\N}, && F1_0=0.73\;\si{\N}\\
+  R4= 0.079\;\si{\N\per\mm}, &&  v4= -4.03\;\si{\N}, && F4_0=0.81\;\si{\N}\\
+  R5= 0.092\;\si{\N\per\mm}, &&  v5= -4.26\;\si{\N}. && F5_0=0.65\;\si{\N}\\
 \end{align*}
 
 \begin{figure}[H]
@@ -186,7 +189,7 @@ Es folgt die Funktion
 \end{equation*}
 mit dem Parameter
 \begin{equation*}
-  k_n=(11.69 \pm 0.06) \;\si{\N\meter\squared}
+  k_n=(9.32 \pm 0.05) \;\si{\N\per\mm}
 \end{equation*}
 
 
