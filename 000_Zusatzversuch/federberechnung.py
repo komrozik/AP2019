@@ -25,7 +25,7 @@ F1_err= [standabw(F11,F11_mittelwert),standabw(F12,F12_mittelwert)]
 FA1=[F11_mittelwert,F12_mittelwert]
 
 G=71000
-d=0.430#opt
+d=0.434#ausprobiert: 0.43425 wolfram: 0.434519
 werkstoff="x10CrNi18-8  DIN EN 10270-3"
 E= 185000 
 p= 7.90
@@ -37,22 +37,25 @@ def ist_calculate(D,L1_0,F11,F22):
     Di=De-d
     D=(De+Di)/2
     AD=standabw(D1,De)
-    Lo=sum(L1_0)/len(L1_0)
+    Lo=sum(L1_0)/len(L1_0)-4*d
     F1=sum(F11)/len(F11)#4.83
     AF1=standabw(F11,F1)#0.021
     F2=sum(F12)/len(F12)#7.97
     AF2=standabw(F12,F2)#0.03
+    s=[L1-Lo,L2-Lo]
     Fn=0
-    R=(F1-F2)/(L1-L2)
+    LH_real=11.821
+    LH=LH_real-4*d
+    n=(Lo-LH)/d
+    R_low=(F1-F2)/(s[0]-s[1])
+    R=G*d**4/(8*Di**3*n)
     v=F1-R*L1#verschiebungswert
     Fo=v+R*Lo
     test=R*(L1-Lo)+Fo
     Fozul=None
     Sn=(Fn-Fo)/R
-    LH=11.755
     Lk=Lo-LH
     Ln=Lo+Sn
-    n=(Lo-LH)/d
 
 
     to=(8*Di*Fo)/(np.pi*d**3) #vermutlich richtig D=Di
@@ -61,7 +64,7 @@ def ist_calculate(D,L1_0,F11,F22):
     ti1=(8*Di*F1)/(np.pi*d**3)
     ti2=(8*Di*F2)/(np.pi*d**3)
     tih=(8*Di*(F2-F1))/(np.pi*d**3)
-    tzul=None                    #vermitlich materialkonstante da max für x10CrNi18-8 bei 950 liegt
+    tzul=927                    #vermitlich materialkonstante da max für x10CrNi18-8 bei 950 liegt
 
     k=((Di/d)+0.5)/((Di/d)-0.75)
     tk1=k*ti1
@@ -82,23 +85,21 @@ def ist_calculate(D,L1_0,F11,F22):
         G={G}, E={E}, p={p}
         --------------------------------------------------------------------
         d \t=\t       \t\t    {round(d,4)}\tmm\t
-        De\t=\t       \t\t    {round(De,2)}\tmm\t
-        AD\t=\pm\t    \t\t    {round(AD,2)}\tmm\t
+        De\t=\t       \t\t    {round(De,2)}\tmm*\t
+        AD\t=±\t    \t\t    {round(AD,2)}\tmm*\t
         n\t=\t        \t    {round(n,2)}\t\t
-        Lo\t=\t       \t\t    {round(Lo,2)}\tmm\t
+        Lo\t=\t       \t\t    {round(Lo,2)}\tmm*\t
         Fo\t=\t       \t\t    {round(Fo,2)}\tN\t
         L1\t=\t       \t\t    {round(L1,2)}\t\tmm\t
-        F1\t=\t       \t\t    {round(F1,2)}\tN\t
-        AF1\t=\pm\t   \t\t    {round(AF1,2)}\tN\t
+        F1\t=\t       \t\t    {round(F1,2)}\tN*\t
+        AF1\t=±\t   \t\t    {round(AF1,2)}\tN*\t
         L2\t=\t       \t\t    {round(L2,2)}\t\tmm\t
-        F2\t=\t       \t\t    {round(F2,2)}\t\tN\t
-        AF2\t=\pm\t   \t\t    {round(AF2,2)}\tN\t
+        F2\t=\t       \t\t    {round(F2,2)}\t\tN*\t
+        AF2\t=±\t   \t\t    {round(AF2,2)}\tN*\t
         Lk\t=\t       \t\t    {round(Lk,2)}\tmm\t
-        Ln\t=\t       \t\t    {round(Ln,2)}\tmm!\t
-        Fn\t=\t       \t\t    {round(Fn,2)}\t\tN!\t
-        R\t=\t        \t    {round(R,2)}\tN/mm\t\n
-        to\t=\t       \t\t    {round(to,2)}\tN/mm^2!\t
-        tozul\t=\t    \t\t    {round(tozul,2)}\tN/mm^2!\t
+        R\t=\t        \t    {round(R,2)}\tN/mm*\t\n
+        to\t=\t       \t\t    {round(to,2)}\tN/mm^2\t
+        tozul\t=\t    \t\t    {round(tozul,2)}\tN/mm^2\t
         ti1\t=\t      \t\t    {round(ti1,2)}\tN/mm^2\t
         ti2\t=\t      \t\t    {round(ti2,2)}\tN/mm^2\t
         tih\t=\t      \t\t    {round(tih,2)}\tN/mm^2\t
@@ -111,9 +112,9 @@ def ist_calculate(D,L1_0,F11,F22):
         q\t=\t        \t    {round(q,2)}\t\t
         \n
         w\t=\t        \t    {round(w,2)}\t\t
-        2LH\t=\t      \t\t    {round(LH,2)}\tmm\t
+        2LH\t=\t      \t\t    {round(LH_real,2)}\tmm\t
         \n
-        Gewicht\t:\t  \t\t    {round(gewicht,3)}\tkg/1000 Stück\t
+        Gewicht\t:\t  \t\t    {round(gewicht,3)}\tkg/1000 Stück*\t
         --------------------------------------------------------------------
     """)
 

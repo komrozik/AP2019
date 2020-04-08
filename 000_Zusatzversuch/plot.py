@@ -11,7 +11,7 @@ def standabw(x,xm):
     return np.sqrt(sum((x-xm)**2)/len(x))
 mm_m=1
 G=71000*mm_m**2 #N/m^2
-d=0.430/mm_m #m aus zeichung 0.43425optimum    
+d=0.430/mm_m #m aus zeichung; ausprobiert: 0.43425 wolfram: 0.434519    
 L0_z=58/mm_m  #pm2  mm (aus Zeichnung, anstreben)
 L1_z=105/mm_m #mm (aus Zeichnung)
 L2_z=142/mm_m #mm (aus Zeichnung)
@@ -100,10 +100,19 @@ F5_err= [standabw(F51,F51_mittelwert),standabw(F52,F52_mittelwert)]
 FA5=[F51_mittelwert,F52_mittelwert]
 #-----------------------------------------------------
 
+#Nachbesserung L0 um 2 Windungen weniger auf jeder Seite, siehe dazu wie L0 auf Zeichnung definiert.
+L1_0-=4*d
+L2_0-=4*d
+L3_0-=4*d
+L4_0-=4*d
+L5_0-=4*d
+L1_0_mittelwert-=4*d
+L2_0_mittelwert-=4*d
+L3_0_mittelwert-=4*d
+L4_0_mittelwert-=4*d
+L5_0_mittelwert-=4*d
+c-=4*d #ca. LH
 n=[(L1_0_mittelwert-c)/(d*mm_m),(L4_0_mittelwert-c)/(d*mm_m),(L5_0_mittelwert-c)/(d*mm_m)]
-
-
-
 
 
 #Plots:
@@ -280,13 +289,13 @@ print(f"""
           \t& {D1[5]} \t&         \t&         \t&         \t&         \t\\\\
     $bar(D_a)$ \t& {D1_mittelwert} \t& {D2_mittelwert} \t& {D3_mittelwert} \t& {D4_mittelwert} \t& {D5_mittelwert}\t\\\\
     $D_(a_S)$ {D1_standabw} \t& {D2_standabw} \t& {D3_standabw} \t& {D4_standabw} \t& {D5_standabw}\t\\\\
-    $L_a$ \t& {L1_0[0]} \t& {L2_0[0]} \t& {L3_0[0]} \t& {L4_0[0]} \t& {L5_0[0]} \t\\\\
-          \t& {L1_0[1]} \t& {L2_0[1]} \t& {L3_0[1]} \t& {L4_0[1]} \t& {L5_0[1]} \t\\\\
-          \t& {L1_0[2]} \t& {L2_0[2]} \t& {L3_0[2]} \t& {L4_0[2]} \t& {L5_0[2]} \t\\\\
-          \t& {L1_0[3]} \t& {L2_0[3]} \t& {L3_0[3]} \t& {L4_0[3]} \t& {L5_0[3]} \t\\\\
-          \t& {L1_0[4]} \t& {L2_0[4]} \t& {L3_0[4]} \t& {L4_0[4]} \t& {L5_0[4]} \t\\\\
-          \t& {L1_0[5]} \t&         \t&         \t&         \t&         \t\\\\
-    $bar(L_a)$ \t& {L1_0_mittelwert} \t& {L2_0_mittelwert} \t& {L3_0_mittelwert} \t& {L4_0_mittelwert} \t& {L5_0_mittelwert}\t\\\\
+    $L_a$ \t& {round(L1_0[0],2)} \t& {round(L2_0[0],2)} \t\t& {round(L3_0[0],2)} \t& {round(L4_0[0],2)} \t& {round(L5_0[0],2)} \t\\\\
+          \t& {round(L1_0[1],2)} \t& {round(L2_0[1],2)} \t& {round(L3_0[1],2)} \t& {round(L4_0[1],2)} \t& {round(L5_0[1],2)} \t\\\\
+          \t& {round(L1_0[2],2)} \t& {round(L2_0[2],2)} \t& {round(L3_0[2],2)} \t\t& {round(L4_0[2],2)} \t& {round(L5_0[2],2)} \t\\\\
+          \t& {round(L1_0[3],2)} \t& {round(L2_0[3],2)} \t& {round(L3_0[3],2)} \t& {round(L4_0[3],2)} \t& {round(L5_0[3],2)} \t\\\\
+          \t& {round(L1_0[4],2)} \t& {round(L2_0[4],2)} \t& {round(L3_0[4],2)} \t& {round(L4_0[4],2)} \t\t& {round(L5_0[4],2)} \t\\\\
+          \t& {round(L1_0[5],2)} \t&         \t&         \t&         \t&         \t\\\\
+    $bar(L_a)$ \t& {round(L1_0_mittelwert,2)} \t& {round(L2_0_mittelwert,2)} \t& {round(L3_0_mittelwert,2)} \t& {round(L4_0_mittelwert,2)} \t& {L5_0_mittelwert}\t\\\\
     $L_(a_S)\t& {L1_standabw} \t& {L2_standabw} \t& {L3_standabw} \t& {L4_standabw} \t& {L5_standabw}\t\\\\
     $F1$ bei $L1={L1_z}$ \t& {F11[0]} \t& {F21[0]} \t& {F31[0]} \t& {F41[0]} \t& {F51[0]}\t\\\\
                          \t& {F11[1]} \t& {F21[1]} \t& {F31[1]} \t& {F41[1]} \t& {F51[1]}\t\\\\
