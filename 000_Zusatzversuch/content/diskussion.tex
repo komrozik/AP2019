@@ -1,19 +1,81 @@
 \newpage
 \section{Diskussion}
-\subsection{Aussagekraft}
-In dem Diagramm \ref{fig:} und \ref{fig:} wird deutlich, dass die
-Theoriekurve eine diskrepanz gegenüber der aus den Messdaten approximierten 
+\subsection{Aussagekraft der gefertigten Federn}
+Da die Qualtität der Feder und die Einhaltung der Parameter in der Fertigung 
+massiv von vielen Faktoren abhängt (wie z.B. Zustand der Werkzeuge etc.), soll hier kurz
+kurz die Aussagekraft der gefertigten Federn thematisiert werden.\newline
+
+In der Abbildung \ref{fig:R_D_dia} und \ref{fig:R_n_dia} wird deutlich, dass die
+Theoriekurve eine Diskrepanz gegenüber der aus den Messdaten approximierten 
 Kurve bildet, wenn gleich die Kurven ähnlich verlaufen.\\
 Der Ursprung dieser Diskrepanz könnte dabei auf einen systematischen Fehler
-bei der Kraftmessung zurückgeführt werden. Dennoch liegt näher dass die Differenz
-aufgrund der Drahtdicke auftritt, da as Material großen Schwangungen unterlegen ist 
-und somit von dem, in der Zeichnung angegeben Wert $d=0.430\si{mm}$ abweicht.\\
-Für einen deckungsgleichen Verlauf der beiden Kurven folgt aus Gl. \ref{eqn:federrate} für die Drahtdicke $d$,
+bei der Kraftmessung oder dem verwendeten Messschieber zurückgeführt werden. Dennoch ist es naheliegender, dass die Differenz
+aufgrund einer varrierter Drahtdicke auftritt, da das Matrial großen Schwangungen unterliegt, 
+und somit von dem, in der Zeichnung angegeben Wert $d=0.430\si{mm}$ abweichen kann.\\
+Nimmt man an, dass die systematischen Fehler hinreichend klein sind, so folgt für einen deckungsgleichen Verlauf, der beiden Kurven aus Gl. \ref{eqn:federrate} für die Drahtdicke $d$,
 \begin{align*}
-    R(d)&=\frac{D}{8} \cdot \frac{d^4}{(D_a-d)^3\cdot \frac{L0-LH}{d}},\\
-    0&\overset{\text{!}}{=}\frac{D}{8} \cdot \frac{d^4}{(D_a-d)^3\cdot \frac{L0-LH}{d}}-R,
+    0&\overset{\text{!}}{=}\frac{G}{8} \cdot \frac{d^4}{(D_a-d)^3\cdot \frac{L0-LH}{d}}-R,
 \end{align*}
-mit der real Drahtdicke $d_{real}=$  
+die angenommene Drahtdicke $d_{ang}=0.434519\;$mm.\\
+Mit einer Abweichung von $\Delta d=d-d_{ang}=0.004519\;$mm liegt dieser Wert im Schwankungsbereich
+der Materialangaben von $=(0.430\pm 0.008)\si{mm}$.
+
+\begin{figure}
+    \begin{subfigure}[c]{0.5\textwidth}
+        \includegraphics[width=\textwidth]{plots/opt_dicke_konstante_dia.pdf}
+    \end{subfigure}
+    \begin{subfigure}[c]{0.5\textwidth}
+        \includegraphics[width=\textwidth]{plots/opt_n_konstante_dia.pdf}
+    \end{subfigure}
+    \caption{Abb. \ref{fig:R_D_dia} (links) und \ref{fig:R_n_dia} (rechts) mit angenommener Drahtdicke $d_{ang}$}
+\end{figure}
+
+\newpage
+\subsubsection{Einhaltung der Parameter der Basisfeder}
+Nun sollen die Basisfeder mit der geforderten Feder aus der Federberechnung der
+Firma Schnöring (Idealfeder) verglichen werden. Die Basisfeder ist dabei, die nach jenen
+Berechnungen gefertigte Feder. Da es in der Praxis zu einigen Schwangungen in der
+Fertigung kommen kann, soll nun überprüft werden, ob die zulässigen Schwankungen eingehalten werden.\\
+Dazu wird die Federberechnung Anhang:\ref{fig:schn_b37} verwendet. 
+\begin{figure}[H]
+    \center
+    \includegraphics[width=0.8\textwidth]{plots/schnö_12_dia.pdf}
+    \caption{Dargestellt ist die geforderte Idealfeder nach Federberechnung der 
+            Firma Schnöring im Vergleich mit der Basisfeder, welche nach diesen Berechnungen
+            gefertigt wurde.
+    }
+    \label{fig:qual_basis}
+\end{figure}
+
+%Trotz der Differenz im Federaußendurchmesser $\Delta D_a=0.02\si{mm}$ und der Federlänge
+%$\Delta L0=0.797\si{mm}$ gegenüber den aus der Federberechnung stammenden Werten, ist in
+%Abb. \ref{fig:qual_basis} deutlich, dass die Basisfeder in dem vorgeschriebenen Kräftebereich
+%für $F1$ und $F2$ liegt.
+\begin{table}[H]
+    \center
+    \begin{tabular}{c | c c c c}
+        \toprule
+        & $F1\;/\;N$ & $F2\;/\;N$ & $D_a\;/\;mm$ &$L0\;/\;mm$\\
+        \midrule
+        Basisfeder (Ist  )&4.83   &8.0   &3.68  &57.06\\
+        Idealfeder (Soll) &5.00   &7.9   &3.70  &59.577 (58.0*)\\
+        \midrule
+        Abweichung        &0.17   &0.1   &0.02  &2.517 (0.94)\\
+        zul. Abweichung   &0.25   &0.30  &0.1   &(2.0*)\\
+        \bottomrule
+    \end{tabular}
+    \caption{Wertetabelle - Vergleich Basisfeder mit Idealfeder (Ist/Soll).\\
+            *Stammt dabei aus der Federzeichnung \ref{fig:zeichnung}, da L0 ein
+            anzustrebener Wert ist (vgl. dazu Abs. \ref{sec:praxis}).
+    }
+\end{table}
+
+
+
+Im Folgenden können mit den gefertigten Federn weitere Aussagen getroffen werden,
+da sie der zu erwartenen Theorie aus Gl. \ref{eqn:federrate} folgen.   
+
+
 
 \begin{figure}
     \center
@@ -24,12 +86,5 @@ mit der real Drahtdicke $d_{real}=$
     }
 \end{figure}
 
-\subsection{Vergleich}
 
-\begin{figure}[H]
-    \center
-    \includegraphics[width=0.8\textwidth]{plots/schnö_12_dia.pdf}
-    \caption{}
-\end{figure}
 
-\label{sec:Diskussion}
