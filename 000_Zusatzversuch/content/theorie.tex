@@ -85,14 +85,16 @@ bis $F_0$ und verläuft danach in der Neigung der Federkonstanten.
 
     Für die Federlänge $L0$ (also Länge der unbelasteten Feder) gibt es keinen fest vorgeschrieben Wert.\\
     Dies resultiert daraus, dass bei der Anwendung, anderes als bei Druckfedern, eine weiter zusätzliche Streckung
-    der Feder gefordert ist und somit der Einbauraum größer wird.\newline
+    der Feder gefordert ist und somit der Einbauraum größer wird.
+    !F1 F2 L1 L2 --> L0 n d normfrei\newline
 
-    Dabei wird in der Fertigung, um im Toleranzbereich der geforderten Federkräfte zu bleiben, $F2$ durch
-    die Änderung von Federaußendruchmesser $D_a$ oder Drahtdicke $d$ korrigiert und $F1$  durch die Änderung
-    von der Federlänge $L0$ und Windungszahl $n$ korriegiert.\\
+    %Dabei wird in der Fertigung, um im Toleranzbereich der geforderten Federkräfte zu bleiben, $F2$ durch
+    %die Änderung von Federaußendruchmesser $D_a$ oder Drahtdicke $d$ korrigiert und $F1$  durch die Änderung
+    %von der Federlänge $L0$ und Windungszahl $n$ korriegiert.\\
 
     Die wichtigsten Paramter bilden dabei:
     \begin{align*}
+        L0 &:& &\text{Länge der unbelasteten Feder}\\
         L1 &:& &\text{Länge 1 der belasteten Feder}\\
         F1 &:& &\text{Federkraft bei L1}\\
         L2 &:& &\text{Länge 2 der belasteten Feder}\\
@@ -100,6 +102,7 @@ bis $F_0$ und verläuft danach in der Neigung der Federkonstanten.
         R &:& &\text{Federkonstante/-rate}\\
         d &:& &\text{Drahtdicke}\\
         D_a &:& &\text{Federaußendurchmesser}\\
+        D &:& &\text{mittlere Windungsdurchmesser}\\
         n &:& &\text{(gesamt) Wicklungszahl}\\
         n_{wirk}&:& &\text{wirkende (federnde) Wicklungszahl}\\
         s &:& &\text{Federweg}=\Delta L \\
