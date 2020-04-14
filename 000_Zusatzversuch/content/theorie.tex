@@ -203,5 +203,31 @@ Also $s_{prax}=0.8 \cdot s_n$.
 %--------------------------------------------
 
 
-
+\subsection{Theorie zur Massenberechnung}
+Um die Abhängigkeit der Masse von der Windungszahl und dem Federdurchmesser zu bestimmen wird mit dem Zusammenhang zwischen Volumen und Masse gearbeitet.
+\begin{equation}
+    M = V \cdot \rho
+\end{equation}
+Um das Volumen einer Feder zu bestimmen wird die Feder als Spirale angenähert und die Trompetenenden vernachlässigt.
+Für die Rechnung wird außerdem der Parameter $a$ eingeführt ,der die Länge einer Windung angibt.
+\begin{equation}
+    a = \frac{L}{n\cdot 2\pi}
+\end{equation}
+Mit der Drahtlänge $L$ und der Windungszahl n.
+Der Ortsvektor für eine Spirale und seine Ableitung sind
+\begin{align}
+    x(t) = () && x'(t) = ()
+\end{align}
+Nun wird die Länge des Drahtes in Abhängigkeit von Windungszahl und Federradius bestimmt
+\begin{equation}
+    L = \int_{0}^{2\pi n} \sqrt{x^2+y^2+z^2}dt = t \sqrt{R^2+a^2} \; |_{0}^{2\pi n} = 2\pi n \sqrt{R^2+a^2}
+\end{equation}
+Nun kann die Drahtlänge in die Formel für die Masse eingesetzt werden
+\begin{equation}
+    M = V\cdot \rho = \pi r^2 L \rho = 2 \pi^2 r^2 n \sqrt{R^2 + a^2} \rho
+\end{equation}
+Also ergibt sich die Abhängigkeit für die Masse mit:
+\begin{equation}
+    M = A \sqrt{R^2 + \frac{B^2}{n^2}}n
+\end{equation}
 \label{sec:theorie}
