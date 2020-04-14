@@ -168,7 +168,7 @@ xL0A=[L1_z*mm_m,L2_z*mm_m]
 #F1_0=0#
 x=np.linspace(L1_0_mittelwert*mm_m,L2_z*mm_m)
 #x=np.linspace(xS_2,L2_z*mm_m)#dis
-plt.errorbar(xL0A,FA1,yerr=F1_err,fmt="ok",label=f"Feder 1 Basis \n(D:{round(D1_mittelwert*mm_m,2)}$\;$mm, n:{round(n[0],1)}$\;$)")
+plt.errorbar(xL0A,FA1,yerr=F1_err,fmt="ok",label=f"Feder 1 Basis \n(Da:{round(D1_mittelwert*mm_m,2)}$\;$mm, n:{round(n[0],1)}$\;$)")
 plt.plot(x,R1*x+F1_0,"--k")
 
 #Feder2
@@ -176,7 +176,7 @@ plt.plot(x,R1*x+F1_0,"--k")
 #F2_0=0#
 x=np.linspace(L2_0_mittelwert*mm_m,L2_z*mm_m)
 #x=np.linspace(xS_1,L2_z*mm_m)#dis
-plt.errorbar(xL0A,FA2,yerr=F2_err,fmt="og",label=f"Feder 2 \n(D:{round(D2_mittelwert*mm_m,1)}$\;$mm, n:konst)")
+plt.errorbar(xL0A,FA2,yerr=F2_err,fmt="og",label=f"Feder 2 \n(Da:{round(D2_mittelwert*mm_m,1)}$\;$mm, n:konst)")
 plt.plot(x,R2*x+F2_0,"--g")
 
 #Feder3
@@ -184,7 +184,7 @@ plt.plot(x,R2*x+F2_0,"--g")
 #F3_0=0#
 x=np.linspace(L3_0_mittelwert*mm_m,L2_z*mm_m)
 #x=np.linspace(xS_1,L2_z*mm_m)#dis
-plt.errorbar(xL0A,FA3,yerr=F3_err,fmt="ob",label=f"Feder 3 \n(D:{round(D3_mittelwert*mm_m,1)}$\;$mm, n:konst)")
+plt.errorbar(xL0A,FA3,yerr=F3_err,fmt="ob",label=f"Feder 3 \n(Da:{round(D3_mittelwert*mm_m,1)}$\;$mm, n:konst)")
 plt.plot(x,R3*x+F3_0,"--b")
 
 plt.xlabel("Länge der belasteten Feder $L\;/\;$mm")
@@ -199,19 +199,19 @@ plt.close()
 xL0A=[L1_z*mm_m-L1_0_mittelwert,L2_z*mm_m-L1_0_mittelwert]
 x=np.linspace(0,xL0A[1])
 plt.plot(x,R1*x+F0_true[0],"--k")
-plt.plot(0,F0_true[0],"ok",label=f"Feder 1 Basis \n(D:{round(D1_mittelwert*mm_m,2)}$\;$mm, n:{round(n[0],1)}$\;$)")
+plt.plot(0,F0_true[0],"ok",label=f"Feder 1 Basis \n(Da:{round(D1_mittelwert*mm_m,2)}$\;$mm, n:{round(n[0],1)}$\;$)")
 plt.plot(xL0A,[F11_mittelwert,F12_mittelwert],"ok")
 #2
 xL0A=[L1_z*mm_m-L2_0_mittelwert,L2_z*mm_m-L2_0_mittelwert]
 x=np.linspace(0,xL0A[1])
 plt.plot(x,R2*x+F0_true[1],"--g")
-plt.plot(0,F0_true[1],"og",label=f"Feder 2 \n(D:{round(D2_mittelwert*mm_m,1)}$\;$mm, n:konst)")
+plt.plot(0,F0_true[1],"og",label=f"Feder 2 \n(Da:{round(D2_mittelwert*mm_m,1)}$\;$mm, n:konst)")
 plt.plot(xL0A,[F21_mittelwert,F22_mittelwert],"og")
 #3
 xL0A=[L1_z*mm_m-L3_0_mittelwert,L2_z*mm_m-L3_0_mittelwert]
 x=np.linspace(0,xL0A[1])
 plt.plot(x,R3*x+F0_true[2],"--b")
-plt.plot(0,F0_true[2],"ob",label=f"Feder 3 \n(D:{round(D3_mittelwert*mm_m,1)}$\;$mm, n:konst)")
+plt.plot(0,F0_true[2],"ob",label=f"Feder 3 \n(Da:{round(D3_mittelwert*mm_m,1)}$\;$mm, n:konst)")
 plt.plot(xL0A,[F31_mittelwert,F32_mittelwert],"ob")
 
 
@@ -226,7 +226,7 @@ plt.close()
 #print Feder1 again
 x=np.linspace(L1_0_mittelwert,L2_z)
 #x=np.linspace(xN[0],L2_z)#dis
-plt.errorbar(L0A,FA1,yerr=F1_err,fmt="ok",label=f"Feder 1 Basis \n(D:{round(D1_mittelwert*mm_m,2)}$\;$mm, n:{round(n[0],1)}$\;$)")
+plt.errorbar(L0A,FA1,yerr=F1_err,fmt="ok",label=f"Feder 1 Basis \n(Da:{round(D1_mittelwert*mm_m,2)}$\;$mm, n:{round(n[0],1)}$\;$)")
 plt.plot(x,R1*x+F1_0,"--k")
 
 #Feder4
@@ -234,7 +234,7 @@ plt.plot(x,R1*x+F1_0,"--k")
 #F4_0=0#
 x=np.linspace(L4_0_mittelwert,L2_z)
 #x=np.linspace(xS_2,L2_z)#dis
-plt.errorbar(L0A,FA4,yerr=F4_err,fmt="oc",label=f"Feder 4 \n(D:konst, n:{round(n[1],1)}$\;$)")
+plt.errorbar(L0A,FA4,yerr=F4_err,fmt="oc",label=f"Feder 4 \n(Da:konst, n:{round(n[1],1)}$\;$)")
 plt.plot(x,R4*x+F4_0,"--c")
 
 #Feder5
@@ -242,7 +242,7 @@ plt.plot(x,R4*x+F4_0,"--c")
 #F5_0=0#
 x=np.linspace(L5_0_mittelwert,L2_z)
 #x=np.linspace(xS_2,L2_z)#dis
-plt.errorbar(L0A,FA5,yerr=F5_err,fmt="om",label=f"Feder 5 \n(D:konst, n:{round(n[2],1)}$\;$)")
+plt.errorbar(L0A,FA5,yerr=F5_err,fmt="om",label=f"Feder 5 \n(Da:konst, n:{round(n[2],1)}$\;$)")
 plt.plot(x,R5*x+F5_0,"--m")
 
 #Schnittpunkte einzeichnen:
@@ -342,15 +342,15 @@ print(k)
 
 plt.plot(x_run,theorie_D(x_run),"--r",label="Theoriekurve nach (1)")
 plt.plot(x_run,funkt_D(x_run,*paramsD),"--",label="Fit mit D^(-3)")
-plt.plot(xd[0],R[0],"ok",label=f"Feder 1 Basis \n(D:{round(D1_mittelwert,2)}$\;$mm, n:{round(n[0],1)}$\;$)")
-plt.plot(xd[1],R[1],"og",label=f"Feder 2 \n(D:{round(D2_mittelwert,1)}$\;$mm, n:konst)")
-plt.plot(xd[2],R[2],"ob",label=f"Feder 3 \n(D:{round(D3_mittelwert,1)}$\;$mm, n:konst)")
+plt.plot(xd[0],R[0],"ok",label=f"Feder 1 Basis \n(Da:{round(D1_mittelwert,2)}$\;$mm, n:{round(n[0],1)}$\;$)")
+plt.plot(xd[1],R[1],"og",label=f"Feder 2 \n(Da:{round(D2_mittelwert,1)}$\;$mm, n:konst)")
+plt.plot(xd[2],R[2],"ob",label=f"Feder 3 \n(Da:{round(D3_mittelwert,1)}$\;$mm, n:konst)")
 plt.xlabel("Federdicke $D\;/\;$mm")
 plt.ylabel("Federkonstante $R\;/\;$ N/mm")
 plt.legend()
 plt.savefig("plots/dicke_konstante_dia.pdf")
 plt.close()
-print(f"params D^(-3) k_D: {unparamsD}")
+print(f"params D^(-3) k_Da: {unparamsD}")
 
 #Varriere Federwindungszahl n
 #plot Federkonstante-Windungszahl Diagramm Für Feder 1,4,5
@@ -372,20 +372,20 @@ print(f"Params 1/n k_n={unparamsn}")
 
 plt.plot(xn_run,theorie_n(xn_run),"--r",label="Theoriekurve nach (1)")
 plt.plot(xn_run,funkt_n(xn_run,*paramsn),"--",label="Fit mit 1/n")
-plt.plot(n[0],R[0],"ok",label=f"Feder 1 Basis \n(D:{round(D1_mittelwert,2)}mm ,n:{round(n[0],1)})")
-plt.plot(n[1],R[3],"oc",label=f"Feder 4 \n(D:konst,n:{round(n[1],1)})")
-plt.plot(n[2],R[4],"om",label=f"Feder 5 \n(D:konst,n:{round(n[2],1)})")
+plt.plot(n[0],R[0],"ok",label=f"Feder 1 Basis \n(Da:{round(D1_mittelwert,2)}mm ,n:{round(n[0],1)})")
+plt.plot(n[1],R[3],"oc",label=f"Feder 4 \n(Da:konst,n:{round(n[1],1)})")
+plt.plot(n[2],R[4],"om",label=f"Feder 5 \n(Da:konst,n:{round(n[2],1)})")
 plt.xlabel("wirkende Windungszahl $n_{wirk}$")
 plt.ylabel("Federkonstante $R\;/\;$N/mm")
 plt.legend()
 plt.savefig("plots/n_konstante_dia.pdf")
 plt.close()
 #Massen gegenüber Federkonstante
-plt.plot(xm[0],y[0],"ok",label=f"Feder 1 Basis \n(D:{round(D1_mittelwert,2)}$\;$mm, n:{round(n[0],1)}$\;$)")
-plt.plot(xm[1],y[1],"o",label=f"Feder 2 \n(D:{round(D2_mittelwert,1)}$\;$mm, n:konst)")
-plt.plot(xm[2],y[2],"o",label=f"Feder 3 \n(D:{round(D3_mittelwert,1)}$\;$mm, n:konst)")
-plt.plot(xm[3],y[3],"o",label=f"Feder 4 \n(D:konst, L:{round(n[1],1)}$\;$)")
-plt.plot(xm[4],y[4],"o",label=f"Feder 5 \n(D:konst, L:{round(n[2],1)}$\;$)")
+plt.plot(xm[0],y[0],"ok",label=f"Feder 1 Basis \n(Da:{round(D1_mittelwert,2)}$\;$mm, n:{round(n[0],1)}$\;$)")
+plt.plot(xm[1],y[1],"o",label=f"Feder 2 \n(Da:{round(D2_mittelwert,1)}$\;$mm, n:konst)")
+plt.plot(xm[2],y[2],"o",label=f"Feder 3 \n(Da:{round(D3_mittelwert,1)}$\;$mm, n:konst)")
+plt.plot(xm[3],y[3],"o",label=f"Feder 4 \n(Da:konst, L:{round(n[1],1)}$\;$)")
+plt.plot(xm[4],y[4],"o",label=f"Feder 5 \n(Da:konst, L:{round(n[2],1)}$\;$)")
 plt.xlabel("Federmasse $m\;/\;g$")
 plt.ylabel("Federkonstante $R\;/\;$ N/m")
 plt.legend()

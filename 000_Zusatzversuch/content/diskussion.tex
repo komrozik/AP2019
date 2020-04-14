@@ -14,11 +14,12 @@ aufgrund einer varrierter Drahtdicke auftritt, da das Matrial großen Schwangung
 und somit von dem, in der Zeichnung angegeben Wert $d=0.430\si{mm}$ abweichen kann.\\
 Nimmt man an, dass die systematischen Fehler hinreichend klein sind, so folgt für einen deckungsgleichen Verlauf, der beiden Kurven aus Gl. \ref{eqn:federrate} für die Drahtdicke $d$,
 \begin{align*}
-    0&\overset{\text{!}}{=}\frac{G}{8} \cdot \frac{d^4}{(D_a-d)^3\cdot \frac{L0-LH}{d}}-R,
+    0&\overset{\text{!}}{=}\frac{G}{8} \cdot \frac{d^4}{(D_a-d)^3\cdot \frac{L_{ges}-LH}{d}}-R,
 \end{align*}
-die angenommene Drahtdicke $d_{ang}=0.434519\;$mm.\\
-Mit einer Abweichung von $\Delta d=d-d_{ang}=0.004519\;$mm liegt dieser Wert im Schwankungsbereich
+die angenommene Drahtdicke $d_{ang} \approx 0.435\;$mm.\\
+Mit einer Abweichung von $\Delta d=d-d_{ang}=0.005\;$mm liegt dieser Wert im Schwankungsbereich
 der Materialangaben von $=(0.430\pm 0.008)\si{mm}$.
+
 
 \begin{figure}
     \begin{subfigure}[c]{0.5\textwidth}
@@ -31,6 +32,7 @@ der Materialangaben von $=(0.430\pm 0.008)\si{mm}$.
 \end{figure}
 
 \newpage
+\label{sec:aussagekraft}
 \subsubsection{Einhaltung der Parameter der Basisfeder}
 Nun sollen die Basisfeder mit der geforderten Feder aus der Federberechnung der
 Firma Schnöring (Idealfeder) verglichen werden. Die Basisfeder ist dabei, die nach jenen
@@ -53,38 +55,71 @@ Dazu wird die Federberechnung Anhang:\ref{fig:schn_b37} verwendet.
 %für $F1$ und $F2$ liegt.
 \begin{table}[H]
     \center
-    \begin{tabular}{c | c c c c}
+    \begin{tabular}{c |c c c c c}
         \toprule
-        & $F1\;/\;N$ & $F2\;/\;N$ & $D_a\;/\;mm$ &$L0\;/\;mm$\\
+        & $F0\;/\;N$ & $F1\;/\;N$ & $F2\;/\;N$ & $D_a\;/\;mm$ &$L0\;/\;mm$\\
         \midrule
-        Basisfeder (Ist  )&4.83   &8.0   &3.68  &57.06\\
-        Idealfeder (Soll) &5.00   &7.9   &3.70  &59.577 (58.0*)\\
+        Basisfeder (Ist  )&0.73    &4.83   &8.0   &3.68  &57.06\\
+        Idealfeder (Soll) &1.44    &5.00   &7.9   &3.70  &59.577 (58.0*)\\
         \midrule
-        Abweichung        &0.17   &0.1   &0.02  &2.517 (0.94)\\
-        zul. Abweichung   &0.25   &0.30  &0.1   &(2.0*)\\
+        Abweichung $\;/\;$\% &49.3 &3.4    &1.25  &0.5   &4.2 (1.6) \\
+        Abweichung        &0.71    &0.17   &0.1   &0.02  &2.517 (0.94)\\
+        zul. Abweichung   &-       &0.25   &0.30  &0.1   &(2.0*)\\
         \bottomrule
     \end{tabular}
     \caption{Wertetabelle - Vergleich Basisfeder mit Idealfeder (Ist/Soll).\\
             *Stammt dabei aus der Federzeichnung \ref{fig:zeichnung}, da L0 ein
             anzustrebener Wert ist (vgl. dazu Abs. \ref{sec:praxis}).
     }
+    \label{tab:vergleich}
 \end{table}
+\label{sec:einhaltung}
+
+\subsubsection{Innere Vorspannkräfte}
+Warum so große Abweichung? siehe Tabelle \ref{tab:vergleich}
+
+\subsection{Fazit}
+Die in der Zeichnung \ref{fig:zeichnung} dargestellte Zugfeder (genauer: Trompentenfeder)
+wurde in den Paramtern des Federausßendurchmessers $D_a$ und der Federgesamtlänge und somit auch
+wirkenden Federwindungszahl $n_{wirk}$ variiert. Mit den Resultierden Kräften $F1$ und $F2$ an
+$L1$ und $L2$ werden Aussagen über die innere Vorspannkraft $F0$ und der Federkonstante $R$ und derer
+Abhängigkeiten zueinander gemacht. Dabei wird angenommen, dass der Ösenanteil (Trompetenanteil) 
+im betrachteten Kräftebereich keine federnde Wirkung besitzt und somit eine Näherung einer
+zylindrische Feder ohne Ösen verwendet wird.\\
+
+Abschnitt \ref{sec:Auswertung} und \ref{sec:aussagekraft} zeigt, dass die gefertigten Federn 
+bei Berücksichtigung der varrierende Drahtdicke $D_a$ der zu erwartenen 
+Theorie aus Abschnitt \ref{sec:theorie} folgen.\\
+
+Explizit zeigt dafür der Abschnitt \ref{sec:federdicke} und \ref{sec:federwindungen} die Proportionalitäten 
+\begin{align*}
+    R &\propto \frac{1}{n},\\
+    R &\propto \frac{1}{D^3},\\
+\end{align*}
+auf.
+
+
+Zudem liegen die Parameter von Feder 1 in den zulässigen Schwankungsbereichen 
+der geforderten Feder resultierend aus der Federberechnung der Firma Schnöring (vgl. Abs. \ref{sec:einhaltung}).\\ 
+Sodass diese als Ausgangsfeder (Basisfeder) verwendet werden kann.\\\\
+
+Für die Materialzunahme...
 
 
 
-Im Folgenden können mit den gefertigten Federn weitere Aussagen getroffen werden,
-da sie der zu erwartenen Theorie aus Gl. \ref{eqn:federrate} folgen.   
+%Im Folgenden können mit den gefertigten Federn weitere Aussagen getroffen werden,
+%da sie der zu erwartenen Theorie aus Gl. \ref{eqn:federrate} folgen.   
 
 
 
-\begin{figure}
-    \center
-    \includegraphics[width=0.8\textwidth]{plots/diss_kraft_dia.pdf}
-    \caption{
-        Vergleich der Wirkung der veränderlichen Windungszahl $n$ und
-        des Federaußendruchmesser $D_a$ auf die Federkraft $F$ untereinander.
-    }
-\end{figure}
+%\begin{figure}
+%    \center
+%    \includegraphics[width=0.8\textwidth]{plots/diss_kraft_dia.pdf}
+%    \caption{
+%        Vergleich der Wirkung der veränderlichen Windungszahl $n$ und
+%        des Federaußendruchmesser $D_a$ auf die Federkraft $F$ untereinander.
+%    }
+%\end{figure}
 
 
 

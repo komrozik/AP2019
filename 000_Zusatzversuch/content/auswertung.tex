@@ -16,7 +16,7 @@
           & 3.69 & 3.57 & 3.82 & 3.76 & 3.68 \\
           & 3.68 &         &         &         &         \\
         \midrule
-        $\bar{D_a}\;/\;$mm & 3.68* & 3.57 & 3.818 & 3.69 & 3.684\\
+        $\bar{D_a}\;/\;$mm & 3.68  & 3.57 & 3.818 & 3.69 & 3.684\\
         $D_{a_S}\;/\;$mm& 0.007 & 0 & 0.004 & 0.03 & 0.005\\
         \midrule
         $L0$ 	& 57.04 	& 57.3 		& 56.38 	& 61.15 	& 52.73 	\\
@@ -47,7 +47,7 @@
         $\bar{F2}\;/\;$N & 7.99 & 8.74 & 7.35 & 7.19 & 8.92\\
         $F2_S\;/\;N$     & 0.03 &0.024 & 0.026& 0.028& 0.017\\ 
         \midrule
-        $R$ & 0.086 & 0.094 & 0.077 & 0.079 & 0.093\\
+        $R $ & 0.086 & 0.094 & 0.077 & 0.079 & 0.093\\
         \midrule
         $F_0\;/\;$N & 0.73 & 0.79 & 0.75 & 0.81 & 0.65\\ 
         \bottomrule
@@ -70,8 +70,10 @@
 
 
 \subsection{Variable Federdicke}
+\label{sec:federdicke}
 Im Folgenden werden die wirkenden Windung $n_{wirk}$ als konstant mit $n_1=109.4$ angenommen, 
-da die maximale Abweichung von $\Delta n_{max}=0.97$ als hinreichend klein angenommen wird.
+da die maximale Abweichung von $\Delta n_{max}=0.97$, resultierend aus nicht beeinflussbaren
+Fertigungsprozessen, als hinreichend klein angenommen wird.
 
 
 \begin{figure}[H]
@@ -82,7 +84,7 @@ da die maximale Abweichung von $\Delta n_{max}=0.97$ als hinreichend klein angen
     die für L1 und L2 resultierenden Federkräfte F1 und F2.}
     \label{tab:LF_D}
 \end{figure}
-\subsection{Lineare Ausgleichsgerade}
+\subsubsection{Lineare Ausgleichsgerade}
 \label{sec:fit}
 Für die jeweiligen Ausgleichsgeraden aus \ref{tab:LF_D} wird ein Polyfit \cite{numpy_polyfit}
 ersten Grades durchgeführt und daraus die Steigung, also die Federkonstante $R$ so wie eine Verschiebung
@@ -99,15 +101,13 @@ folgen somit die in \ref{tab:Wertetabelle} aufgeführten Federkonstanten.
   R3= 0.077\;\si{\N\per\mm}, &&  v3= -3.63\;\si{\N}.\\
 \end{align*}
 
-\subsection{Innere Vorspannkraft ermitteln}
+\subsubsection{Innere Vorspannkraft ermitteln}
 \label{sec:vorspannkraft}
-Um nun aus den Verschiebungswerten $v$ auf die innere Vorspannkraft $F_0$ verschiebe
-man die Gerade so, dass nun der Federweg $s$ betrachtet wird.
-Die Kraft $F_0$, die zuvor bei der Federlänge $L_0$ lag, liegt nun bei $s=0$
-und beschreibt die zugehörige Vorspannkraft $F_0$.
+Von dem Verschiebungswerten $v$ schließe man auf die innere Vorspannkraft $F_0$ durch das Verschieben
+der Gerade, sodass nun der Federweg $s$ betrachtet wird.
 \begin{align*}
-  F&=R \cdot L + v=R\cdot L0+v\\
-  R&=R \cdot s + (v+L0 \cdot R) \text{ mit }F0:= (v+L0 \cdot R) \\
+  F&=R \cdot L + v\\
+  F&=R \cdot s + (v+L0 \cdot R) \text{ mit }F0:= (v+L0 \cdot R) \\
 \end{align*}
 \begin{figure}[H]
   \center
@@ -127,6 +127,7 @@ Somit ergeben sich für die jeweilligen inneren Vorspannkräfte $F0$
 \end{align*}
 
 
+\subsubsection{Einfluss auf die Federkonstante}
 
 \begin{figure}[H]
   \center
@@ -135,9 +136,7 @@ Somit ergeben sich für die jeweilligen inneren Vorspannkräfte $F0$
   \label{fig:R_D_dia}
 \end{figure}
 
-\subsubsection{Ausgleichsgerade}
-
-Es folgt aus \ref{eqn:federrate}
+Es folgt für die Ausgleichsgerade aus \ref{eqn:federrate}
 \begin{align*}
   R=\frac{G\;d^4}{8\;n}\cdot \frac{1}{D^3}, \\\\  
   \text{mit }k_D =\frac{G\;d^4}{8\;n},
@@ -153,6 +152,7 @@ mit dem Parameter
 
 
 \subsection{Variable Federwindungszahl}
+\label{sec:federwindungen}
 \begin{figure}[H]
     \center
     \includegraphics[width=0.8\textwidth]{plots/n_kraftweg_dia.pdf}
@@ -160,8 +160,10 @@ mit dem Parameter
     Aufgetragen in einem Kraft-Weg-Diagramm. Gemessen wurden dabei die für L1
     und L2 resultierenden Federkräfte F1 und F2}
 \end{figure}
+
+\subsubsection{Federkonstante und Innere Vorspannkraft}
 Analog wie in Abschnitt \ref{sec:fit} folgt für die Federkonstante $R$
-und den Verschiebungswert $v$ aus dem mit der Methodik aus \ref{sec:vorspannkraft}
+und den Verschiebungswert $v$, aus dem, mit der Methodik \ref{sec:vorspannkraft},
 die innere Vorspannkraft $F_0$ ermittelt wird
 \begin{align*}
   R1= 0.086\;\si{\N\per\mm}, &&  v1= -4.14\;\si{\N}, && F1_0=0.73\;\si{\N}\\
@@ -169,16 +171,15 @@ die innere Vorspannkraft $F_0$ ermittelt wird
   R5= 0.092\;\si{\N\per\mm}, &&  v5= -4.26\;\si{\N}. && F5_0=0.65\;\si{\N}\\
 \end{align*}
 
+
+\subsubsection{Einfluss auf die Federkonstante}
 \begin{figure}[H]
   \center
   \includegraphics[width=0.8\textwidth]{plots/n_konstante_dia.pdf}
   \caption{Einfluss der Windungszahl $n_{wirk}$ auf die Federkonstante $R$}
   \label{fig:R_n_dia}
 \end{figure}
-
-\subsubsection{Ausgleichsgerade}
-
-Es folgt aus \ref{eqn:federrate}
+Es folgt für die Ausgleichsgerade aus \ref{eqn:federrate}
 \begin{align*}
   R=\frac{G\;d^4}{8\;D^3}\cdot \frac{1}{n_{wirk}} \\\\  
   \text{mit } k_n=\frac{G\;d^4}{8\;D^3}
