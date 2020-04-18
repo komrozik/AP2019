@@ -354,7 +354,7 @@ print(f"params D^(-3) k_Da: {unparamsD}")
 
 #Varriere Federwindungszahl n
 #plot Federkonstante-Windungszahl Diagramm Für Feder 1,4,5
-n=[(L1_0_mittelwert-c)/(d*mm_m),(L4_0_mittelwert-c)/(d*mm_m),(L5_0_mittelwert-c)/(d*mm_m)]
+#n=[(L1_0_mittelwert-c)/(d*mm_m),(L4_0_mittelwert-c)/(d*mm_m),(L5_0_mittelwert-c)/(d*mm_m)]
 xn_run=np.linspace(n[2]-20,n[1]+20)
 print(f"nwirk:{n},n2:{(L2_0_mittelwert-c)/(d*mm_m)},n3:{(L3_0_mittelwert-c)/(d*mm_m)}")
 #Für n wird erstmal Lx_0/d angenommen                                    FALSCH
