@@ -5,8 +5,14 @@ import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 from pylab import * 
 
-def masse_fkt(a,b,n,D):
+def masse_fkt(D,n,a,b):
     return a*n*((1/2*D)^2+(b/(2*np.pi*n))^2)^(1/2)
+
+def masse_D_fkt(D,a,b):
+    return a*((1/2*D)^2+b)^(1/2)
+
+def masse_n_fkt(n,a,b,c):
+    return a*n*(b+(c/(2*np.pi*n))^2)^(1/2)
 
 m_1 = 6.728/5
 m_2 = 6.555/5
@@ -31,11 +37,6 @@ durchmesser = np.array([D_1-1/2*0.434,D_2-1/2*0.434,D_3-1/2*0.434,D_4-1/2*0.434,
 windungen = np.array([n_1,n_2,n_3,n_4,n_5])
 
 
-params, cov = curve_fit(masse_fkt,xL0A,FA1)
+params, cov = curve_fit(masse_D_fkt,noms(durchmesser[0:2]),masse[0:2])
 errorsR1 = np.sqrt(np.diag(covR1))
-unparamsR1 = unp.uarray(paramsR1,errorsR1) 
-
-paramsR2, covR2 = curve_fit(rate1,L0A,FA2)            
-paramsR3, covR3 = curve_fit(rate1,L0A,FA3)           
-paramsR4, covR4 = curve_fit(rate1,L0A,FA4)               
-paramsR5, covR5 = curve_fit(rate1,L0A,FA5)         
+unparamsR1 = unp.uarray(paramsR1,errorsR1)
