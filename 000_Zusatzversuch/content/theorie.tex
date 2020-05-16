@@ -219,8 +219,9 @@ Für die Rechnung wird außerdem der Parameter $a$ eingeführt ,der die Länge e
 Mit der Drahtlänge $L$ und der Windungszahl n.
 Der Ortsvektor für eine Spirale und seine Ableitung sind
 \begin{align}
-    x(t) = () && x'(t) = ()
+    \vec{x}(t) = \left(\begin{array}{c} R\cos(t) \\ R\sin(t) \\ at\end{array}\right) && \vec{x}'(t) = \left(\begin{array}{c} -R\sin(t) \\ R\cos(t) \\ a \end{array}\right)
 \end{align}
+Der Federradius $R = \frac{1}{2} D$ ergibt sich dabei aus dem effektiven Federdurchmesser.
 Nun wird die Länge des Drahtes in Abhängigkeit von Windungszahl und Federradius bestimmt
 \begin{equation}
     L = \int_{0}^{2\pi n} \sqrt{x^2+y^2+z^2}dt = t \sqrt{R^2+a^2} \; |_{0}^{2\pi n} = 2\pi n \sqrt{R^2+a^2}
@@ -231,6 +232,6 @@ Nun kann die Drahtlänge in die Formel für die Masse eingesetzt werden
 \end{equation}
 Also ergibt sich die Abhängigkeit für die Masse mit:
 \begin{equation}
-    M = A \sqrt{R^2 + \frac{B^2}{n^2}}n
+    M = An \sqrt{R^2 + \frac{B^2}{n^2}}
 \end{equation}
 \label{sec:theorie}
