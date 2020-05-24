@@ -1,8 +1,8 @@
 all: build/main.pdf
 
 # hier Python-Skripte:
-build/plot.pdf: plot.py | build
-	TEXINPUTS=$$(pwd): python plot.py
+build/plot.pdf: plot.py masse.py | build
+	TEXINPUTS=$$(pwd): python plot.py masse.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 build/main.pdf: build/plot.pdf
