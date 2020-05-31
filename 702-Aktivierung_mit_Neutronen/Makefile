@@ -1,11 +1,11 @@
 all: build/main.pdf
 
 # hier Python-Skripte:
-#plots/plot.pdf: plot.py | build
-#	TEXINPUTS=$$(pwd): python plot.py
+plots/Vanadium.pdf: plot.py | build
+	TEXINPUTS=$$(pwd): python plot.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
-#build/main.pdf: plots/plot.pdf
+build/main.pdf: plots/Vanadium.pdf
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS=build: \
