@@ -20,6 +20,8 @@ print("Vanadium")
 
 def f(x,m,b):
     return m*x+b
+def abweichung(lit,value):
+    return (lit-value)/lit*100
 
 
 t_V,N_V =np.genfromtxt("data/Vanadium.dat",unpack=True)
@@ -120,12 +122,14 @@ m = {unparams_1_V[0]}
 b = {unparams_1_V[1]}
 ==> lambda = {-1*unparams_1_V[0]}
 Halbwertszeit: {T1_V}
+Abweichung: {abweichung(224.5,noms(T1_V))}
 
 Ausgleichsgerade 2:
 m = {unparams_2_V[0]}
 b = {unparams_2_V[1]}
 ==> lambda = {-1*unparams_2_V[0]}
 Halbwertszeit: {T2_V}
+Abweichung: {abweichung(224.5,noms(T2_V))}
 
 Für das Rhodium:
 Ausgleichsgerade 1:
@@ -133,11 +137,14 @@ m = {unparams_1_R[0]}
 b = {unparams_1_R[1]}
 ==> lambda = {-1*unparams_1_R[0]}
 Halbwertszeit: {T1_R}
+Abweichung: {abweichung(260.4,noms(T1_R))}
 
 Ausgleichsgerade 2:
 m = {unparams_2_R[0]}
 b = {unparams_2_R[1]}
 ==> lambda = {-1*unparams_2_R[0]}
 Halbwertszeit: {T2_R}
+Abweichung: {abweichung(42.3,noms(T2_R))}
+
 
 """)
