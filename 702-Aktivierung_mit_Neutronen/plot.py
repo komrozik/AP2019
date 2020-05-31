@@ -52,19 +52,6 @@ plt.legend()
 plt.savefig("plots/Vanadium.pdf",bbox_inches='tight')
 plt.close()
 
-def function(t,lam,N0): 
-    return exp(-lam*t)+N0
-
-popv,covv=curve_fit(function,tv,noms(Nv))
-print(popv)
-
-plt.plot(log(tv),noms(Nv),"xb",label="Messwerte")
-plt.errorbar(log(tv),noms(Nv),yerr=stds(Nv),)
-plt.plot(log(tv),exp(popv[0])+log(tv)+popv[1],"--r",label="Ausgleichsgerade")
-plt.xlabel("ln(t)")
-plt.ylabel("$N(t)\;/\;Imp/s$")
-plt.legend(loc="best")
-plt.show()
 
 
 
