@@ -23,7 +23,7 @@ Da die Messung der Impulsrate von Vanadium in 30 Sekunden Intervallen gemacht wu
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{plots/Vanadium.pdf}
-    \caption{Darstellung der Impulse pro 15s zum Zeitpunkt $t$ in einem halblogarithmischen Plot.\\
+    \caption{Darstellung der Impulse pro 30s zum Zeitpunkt $t$ in einem halblogarithmischen Plot.\\
     Zur Bestimmung der Zerfallsrate wird zunächst das gesamte Zahlrratenintervall verwendet. 
     Aufgrund der geringen Zählrate am Ende des Intervalls, welche in den Untergrund eingeht, wird eine
     weitere Ausgleichsgerade gezogen, für welche das Intervall bis zur doppelten Halbwertszeit gewählt wird. }
@@ -34,20 +34,20 @@ Für den blauen ''Ausgleich 1'' ergibt sich:
     \ln(N(t)) = m \cdot t + b\\
      m = (-0,00317 \pm 0,00016)\si{s^{-1}} && b = (5,19 \pm 0,13) \\
     \lambda = -m = (0,00317 \pm 0,00016)\si{s^{-1}} \\
-    T1_{^{52}\text{V}} = \ln\left( \frac{2}{\lambda} \right) = (219 \pm 11) \si{s}
+    T1_{^{52}\text{V}} = \frac{\ln(2)}{\lambda} = (219 \pm 11) \si{s}
 \end{align*}
 Und für den orangenen ''Ausgleich 2'' mit gleicher Funktion:
 \begin{align*}
      m = (-0,00372 \pm 0,00023)\si{s^{-1}} && b = (5,40 \pm 0,08) \\
     \lambda = -m = (0,00372 \pm 0,00023)\si{s^{-1}} \\
-    T2_{^{52}\text{V}} = \ln\left( \frac{2}{\lambda} \right) = (186 \pm 11) \text{s}
+    T2_{^{52}\text{V}} = \frac{\ln(2)}{\lambda} = (186 \pm 11) \text{s}
 \end{align*}
 
 \subsection{Rhodium}
 Auch für die Messwerte des Rhodium zerfalls muss die Nullrate herausgerechnet werden.
 Dazu wird selbige wieder an das Intervall, in diesem Fall 15 Sekunden, angepasst.
 \begin{align*}
-    N_{\text{U},\text{Rhodium}} =  \frac{N_{\text{U}}}{20} = (6,96 \pm 0,22) \; \frac{\text{Imp}}{30\text{s}}
+    N_{\text{U},\text{Rhodium}} =  \frac{N_{\text{U}}}{20} = (6,96 \pm 0,22) \; \frac{\text{Imp}}{15\text{s}}
 \end{align*}
 \begin{figure}
     \centering
@@ -63,7 +63,7 @@ Aus dem Ausgleich ergibt sich für den langsamen Zerfall:
     \ln(N(t)) = m \cdot t + b\\
      m = (-0,0031 \pm 0,0006)\si{s^{-1}} && b = (4,44 \pm 0,31) \\
     \lambda = -m = (0,0031 \pm 0,0006)\si{s^{-1}} \\
-    T_{^{104i}\text{Rh}} = \ln\left( \frac{2}{\lambda} \right) =  (230 \pm 50) \text{s}
+    T_{^{104i}\text{Rh}} = \frac{\ln(2)}{\lambda} =  (230 \pm 50) \text{s}
 \end{align*}
 Um eine Aussage über die Halbwertszeit $T$ des kurzlebigen Zerfalls, welcher vom langlebigen Zerfall
 überlager wird, zu machen, muss zunächst der Zählratenanteil $N_{\text{langl.}}(t)$ abgezogen werden.
@@ -86,5 +86,5 @@ Somit folgt für die Impulsrate $N$ zum Zeiptunkt $t$ für den kurzlebigen Zerfa
 \begin{align*}
      m = (-0,0192 \pm 0,0009)\si{s^{-1}} && b = (6,89 \pm 0,14) \\
     \lambda = -m = (0,0192 \pm 0,0009)\si{s^{-1}} \\
-    T_{^{104}\text{Rh}} = \ln\left( \frac{2}{\lambda} \right) = (36,2 \pm 1,7) \text{s}
+    T_{^{104}\text{Rh}} = \frac{\ln(2)}{\lambda} = (36,2 \pm 1,7) \text{s}
 \end{align*}
