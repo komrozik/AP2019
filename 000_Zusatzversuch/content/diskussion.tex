@@ -3,7 +3,7 @@
 \subsection{Aussagekraft der gefertigten Federn}
 Da die Qualtität der Feder und die Einhaltung der Parameter in der Fertigung 
 massiv von vielen Faktoren abhängt (wie z.B. Zustand der Werkzeuge etc.), soll hier kurz
-kurz die Aussagekraft der gefertigten Federn thematisiert werden.\newline
+die Aussagekraft der gefertigten Federn thematisiert werden.\newline
 
 In der Abbildung \ref{fig:R_D_dia} und \ref{fig:R_n_dia} wird deutlich, dass die
 Theoriekurve eine Diskrepanz gegenüber der aus den Messdaten approximierten 
@@ -78,7 +78,7 @@ Dazu wird die Federberechnung Anhang:\ref{fig:schn_b37} verwendet.
 \subsection{Fazit}
 Die in der Zeichnung \ref{fig:zeichnung} dargestellte Zugfeder (genauer: Trompentenfeder)
 wurde in den Paramtern des Federausßendurchmessers $D_a$ und der Federgesamtlänge und somit auch
-wirkenden Federwindungszahl $n_{wirk}$ variiert. Mit den Resultierden Kräften $F1$ und $F2$ an
+wirkenden Federwindungszahl $n_{wirk}$ variiert. Mit den resultierden Kräften $F1$ und $F2$ an
 $L1$ und $L2$ werden Aussagen über die innere Vorspannkraft $F0$ und der Federkonstante $R$ und derer
 Abhängigkeiten zueinander gemacht. Dabei wird angenommen, dass der Ösenanteil (Trompetenanteil) 
 im betrachteten Kräftebereich keine federnde Wirkung besitzt und somit eine Näherung einer
@@ -94,11 +94,27 @@ Explizit zeigt dafür der Abschnitt \ref{sec:federdicke} und \ref{sec:federwindu
     R &\propto \frac{1}{D^3},\\
 \end{align*}
 auf.
-
-
 Zudem liegen die Parameter von Feder 1 in den zulässigen Schwankungsbereichen 
 der geforderten Feder resultierend aus der Federberechnung der Firma Schnöring (vgl. Abs. \ref{sec:einhaltung}).\\ 
 Sodass diese als Ausgangsfeder (Basisfeder) verwendet werden kann.\\\\
+
+\begin{table}
+    \centering
+    \begin{tabular}{c |c c c c c c}
+        \toprule
+        &Idealfeder& Basisfeder&&&&\\
+        && Feder 1 & Feder 2 & Feder 3 & Feder 4 & Feder 5\\
+        \midrule
+        Wicklungszahl $n_{wirk}$&110.714& 109.36 & 109.98 & 108.39 & 119.07 & 99.54\\ 
+        Federdruchmesser $D_a$&3.7&3.68 & 3.57 & 3.818 & 3.68 & 3.684\\
+        Federrate $R$ &0.078& 0.086 & 0.094 & 0.077 & 0.079 & 0.093\\
+        \bottomrule
+    \end{tabular}
+    \caption{Darstellung der variiert Paramter $D_a$, $n_{wirk}$ und der Federrate $R$ der produizierten Federn im Vergleich zur
+    Basis- und Idealfeder.}
+\end{table}
+
+
 
 Für die Materialzunahme gilt, dass der Federdurchmesser einen größeren Einfluss hat als die Windungszahl.
 Um eine Feder der gewünschten Kraft anzupassen, sollte also der Drahtdurchmesser so gering wie möglich gehalten werden.
