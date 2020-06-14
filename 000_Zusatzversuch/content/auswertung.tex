@@ -91,7 +91,7 @@ in der vertikalen $v$ ermittelt.\\
 Aus \ref{eqn:federrate} mit
 \begin{align*}
   F&=R \cdot L + v ,\\
-  F&=R \cdot s + F0
+  F&=R \cdot s + F0,
 \end{align*}
 folgen somit die in \ref{tab:Wertetabelle} aufgeführten Federkonstanten.
 \begin{align*}
@@ -138,7 +138,7 @@ Somit ergeben sich für die jeweilligen inneren Vorspannkräfte $F0$
 Es folgt für die Ausgleichsgerade aus \ref{eqn:federrate}
 \begin{align*}
   R=\frac{G\;d^4}{8\;n}\cdot \frac{1}{D^3}, \\\\  
-  \text{mit }k_D =\frac{G\;d^4}{8\;n},
+  \text{mit }k_D =\frac{G\;d^4}{8\;n}.
 \end{align*}
 Es folgt die Funktion
 \begin{equation*}
@@ -165,9 +165,9 @@ Analog wie in Abschnitt \ref{sec:fit} folgt für die Federkonstante $R$
 und den Verschiebungswert $v$, aus dem, mit der Methodik \ref{sec:vorspannkraft},
 die innere Vorspannkraft $F_0$ ermittelt wird
 \begin{align*}
-  R1= 0.086\;\si{\N\per\mm}, &&  v1= -4.14\;\si{\N}, && F1_0=0.73\;\si{\N}\\
-  R4= 0.079\;\si{\N\per\mm}, &&  v4= -4.03\;\si{\N}, && F4_0=0.81\;\si{\N}\\
-  R5= 0.092\;\si{\N\per\mm}, &&  v5= -4.26\;\si{\N}. && F5_0=0.65\;\si{\N}\\
+  R1= 0.086\;\si{\N\per\mm}, &&  v1= -4.14\;\si{\N}, && F0_1=0.73\;\si{\N}\\
+  R4= 0.079\;\si{\N\per\mm}, &&  v4= -4.03\;\si{\N}, && F0_4=0.81\;\si{\N}\\
+  R5= 0.092\;\si{\N\per\mm}, &&  v5= -4.26\;\si{\N}. && F0_5=0.65\;\si{\N}\\
 \end{align*}
 
 
@@ -200,8 +200,10 @@ mit dem Parameter
   \caption{Massenresulate aus der Variation der Federdicke $D_a$
           und der Windungszahl $n$ der Federkonstanten $R$ gegenübergestellt. }
 \end{figure}
-Mit der hergeleiteten Formel für die Masse in Abhängigkeit von dem Federdurchmesser und der Windungszahl lassen sich die beiden Abhängigkeiten plotten und eine Ausgleichsrechnung durchführen.
-Bei der Ausgleichsrechnung fälllt auf das sie sich im gegebenen Intervall annähernd linear verhält und somit kann der einfluss der beiden größen anhand der linearen Ausgleichsrechnung abgeschätzt werden.
+Mit der hergeleiteten Formel \ref{eqn:masse} für die Masse in Abhängigkeit von dem Federdurchmesser und der Windungszahl lassen sich die beiden Abhängigkeiten graphisch darstellen und eine Ausgleichsrechnung durchführen.
+Bei der Ausgleichsrechnung fällt auf, dass sie sich im gegebenen Intervall annähernd linear verhält. 
+Somit kann der Einfluss der beiden Größen anhand der linearen Ausgleichsrechnung 
+abgeschätzt werden.
 \begin{figure}[H]
   \center
   \includegraphics[width=0.8\textwidth]{plots/Masse_D.pdf}

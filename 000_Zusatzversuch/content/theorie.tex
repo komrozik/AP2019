@@ -1,14 +1,13 @@
 \newpage
 \section*{Zielsetzung}
-Im Folgenden wird der Einfluss von Parametern, wie dem Federaußendruchmesser $D_a$
+Im Folgenden wird der Einfluss von Parametern, wie dem mittleren Federdruchmesser $D$
 und der Federwindungszahl $n$ auf die Federkonstante $R$ einer Zugfeder untersucht
 und mit der Theorie sowie der verwendeten Federberechnung der Firma Schnöring verglichen.\\
 
-Des Weiteren betrachte man den benötigten Materialeinsatz in Abhängigkeit des Federaußendurchmessers $D_a$ und 
+Des Weiteren betrachte man den benötigten Materialeinsatz in Abhängigkeit des mittleren Federdurchmessers $D$ und 
 der Windungszahl $n$.\\
-Schlussendlich wird eine Aussage getroffen, wie durch die Verwendung dieser Parametern 
-ein möglichst geringen Materialeinsatz für diese Zugfeder erzielt werden kann.  
-
+Schlussendlich wird die Problematik, zur Ermittlung von Extrema der Paramter, für einen
+minimalen Materialeinsatz der Gesamtfeder, erleutert.
  
 
 \section{Zugfedern allgemein}
@@ -49,7 +48,7 @@ Die Öse bildet dabei den zentralen Angriffspunkt für drei Kräfte: Zugbelastun
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{bilder/Input/Oesenbelastung.jpg}
-    \caption{Verschiedene Ösenbelastungen \cite{KompZ}}
+    \caption{Verschiedene Ösenbelastungen \cite{EiZ}}
 \end{figure}
 \begin{figure}[H]
     \centering
@@ -63,7 +62,7 @@ Von einer statischen Beanspruchung einer Zugfeder spicht man bei einer zeitlich
 konstanten Belastung, bzw. einer Belastung mit weniger als 10000 Hüben oder 
 kleinen Hubspannungen.
 Hat die Feder mehr als 10000 Lastwechsel oder Hubspannungen die konstanten und veränderlichen sind,
-so spricht man von einer dynamischen Beanspruchung.
+so spricht man von einer dynamischen Beanspruchung.\cite{BeAZ}
 
 \subsection{Vorspannung}
 Bei der Herstellung entsteht eine Vorspannung aufgrund eines Drilles gegen die nächste
@@ -79,15 +78,13 @@ bis $F_0$ und verläuft danach in der Neigung der Federkonstanten.
 \newpage
 \section{Federberechnung Praxis}
 
-    In der Praxis bildet für die verwendete Zugfeder (hier eine Trompetenfeder, genaueres in Abschnitt \ref{sec:feder})
+    In der Praxis bildet, für die verwendete Zugfeder (hier eine Trompetenfeder, genaueres in Abschnitt \ref{sec:feder})
     die geforderte resultierende Kraft $F1$ und $F2$ an zwei festgelegten belasteten Federlängen $L1$ und $L2$
     die Grundlage zur Federberechnung.\\
 
     Für die Federlänge $L0$ (also Länge der unbelasteten Feder) gibt es keinen fest vorgeschrieben Wert.\\
-    Dies resultiert daraus, dass bei der Anwendung, anderes als bei Druckfedern, eine weiter zusätzliche Streckung
-    der Feder gefordert ist und somit der Einbauraum größer wird.
-    !F1 F2 L1 L2 --> L0 n d normfrei\newline
-
+    Man spricht von der Normfreiheit von $L0$. Diese gilt auch für die Wicklungszahl $n$ und den 
+    Drahtdurchmesser $d$.
     %Dabei wird in der Fertigung, um im Toleranzbereich der geforderten Federkräfte zu bleiben, $F2$ durch
     %die Änderung von Federaußendruchmesser $D_a$ oder Drahtdicke $d$ korrigiert und $F1$  durch die Änderung
     %von der Federlänge $L0$ und Windungszahl $n$ korriegiert.\\
@@ -105,7 +102,7 @@ bis $F_0$ und verläuft danach in der Neigung der Federkonstanten.
         D &:& &\text{mittlere Windungsdurchmesser}\\
         n &:& &\text{(gesamt) Wicklungszahl}\\
         n_{wirk}&:& &\text{wirkende (federnde) Wicklungszahl}\\
-        s &:& &\text{Federweg}=\Delta L \\
+        s &:& &\text{Federweg}:=\Delta L \\
     \end{align*}
 \label{sec:praxis}
 
@@ -141,7 +138,7 @@ bis $F_0$ und verläuft danach in der Neigung der Federkonstanten.
 \end{figure}
 Für zylinderische Zugfedern aus Draht mit einem Kreisquerschnitt gilt:\\\\
 
-Die Federkonstante (auch Federrate) $R$:
+Die Federkonstante (auch Federrate) $R$ \cite{schnöringfedern},\cite{Federrate}:
 
 \begin{equation}
     %Federrate
@@ -149,7 +146,7 @@ Die Federkonstante (auch Federrate) $R$:
     \label{eqn:federrate}
 \end{equation}
 
-mit der wirkende Federdicke $D$ und dem Schubmodul $G$:
+mit dem wirkende (oder auch mittleren) Federdurchmesser $D$ und dem Schubmodul $G$:
 \begin{equation}
     D=D_a-d,
 \end{equation}
@@ -166,12 +163,12 @@ Die wirkende (federnde) Wicklungszahl $n_{wirk}$ für verwendete Trompetenfeder
     n_{wirk}=\frac{L0-LH}{d}    
 \end{equation}
 
-Das Wickelverhältnis $w$:
+Das Wickelverhältnis $w$ \cite[37]{schnöringfedern}:
 \begin{equation}
     w=\frac{D}{d},
 \end{equation}
 
-Die Federungsarbeit $W$:
+Die Federungsarbeit $W$ \cite[37]{schnöringfedern}:
 \begin{equation}
     %Arbeit
     W=F0 \cdot s = \frac{1}{2}\;(F-F0) \cdot L,
@@ -183,59 +180,78 @@ Die Federungsarbeit $W$:
 
 
 % NÖTIG????? ------------------------------------
-Für den Festigkeitsnachweis der Zugfeder ist die Ermittlung der Schubspannung $\tau$
-nötig, welche für die dynamischen Beanspruchungen mit einem Faktor $k$ korrigiert werden müssen.
+%Für den Festigkeitsnachweis der Zugfeder ist die Ermittlung der Schubspannung $\tau$
+%nötig, welche für die dynamischen Beanspruchungen mit einem Faktor $k$ korrigiert werden müssen.
 
-\begin{equation}
+%\begin{equation}
     %Schubspannung
-    \tau = \frac{8DF}{\pi d^3}.
-    \label{eqn:schubspannung}
-\end{equation}
-\begin{align}
-    \tau_k &= k \cdot \tau\\
-    \text{mit }k&=\frac{\frac{D}{d}+0.5}{\frac{D}{d}-0.75}
-\end{align}
-Für die zulässige Spannung ergib sich
-\begin{equation}
-    \tau_{zul}=0.45 \cdot R_m
-\end{equation}
-Dabei spiegelt $R_m$ die Zugfestigkeit des Federstahls wieder.\\
-Ist dabei $s_n$ der zu $\tau_{zul}$ Federweg, so sollte in der Praxis nur 80\% dieses
-Federweges ausgnutzt werden um Relaxation (Kraftverlust) zu vermeiden.
-Also $s_{prax}=0.8 \cdot s_n$.  
+%    \tau = \frac{8DF}{\pi d^3}.
+%    \label{eqn:schubspannung}
+%\end{equation}
+%\begin{align}
+%    \tau_k &= k \cdot \tau\\
+%    \text{mit }k&=\frac{\frac{D}{d}+0.5}{\frac{D}{d}-0.75}
+%\end{align}
+%Für die zulässige Spannung ergib sich
+%\begin{equation}
+%    \tau_{zul}=0.45 \cdot R_m
+%\end{equation}
+%Dabei spiegelt $R_m$ die Zugfestigkeit des Federstahls wieder.\\
+%Ist dabei $s_n$ der zu $\tau_{zul}$ Federweg, so sollte in der Praxis nur 80\% dieses
+%Federweges ausgenutzt werden um Relaxation (Kraftverlust) zu vermeiden.
+%Also $s_{prax}=0.8 \cdot s_n$.  
 %--------------------------------------------
 
 
 \subsection{Theorie zur Massenberechnung}
-Um die Abhängigkeit der Masse von der Windungszahl und dem Federdurchmesser zu bestimmen wird mit dem Zusammenhang zwischen Volumen und Masse gearbeitet.
+Um die Abhängigkeit der Masse von der Windungszahl $n$ und dem Federdurchmesser $D$ zu bestimmen wird mit dem Zusammenhang zwischen Volumen und Masse gearbeitet.
 \begin{equation}
     M = V \cdot \rho
 \end{equation}
-Um das Volumen einer Feder zu bestimmen wird die Feder als Spirale angenähert und die Trompetenenden vernachlässigt.
-Für die Rechnung wird außerdem der Parameter $a$ eingeführt ,der die Länge einer Windung angibt.
+Um das Volumen einer Feder zu bestimmen, wird die Feder als Spirale angenähert und die Trompetenenden vernachlässigt (vgl. dazu Abschnitt \ref{subsec:feder}).
+Für die Rechnung wird außerdem der Parameter $a$ eingeführt ,der die Drahtlänge einer Windung angibt.
 \begin{equation}
     a = \frac{L}{n\cdot 2\pi}
 \end{equation}
 Mit der Drahtlänge $L$ und der Windungszahl n.
 Der Ortsvektor für eine Spirale und seine Ableitung sind
 \begin{align}
+<<<<<<< HEAD
     \vec{x}(\phi) = \left(\begin{array}{c} R\cos( \phi ) \\ R\sin( \phi ) \\ \frac{a}{2\pi} \phi \end{array}\right) && \vec{x}'(t) = \left(\begin{array}{c} -R\sin( \phi ) \\ R\cos( \phi ) \\ a \end{array}\right)
+||||||| b7b82b9
+    \vec{x}(t) = \left(\begin{array}{c} R\cos(t) \\ R\sin(t) \\ at\end{array}\right) && \vec{x}'(t) = \left(\begin{array}{c} -R\sin(t) \\ R\cos(t) \\ a \end{array}\right)
+=======
+    \vec{x}(t) = \left(\begin{array}{c} R\cos(t) \\ R\sin(t) \\ at\end{array}\right), && \vec{x}'(t) = \left(\begin{array}{c} -R\sin(t) \\ R\cos(t) \\ a \end{array}\right).
+>>>>>>> b4bc21bf6b3b68e50b94a03ed79fc69dac8aea83
 \end{align}
-Der Federradius $R = \frac{1}{2} D$ ergibt sich dabei aus dem effektiven Federdurchmesser.
-Nun wird die Länge des Drahtes in Abhängigkeit von Windungszahl und Federradius bestimmt
+Der mittlere Federradius $R = \frac{1}{2} D$ ergibt sich dabei aus dem effektiven mittleren Federdurchmesser.
+Nun wird die Länge des Drahtes in Abhängigkeit von Windungszahl $n$ und Federradius $R$ bestimmt
 \begin{equation}
+<<<<<<< HEAD
     L = \int_{0}^{2\pi n} \sqrt{x^2+y^2+z^2}d\phi = \phi \sqrt{R^2+\frac{a^2}{4\pi^2}} \; |_{0}^{2\pi n} = 2\pi n \sqrt{R^2+\frac{a^2}{4\pi^2}}
+||||||| b7b82b9
+    L = \int_{0}^{2\pi n} \sqrt{x^2+y^2+z^2}dt = t \sqrt{R^2+a^2} \; |_{0}^{2\pi n} = 2\pi n \sqrt{R^2+a^2}
+=======
+    L = \int_{0}^{2\pi n} \sqrt{x^2+y^2+z^2}dt = t \sqrt{R^2+a^2} \; |_{0}^{2\pi n} = 2\pi n \sqrt{R^2+a^2}.
+>>>>>>> b4bc21bf6b3b68e50b94a03ed79fc69dac8aea83
 \end{equation}
 Nun kann die Drahtlänge in die Formel für die Masse eingesetzt werden
 \begin{equation}
-    M = V\cdot \rho = \pi r^2 L \rho = 2 \pi^2 r^2 n \sqrt{R^2 + a^2} \rho
+    M = V\cdot \rho = \pi r^2 L \rho = 2 \pi^2 r^2 n \sqrt{R^2 + a^2} \rho.
 \end{equation}
 Also ergibt sich die Abhängigkeit für die Masse mit:
 \begin{equation}
+<<<<<<< HEAD
     M = An \sqrt{R^2 + B}
 \end{equation}
 Außerdem ergibt sich damit fur die Masse als D-Abhängigkeit:
 \begin{equation}
     M = \frac{2\pi^2r^2d^4s\rho}{8D^3(F-F_0)}\sqrt{\frac{1}{4}D^2+\frac{r^2}{\pi^2}\rho}
+||||||| b7b82b9
+    M = An \sqrt{R^2 + \frac{B^2}{n^2}}
+=======
+    M = An \sqrt{R^2 + \frac{B^2}{n^2}}.
+    \label{eqn:masse}
+>>>>>>> b4bc21bf6b3b68e50b94a03ed79fc69dac8aea83
 \end{equation}
 \label{sec:theorie}
