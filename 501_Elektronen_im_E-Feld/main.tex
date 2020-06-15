@@ -1,0 +1,47 @@
+\input{header.tex}
+
+\title{Ablenkung eines Elektronenstrahls im elektrischen Feld\\
+\small{Versuch 501}
+}
+\author{%
+  Marcel Kebekus\\%
+  \href{mailto:marcel.kebekus@tu-dortmund.de}{marcel.kebekus@tu-dortmund.de} \and
+  Konstantin Mrozik\\
+  \href{mailto:konstantin.mrozik@tu-dortmund.de}{konstantin.mrozik@tu-dortmund.de}%
+}
+\date{%
+  Abgabe: \today %??????????
+}
+\publishers{TU Dortmund – Fakultät Physik}
+\makeatletter         
+\def\@maketitle{
+\raggedright
+\includegraphics[width=\textwidth]{bilder/lo_TU-Do 2008/logo_rgb_jpg}\\[8ex]
+\begin{center}
+{\Huge \bfseries \sffamily \@title }\\[4ex] 
+{\Large  \@author}\\[4ex] 
+\@date\\[8ex]
+\publishers\\
+\end{center}}
+\makeatother
+
+
+\begin{document}
+
+
+\maketitle
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+\input{content/theorie.tex}
+\input{content/durchfuehrung.tex}
+\input{content/auswertung.tex}
+\input{content/diskussion.tex}
+\newpage
+\nocite{*}
+\printbibliography
+\input{content/anhang.tex}
+
+
+
+\end{document}
