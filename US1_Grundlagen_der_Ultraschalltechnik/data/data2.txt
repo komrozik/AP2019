@@ -1,0 +1,7 @@
+#Zylinder Messung
+#Zylinder Amplitude
+#           Peak 1      Peak 2      Laufzeit
+#           V           V           mikrosek
+1           1.33        1.33         30
+2           1.35        0.7         59.8
+3           1.34        0.11        88.9

@@ -1,0 +1,7 @@
+#Aufgabenteil b mit Ub=350V 
+#Frequenz/Hz    cm
+50.0            1.27
+76.0            1.27
+99.9            1.27
+125.0           1.27
+150.0           1.27

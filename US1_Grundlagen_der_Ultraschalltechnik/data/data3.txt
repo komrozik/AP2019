@@ -1,0 +1,6 @@
+# Duchrchschallungsverfahren
+#Peak       1       2       Laufzeit
+#Zylinder   V       V       mikrosek
+1           0.78    1.22    16.4
+2           0.78    0.55    31.3
+3           0.77    1.22    45.1
