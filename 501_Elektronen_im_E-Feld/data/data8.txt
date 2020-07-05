@@ -1,4 +1,4 @@
-#Aufgabenteil b mit Ub=350V 
+#Aufgabenteil b mit Ub=350V
 #Frequenz/Hz    cm
 50.0            1.27
 76.0            1.27
