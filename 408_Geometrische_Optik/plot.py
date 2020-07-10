@@ -8,92 +8,90 @@ from scipy.signal import find_peaks
 from scipy.interpolate import UnivariateSpline
 import scipy.constants as const
 
-U1,d1=np.genfromtxt("data/data1.dat",unpack=True)
-U2,d2=np.genfromtxt("data/data2.txt",unpack=True)
-U3,d3=np.genfromtxt("data/data3.txt",unpack=True)
-U4,d4=np.genfromtxt("data/data4.txt",unpack=True)
-U5,d5=np.genfromtxt("data/data5.txt",unpack=True)
-U6,d6=np.genfromtxt("data/data6.txt",unpack=True)
-U7,d7=np.genfromtxt("data/data7.txt",unpack=True)
-f=2.54/4#cm pro Kästchen
+g1,b1 = np.genfromtxt("data/data1.txt",unpack=True)
+b1 = b1 - g1
+g1 = g1 - 30
+g1 = g1*10
+b1 = b1*10
+g2,b2 = np.genfromtxt("data/data2.txt",unpack=True)
+b2 = b2 - g2
+g2 = g2 - 30
+g2 = g2*10
+b2 = b2*10
+e,g3_1,g3_2 = np.genfromtxt("data/data3.txt",unpack=True)
+d = g3_2 - g3_1
+e = e -30
+d = d*10
+e = e*10
+A,b4 = np.genfromtxt("data/data4.txt",unpack=True)
+b4 = b4 - A
+A = A - 30
 
-def fu(x,m,n):
-    return m*x+n
+f1 = (g1*b1)/(g1+b1)
+f1 = (np.sum(f1))/(len(f1))
 
-params1,cov1 = curve_fit(fu,U1,d1)
-params2,cov2 = curve_fit(fu,U2,d2)
-params3,cov3 = curve_fit(fu,U3,d3)
-params4,cov4 = curve_fit(fu,U4,d4)
-params5,cov5 = curve_fit(fu,U5,d5)
-params6,cov6 = curve_fit(fu,U6,d6)
-params7,cov7 = curve_fit(fu,U7,d7)
-x=np.linspace(-40,30)
+zero1 = np.zeros(12)
 
+def f_1(x,m,n):
+    return ((b1)/(g1))*x+b1
 
-plt.plot(U1,d1*f,"ok",label="$U_B=210$V")
-plt.plot(U2,d2*f,"ob",label="$U_B=250$V")
-plt.plot(U3,d3*f,"oy",label="$U_B=300$V")
-plt.plot(U4,d4*f,"og",label="$U_B=350$V")
-plt.plot(U5,d5*f,"or",label="$U_B=400$V")
-plt.plot(U6,d6*f,"om",label="$U_B=450$V")
-plt.plot(U7,d7*f,"ok",label="$U_B=500$V")
-plt.xlabel("$U_d\;/\;$V")
-plt.ylabel("$D\;/\;$cm")
-
-
-plt.plot(x,fu(x,*params1),"--k")
-plt.plot(x,fu(x,*params2),"--b")
-plt.plot(x,fu(x,*params3),"--y")
-plt.plot(x,fu(x,*params4),"--g")
-plt.plot(x,fu(x,*params5),"--r")
-plt.plot(x,fu(x,*params6),"--m")
-plt.plot(x,fu(x,*params7),"--k")
+plt.plot([0,g1[0]],[b1[0],0],"-")
+plt.plot([0,g1[1]],[b1[1],0],"-")
+plt.plot([0,g1[2]],[b1[2],0],"-")
+plt.plot([0,g1[3]],[b1[3],0],"-")
+plt.plot([0,g1[4]],[b1[4],0],"-")
+plt.plot([0,g1[5]],[b1[5],0],"-")
+plt.plot([0,g1[6]],[b1[6],0],"-")
+plt.plot([0,g1[7]],[b1[7],0],"-")
+plt.plot([0,g1[8]],[b1[8],0],"-")
+plt.plot([0,g1[9]],[b1[9],0],"-")
+plt.plot([0,g1[10]],[b1[10],0],"-")
+plt.plot([0,g1[11]],[b1[11],0],"-")
+plt.plot(zero1,b1,"xr",label="b Werte")
+plt.plot(g1,zero1,"xg",label="g Werte")
+plt.plot
+plt.xlabel("g s")
+plt.ylabel("b s")
 plt.legend(loc="best")
-plt.ylim(-3,3)
-plt.savefig("plots/all.pdf")
+plt.savefig("plots/plot1.pdf")
 plt.close()
 
-#Empfindlichkeits Array
-E=[round(params1[0],4),round(params2[0],4),round(params3[0],4),round(params4[0],4),round(params5[0],4),round(params6[0],4),round(params7[0],4)]
-UB=[1/210,1/250,1/300,1/350,1/400,1/450,1/500]
-x2=np.linspace(UB[0],UB[-1])
+f2 = (g2*b2)/(g2+b2)
+f2 = (np.sum(f2))/(len(f2))
 
-def fu2(x,m,n):
-    return m*x+n
-paramsE,covE = curve_fit(fu2,UB,E)
-errorsE = np.sqrt(np.diag(covE))
-unparamsE = unp.uarray(paramsE,errorsE)
-
-plt.plot(x2,fu2(x2,*paramsE),"--r",label="Ausgleichsgerade")
-plt.plot(UB,E,"xb",label="Messwerte")
-plt.ylabel("$D/U_d\;/\;$cm/V")
-plt.xlabel("$1/U_B\;/\;$1/V")
+plt.plot([0,g2[0]],[b2[0],0],"-")
+plt.plot([0,g2[1]],[b2[1],0],"-")
+plt.plot([0,g2[2]],[b2[2],0],"-")
+plt.plot([0,g2[3]],[b2[3],0],"-")
+plt.plot([0,g2[4]],[b2[4],0],"-")
+plt.plot([0,g2[5]],[b2[5],0],"-")
+plt.plot([0,g2[6]],[b2[6],0],"-")
+plt.plot([0,g2[7]],[b2[7],0],"-")
+plt.plot([0,g2[8]],[b2[8],0],"-")
+plt.plot([0,g2[9]],[b2[9],0],"-")
+plt.plot([0,g2[10]],[b2[10],0],"-")
+plt.plot([0,g2[11]],[b2[11],0],"-")
+plt.plot(zero1,b2,"xr",label="b Werte")
+plt.plot(g2,zero1,"xg",label="g Werte")
+plt.plot
+plt.xlabel("g s")
+plt.ylabel("b s")
 plt.legend(loc="best")
-plt.savefig("plots/all2.pdf")
-plt.show()
+plt.savefig("plots/plot2.pdf")
+plt.close()
 
-p=1.9#cm
-L=14.3#cm
-d=0.38#cm
+print("Bessel")
 
-
-
+f3 = (e**2-d**2)/(4*e)
+f3 = (np.sum(f3))/(len(f3))
 
 
+print(Abbe)
 
 
 #Ausgabe
 print(f"""
-    Empfindlichkeit
-    210V: {params1}
-    250V: {params2}
-    300V: {params3}
-    350V: {params4}
-    400V: {params5}
-    450V: {params6}
-    500V: {params7}
-
-    E: {E}
-
-    Asugleichsgerade2: {unparamsE}
+{f1}
+{f2}
+{f3}
 """)
