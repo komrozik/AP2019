@@ -55,17 +55,18 @@ plt.close()
 
 #Empfindlichkeits Array
 E=[round(params1[0],4),round(params2[0],4),round(params3[0],4),round(params4[0],4),round(params5[0],4),round(params6[0],4),round(params7[0],4)]
+Eg=[params1[0],params2[0],params3[0],params4[0],params5[0],params6[0],params7[0]]
 UB=[1/210,1/250,1/300,1/350,1/400,1/450,1/500]
 x2=np.linspace(UB[0],UB[-1])
 
 def fu2(x,m,n):
     return m*x+n
-paramsE,covE = curve_fit(fu2,UB,E)
+paramsE,covE = curve_fit(fu2,UB,Eg)
 errorsE = np.sqrt(np.diag(covE))
 unparamsE = unp.uarray(paramsE,errorsE)
 
 plt.plot(x2,fu2(x2,*paramsE),"--r",label="Ausgleichsgerade")
-plt.plot(UB,E,"xb",label="Messwerte")
+plt.plot(UB,Eg,"xb",label="Messwerte")
 plt.ylabel("$D/U_d\;/\;$cm/V")
 plt.xlabel("$1/U_B\;/\;$1/V")
 plt.legend(loc="best")
@@ -95,5 +96,6 @@ print(f"""
 
     E: {E}
 
-    Asugleichsgerade2: {unparamsE}
+    Ausgleichsgerade2: {unparamsE}
+    abs. abweichung: {35.75-unparamsE[0]}
 """)
