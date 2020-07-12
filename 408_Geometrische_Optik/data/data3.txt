@@ -1,0 +1,17 @@
+#Data 1 Messung Bessel
+#Quelle und somit das Bild bei 30cm
+#Von den Werten immer 30 cm abziehen wegen Bild
+# Brennweite 100mm
+#Schirm Pos1    Pos2
+#cm     cm      cm
+70      46.3    53.3
+71      45.6    55.1
+72      45.1    57
+73      44.7    58.5
+74      44.4    59.9
+75      44.1    61.1
+76      44.0    62.2
+77      43.9    63.2
+78      43.6    64.7
+79      43.6    65.7
+80      43.4    66.7

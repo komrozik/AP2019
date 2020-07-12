@@ -1,0 +1,17 @@
+#Data 1 Messung Abbe
+#Quelle und somit das Bild bei 30cm
+#Von den Werten immer 30 cm abziehen wegen Bild
+# Brennweite -100+100mm
+#A      Schirm
+#cm     cm
+48      143
+49      134
+50      127
+51      125
+52      123
+53      121
+54      119
+55      117.5
+56      116.5
+57      114
+58      112
