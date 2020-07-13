@@ -1,83 +1,78 @@
 \section{Ziel}
-In diesem Versuch soll die Ablenkung eines Elektronenstrahls durch eine elektrisches Feld untersucht werden.
-Genauer zu bstimmen ist dabei von welchen Parametern die Ablenkung abhängt und die aus der theorie bestimmten Gleichungen sollen überprüft werden.
+In diesem Versuch soll die Wällenlänge des verwendeten Lasers bestimmt werden, sowie der Brechungsindex von Luft.
 \section{Theorie}
-\label{sec:Theorie}
-Um Elektronenstrahlen zu untersuchen müssen experimentelle Aufbauten in einem Hochvakuum aufgebaut werden, damit die Elektronen nicht mit der Luft wechselwirken.
-In diesem Experiment wird dazu eine sogenannte Kathodenstrahlröhre verwendet, die mit einem Vakuum von bis zu $10^{-6}$ mbar Restdruck arbeitet.
-Die Kathodenstrahlröhre besteht dabei im wesentlichen aus drei Bauteilen, einer "Elektronenkanone", einem Ablenksystem und einem Nachweissystem.
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{bilder/Querschnitt_Roehre.png}
-    \caption{Bild Querschnitt}
-    \label{fig:Querschnitt}
-\end{figure}
-Der Elektronenstrahl wird dabei in der "Elektronenkanone" erzeugt. 
-Die "Kanone" besteht aus einem Zylinder aus einem Kathodenmaterial, welches eine geringe Austrittsarbeit hat,
-und einem darinliegenden elektrich vom Zylinder isolierten, Heizdraht der Rot glüht.
-Um diese Glühkathode herum befindet sich mit etwas Zwischenraum ein sogenannter Wehnelt zylinder, welcher negativ geladen ist und einen kleines rundes Loch in Richtung des Schirms besitzt.
-Mit der negativen Ladung des Wehnelt zylinders werden die Elektronen nicht nur in die entsprechende Richtung gelenkt, sondern es lässt sich auch die Intensität des Elektronenstrahls steuern.
-Unmittelbar nach dem Wehnelt Zylinder befindet sich eine positiv geladene Beschleunigungselektrode, welche die Elektronen auf die Geschwindigkeit $v_{\text{Z}}$ (nach Gl. \ref{eqn:Beschleunigung}) beschleunigt.
-\begin{align}
-    \frac{ m_0 v_{\text{Z}}^2}{2}= e_0 U_{\text{B}} \nonumber \\
-    v_{\text{Z}} = \sqrt{\frac{2 e_0 U_{\text{B}}}{m_0}} \label{eqn:Beschleunigung}
-\end{align}
-Nach der Beschleunigungselektrode durchläuft der Elektronenstrahl noch einen Aufbau einer elektronischen Linse, die den erzeugten Strahl fokussiert.
-Die Brechkraft der Linse kann dabei über die Spannung $U_{\text{C}}$ (Abb. \ref{fig:Querschnitt}, rechte Seite) verändert werden.
-Nach diesem Aufbau der "Elektronenkanone" befinden sich 2 Plattenpaare die der Ablenkung des Strahls in X und Y Richtung dienen.
-Die Normalen der beiden Plattenpaare stehen dabei senkrecht zueinander, so dass jedes Plattenpaar nur Einfluss auf eine Komponente der Elektronengeschwindigkeit hat.
-Die Ablenkung hängt dabei sowohl von der Geschwindigkeit der Elektronen, als auch von der Angelegten Kondensatorspannung ab, näheres dazu in \ref{sec:Ablenkung}.
-Der nun abgelenkte Elektronenstrahl fällt nun auf das Nachweissystem, welches aus einem speziell beschichteten Leuchtschirm innerhalb der Kathodenröhre besteht.
-Wenn nun Elektronen die Aktivatorzellen auf dem Schirm anregen geben diese Lichtquanten ab und der Beobachter kann den Punkt bestimmen an dem die Elektronen auftreffen.
-Der Lichtschirm ist dabei elektrisch mit der Beschleunigungselektrode verbungden, damit der Schirm sich nicht negativ auflädt.
-\subsection{Ablenkung}
-\label{sec:Ablenkung}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{bilder/Strahlablenkung.png}
-    \caption{Bild Strahlablenkung}
-    \label{fig:Strahlablenkung}
-\end{figure}
-Wenn der Plattenabstand $d$ klein gegenüber der Plattenbreite $p$ ist kann für das induzierte elektriche Feld angenommen werden:
-\begin{equation*}
-    E = \frac{U_{\text{d}}}{d}
-\end{equation*}
-Damit ergibt sich für die Kraft auf die Elektronen im Feld
+\subsection{Interferenz und Kohärentes Licht}
+Das Michelson-Interferometer basiert auf dem Prinzip der Interferenz.\\
+Licht ist ein elektromagnetische Welle und breitet sich nach Maxwell in der allgemeinsten Form für die elektrische Feldstärke ,
 \begin{equation}
-    |\bar{F}| = |e_0\bar{E}| = e_0 \frac{U_{\text{d}}}{d} \label{eqn:Kraft}
+    \vec{E}(x,t)=\vec{E}_0\left(1+\cos (kx-wt-\gamma)\right),
 \end{equation}
-Zusammen mit \ref{eqn:Kraft} ergibt sich somit für ein Elektron welches in der Zeit $\Delta t$ durch den Plattenkondensator fliegt die Geschwindigkeit
+wobei $k=\frac{2\pi}{\lambda}$ die Wellenzahl, $\lambda$ die Wellenlänge, $w$ die Kreisfrequenz und $\gamma$ der Phasenwinkel ist.
+Hierbei gilt das Superpositionsprinzip. Da die elektrische Feldstärke von Licht im allgemeinen nicht 
+einfach zu messen ist, greift man auf die Inetensität $I$ zurück,
 \begin{equation}
-    v_{\text{y}} = a_{\text{y}} \Delta t = \frac{F}{m_0}\Delta t = \frac{e_0 U_{\text{d}}}{m_0 d} \Delta t
+    I=\text{const}|\vec{E}|^2.
 \end{equation}
-Die Zeit in der das Elektron die Platten durchfliegt lässt sich mit der Geschwindigkeit der Elektronen vor dem Kondensator bestimmen $\Delta t = \frac{p}{v_{\text{z}}}$ und damit ergibt sich
+Bei der überlagerung mit einer zweiten Welle folgt darfür,
 \begin{equation}
-    v_{\text{y}}  = \frac{e_0 U_{\text{d}} p}{m_0 d v_{\text{z}}} 
+    I_{\text{ges}}=2\text{const}\vec{E}_0(1+\cos (\gamma_2-\gamma_1)).
 \end{equation}
-Der Ablenkwinkel $\theta$ über den im Anschluss die Verschiebung $D$ des Auftrittpunktes auf dem Schirm berechnet wird ergibt sich Ablenksystem als 
+Man sieht, dass für den hinteren Teil, die Gleichung für ein ungerades Vielfaches von $\pi$ verschwindet.\\
+
+Zudem muss noch hinzugefügt werden, dass eine Interferenz für Licht aus zwei verschiedenen quellen im Allgemeinen nicht möglich ist.
+Dies folgt aus der Entstehung des Lichtes. Eine elektrische Welle wird demnach von einem Atom ausgegebe, wenn es in den Grundzustand zurückgeht.
+Wird diese Welle über einen genügend großen Zeitraum gemittelt, so verschwindet der hintere Interfrenzterm.
+Man spricht von inkohärentem Licht.\\
+Besitzt das Licht en festes $k, w$ und $\gamma$ so spricht man von Kohärentem Licht.\\
+
+
+Es ist allerdings möglich eine Interferenz des Lichtes aus einer Quelle zu beobachten, Hierfür wird
+der Lichtstrahlt aufgeteilt und zu einem späteren zeitpunkt wieder zusammengeführt.
+Da die beiden Lichtstrahlen verschiedene lange Wege durchlaufen sind, führt die Phasendifferenz zur Interferenz.
+Ob eine Interferenz überhaut zu beobachten ist ist dabei von der Kohärenzlänge $l$ abhängig.
+So folgt für den Zusammenhang zwischen Interferenmaxima $N$, Wellenlänge $\lambda$ 
+und Kohärenzlänge $l$
 \begin{equation}
-    \theta ≈ \frac{v_y}{v_z} = \frac{e_0 U_{\text{d}} p}{m_0 d v_{\text{z}}^2}
+    l=N\cdot\lambda
 \end{equation}
-Und damit
-\begin{equation}
-    D = \theta L = \frac{v_y}{v_z} = \frac{e_0 U_{\text{d}} p}{m_0 d v_{\text{z}}^2} L
-\end{equation}
-Die Geschwindigkeit $v_{\text{z}}$ lässt sich über die Spannung an der Beschleunigungselektrode bestimmen (\ref{eqn:Beschleunigung})und wir erhalten
-\begin{equation}
-    D = \frac{p}{2d}L\frac{U_d}{U_B}
-\end{equation}
-Es ist nun leicht zu erkennen, dass die Ablenkung proportional zur Spannung des Kondensators ist, und somit lässt sich der Aufbau auch nutzen um Spannungen zu messen.
-Allerdings müssen beim Betrieb der Kathodenstrahlröhre auch Kompromisse eingegangen werden.... 
-\subsection{Kathodenstrahl Oszillograph}
-Die Kathodenstrahlröhre kann sehr leicht umfunktioniert werden um den zeitlichen Verlauf einer Wechselspannung zu untersuchen.
-Dazu wird an den Plattenkondensator für die horizontale X-Richtung eine Sägezahnspannung angeschlossen und an den Kondensator in Y-Richtung wird die untersuchte Wechselspannung angeschlossen.
-Wenn nun beide Frequenzen in einem bestimmten Verhältnis stehen, lässt sich auf dem Lichtschirm der zeitliche Verlauf der Wechselspannung betrachten.
-\begin{equation}
-    n\cdot \nu_{\text{Sä}} = m\cdot \nu_{\text{We}}
-\end{equation}
-Dieses Verhältnis mit $n = 1,2,3,...$ und $m = 1,2,3,...$ wird Synchronisationsbedingung genannt.
+
+\subsection{Das Michelson-Interferometer}
+Hierbei wird sich die Teilung des Lichtes zu nutzen gemacht. Ein semipermaeables MAterial teilt den Lichtstrahlt.
+Dabei geht ein teil des Lichtes durch den Strahl, während ein anderer Teil abgelenkt wird.
+Beide Strahlen laufen zu einem Spiegel (hier $S_1$ und $S_2$) und werden zurückgeworfen, sodass sie sich am Punkt $P$
+wieder treffen und gemeinsam zum Detektor $D$ gelangen können.
+Um nun eine Interferenz zu beobachten müssen beiden Strahlen koärebt sein.
+Um dies zu erreichen, werden die Strecken $\bar{S_1P}$ und $\bar{S_2P}$ gelcih gewählt. Zusätzlich stelle amn ene Kompensationsplatte 
+in den Weg zwischen $P$ und $S_2$, welche die optische Weglänge der Strahlen ausgleicht, weil der Strahl zu $S_1$ die Platte dreimal druchläuft,
+während der Strahl zu $S_1$ sie nur zweimal durchläuft.\\
 \begin{figure}
     \centering
-    \includegraphics[width=0.7\textwidth]{bilder/Prinzipschaltbild.png}
-    \caption{Das Schaltbild um ein Kathodenstrahlrohr in einen Oszillographen umzuwandeln}
+    \includegraphics[width=0.5\textwidth]{bilder/s.jpg}
+    \caption{Schematischer Aufbau Michelson-Interferometer \cite[9]{anleitung}}
 \end{figure}
+Nun kann über die Verschiebung $\Delta d$ der Spiegel die Inetensität der Interfernezmuster am Ort $D$
+varrieren. Für die Wellenlänge $\lambda$ folgt dardurch
+\begin{equation}
+    \Delta d = z \cdot \frac{\lambda}{2}
+\end{equation}
+wobei $z$ für die Anzahl der beobachteten Interferenzmaxima steht.
+Sind die Abstände zwischen $P$ und den Spiegel gleich, so ergibt sich ein Gangunterschied von $\frac{\pi}{2}$.\\
+Das Ergebnis bei $D$ ist eine destruktive Interferenz.
+
+
+Neben der Möglichkeit die Wegstrecke zu varrieren kann auch der Brechungsindex nach $n+\Delta n$ variiert werden. 
+Dies kann durch ein Medium der Länge $b$ realisiert werden.
+Für den Wegunterschied folgt nun
+\begin{equation}
+    \Delta d =b\cdot \Delta n.
+\end{equation}
+Für die Beobachtungen bei $D$ folgt
+\begin{equation}
+    b\cdot \Delta n = \frac{z\lambda}{2}
+\end{equation}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.4\textwidth]{bilder/n.jpg}
+    \caption{Schematischer Aufbau zur Messung von Brechnungsindexunterschieden \cite[5]{anleitung}}
+\end{figure}
+\label{sec:theorie}
