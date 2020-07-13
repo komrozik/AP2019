@@ -1,0 +1,8 @@
+# Data 1 Überseetzung 1:5.017
+# Startwert Endwert Maxima
+# cm        cm      Anzahl
+0.1         0.589   3030
+0.650       0.018   3007
+0.018       0.516   3022
+0.725       0.244   3002
+0.244       0.733   3013
