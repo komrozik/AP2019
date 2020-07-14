@@ -1,2 +1,34 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+\subsection{Bestimmung der Wellenlänge}
+Wie bereits in der Theorie beschrieben lässt sich die Wellenlänge des Lasers über die Messung der Maxima auf einem Messintervall $\Delta d$ bestimmen (Formel \ref{eqn:Wellenlaenge}).
+\begin{table}
+    \centering
+    \begin{tabular}{c c | c }
+        \toprule
+        $\Delta d $& Maxima & $\lambda$\\
+         m &  & nm \\
+        \midrule
+        0.00097469 & 3030 & 643,35 \\
+        0.00125972 & 3007 & 837,86 \\
+        0.00099263 & 3022 & 656,94 \\
+        0.00095874 & 3002 & 638,73 \\
+        0.00097469 & 3013 & 646,99 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Die berechnete Wellenlänge und die Parameter von denen sie abhängt.}
+    \label{tab:tab1}
+\end{table}
+In der Tabelle ist gut zu erkennen, dass die zweite Messung stark von den anderen abweicht und sie wird somit in den weiteren berechnungen vernachlässigt.
+Um die Wellenlänge genauer zu bestimmen wird nun der Mittelwert der Messungen gebildet.
+\begin{align}
+    \lambda_{\text{mittel}} = 684,77 \cdot 10^{-9} \text{m} \nonumber
+\end{align}
+\subsection{Messung des Brechungsindex}
+Nun soll der Brechungsindex von Luft bestimmt werden.
+Nach Formel \ref{eqn:Brechungsindex} und \ref{eqn:Brechungsindexaenderung} gilt:
+\begin{align}
+    \Delta n = \frac{z \lambda}{2 b} = 1,11618 \nonumber \\
+    n = 1 + \Delta n \frac{T}{T_0} \frac{p_0}{p-p'} = 1,000006742 \nonumber \\
+\end{align}
+Wobei die Wellenlänge aus dem vorherigen Aufgabenteil übernommen wird als ... .

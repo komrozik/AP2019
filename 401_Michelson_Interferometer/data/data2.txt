@@ -1,12 +1,8 @@
-#Data1 Ub=250V  V501    2.54cm in 4 Kästchen
-#Spannung   Höhe
-#U/V        Kästchen
-11.8        4
-6.7         3
-1.4         2
--3.7        1
--8.8        0
--13.8       -1
--18.7       -2
--23.5       -3
--28.6       -4
+# Data 2 Überseetzung 1:5.017
+# Startwert Maxima
+# bar       Anzahl
+-0.8        34
+-0.8        33
+-0.8        32
+-0.8        32
+-0.8        32
