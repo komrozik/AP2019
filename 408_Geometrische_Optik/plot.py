@@ -98,15 +98,15 @@ print("Abbe")
 plt.plot(A,(1+1/V),label="g Auftragung")
 plt.plot
 plt.xlabel("g s")
-plt.ylabel("b s")
+plt.ylabel("1+1/V")
 plt.legend(loc="best")
 plt.savefig("plots/plot3.pdf")
 plt.close()
 
 plt.plot(A,(1+V),label="b Auftragung")
 plt.plot
-plt.xlabel("g s")
-plt.ylabel("b s")
+plt.xlabel("b s")
+plt.ylabel("1+V")
 plt.legend(loc="best")
 plt.savefig("plots/plot4.pdf")
 plt.close()
