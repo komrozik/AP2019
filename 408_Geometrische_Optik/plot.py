@@ -29,6 +29,8 @@ A = A - 30
 
 f1 = (g1*b1)/(g1+b1)
 f1 = (np.sum(f1))/(len(f1))
+delta_f1 = 100-f1
+deltarel_f1 = delta_f1/100
 
 zero1 = np.zeros(12)
 
@@ -58,6 +60,9 @@ plt.close()
 
 f2 = (g2*b2)/(g2+b2)
 f2 = (np.sum(f2))/(len(f2))
+delta_f2 = 50-f2
+deltarel_f2 = delta_f2/50
+
 
 plt.plot([0,g2[0]],[b2[0],0],"-")
 plt.plot([0,g2[1]],[b2[1],0],"-")
@@ -83,7 +88,9 @@ plt.close()
 print("Bessel")
 
 f3 = (e**2-d**2)/(4*e)
-f3 = (np.sum(f3))/(len(f3))
+# f3 = (np.sum(f3))/(len(f3))
+delta_f3 = 100-(np.sum(f3))/(len(f3))
+deltarel_f3 = delta_f3/100
 
 
 print("Abbe")
@@ -107,7 +114,17 @@ plt.close()
 
 #Ausgabe
 print(f"""
-{f1}
-{f2}
-{f3}
+Brennweite 1: {f1}
+Fehler absolut: {delta_f1}
+Fehler relativ: {deltarel_f1}
+Brennweite 2: {f2}
+Fehler absolut: {delta_f2}
+Fehler relativ: {deltarel_f2}
+Brennweite 3: {(np.sum(f3))/(len(f3))}
+Fehler absolut: {delta_f3}
+Fehler relativ: {deltarel_f3}
+Bei bessel:
+e ist : {e}
+d ist : {d}
+f ist : {f3}
 """)
