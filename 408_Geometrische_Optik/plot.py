@@ -23,7 +23,7 @@ d = g3_2 - g3_1
 e = e -30
 d = d*10
 e = e*10
-A,b4 = np.genfromtxt("data/data4.txt",unpack=True)
+A,b4,V = np.genfromtxt("data/data4.txt",unpack=True)
 b4 = b4 - A
 A = A - 30
 
@@ -86,7 +86,23 @@ f3 = (e**2-d**2)/(4*e)
 f3 = (np.sum(f3))/(len(f3))
 
 
-print(Abbe)
+print("Abbe")
+
+plt.plot(A,(1+1/V),label="g Auftragung")
+plt.plot
+plt.xlabel("g s")
+plt.ylabel("b s")
+plt.legend(loc="best")
+plt.savefig("plots/plot3.pdf")
+plt.close()
+
+plt.plot(A,(1+V),label="b Auftragung")
+plt.plot
+plt.xlabel("g s")
+plt.ylabel("b s")
+plt.legend(loc="best")
+plt.savefig("plots/plot4.pdf")
+plt.close()
 
 
 #Ausgabe
