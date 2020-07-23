@@ -70,9 +70,37 @@ Für die Beobachtungen bei $D$ folgt
 \begin{equation}
     b\cdot \Delta n = \frac{z\lambda}{2} \label{eqn:Brechungsindexaenderung}
 \end{equation}
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.4\textwidth]{bilder/n.jpg}
     \caption{Schematischer Aufbau zur Messung von Brechnungsindexunterschieden \cite[5]{anleitung}}
 \end{figure}
 \label{sec:theorie}
+Mit $N$ der Anzahl von Molekülen die durch die Lichtwelle der Wellenlänge $\lambda$
+zu Schwingungen angeregt werden folgt
+\begin{equation}
+    n=\sqrt{1+f(\lambda)N},
+\end{equation}
+welche sich für sichtbares Licht als
+\begin{equation}
+    n=1+\frac{f}{2}N,
+\end{equation}
+schreiben lässt.
+
+Nimmt man nun an, dass es bei einem verwendetet Medium um ein ideales Gas handelt,
+so folgt für die Anzahl der Moleküle
+\begin{equation}
+    N(p,T)=\frac{p}{T}\frac{T_0}{p_0}N_L,
+\end{equation}
+$N_L$ ist dabei die Loschmidtsche Zahl und $p_0$ und $T_0$ die Normalbedingungen.
+
+Daraus folgt für den Brechungsindexunterschied $\Delta n$
+\begin{equation}
+    \Delta n(p,p')=\frac{f}{2}N_L \frac{T_0}{p_0}\frac{1}{T}(p-p').
+\end{equation}
+
+Es folgt somit für den Brechungsindex unter Normalbedingungen
+\begin{equation}
+    n(p_0,T_0)=1+\Delta n(p,p')\frac{T}{T_0}\frac{p_0}{p-p'}
+    \label{eqn:Brechungsindex}
+\end{equation}
